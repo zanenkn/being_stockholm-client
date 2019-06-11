@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d642c8b19594d23a881485798b3b198)](https://app.codacy.com/app/zanenkn/being_stockholm-client?utm_source=github.com&utm_medium=referral&utm_content=CraftAcademy/being_stockholm-client&utm_campaign=Badge_Grade_Dashboard)
+
 In the project directory, you can run:
 
 ### `npm start`
