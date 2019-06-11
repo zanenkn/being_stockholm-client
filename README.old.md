@@ -1,1 +1,0 @@
-# being_stockholm-client
