@@ -6,7 +6,7 @@ function App() {
     <>
       <h1>
         Being Stockholm
-    </h1>
+      </h1>
       <Map />
     </>
   );
