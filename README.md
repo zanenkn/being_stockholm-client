@@ -1,70 +1,90 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d642c8b19594d23a881485798b3b198)](https://app.codacy.com/app/zanenkn/being_stockholm-client?utm_source=github.com&utm_medium=referral&utm_content=CraftAcademy/being_stockholm-client&utm_campaign=Badge_Grade_Dashboard)
 
-In the project directory, you can run:
+# Project Title
 
-### `npm start`
+## **Being Stockholm !**
+Being Stockholm engages citizens to digitally share, map and illustrate how they use the region. Residents shares geotagged photos of how they work and play along with a short caption, so we can produce:
+* A data point map to illustrate where Stockholmers work and play
+* A word cloud map to describe how Stockholmers work and play
+* A curated map of recommendations by Stockholmers for Stockholmers
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We want to inspire residents to explore new parts of the city and try out activities. Everyone can share their experiences, regardless of how long they have lived in Stockholm and their language.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+We can help urban planners see how the city is used and changing, so that the urban development process can be more responsive, and even change the perceptions of regeneration areas, to attract new and established Stockholmers alike.
 
-### `npm test`
+Companies can attract and retain internationals with a preview of living and working in Stockholm. It can be part of their post-relocation care to help the new staff, their partner and family feel more settled to reduce the risk of their relocation ending prematurely.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Active and engaged residents will help Stockholm remain as a top city to live and work, attract internationals to keep Sweden competitive, and a platform to promote Sweden to the world.
 
-### `npm run build`
+***This is an actual project that we were offered the chance to develop as our final project with [Craft Academy](https://www.craftacademy.se/english/). Our goal is to build a Minimum Viable Product, which means there is lots of space for improvements.***
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+***This was a three weeks project (June 10th - June 28th).***
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+# User Stories
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Check the whole design sprint and user story history of the project in [this](https://www.pivotaltracker.com/n/projects/2353360) Pivotal Tracker board.
 
-### `npm run eject`
+# Deployment & GitHub
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This application consists of a back-end API and a front-end Client.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The GitHub repository for the API is [here](https://github.com/CraftAcademy/being_stockholm-api) and the one for the Client is [here](https://github.com/CraftAcademy/being_stockholm-client).
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The API is deployed using Heroku on [this address](https://being-stockholm.herokuapp.com/).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The client, which is where everything happens, is deployed via Netlify [here](https://being-stockholm.netlify.com/).
 
-## Learn More
+# Tests, Test Coverage & CI
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### API
+The API part of the application was request and unit tested using [Rspec](https://rspec.info/).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To be able to run the tests, run `bundle install` in your terminal as soon as you fork this repository.
 
-### Code Splitting
+You must also have the database migrations in place, in order for everything to work properly. So in your terminal run `rails db:migrate`. In case this command produces an error, you can run `rails db:drop db:setup`.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+After that, use `bundle exec rspec` to run all tests avoiding any conflicts with the gems of this repo and your locally installed gems.
 
-### Analyzing the Bundle Size
+Unit and request tests can be found in the `spec/models` and `spec/requests` folders respectively.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+[Coveralls](https://coveralls.io/) was used to measure the API's test coverage.
 
-### Making a Progressive Web App
+[Semaphore CI](https://semaphoreci.com/) was used for continious integration.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### CLIENT
+The Client part of the application was acceptance tested using [Cypress](https://www.cypress.io/) and component tested using [Enzyme](https://github.com/airbnb/enzyme).
 
-### Advanced Configuration
+Tp check the quality of the codebase we used [Codacy](https://www.codacy.com/).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+To be able to run the tests, run `npm install` in your terminal as soon as you fork this repository.
 
-### Deployment
+After that, use `npm run cy:open` to launch a local server instance of the application and run all acceptance tests of Cypress. To run the component tests you can use `npm run test`.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Acceptance and component tests can be found in the `cypress/integration` and `src/__tests__` folders respectively.
 
-### `npm run build` fails to minify
+# Built With
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* API with [Ruby on Rails](https://rubyonrails.org/) version 5.2.3
+* API with [Ruby](https://www.ruby-lang.org/en/) version 2.4.1
+* Client with [React](https://reactjs.org/)
+* Client was styled using [Semantic UI](https://react.semantic-ui.com/)
+
+# Authors
+
+* **Carla**- [GitHub Profile](https://github.com/Carrosen) - [Portfolio Website](https://portfolio-carla-rosen.netlify.com/)
+* **Zane**- [GitHub Profile](https://github.com/zanenkn) - [Portfolio Website](https://zanenkn.netlify.com/)
+* **Stefan** - [GitHub Profile](https://github.com/stefankarlberg) - [Portfolio Website](https://mystifying-einstein-390384.netlify.com/)
+* **Felix** - [GitHub Profile](https://github.com/leiter007) - [Portfolio Website](https://felix-react-portfolio.netlify.com/)
+* **Boa** - [GitHub Profile](https://github.com/SnailCoder1) - [Portfolio Website](https://boamatule.netlify.com/)
+* **raptorf1** - [GitHub Profile](https://github.com/raptorf1) - [Portfolio Website](https://gtomaras-portfolio.netlify.com/)
+
+# License
+
+This project is licensed under the [MIT](https://opensource.org/licenses/MIT) license.
+
+# Acknowledgments
+
+* [PurpleBooth](https://github.com/PurpleBooth) for this README template.
+* [Rails Guides](https://guides.rubyonrails.org/index.html) for the detailed documentation.
+* [Stack Overflow](https://stackoverflow.com/) for the guidance during the "difficult" times during development.
+* [React documentation](https://reactjs.org/docs/getting-started.html) for the support we needed on related issues.
