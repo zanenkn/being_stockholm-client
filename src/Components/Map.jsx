@@ -20,7 +20,15 @@ class Map extends Component {
     return (
     
       <div style={{ height: '100vh', width: '100%' }}>
-      <Icon id="plus" style={{ position: 'absolute', zIndex: '4000', padding: '1rem'}}name='plus' size='huge' color='orange' />
+
+      <Icon id="plus" style={{ 
+        position: 'absolute', 
+        zIndex: '4000', 
+        padding: '1rem'}}
+        name='plus' 
+        size='huge' 
+        color='orange' />
+       
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyCJ0bE4IpvmyulOxE84uiEYEilIVBwPu6c' }}
           defaultCenter={this.props.center}

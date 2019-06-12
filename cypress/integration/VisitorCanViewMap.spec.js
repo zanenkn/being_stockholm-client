@@ -15,11 +15,10 @@ describe('Visitor can view Map', () => {
     cy.get('.gm-style > .gmnoprint > .gmnoprint > div > .gm-control-active:nth-child(3)').click()
     cy.get('.gm-style > .gmnoprint > .gmnoprint > div > .gm-control-active:nth-child(3)').click()
     cy.get('.gm-style > .gmnoprint > .gmnoprint > div > .gm-control-active:nth-child(3)').click()
-    cy.get('body > #root > div > .orange').click()
   })
 
   it('and see + icon with correct color', () => {
     cy.get('#plus').should('have.attr', )
-    cy.get('body > #root > div > .orange').click()
+    cy.get('body > #root > div > .plus').should(('have.attr', 'color'))
   })
 })
