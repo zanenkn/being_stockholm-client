@@ -31,7 +31,7 @@ class Map extends Component {
           color='orange' />
 
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyCJ0bE4IpvmyulOxE84uiEYEilIVBwPu6c' }}
+          bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY_GOOGLE_MAPS }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
           options={{ styles: MapStyle }}
