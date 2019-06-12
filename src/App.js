@@ -1,5 +1,5 @@
 import React from 'react';
-import SimpleMap from './Components/Map.jsx'
+import Map from './Components/Map.jsx'
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
     <h1>
       Being Stockholm
     </h1>
-    <SimpleMap />
+    <Map />
    </>
   );
 }
