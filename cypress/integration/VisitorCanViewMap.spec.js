@@ -1,5 +1,5 @@
-
 describe('Visitor can view Map', () => {
+
   beforeEach(function () {
     cy.viewport(1536, 785)
     cy.visit('http://localhost:3001/')
@@ -17,8 +17,7 @@ describe('Visitor can view Map', () => {
     cy.get('.gm-style > .gmnoprint > .gmnoprint > div > .gm-control-active:nth-child(3)').click()
   })
 
-  it('and see + icon with correct color', () => {
-    cy.get('#plus').should('have.attr', )
-    cy.get('body > #root > div > .plus').should(('have.attr', 'color'))
+  it('and see + icon', () => {
+    cy.get('body > #root > div > .plus').click()
   })
 })

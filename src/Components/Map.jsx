@@ -4,8 +4,8 @@ import MapStyle from '../Modules/MapStyle'
 import { Icon } from 'semantic-ui-react';
 
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
- 
+// const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
 class Map extends Component {
   static defaultProps = {
     center: {
@@ -14,21 +14,22 @@ class Map extends Component {
     },
     zoom: 11
   };
- 
+
   render() {
 
     return (
-    
+
       <div style={{ height: '100vh', width: '100%' }}>
 
-      <Icon id="plus" style={{ 
-        position: 'absolute', 
-        zIndex: '4000', 
-        padding: '1rem'}}
-        name='plus' 
-        size='huge' 
-        color='orange' />
-       
+        <Icon style={{
+          position: 'absolute',
+          zIndex: '4000',
+          padding: '1rem'
+        }}
+          name='plus'
+          size='huge'
+          color='orange' />
+
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyCJ0bE4IpvmyulOxE84uiEYEilIVBwPu6c' }}
           defaultCenter={this.props.center}
@@ -40,11 +41,11 @@ class Map extends Component {
             lng={18.068562}
             text="Hello Sthml!"
           /> */}
- 
+
         </GoogleMapReact>
       </div>
     );
   }
 }
- 
+
 export default Map;
