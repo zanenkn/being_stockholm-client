@@ -13,3 +13,4 @@ h2.ui.header,
 .ui.large.header {
   font-weight: bold;
 }
+
