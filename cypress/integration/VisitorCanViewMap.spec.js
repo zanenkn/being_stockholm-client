@@ -2,7 +2,7 @@ describe('Visitor can view Map', () => {
 
   beforeEach(function () {
     cy.viewport(1536, 785)
-    cy.visit('http://localhost:3001/')
+    cy.visit('http://localhost:3000/')
   })
 
   it('and see logo-text', () => {

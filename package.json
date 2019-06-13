@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "google-map-react": "^1.1.4",
+    "gulp": "^3.9.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
@@ -11,8 +12,10 @@
     "semantic-ui-react": "^0.87.1"
   },
   "scripts": {
-    "start": "PORT=3001 react-scripts start",
-    "build": "react-scripts build",
+    "build-semantic": "cd src/semantic && gulp build-css build-assets",
+    "watch-semantic": "cd src/semantic && yarn run build-semantic && gulp watch",
+    "start": "yarn run build-semantic && react-scripts start",
+    "build": "yarn run build-semantic && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cy:open": "npm start --silent & cypress open"
@@ -33,6 +36,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^3.3.1"
+    "cypress": "^3.3.1",
+    "semantic-ui": "^2.4.2"
   }
 }
