@@ -1,5 +1,6 @@
 import React from 'react';
-import Map from './Components/Map.jsx'
+import Map from './Components/Map';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         Being Stockholm
       </h1>
       <Map />
+      <Footer />
     </>
   );
 }
