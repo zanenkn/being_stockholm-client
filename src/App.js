@@ -5,9 +5,6 @@ import Footer from './Components/Footer';
 function App() {
   return (
     <>
-      <h1>
-        Being Stockholm
-      </h1>
       <Map />
       <Footer />
     </>

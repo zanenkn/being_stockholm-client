@@ -1,3 +1,15 @@
 /*******************************
          Site Overrides
 *******************************/
+
+#map {
+  height: 100vh; 
+  width: 100%;
+}
+
+#map_icon_plus {
+  position: absolute;
+  z-index: 4000;
+  padding: 1rem;
+}
+  
