@@ -1,11 +1,11 @@
 import React from 'react';
-import Map from './Components/Map';
+import MainContent from './Components/MainContent';
 import Footer from './Components/Footer';
 
 function App() {
   return (
     <>
-      <Map />
+      <MainContent />
       <Footer />
     </>
   );
