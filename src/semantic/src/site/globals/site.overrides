@@ -3,7 +3,7 @@
 *******************************/
 
 #map {
-  height: 100vh; 
+  height: 90vh; 
   width: 100%;
 }
 
@@ -13,3 +13,6 @@
   padding: 1rem;
 }
   
+#footer {
+  height: 10vh; 
+}
