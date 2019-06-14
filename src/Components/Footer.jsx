@@ -10,7 +10,7 @@ class Footer extends Component {
           <Icon name='bars'/>
         </Grid.Column>
         <Grid.Column textAlign='center' width={10}>
-        <Header id="footer-logo" as='h3'>Being Stockholm</Header>
+        <Header color="orange" id="footer-logo" as='h3'>Being Stockholm</Header>
         </Grid.Column>
         <Grid.Column textAlign='center' width={3}>
           <Icon circular name='user' />
