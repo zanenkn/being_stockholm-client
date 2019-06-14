@@ -25,3 +25,9 @@
 #footer-logo {
   font-size: 5vw;
 }
+
+@media screen and (min-width: 1200px) {
+  #footer-logo {
+    font-size: 30px;
+  }
+}
