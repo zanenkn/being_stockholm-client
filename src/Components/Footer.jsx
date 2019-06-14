@@ -7,7 +7,8 @@ class Footer extends Component {
       <Grid id='footer' celled='internally'>
         <Grid.Row>
           <Grid.Column textAlign='center' width={3}>
-            <Icon name="bars" color="orange"/>
+            <Icon name="bars" color="orange"
+            onClick={this.props.handleAnimationChange('overlay')}/>
           </Grid.Column>
           <Grid.Column textAlign='center' width={10}>
             <Header color="orange" id="footer-logo" as='h3'>Being Stockholm</Header>
