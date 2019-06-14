@@ -7,14 +7,23 @@ class Footer extends Component {
       <Grid id='footer' celled='internally'>
         <Grid.Row>
           <Grid.Column textAlign='center' width={3}>
-            <Icon name="bars" color="orange"
-            onClick={this.props.handleAnimationChange('overlay')}/>
+            <Icon
+              id='footer-menu-icon'
+              name='bars'
+              color='orange'
+              onClick={this.props.handleAnimationChange('overlay')} />
           </Grid.Column>
           <Grid.Column textAlign='center' width={10}>
-            <Header color="orange" id="footer-logo" as='h3'>Being Stockholm</Header>
+            <Header
+              color='orange'
+              id='footer-logo'
+              as='h3'>
+              Being Stockholm
+            </Header>
           </Grid.Column>
           <Grid.Column textAlign='center' width={3}>
             <Icon circular
+              id='footer-user-icon'
               name='user'
               color='orange' />
           </Grid.Column>

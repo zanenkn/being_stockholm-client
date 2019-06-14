@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Sidebar, Segment } from 'semantic-ui-react';
+import { Container, Sidebar } from 'semantic-ui-react';
 import Footer from './Components/Footer';
 import Map from './Components/Map'
 import MenuSidebar from './Components/MenuSidebar';
@@ -7,19 +7,18 @@ import MenuSidebar from './Components/MenuSidebar';
 
 class App extends Component {
   state = {
-    animation: 'overlay',
-    visible: false,
+    sidebarVisible: false,
   }
 
   handleAnimationChange = animation => () =>
-    this.setState(prevState => ({ animation, visible: !prevState.visible }))
+    this.setState(prevState => ({ animation, sidebarVisible: !prevState.sidebarVisible }))
 
   render() {
     return (
       <>
         <Sidebar.Pushable as={Container} id='main_content'>
           <Map />
-          <MenuSidebar animation={this.state.animation} visible={this.state.visible} />
+          <MenuSidebar visible={this.state.sidebarVisible} />
         </Sidebar.Pushable>
         <Footer handleAnimationChange={this.handleAnimationChange} />
       </>
@@ -28,6 +27,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-

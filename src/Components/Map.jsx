@@ -3,7 +3,6 @@ import GoogleMapReact from 'google-map-react';
 import MapStyle from '../Modules/MapStyle'
 import { Icon } from 'semantic-ui-react';
 
-
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Map extends Component {
@@ -20,8 +19,8 @@ class Map extends Component {
     return (
 
       <div id='map'>
-        
-        <Icon 
+
+        <Icon
           id='map_icon_plus'
           name='plus'
           size='huge'
