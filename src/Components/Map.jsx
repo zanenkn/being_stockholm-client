@@ -19,13 +19,10 @@ class Map extends Component {
 
     return (
 
-      <div style={{ height: '100vh', width: '100%' }}>
-
-        <Icon style={{
-          position: 'absolute',
-          zIndex: '4000',
-          padding: '1rem'
-        }}
+      <div id='map'>
+        
+        <Icon 
+          id='map_icon_plus'
           name='plus'
           size='huge'
           color='orange' />

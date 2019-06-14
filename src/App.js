@@ -1,13 +1,12 @@
 import React from 'react';
-import Map from './Components/Map.jsx'
+import MainContent from './Components/MainContent';
+import Footer from './Components/Footer';
 
 function App() {
   return (
     <>
-      <h1>
-        Being Stockholm
-      </h1>
-      <Map />
+      <MainContent />
+      <Footer />
     </>
   );
 }
