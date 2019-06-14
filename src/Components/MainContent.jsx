@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
+import { Container, Sidebar, Segment } from 'semantic-ui-react';
 import Map from './Map'
-
+import MenuSidebar from './MenuSidebar';
 
 class MainContent extends Component {
   render() {
-    return(
+    return (
       <Container id='main_content'>
-        <Map/>
+        <Sidebar.Pushable as={Segment}>
+          <Map />
+          <MenuSidebar/>
+        </Sidebar.Pushable>
       </Container>
     )
   }
