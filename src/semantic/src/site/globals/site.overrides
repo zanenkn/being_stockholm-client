@@ -20,6 +20,7 @@
 
 #footer {
   height: 10vh;
+  margin: auto;
 }
 
 #footer-logo {
