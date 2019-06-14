@@ -1,3 +1,51 @@
 /*******************************
          Site Overrides
 *******************************/
+
+#map {
+  height: 100%; 
+  width: 100%;
+}
+
+#map_icon_plus {
+  position: absolute;
+  z-index: 4000;
+  padding: 1rem;
+}
+  
+#main_content {
+  height: 90vh; 
+  width: 100%;
+}
+
+#footer {
+  height: 10vh;
+  margin: auto;
+}
+
+#footer-logo {
+  font-size: 5vw;
+}
+
+#footer-menu-icon {
+  font-size: 5vw;
+}
+#footer-user-icon {
+  font-size: 5vw;
+}
+
+@media screen and (min-width: 1200px) {
+  #footer-logo {
+    font-size: 30px;
+  }
+  #footer-menu-icon {
+    font-size: 30px
+  }
+  #footer-user-icon {
+    font-size: 30px
+  }
+}
+
+#menu_sidebar {
+  z-index: 4001;
+}
