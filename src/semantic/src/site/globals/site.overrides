@@ -21,3 +21,7 @@
 #footer {
   height: 10vh; 
 }
+
+#footer-logo {
+  font-size: 5vw;
+}
