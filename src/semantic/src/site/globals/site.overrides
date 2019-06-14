@@ -13,13 +13,13 @@
   padding: 1rem;
 }
   
-#main_content{
+#main_content {
   height: 90vh; 
   width: 100%;
 }
 
 #footer {
-  height: 10vh; 
+  height: 10vh;
 }
 
 #footer-logo {
