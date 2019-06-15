@@ -4,6 +4,13 @@ import { Form, Button, Segment, Image, Checkbox } from 'semantic-ui-react';
 class PostForm extends Component {
   state = {
     caption: '',
+    image: '',
+    longitude: '',
+    latitude: '',
+    category: 'play',
+    showPostForm: false,
+    successMessage: false,
+    // errorMessage: false
   }
 
   onChangeHandler = (e) => {
@@ -11,19 +18,36 @@ class PostForm extends Component {
       [e.target.id]: e.target.value
     })
   }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const path = '/api/v1/posts'
+    const payload = { ...this.state }
+    axios.post(path, payload)
+      .then(response => {
+        console.log(response)
+        this.setState({
+           successMessage: true,
+           showPostForm: false
+        })
+      })
+      .catch(error => {
+        this.setState({
+          errorMessage: true,
+          errors: error.response.data.error
+        })
+      })
+  }
   
 
   render() {
     return (
       <>
       <h1>Upload you post!</h1>
-      {/* onSubmit={this.onSubmit} */}
-      <Form type="medium" id="create_post" >
+      <Form type="medium" id="create_post" onSubmit={this.onSubmit} >
 
-       
-          <Image id="image" src='https://antoniaangeliqa.files.wordpress.com/2015/08/dsc08700.jpg' size='small' />
-  
-
+        <Image id="image" src='https://antoniaangeliqa.files.wordpress.com/2015/08/dsc08700.jpg' size='small' />
+        
         <Form.Input
           id="caption"
           required
