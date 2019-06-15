@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import MapStyle from '../Modules/MapStyle'
 import { Icon } from 'semantic-ui-react';
+// import { Link } from 'react-router-dom'
+import Popup from 'reactjs-popup';
+import PostForm from './PostForm'
 
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -20,11 +23,27 @@ class Map extends Component {
 
       <div id='map'>
 
-        <Icon
-          id='map-icon-plus'
-          name='plus'
-          size='huge'
-          color='orange' />
+        <Popup modal trigger={
+            <Icon style={{
+              position: 'absolute',
+              zIndex: '4000',
+              padding: '1rem'
+              }}
+              name='plus'
+              size='huge'
+              color='orange'
+              id='map-icon-plus' 
+              // as={Link}
+              // to='/create-post'
+              />
+              }
+              position="right center"
+              >
+            <>
+            <PostForm/>
+            </>
+          </Popup>
+
 
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY_GOOGLE_MAPS }}
