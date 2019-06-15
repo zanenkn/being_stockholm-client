@@ -1,18 +1,29 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom'
-import Map from './Components/Map.jsx'
-import PostForm from './Components/PostForm.jsx'
+import React, { Component } from 'react';
+import { Container, Sidebar } from 'semantic-ui-react';
+import Footer from './Components/Footer';
+import Map from './Components/Map'
+import MenuSidebar from './Components/MenuSidebar';
 
 
-function App() {
-  return (
-    <>
-      <Switch>
-        <Route exact path='/' component={Map}></Route>
-        <Route exact path='/create-post' component={PostForm}></Route>
-      </Switch>
-    </>
-  );
+class App extends Component {
+  state = {
+    sidebarVisible: false,
+  }
+
+  handleAnimationChange = animation => () =>
+    this.setState(prevState => ({ animation, sidebarVisible: !prevState.sidebarVisible }))
+
+  render() {
+    return (
+      <>
+        <Sidebar.Pushable as={Container} id='main-content'>
+          <Map />
+          <MenuSidebar visible={this.state.sidebarVisible} />
+        </Sidebar.Pushable>
+        <Footer handleAnimationChange={this.handleAnimationChange} />
+      </>
+    )
+  }
 }
 
 export default App;

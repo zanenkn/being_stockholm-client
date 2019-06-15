@@ -6,7 +6,6 @@ import { Icon } from 'semantic-ui-react';
 import Popup from 'reactjs-popup';
 import PostForm from './PostForm'
 
-
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Map extends Component {
@@ -22,7 +21,7 @@ class Map extends Component {
 
     return (
 
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div id='map'>
 
         <Popup modal trigger={
             <Icon style={{
@@ -33,7 +32,7 @@ class Map extends Component {
               name='plus'
               size='huge'
               color='orange'
-              id='plus' 
+              id='map-icon-plus' 
               // as={Link}
               // to='/create-post'
               />
