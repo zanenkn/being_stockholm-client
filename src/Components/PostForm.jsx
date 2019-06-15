@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Form, Button, Segment, Image, Checkbox } from 'semantic-ui-react';
+import { Form, Button, Segment, Image, Icon } from 'semantic-ui-react';
 
 class PostForm extends Component {
   state = {
     caption: '',
+    category: '',
   }
 
   onChangeHandler = (e) => {
@@ -11,18 +12,22 @@ class PostForm extends Component {
       [e.target.id]: e.target.value
     })
   }
-  
+
+  handleChangeCategory = (e) => {
+    this.setState({ category: e.target.value })
+  }
 
   render() {
     return (
       <>
-      <h1>Upload you post!</h1>
+      <h3>Upload you post!</h3>
       {/* onSubmit={this.onSubmit} */}
       <Form type="medium" id="create_post" >
 
        
-          <Image id="image" src='https://antoniaangeliqa.files.wordpress.com/2015/08/dsc08700.jpg' size='small' />
+        <Image id="image" src='https://antoniaangeliqa.files.wordpress.com/2015/08/dsc08700.jpg' size='small' />
   
+        <p id="location"><Icon name='map marker alternate' />Södermalm, Swedenborgsgatan</p>
 
         <Form.Input
           id="caption"
@@ -32,17 +37,23 @@ class PostForm extends Component {
           placeholder="Write your caption here"
         />
 
-        <Button.Group>
-          <Button id="work">WORK</Button>
-          <Button.Or/>
-          <Button id="play">PLAY</Button>
+        <Button.Group color='orange'>
+          <Button 
+            id="work"
+            value="work"
+            onClick={this.handleChangeCategory}
+            >WORK</Button>
+          <Button 
+            id="play"
+            value="play"
+            onClick={this.handleChangeCategory}
+            >PLAY</Button>
         </Button.Group>
 
-        {/* gives u a location with pin icon on left side */}
         <Button id="create">Upload</Button>
       </Form>
 
-      
+
       </>
     )
   }
