@@ -5,6 +5,8 @@ class PostForm extends Component {
     return (
       <>
       <h1>Upload you post!</h1>
+
+      
       </>
     )
   }

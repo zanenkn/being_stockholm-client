@@ -4,7 +4,7 @@
   "caption": "Swedenborgsgatan great summer street!",
   "longitude": 18.06,
   "latitude": 58.03,
-  "category": 1,
+  "category": "play",
   "created_at": "2019-05-24T09:56:01.168Z",
-  "status": 1
+  "status": "pending"
 }
