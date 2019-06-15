@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Form, Button, Segment, Image, Checkbox } from 'semantic-ui-react';
+import { Form, Button, Image, Icon } from 'semantic-ui-react';
+import axios from 'axios';
 
 class PostForm extends Component {
   state = {
@@ -11,6 +12,8 @@ class PostForm extends Component {
     showPostForm: false,
     successMessage: false,
     // errorMessage: false
+    category: '',
+    activeItem: 'play'
   }
 
   onChangeHandler = (e) => {
@@ -39,14 +42,19 @@ class PostForm extends Component {
       })
   }
   
+  handleChangeCategory = (e) => {
+    this.setState({ category: e.target.value, activeItem: e.target.value })
+  }
 
   render() {
+    const { activeItem } = this.state
     return (
       <>
-      <h1>Upload you post!</h1>
-      <Form type="medium" id="create_post" onSubmit={this.onSubmit} >
+      <h3>Upload you post!</h3>
+      <Form type="medium" id="create_post" onSubmit={this.onSubmit}>
 
         <Image id="image" src='https://antoniaangeliqa.files.wordpress.com/2015/08/dsc08700.jpg' size='small' />
+        <p id="location"><Icon name='map marker alternate' />Södermalm, Swedenborgsgatan</p>
         
         <Form.Input
           id="caption"
@@ -56,17 +64,25 @@ class PostForm extends Component {
           placeholder="Write your caption here"
         />
 
-        <Button.Group>
-          <Button id="work">WORK</Button>
-          <Button.Or/>
-          <Button id="play">PLAY</Button>
+        <Button.Group color='orange'>
+          <Button 
+            id="work"
+            active={ activeItem === 'work'}
+            value="work"
+            onClick={this.handleChangeCategory}
+            >WORK</Button>
+          <Button 
+            id="play"
+            active={ activeItem === 'play'}
+            value="play"
+            onClick={this.handleChangeCategory}
+            >PLAY</Button>
         </Button.Group>
 
-        {/* gives u a location with pin icon on left side */}
-        <Button id="create">Upload</Button>
+        <Button id="upload-button">Upload</Button>
       </Form>
 
-      
+
       </>
     )
   }

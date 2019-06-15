@@ -21,15 +21,14 @@ describe('Visitor can', () => {
     cy.contains('Upload you post!')
 
     let form = [
-      ["#image", "https://antoniaangeliqa.files.wordpress.com/2015/08/dsc08700.jpg"],
-      ["#caption", "Swedenborgsgatan great summer street!"],
+      ["#caption", "Swedenborgsgatan great summer street!"]
     ]
 
     form.forEach(element => {
       cy.get(element[0]).type(element[1])
     })
-
-    cy.get('#work-play').click('play')
+    cy.get('#play').should('have.class', 'active')
+    cy.get('#work').click().should('have.class', 'active')
     cy.get('#upload-button').click()
 
     let text = ["Swedenborgsgatan great summer street!", "Thank you for sharing your picture! Your post will soon be uploaded!"]
