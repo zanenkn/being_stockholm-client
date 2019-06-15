@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Image, Icon } from 'semantic-ui-react';
+import { Form, Button, Image, Icon, Message } from 'semantic-ui-react';
 import axios from 'axios';
 
 class PostForm extends Component {
@@ -9,10 +9,9 @@ class PostForm extends Component {
     longitude: '',
     latitude: '',
     category: 'play',
-    showPostForm: false,
+    showPostForm: true,
     successMessage: false,
     // errorMessage: false
-    category: '',
     activeItem: 'play'
   }
 
@@ -47,10 +46,21 @@ class PostForm extends Component {
   }
 
   render() {
+    let message
+
+      if (this.state.successMessage === true ) {
+        message = (
+        <Message color="green"> 
+          Thank you for sharing your picture! Your post will soon be uploaded!
+        </Message>
+        )
+      }
+
     const { activeItem } = this.state
     return (
       <>
       <h3>Upload you post!</h3>
+      <p>{message}</p>
       <Form type="medium" id="create_post" onSubmit={this.onSubmit}>
 
         <Image id="image" src='https://antoniaangeliqa.files.wordpress.com/2015/08/dsc08700.jpg' size='small' />
@@ -79,7 +89,7 @@ class PostForm extends Component {
             >PLAY</Button>
         </Button.Group>
 
-        <Button id="upload-button">Upload</Button>
+        <Button id="upload-button" onSubmit={this.onSubmit}>Upload</Button>
       </Form>
 
 

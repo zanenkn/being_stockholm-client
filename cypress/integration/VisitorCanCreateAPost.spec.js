@@ -31,7 +31,7 @@ describe('Visitor can', () => {
     cy.get('#work').click().should('have.class', 'active')
     cy.get('#upload-button').click()
 
-    let text = ["Swedenborgsgatan great summer street!", "Thank you for sharing your picture! Your post will soon be uploaded!"]
+    let text = ["Thank you for sharing your picture! Your post will soon be uploaded!"]
 
     text.forEach(contain => {
       cy.contains(contain)
