@@ -13,7 +13,7 @@ describe('Visitor can', () => {
       status: 200
     })
     cy.visit('http://localhost:3000')
-    cy.get('#plus').click()
+    cy.get('#map-icon-plus').click()
   })
 
   it('create post successfully', () => {
@@ -30,7 +30,7 @@ describe('Visitor can', () => {
     })
 
     cy.get('#work-play').click('play')
-    cy.get('#submit').click()
+    cy.get('#upload-button').click()
 
     let text = ["Swedenborgsgatan great summer street!", "Thank you for sharing your picture! Your post will soon be uploaded!"]
 
