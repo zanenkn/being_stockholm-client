@@ -21,7 +21,7 @@ class Map extends Component {
       <div id='map'>
 
         <Icon
-          id='map_icon_plus'
+          id='map-icon-plus'
           name='plus'
           size='huge'
           color='orange' />

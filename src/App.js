@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <Sidebar.Pushable as={Container} id='main_content'>
+        <Sidebar.Pushable as={Container} id='main-content'>
           <Map />
           <MenuSidebar visible={this.state.sidebarVisible} />
         </Sidebar.Pushable>

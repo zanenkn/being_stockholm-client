@@ -7,13 +7,13 @@
   width: 100%;
 }
 
-#map_icon_plus {
+#map-icon-plus {
   position: absolute;
   z-index: 4000;
   padding: 1rem;
 }
   
-#main_content {
+#main-content {
   height: 90vh; 
   width: 100%;
 }
@@ -27,25 +27,21 @@
   font-size: 5vw;
 }
 
-#footer-menu-icon {
-  font-size: 5vw;
-}
-#footer-user-icon {
-  font-size: 5vw;
-}
-
 @media screen and (min-width: 1200px) {
   #footer-logo {
     font-size: 30px;
   }
-  #footer-menu-icon {
-    font-size: 30px
-  }
-  #footer-user-icon {
-    font-size: 30px
+  .footer-icon {
+    height: 2vw;
   }
 }
 
-#menu_sidebar {
+@media screen and (max-width: 1200px) {
+  .footer-icon {
+    height: 6vw;
+  }
+}
+
+#menu-sidebar {
   z-index: 4001;
 }

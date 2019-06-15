@@ -14,6 +14,6 @@ describe('Visitor can view Map', () => {
   })
 
   it('and see + icon', () => {
-    cy.get('#map_icon_plus').should('be.visible')
+    cy.get('#map-icon-plus').should('be.visible')
   })
 })

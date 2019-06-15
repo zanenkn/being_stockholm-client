@@ -10,11 +10,11 @@ describe('Visitor can view Footer', () => {
   })
 
   it('and click and see sidebar menu', () => {
-    cy.get('#menu_sidebar').should('not.be.visible')
-    cy.get('#root > #footer > .row > .center > #footer-menu-icon').click()
-    cy.get('#menu_sidebar').should('be.visible')
-    cy.get('#menu_sidebar').contains('MENU')
-    cy.get('#root > #footer > .row > .center > #footer-menu-icon').click()
-    cy.get('#menu_sidebar').should('not.be.visible')
+    cy.get('#menu-sidebar').should('not.be.visible')
+    cy.get('#footer-menu-icon').click()
+    cy.get('#menu-sidebar').should('be.visible')
+    cy.get('#menu-sidebar').contains('MENU')
+    cy.get('#footer-menu-icon').click()
+    cy.get('#menu-sidebar').should('not.be.visible')
   })
 })

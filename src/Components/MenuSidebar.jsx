@@ -4,7 +4,7 @@ import { Grid, Header, Segment, Sidebar } from 'semantic-ui-react'
 
 const HorizontalSidebar = ({ visible }) => (
   <Sidebar
-    id='menu_sidebar'
+    id='menu-sidebar'
     as={Segment}
     animation='overlay'
     direction='left'
@@ -15,7 +15,7 @@ const HorizontalSidebar = ({ visible }) => (
           <Header
             as='h3'>
             MENU
-            </Header>
+          </Header>
         </Grid.Column>
       </Grid.Row>
     </Grid>
