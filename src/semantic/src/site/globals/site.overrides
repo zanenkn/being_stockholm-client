@@ -44,4 +44,15 @@
 
 #menu-sidebar {
   z-index: 4001;
+  background-color: #F2711C;
+}
+
+#menu-sidebar-grid {
+  height: 100%!important;
+}
+
+.sidebar-menu-link {
+  color: white!important;
+  font-size: 5vw!important;
+  margin-top: 5rem!important;
 }
