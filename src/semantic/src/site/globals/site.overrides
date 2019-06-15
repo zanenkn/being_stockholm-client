@@ -34,11 +34,21 @@
   .footer-icon {
     height: 2vw;
   }
+  .sidebar-menu-link {
+    color: white!important;
+    font-size: 2rem!important;
+    margin-top: 1rem!important;
+  }
 }
 
 @media screen and (max-width: 1200px) {
   .footer-icon {
     height: 6vw;
+  }
+  .sidebar-menu-link {
+    color: white!important;
+    font-size: 5vw!important;
+    margin-top: 5rem!important;
   }
 }
 
@@ -49,10 +59,4 @@
 
 #menu-sidebar-grid {
   height: 100%!important;
-}
-
-.sidebar-menu-link {
-  color: white!important;
-  font-size: 5vw!important;
-  margin-top: 5rem!important;
 }
