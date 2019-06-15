@@ -28,7 +28,8 @@ class Map extends Component {
         }}
           name='plus'
           size='huge'
-          color='orange' />
+          color='orange'
+          id='plus' />
 
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY_GOOGLE_MAPS }}
