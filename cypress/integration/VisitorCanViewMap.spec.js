@@ -5,9 +5,9 @@ describe('Visitor can view Map', () => {
     cy.visit('http://localhost:3000/')
   })
 
-  it('and see logo-text', () => {
-    cy.contains('Being Stockholm')
-  })
+  // it('and see logo-text', () => {
+  //   cy.contains('Being Stockholm')
+  // })
 
   it('and zoom-in and zoom-out', () => {
     cy.get('.gm-style > .gmnoprint > .gmnoprint:nth-child(1) > div > .gm-control-active:nth-child(1)').click()

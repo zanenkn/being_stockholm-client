@@ -18,6 +18,8 @@ describe('Visitor can', () => {
 
   it('create post successfully', () => {
 
+    cy.contains('Upload you post!')
+
     let form = [
       ["#image", "https://antoniaangeliqa.files.wordpress.com/2015/08/dsc08700.jpg"],
       ["#caption", "Swedenborgsgatan great summer street!"],

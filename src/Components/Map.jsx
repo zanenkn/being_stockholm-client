@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import MapStyle from '../Modules/MapStyle'
 import { Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom'
 
 
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
@@ -29,7 +30,10 @@ class Map extends Component {
           name='plus'
           size='huge'
           color='orange'
-          id='plus' />
+          id='plus' 
+          as={Link}
+          to='/create-post'
+          />
 
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY_GOOGLE_MAPS }}
