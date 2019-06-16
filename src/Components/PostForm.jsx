@@ -24,7 +24,18 @@ class PostForm extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const path = '/api/v1/posts'
-    const payload = { ...this.state }
+    const payload = { 
+      image: {
+        type: "image/png",
+        encoder: "name=carbon (5).png;base64",
+        data: "iVBORw0KGgoAAAANSUhEUgAABjAAAAOmCAYAAABFYNwHAAAgAElEQVR4XuzdB3gU1cLG8Te9EEgISQi9I71KFbBXbFixN6zfvSiIjSuKInoVFOyIDcWuiKiIol4Q6SBVOtI7IYSWBkm+58y6yW4a2SS7O4n/eZ7vuWR35pwzvzO76zf",
+        extension: "png" 
+      },
+      caption: 'Lorem ipsum dolor',
+      category: 'work',
+      longitude: 53.06,
+      latitude: 18.03
+    }
     axios.post(path, payload)
       .then(response => {
         console.log(response)
@@ -61,7 +72,7 @@ class PostForm extends Component {
       <>
       <h3>Upload you post!</h3>
       <p>{message}</p>
-      <Form type="medium" id="create_post" onSubmit={this.onSubmit}>
+      <Form type="medium" id="create_post">
 
         <Image id="image" src='https://antoniaangeliqa.files.wordpress.com/2015/08/dsc08700.jpg' size='small' />
         <p id="location"><Icon name='map marker alternate' />Södermalm, Swedenborgsgatan</p>
