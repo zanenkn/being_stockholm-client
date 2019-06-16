@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Header } from 'semantic-ui-react';
+import { Link } from 'react-router-dom'
 
 class Footer extends Component {
   render() {
@@ -24,7 +25,8 @@ class Footer extends Component {
           <Header
             color='orange'
             id='footer-logo'
-            as='h3'>
+            as={Link}
+            to='/'>
             Being Stockholm
           </Header>
 
