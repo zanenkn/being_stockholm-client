@@ -19,7 +19,7 @@ const HorizontalSidebar = ({ visible }) => (
       <Grid.Column>
 
         <Header
-        id='log-in'
+          id='log-in'
           className="sidebar-menu-link"
           as={Link}
           to='log-in'>

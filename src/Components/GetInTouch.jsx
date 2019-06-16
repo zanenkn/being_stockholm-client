@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Header } from 'semantic-ui-react'
 
 class GetInTouch extends Component {
 
@@ -9,7 +10,12 @@ class GetInTouch extends Component {
   render() {
     return (
       <>
-        <h1>Get In Touch</h1>
+      <Header
+      textAlign='center'
+      as='h1'
+      >
+        Get In Touch
+      </Header>
       </>
     )
   }
