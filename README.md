@@ -54,7 +54,7 @@ The Client part of the application was acceptance tested using [Cypress](https:/
 
 To be able to run the tests, run `npm install` in your terminal as soon as you fork this repository.
 
-After that, use `npm run cy:open` to launch a local server instance of the application and run all acceptance tests of Cypress. To run the component tests you can use `npm run test`.
+After that, use `npm run cy:open` to launch a local server instance of the application and run all acceptance tests of Cypress.
 
 Acceptance tests can be found in the `cypress/integration` folder.
 
