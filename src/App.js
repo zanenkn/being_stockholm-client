@@ -34,6 +34,42 @@ class App extends Component {
       );
     }
 
+    const MyAbout = (props) => {
+      return (
+        <AboutProject
+          sidebarVisibility={this.sidebarVisibility}
+          {...props}
+        />
+      );
+    }
+
+    const MyGetInTouch = (props) => {
+      return (
+        <GetInTouch
+          sidebarVisibility={this.sidebarVisibility}
+          {...props}
+        />
+      );
+    }
+
+    const MyPartners = (props) => {
+      return (
+        <Partners
+          sidebarVisibility={this.sidebarVisibility}
+          {...props}
+        />
+      );
+    }
+
+    const MyLegalInfo = (props) => {
+      return (
+        <LegalInfo
+          sidebarVisibility={this.sidebarVisibility}
+          {...props}
+        />
+      );
+    }
+
     return (
       <>
         <Sidebar.Pushable
@@ -43,10 +79,10 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Map}></Route>
             <Route exact path='/log-in' render={MyLogInSignUp}></Route>
-            <Route exact path='/about' component={AboutProject}></Route>
-            <Route exact path='/contact' component={GetInTouch}></Route>
-            <Route exact path='/partnerds' component={Partners}></Route>
-            <Route exact path='/legal-info' component={LegalInfo}></Route>
+            <Route exact path='/about' render={MyAbout}></Route>
+            <Route exact path='/contact' render={MyGetInTouch}></Route>
+            <Route exact path='/partnerds' render={MyPartners}></Route>
+            <Route exact path='/legal-info' render={MyLegalInfo}></Route>
           </Switch>
 
           <MenuSidebar visible={this.state.sidebarVisible} />
