@@ -19,6 +19,7 @@ const HorizontalSidebar = ({ visible }) => (
       <Grid.Column>
 
         <Header
+        id='log-in'
           className="sidebar-menu-link"
           as={Link}
           to='log-in'>
@@ -28,6 +29,7 @@ const HorizontalSidebar = ({ visible }) => (
         <br></br>
 
         <Header
+          id='about'
           className="sidebar-menu-link"
           as={Link}
           to='about'>
@@ -37,6 +39,7 @@ const HorizontalSidebar = ({ visible }) => (
         <br></br>
 
         <Header
+          id='contact'
           className="sidebar-menu-link"
           as={Link}
           to='contact'>
@@ -46,6 +49,7 @@ const HorizontalSidebar = ({ visible }) => (
         <br></br>
 
         <Header
+          id='partnerds'
           className="sidebar-menu-link"
           as={Link}
           to='partnerds'>
@@ -55,6 +59,7 @@ const HorizontalSidebar = ({ visible }) => (
         <br></br>
 
         <Header
+          id='legal-info'
           className="sidebar-menu-link"
           as={Link}
           to='legal-info'>
