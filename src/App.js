@@ -19,7 +19,21 @@ class App extends Component {
   handleAnimationChange = animation => () =>
     this.setState(prevState => ({ animation, sidebarVisible: !prevState.sidebarVisible }))
 
+  sidebarVisibility = () => {
+    this.setState({ sidebarVisible: false })
+  }
+
   render() {
+
+    const MyLogInSignUp = (props) => {
+      return (
+        <LogInSignUp
+          sidebarVisibility={this.sidebarVisibility}
+          {...props}
+        />
+      );
+    }
+
     return (
       <>
         <Sidebar.Pushable
@@ -28,7 +42,7 @@ class App extends Component {
 
           <Switch>
             <Route exact path='/' component={Map}></Route>
-            <Route exact path='/log-in' component={LogInSignUp}></Route>
+            <Route exact path='/log-in' render={MyLogInSignUp}></Route>
             <Route exact path='/about' component={AboutProject}></Route>
             <Route exact path='/contact' component={GetInTouch}></Route>
             <Route exact path='/partnerds' component={Partners}></Route>
