@@ -1,4 +1,4 @@
-describe('Visitor can click menu links', () => {
+describe('Visitor can click links in menu', () => {
 
   beforeEach(function () {
     cy.viewport(1366, 542)
@@ -14,7 +14,7 @@ describe('Visitor can click menu links', () => {
 
   })
 
-  it('and be redirected from one to another', () => {
+  it('and be redirected from one link to another', () => {
     cy.get('#footer-menu-icon').click()
     cy.get('#menu-sidebar').should('be.visible')
     cy.get('#about').click()
