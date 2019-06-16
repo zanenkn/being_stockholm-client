@@ -10,12 +10,11 @@ class GetInTouch extends Component {
   render() {
     return (
       <>
-      <Header
-      textAlign='center'
-      as='h1'
-      >
-        Get In Touch
-      </Header>
+        <Header
+          textAlign='center'
+          as='h1'>
+          Get In Touch
+        </Header>
       </>
     )
   }

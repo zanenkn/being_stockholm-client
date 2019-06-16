@@ -10,12 +10,11 @@ class AboutProject extends Component {
   render() {
     return (
       <>
-      <Header
-      textAlign='center'
-      as='h1'
-      >
-        About Project
-      </Header>
+        <Header
+          textAlign='center'
+          as='h1'>
+          About Project
+        </Header>
       </>
     )
   }

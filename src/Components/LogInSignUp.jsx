@@ -10,12 +10,11 @@ class LogInSignUp extends Component {
   render() {
     return (
       <>
-      <Header
-      textAlign='center'
-      as='h1'
-      >
-        Log In / Sign Up
-      </Header>
+        <Header
+          textAlign='center'
+          as='h1'>
+          Log In / Sign Up
+        </Header>
       </>
     )
   }

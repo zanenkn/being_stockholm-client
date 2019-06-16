@@ -12,6 +12,7 @@ import LegalInfo from './Components/LegalInfo';
 
 
 class App extends Component {
+  
   state = {
     sidebarVisible: false,
   }

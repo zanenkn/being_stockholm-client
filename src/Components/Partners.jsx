@@ -11,9 +11,8 @@ class Partners extends Component {
     return (
       <>
         <Header
-        textAlign='center'
-        as='h1'
-        >
+          textAlign='center'
+          as='h1'>
           Partners
         </Header>
       </>

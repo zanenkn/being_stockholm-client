@@ -21,7 +21,6 @@ describe('Visitor can click links in footer', () => {
     cy.get('#footer-menu-icon').click()
     cy.get('#menu-sidebar').should('be.visible')
     cy.get('#about').click()
-
     cy.get('#footer-logo').click()
     cy.get('#map-icon-plus').should('be.visible')
   })
@@ -30,4 +29,5 @@ describe('Visitor can click links in footer', () => {
     cy.get('#profile-icon').click()
     cy.contains('Log In / Sign Up')
   })
+  
 })

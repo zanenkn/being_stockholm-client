@@ -10,12 +10,11 @@ class LegalInfo extends Component {
   render() {
     return (
       <>
-      <Header
-      textAlign='center'
-      as='h1'
-      >
-        Legal Info
-      </Header>
+        <Header
+          textAlign='center'
+          as='h1'>
+          Legal Info
+        </Header>
       </>
     )
   }
