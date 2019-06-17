@@ -140,19 +140,22 @@ class PostForm extends Component {
             placeholder="Write your caption here"
           />
 
-          <Button.Group color='orange'>
+          <Button.Group
+            color='orange'
+            toggle={true}
+            inverted={true}>
             <Button
-              id="work"
+              id='work'
               active={activeItem === 'work'}
-              value="work"
+              value='work'
               onClick={this.handleChangeCategory}>
               WORK
             </Button>
 
             <Button
-              id="play"
+              id='play'
               active={activeItem === 'play'}
-              value="play"
+              value='play'
               onClick={this.handleChangeCategory}>
               PLAY
             </Button>
