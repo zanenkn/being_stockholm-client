@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import MapStyle from '../Modules/MapStyle'
 import { Icon } from 'semantic-ui-react';
-
-// const AnyReactComponent = ({ text }) => <div>{text}</div>;
+import axios from 'axios'
 
 class Map extends Component {
   static defaultProps = {
@@ -14,7 +13,22 @@ class Map extends Component {
     zoom: 11
   };
 
+  state = {
+    posts: []
+  }
+
+  componentDidMount() {
+    axios.get('/api/v1/posts').then(response => {
+      console.log(response)
+      this.setState({ posts: response.data });
+    });   
+  }
+
   render() {
+
+    this.state.posts.map(post=> {
+
+    })
 
     return (
 
@@ -32,11 +46,13 @@ class Map extends Component {
           defaultZoom={this.props.zoom}
           options={{ styles: MapStyle }}
         >
-          {/* <AnyReactComponent
-            lat={59.330651}
-            lng={18.068562}
-            text="Hello Sthml!"
-          /> */}
+        {this.state.posts.map(post => (
+          <Icon name='circle' 
+            lat={post.latitude}
+            lng={post.longitude}
+            id={post.id}
+          />
+        ))}
 
         </GoogleMapReact>
       </div>
