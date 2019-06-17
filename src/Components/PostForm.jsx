@@ -68,7 +68,7 @@ class PostForm extends Component {
     if (this.state.successMessage === true) {
       message = (
         <Message color="green">
-          Thank you for sharing your picture! Your post will soon be uploaded!
+          Thank you for sharing your picture! Your post is sent for review and will soon be uploaded!
         </Message>
       )
     }
@@ -114,18 +114,20 @@ class PostForm extends Component {
     return (
       <>
         <h3>Upload you post!</h3>
+        <h5>Uploaded images must have geolocation data available to be placed on the map. Your mobile and your camera must have location options enabled. Alternatively, you can use an online service (like <a href='https://www.photo-location.net/'>this</a> or <a href='https://www.geoimgr.com/'>this</a>) to geotag your images before uploading them.</h5>
         <p>{message}</p>
         <Form type="medium" id="create-post">
 
           <ImageUploader
-            // buttonText={"Upload picture"}
+            buttonText={'Upload your picture'}
             buttonClassName={this.state.button}
-            withPreview
-            singleImage={true}
             withIcon={false}
-            withLabel={false}
+            withLabel={true}
+            label={'Maximum image file size: 5 MB, Accepted image types: JPG'}
+            withPreview={true}
+            singleImage={true}
             onChange={this.onImageDropHandler}
-            imgExtension={[".jpg", ".png"]}
+            imgExtension={['.jpg']}
             maxFileSize={5242880}
           />
 
@@ -143,16 +145,17 @@ class PostForm extends Component {
               id="work"
               active={activeItem === 'work'}
               value="work"
-              onClick={this.handleChangeCategory}
-            >WORK
+              onClick={this.handleChangeCategory}>
+              WORK
           </Button>
 
             <Button
               id="play"
               active={activeItem === 'play'}
               value="play"
-              onClick={this.handleChangeCategory}
-            >PLAY</Button>
+              onClick={this.handleChangeCategory}>
+              PLAY
+                </Button>
           </Button.Group>
 
           <Button id="upload-button" onClick={this.onSubmit}>Upload</Button>
