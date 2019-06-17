@@ -50,7 +50,7 @@ class Map extends Component {
           <Icon name='circle' 
             lat={post.latitude}
             lng={post.longitude}
-            id={post.id}
+            id={`post_${post.id}`}
           />
         ))}
 
