@@ -15,7 +15,8 @@ class PostForm extends Component {
     errorMessage: false,
     errors: '',
     activeItem: 'play',
-    button: 'show-button'
+    button: 'show-button',
+    form: 'show-form'
   }
 
   onChangeHandler = (e) => {
@@ -48,7 +49,8 @@ class PostForm extends Component {
         this.setState({
           successMessage: true,
           showPostForm: false,
-          errorMessage: false
+          errorMessage: false,
+          form: 'hide-form'
         })
       })
       .catch(error => {
@@ -117,7 +119,8 @@ class PostForm extends Component {
         <h3>Upload you post!</h3>
         <p>Images must have geotaging infomration available. If not, you can use an online service (like <a href='https://www.photo-location.net/'>this</a> or <a href='https://www.geoimgr.com/'>this</a>) to geotag your images before uploading.</p>
         <p>{message}</p>
-        <Form type="medium" id="create-post">
+
+        <Form type='medium' id={this.state.form}>
 
           <ImageUploader
             buttonText={'Upload your picture'}
