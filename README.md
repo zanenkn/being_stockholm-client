@@ -1,5 +1,3 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d642c8b19594d23a881485798b3b198)](https://app.codacy.com/app/zanenkn/being_stockholm-client?utm_source=github.com&utm_medium=referral&utm_content=CraftAcademy/being_stockholm-client&utm_campaign=Badge_Grade_Dashboard)
-
 # Project Title
 
 ## **Being Stockholm !**
@@ -52,15 +50,13 @@ Unit and request tests can be found in the `spec/models` and `spec/requests` fol
 [Semaphore CI](https://semaphoreci.com/) was used for continious integration.
 
 ### CLIENT
-The Client part of the application was acceptance tested using [Cypress](https://www.cypress.io/) and component tested using [Enzyme](https://github.com/airbnb/enzyme).
-
-To check the quality of the codebase we used [Codacy](https://www.codacy.com/).
+The Client part of the application was acceptance tested using [Cypress](https://www.cypress.io/).
 
 To be able to run the tests, run `npm install` in your terminal as soon as you fork this repository.
 
-After that, use `npm run cy:open` to launch a local server instance of the application and run all acceptance tests of Cypress. To run the component tests you can use `npm run test`.
+After that, use `npm run cy:open` to launch a local server instance of the application and run all acceptance tests of Cypress.
 
-Acceptance and component tests can be found in the `cypress/integration` and `src/__tests__` folders respectively.
+Acceptance tests can be found in the `cypress/integration` folder.
 
 # Built With
 
