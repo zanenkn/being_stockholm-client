@@ -15,7 +15,7 @@ describe('Visitor can view on the map', () => {
     ]
 
     posts.forEach(post => {
-      cy.get(post).should('be_visible')
+      cy.get(post).should('be.visible')
       })
     })
 
