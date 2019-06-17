@@ -47,7 +47,8 @@ class PostForm extends Component {
         console.log(response)
         this.setState({
           successMessage: true,
-          showPostForm: false
+          showPostForm: false,
+          errorMessage: false
         })
       })
       .catch(error => {
