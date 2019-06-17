@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Button, Image, Icon, Message } from 'semantic-ui-react';
 import axios from 'axios';
+import ImageUploader from 'react-images-upload'
 
 class PostForm extends Component {
   state = {
@@ -21,21 +22,24 @@ class PostForm extends Component {
     })
   }
 
+  onImageDropHandler = (pictureFiles, pictureDataURLs) => {
+    this.setState({
+      image: pictureDataURLs
+    })
+    console.log(pictureDataURLs);
+  }
+
   onSubmit = (e) => {
     e.preventDefault();
     const path = '/api/v1/posts'
     const payload = { 
-      image: {
-        type: "image/png",
-        encoder: "name=carbon (5).png;base64",
-        data: "iVBORw0KGgoAAAANSUhEUgAABjAAAAOmCAYAAABFYNwHAAAgAElEQVR4XuzdB3gU1cLG8Te9EEgISQi9I71KFbBXbFixN6zfvSiIjSuKInoVFOyIDcWuiKiIol4Q6SBVOtI7IYSWBkm+58y6yW4a2SS7O4n/eZ7vuWR35pwzvzO76zf",
-        extension: "png" 
-      },
-      caption: 'Lorem ipsum dolor',
-      category: 'work',
+      image: this.state.image,
+      caption: this.state.caption,
+      category: this.state.category,
       longitude: 53.06,
       latitude: 18.03
     }
+    debugger
     axios.post(path, payload)
       .then(response => {
         console.log(response)
@@ -74,7 +78,18 @@ class PostForm extends Component {
       <p>{message}</p>
       <Form type="medium" id="create_post">
 
-        <Image id="image" src='https://antoniaangeliqa.files.wordpress.com/2015/08/dsc08700.jpg' size='small' />
+        <ImageUploader
+          buttonText={"Upload picture"}
+          withPreview
+          singleImage
+          withIcon
+          withLabel={false}
+          onChange={this.onImageDropHandler}
+          imgExtension={[".jpg", ".png"]}
+          maxFileSize={5242880}
+        />
+
+        {/* <Image id="image" src='https://antoniaangeliqa.files.wordpress.com/2015/08/dsc08700.jpg' size='small' /> */}
         <p id="location"><Icon name='map marker alternate' />Södermalm, Swedenborgsgatan</p>
         
         <Form.Input
@@ -91,7 +106,9 @@ class PostForm extends Component {
             active={ activeItem === 'work'}
             value="work"
             onClick={this.handleChangeCategory}
-            >WORK</Button>
+            >WORK
+          </Button>
+
           <Button 
             id="play"
             active={ activeItem === 'play'}
@@ -100,7 +117,7 @@ class PostForm extends Component {
             >PLAY</Button>
         </Button.Group>
 
-        <Button id="upload-button" onSubmit={this.onSubmit}>Upload</Button>
+        <Button id="upload-button" onClick={this.onSubmit}>Upload</Button>
       </Form>
 
 
