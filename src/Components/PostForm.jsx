@@ -13,6 +13,7 @@ class PostForm extends Component {
     showPostForm: true,
     successMessage: false,
     errorMessage: false,
+    errors: '',
     activeItem: 'play',
     button: 'show-button'
   }
@@ -72,12 +73,29 @@ class PostForm extends Component {
         )
       }
 
-      if (this.state.errorMessage === true) {
+      if (this.state.errorMessage === true && this.state.image.length < 1) {
         message = (
           <>
             <br />
             <Message color="red">
-              <p>Your article could not be created because of following error(s):</p>
+              <p>Your post could not be created because of following error(s):</p>
+              <ul>
+                {this.state.errors.map(error => (
+                  <li key={error}>{error}</li>
+                ))}
+                  <li>You need to upload an image</li>
+              </ul>
+            </Message>
+          </>
+        )
+      }
+
+      if (this.state.errorMessage === true && this.state.image.length > 0) {
+        message = (
+          <>
+            <br />
+            <Message color="red">
+              <p>Your post could not be created because of following error(s):</p>
               <ul>
                 {this.state.errors.map(error => (
                   <li key={error}>{error}</li>
@@ -115,7 +133,6 @@ class PostForm extends Component {
         
         <Form.Input
           id="caption"
-          required
           value={this.state.caption}
           onChange={this.onChangeHandler}
           placeholder="Write your caption here"
