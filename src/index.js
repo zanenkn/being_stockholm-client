@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './semantic/dist/semantic.min.css';
-import axios from 'axios'
+import axios from 'axios';
+import { BrowserRouter } from 'react-router-dom'
 
 axios.defaults.baseURL = 'http://localhost:3002'
 
-ReactDOM.render((
+ReactDOM.render(
+  <BrowserRouter>
     <App />
-), document.getElementById('root'));
+  </BrowserRouter>
+  , document.getElementById('root'));
 
 serviceWorker.unregister();

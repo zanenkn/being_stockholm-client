@@ -13,7 +13,13 @@ describe('Visitor can view Footer', () => {
     cy.get('#menu-sidebar').should('not.be.visible')
     cy.get('#footer-menu-icon').click()
     cy.get('#menu-sidebar').should('be.visible')
-    cy.get('#menu-sidebar').contains('MENU')
+
+    let text = ['About Project', 'Log in / Sign up', 'Get in touch', 'Partners', 'Legal info']
+
+    text.forEach(link => {
+      cy.get('#menu-sidebar').contains(link)
+    })
+
     cy.get('#footer-menu-icon').click()
     cy.get('#menu-sidebar').should('not.be.visible')
   })
