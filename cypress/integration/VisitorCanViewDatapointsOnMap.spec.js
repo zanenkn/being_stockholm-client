@@ -33,11 +33,11 @@ describe('Visitor can view on the map', () => {
       ]
 
       work.forEach(post => {
-        cy.get(post).should('have.class', 'red')
+        cy.get(post).should('have.class', 'teal')
         })
 
       play.forEach(post => {
-        cy.get(post).should('have.class', 'blue')
+        cy.get(post).should('have.class', 'yellow')
         })
     })
   
