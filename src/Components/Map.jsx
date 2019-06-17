@@ -51,6 +51,7 @@ class Map extends Component {
             lat={post.latitude}
             lng={post.longitude}
             id={`post_${post.id}`}
+            color={(post.category === "work")? 'red' : 'blue'}
           />
         ))}
 

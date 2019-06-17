@@ -1,6 +1,6 @@
 describe('Visitor can view on the map', () => {
-
-  it('datapoints of posts with correct coordinates', () => {
+  
+  beforeEach(function () {
     cy.server();
     cy.route({
       method: 'GET',
@@ -9,6 +9,9 @@ describe('Visitor can view on the map', () => {
       status: 200
     })
     cy.visit('http://localhost:3000')
+  })
+
+  it('datapoints of posts', () => {
 
     let posts = [
       "#post_1","#post_2", "#post_3","#post_4", "#post_5"
@@ -19,6 +22,25 @@ describe('Visitor can view on the map', () => {
       })
     })
 
+    it('datapoints in different category colors', () => {
+
+      let work = [
+        "#post_1", "#post_3", "#post_5"
+      ]
+      
+      let play = [
+        "#post_2", "#post_4"
+      ]
+
+      work.forEach(post => {
+        cy.get(post).should('have.class', 'red')
+        })
+
+      play.forEach(post => {
+        cy.get(post).should('have.class', 'blue')
+        })
+    })
+  
     //Test that we find datapoints on the map (cy.get the correct Div Id?)
     //Test that datapoints are in the right position on the map?
     //Test that datapoints have the right color, based on category?
