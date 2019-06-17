@@ -27,6 +27,14 @@
   font-size: 5vw;
 }
 
+.hide-button {
+  display: none;
+}
+
+.show-button {
+  display: block;
+}
+
 @media screen and (min-width: 1200px) {
   #footer-logo {
     font-size: 30px;

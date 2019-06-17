@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Image, Icon, Message } from 'semantic-ui-react';
+import { Form, Button, Icon, Message } from 'semantic-ui-react';
 import axios from 'axios';
 import ImageUploader from 'react-images-upload'
 
@@ -13,7 +13,8 @@ class PostForm extends Component {
     showPostForm: true,
     successMessage: false,
     // errorMessage: false
-    activeItem: 'play'
+    activeItem: 'play',
+    button: 'show-button'
   }
 
   onChangeHandler = (e) => {
@@ -24,9 +25,9 @@ class PostForm extends Component {
 
   onImageDropHandler = (pictureFiles, pictureDataURLs) => {
     this.setState({
-      image: pictureDataURLs
+      image: pictureDataURLs,
+      button: 'hide-button'
     })
-    console.log(pictureDataURLs);
   }
 
   onSubmit = (e) => {
@@ -39,7 +40,7 @@ class PostForm extends Component {
       longitude: 53.06,
       latitude: 18.03
     }
-    debugger
+   
     axios.post(path, payload)
       .then(response => {
         console.log(response)
@@ -71,26 +72,30 @@ class PostForm extends Component {
         )
       }
 
+      if (this.state.image.length === 0) {
+      this.state.button = 'show-button'
+      }
+
     const { activeItem } = this.state
     return (
       <>
       <h3>Upload you post!</h3>
       <p>{message}</p>
-      <Form type="medium" id="create_post">
+      <Form type="medium" id="create-post">
 
         <ImageUploader
-          buttonText={"Upload picture"}
+          // buttonText={"Upload picture"}
+          buttonClassName={this.state.button}
           withPreview
-          singleImage
-          withIcon
+          singleImage={true}
+          withIcon={false}
           withLabel={false}
           onChange={this.onImageDropHandler}
           imgExtension={[".jpg", ".png"]}
           maxFileSize={5242880}
         />
 
-        {/* <Image id="image" src='https://antoniaangeliqa.files.wordpress.com/2015/08/dsc08700.jpg' size='small' /> */}
-        <p id="location"><Icon name='map marker alternate' />Södermalm, Swedenborgsgatan</p>
+       <p id="location"><Icon name='map marker alternate' />Södermalm, Swedenborgsgatan</p>
         
         <Form.Input
           id="caption"
