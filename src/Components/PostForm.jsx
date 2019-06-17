@@ -12,7 +12,7 @@ class PostForm extends Component {
     category: 'play',
     showPostForm: true,
     successMessage: false,
-    // errorMessage: false
+    errorMessage: false,
     activeItem: 'play',
     button: 'show-button'
   }
@@ -64,11 +64,27 @@ class PostForm extends Component {
   render() {
     let message
 
-      if (this.state.successMessage === true ) {
+      if (this.state.successMessage === true) {
         message = (
         <Message color="green"> 
           Thank you for sharing your picture! Your post will soon be uploaded!
         </Message>
+        )
+      }
+
+      if (this.state.errorMessage === true) {
+        message = (
+          <>
+            <br />
+            <Message color="red">
+              <p>Your article could not be created because of following error(s):</p>
+              <ul>
+                {this.state.errors.map(error => (
+                  <li key={error}>{error}</li>
+                ))}
+              </ul>
+            </Message>
+          </>
         )
       }
 
