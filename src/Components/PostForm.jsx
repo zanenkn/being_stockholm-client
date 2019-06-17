@@ -76,7 +76,7 @@ class PostForm extends Component {
       )
     }
 
-    if (this.state.errorMessage === true && this.state.image.length < 1) {
+    if (this.state.errorMessage === true && this.state.image.length === 0) {
       message = (
         <>
           <br />
@@ -93,7 +93,7 @@ class PostForm extends Component {
       )
     }
 
-    if (this.state.errorMessage === true && this.state.image.length > 0) {
+    if (this.state.errorMessage === true && this.state.image.length !== 0) {
       message = (
         <>
           <br />
@@ -117,7 +117,7 @@ class PostForm extends Component {
     return (
       <>
         <h3>Upload you post!</h3>
-        <p>Images must have geotaging infomration available. If not, you can use an online service (like <a href='https://www.photo-location.net/'>this</a> or <a href='https://www.geoimgr.com/'>this</a>) to geotag your images before uploading.</p>
+        <p>Images must have geotaging infomration available. If not, you can use an online service (like <a href='https://www.photo-location.net/' target='_blank' rel='noopener noreferrer'>this</a> or <a href='https://www.geoimgr.com/' target='_blank' rel='noopener noreferrer'>this</a>) to geotag your images before uploading.</p>
         <p>{message}</p>
 
         <Form type='medium' id={this.state.form}>
