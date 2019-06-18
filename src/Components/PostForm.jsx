@@ -16,7 +16,8 @@ class PostForm extends Component {
     errors: '',
     activeItem: 'play',
     button: 'show-button',
-    form: 'show-form'
+    form: 'show-form',
+    toggle: 'show-toggle'
   }
 
   onChangeHandler = (e) => {
@@ -50,7 +51,8 @@ class PostForm extends Component {
           successMessage: true,
           showPostForm: false,
           errorMessage: false,
-          form: 'hide-form'
+          form: 'hide-form',
+          toggle: 'hide-toggle'
         })
       })
       .catch(error => {
@@ -71,7 +73,7 @@ class PostForm extends Component {
     if (this.state.successMessage === true) {
       message = (
         <Message color="green">
-          Thank you for sharing your picture! Your post is sent for review and will soon be uploaded!
+          Thank you for sharing your picture! Your post is sent for review and will soon be uploaded! Click on the map in the background to continue.
         </Message>
       )
     }
@@ -120,6 +122,28 @@ class PostForm extends Component {
         <p>Images must have geotaging infomration available. If not, you can use an online service (like <a href='https://www.photo-location.net/' target='_blank' rel='noopener noreferrer'>this</a> or <a href='https://www.geoimgr.com/' target='_blank' rel='noopener noreferrer'>this</a>) to geotag your images before uploading.</p>
         <p>{message}</p>
 
+        <Button.Group
+          id={this.state.toggle}
+          color='orange'
+          toggle={true}
+          inverted={true}>
+          <Button
+            id='work'
+            active={activeItem === 'work'}
+            value='work'
+            onClick={this.handleChangeCategory}>
+            WORK
+            </Button>
+
+          <Button
+            id='play'
+            active={activeItem === 'play'}
+            value='play'
+            onClick={this.handleChangeCategory}>
+            PLAY
+            </Button>
+        </Button.Group>
+
         <Form type='medium' id={this.state.form} onSubmit={this.onSubmit}>
 
           <ImageUploader
@@ -148,28 +172,8 @@ class PostForm extends Component {
             placeholder="Write your caption here"
           />
 
-          <Button.Group
-            color='orange'
-            toggle={true}
-            inverted={true}>
-            <Button
-              id='work'
-              active={activeItem === 'work'}
-              value='work'
-              onClick={this.handleChangeCategory}>
-              WORK
-            </Button>
-
-            <Button
-              id='play'
-              active={activeItem === 'play'}
-              value='play'
-              onClick={this.handleChangeCategory}>
-              PLAY
-            </Button>
-          </Button.Group>
-
           <Button id="upload-button">Upload</Button>
+
         </Form>
       </>
     )
