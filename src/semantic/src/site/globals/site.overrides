@@ -35,6 +35,11 @@
   display: block;
 }
 
+.fileContainer {
+  padding: 0px;
+  box-shadow: 0px 0px 0px 0px;
+}
+
 #hide-toggle {
   display: none;
 }

@@ -33,7 +33,7 @@ class PostForm extends Component {
     })
   }
 
-  onSubmit = (e) => {
+  uploadPost = (e) => {
     e.preventDefault();
     const path = '/api/v1/posts'
     const payload = {
@@ -118,10 +118,43 @@ class PostForm extends Component {
     const { activeItem } = this.state
     return (
       <>
-        <Segment
+        <Segment textAlign='center'
           className={this.state.activeItem}>
           <h3>Upload you post!</h3>
           <p>{message}</p>
+
+          <ImageUploader
+            buttonText={
+              <div>
+              <p id="add-photo-headline">Add Image</p>
+              <Icon id="add-photo-icon" name="image outline" size="huge"></Icon>
+              <p id="add-photo-label">Maximum image file size: 5 MB, Accepted image types: JPG</p>
+              </div>
+            }
+            buttonClassName={this.state.button}
+            withLabel={false}
+            withIcon={false}
+            withPreview={true}
+            singleImage={true}
+            onChange={this.onImageDropHandler}
+            imgExtension={['.jpg']}
+            maxFileSize={5242880}
+          />
+
+          <Form type='medium' id={this.state.form}>
+            <Form.Input
+              required
+              id="caption"
+              value={this.state.caption}
+              onChange={this.onChangeHandler}
+              placeholder="Write your caption here"
+            />
+          </Form>
+
+          <p id="location">
+            <Icon
+              name='map marker alternate' />
+            Södermalm, Swedenborgsgatan</p>
 
           <Button.Group
             id={this.state.toggle}
@@ -146,37 +179,8 @@ class PostForm extends Component {
             </Button>
           </Button.Group>
 
-          <Form type='medium' id={this.state.form} onSubmit={this.onSubmit}>
+          <Button id="upload-button" onClick={this.uploadPost}>MAP IT!</Button>
 
-            <ImageUploader
-              buttonText={'Upload your picture'}
-              buttonClassName={this.state.button}
-              withIcon={false}
-              withLabel={true}
-              label={'Maximum image file size: 5 MB, Accepted image types: JPG, Images must have geotaging infomration available'}
-              withPreview={true}
-              singleImage={true}
-              onChange={this.onImageDropHandler}
-              imgExtension={['.jpg']}
-              maxFileSize={5242880}
-            />
-
-            <p id="location">
-              <Icon
-                name='map marker alternate' />
-              Södermalm, Swedenborgsgatan</p>
-
-            <Form.Input
-              required
-              id="caption"
-              value={this.state.caption}
-              onChange={this.onChangeHandler}
-              placeholder="Write your caption here"
-            />
-
-            <Button id="upload-button">Upload</Button>
-
-          </Form>
         </Segment>
       </>
     )
