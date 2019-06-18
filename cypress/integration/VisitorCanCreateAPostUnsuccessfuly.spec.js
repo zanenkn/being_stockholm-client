@@ -14,8 +14,7 @@ describe('Visitor can', () => {
 
   it('not create post if image is not uploaded and/or caption is over 140 characters long', () => {
 
-    cy.contains('Upload you post!')
-    cy.contains('Images must have geotaging infomration available. If not, you can use an online service')
+    cy.contains('Add a photo')
     cy.get('#caption').type('This is a very long caption and i should get an error message if I write it in the caption field! This is a very long caption and i should get an error message if I write it in the caption field!')
     cy.get('#upload-button').click()
   })

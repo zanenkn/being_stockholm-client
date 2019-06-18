@@ -87,7 +87,7 @@
 }
 
 .fileContainer .uploadPictureContainer {
-  width: 80% !important;
+  width: 90% !important;
   padding: 0px;
 }
 

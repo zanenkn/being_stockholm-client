@@ -14,8 +14,7 @@ describe('Visitor can', () => {
 
   it('create post successfully', () => {
 
-    cy.contains('Upload you post!')
-    cy.contains('Images must have geotaging infomration available. If not, you can use an online service')
+    cy.contains('Add a photo')
     cy.get('#caption').type('Swedenborgsgatan great summer street!')
     cy.get('#play').should('have.class', 'active')
     cy.get('#work').click()
