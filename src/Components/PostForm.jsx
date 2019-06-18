@@ -143,7 +143,7 @@ class PostForm extends Component {
               maxFileSize={5242880}
             />
 
-            <Form type='medium' id={this.state.form}>
+            <Form size="mini" type='medium' id={this.state.form}>
               <Form.Input
                 required
                 id="caption"
@@ -157,7 +157,7 @@ class PostForm extends Component {
               <Icon
                 name='map marker alternate' />
               Södermalm, Swedenborgsgatan</p>
-
+            <br></br>
             <Button.Group
               id={this.state.toggle}
               toggle={true}
@@ -170,7 +170,7 @@ class PostForm extends Component {
                 onClick={this.handleChangeCategory}>
                 WORK
           </Button>
-
+              
               <Button
                 id='play'
                 basic color='yellow'
