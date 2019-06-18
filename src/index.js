@@ -7,6 +7,7 @@ import axios from 'axios';
 import { BrowserRouter } from 'react-router-dom'
 
 const loc = 'http://localhost:3002'
+const her = 'https://being-stockholm.herokuapp.com'
 
 axios.defaults.baseURL = loc
 

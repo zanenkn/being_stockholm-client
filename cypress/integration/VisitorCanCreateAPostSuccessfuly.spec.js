@@ -21,9 +21,12 @@ describe('Visitor can', () => {
     cy.get('#work').click()
     cy.get('#upload-button').click()
     cy.contains('Thank you for sharing your picture! Your post is sent for review and will soon be uploaded!')
-    cy.get('#show-form').should('not.be.visible')
-    cy.get('#show-toggle').should('not.be.visible')
-    cy.get('#hide-form').should('not.be.visible')
-    cy.get('#hide-toggle').should('not.be.visible')
+
+    let text = ['#show-form', '#show-toggle', '#hide-form', '#hide-toggle']
+
+    text.forEach(link => {
+      cy.get(link).should('not.be.visible')
+    })
+    
   })
 })
