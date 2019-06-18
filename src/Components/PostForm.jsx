@@ -118,67 +118,66 @@ class PostForm extends Component {
     const { activeItem } = this.state
     return (
       <>
-     <Segment 
-     className = { this.state.activeItem }
-     >
-        <h3>Upload you post!</h3>
-        <p>Images must have geotaging infomration available. If not, you can use an online service (like <a href='https://www.photo-location.net/' target='_blank' rel='noopener noreferrer'>this</a> or <a href='https://www.geoimgr.com/' target='_blank' rel='noopener noreferrer'>this</a>) to geotag your images before uploading.</p>
-        <p>{message}</p>
+        <Segment
+          className={this.state.activeItem}>
+          <h3>Upload you post!</h3>
+          <p>Images must have geotaging infomration available. If not, you can use an online service (like <a href='https://www.photo-location.net/' target='_blank' rel='noopener noreferrer'>this</a> or <a href='https://www.geoimgr.com/' target='_blank' rel='noopener noreferrer'>this</a>) to geotag your images before uploading.</p>
+          <p>{message}</p>
 
-        <Button.Group
-          id={this.state.toggle}
-          toggle={true}
-          inverted={true}>
-          <Button
-            id='work'
-            basic color='red'
-            active={activeItem === 'work'}
-            value='work'
-            onClick={this.handleChangeCategory}>
-            WORK
+          <Button.Group
+            id={this.state.toggle}
+            toggle={true}
+            inverted={true}>
+            <Button
+              id='work'
+              basic color='red'
+              active={activeItem === 'work'}
+              value='work'
+              onClick={this.handleChangeCategory}>
+              WORK
           </Button>
 
-          <Button
-            id='play'
-            basic color='green'
-            active={activeItem === 'play'}
-            value='play'
-            onClick={this.handleChangeCategory}>
-            PLAY
+            <Button
+              id='play'
+              basic color='green'
+              active={activeItem === 'play'}
+              value='play'
+              onClick={this.handleChangeCategory}>
+              PLAY
             </Button>
-        </Button.Group>
+          </Button.Group>
 
-        <Form type='medium' id={this.state.form} onSubmit={this.onSubmit}>
+          <Form type='medium' id={this.state.form} onSubmit={this.onSubmit}>
 
-          <ImageUploader
-            buttonText={'Upload your picture'}
-            buttonClassName={this.state.button}
-            withIcon={false}
-            withLabel={true}
-            label={'Maximum image file size: 5 MB, Accepted image types: JPG'}
-            withPreview={true}
-            singleImage={true}
-            onChange={this.onImageDropHandler}
-            imgExtension={['.jpg']}
-            maxFileSize={5242880}
-          />
+            <ImageUploader
+              buttonText={'Upload your picture'}
+              buttonClassName={this.state.button}
+              withIcon={false}
+              withLabel={true}
+              label={'Maximum image file size: 5 MB, Accepted image types: JPG'}
+              withPreview={true}
+              singleImage={true}
+              onChange={this.onImageDropHandler}
+              imgExtension={['.jpg']}
+              maxFileSize={5242880}
+            />
 
-          <p id="location">
-            <Icon
-              name='map marker alternate' />
-            Södermalm, Swedenborgsgatan</p>
+            <p id="location">
+              <Icon
+                name='map marker alternate' />
+              Södermalm, Swedenborgsgatan</p>
 
-          <Form.Input
-            required
-            id="caption"
-            value={this.state.caption}
-            onChange={this.onChangeHandler}
-            placeholder="Write your caption here"
-          />
+            <Form.Input
+              required
+              id="caption"
+              value={this.state.caption}
+              onChange={this.onChangeHandler}
+              placeholder="Write your caption here"
+            />
 
-          <Button id="upload-button">Upload</Button>
+            <Button id="upload-button">Upload</Button>
 
-        </Form>
+          </Form>
         </Segment>
       </>
     )

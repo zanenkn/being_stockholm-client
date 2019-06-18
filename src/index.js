@@ -6,7 +6,9 @@ import './semantic/dist/semantic.min.css';
 import axios from 'axios';
 import { BrowserRouter } from 'react-router-dom'
 
-axios.defaults.baseURL = 'http://localhost:3002'
+const loc = 'http://localhost:3002'
+
+axios.defaults.baseURL = loc
 
 ReactDOM.render(
   <BrowserRouter>
