@@ -32,8 +32,26 @@
     }
 }
 
-#close-button {
-  z-index: 6000;
+#message-topsidebar-success {
+  background-color: #21ba45;
+  color: #FFFFFF !important;
+  font-size: 12px;
+}
+
+#message-topsidebar-error {
+  background-color: #f2711c;
+  color: #FFFFFF !important;
+  font-size: 12px;
+}
+
+#message-error-list {
+  text-align: left;
+}
+
+#close-topsidebar-error {
+  background-color: #f2711c !important;
+  color: #FFFFFF !important;
+  padding: 0rem;
 }
 
 .hide-button {

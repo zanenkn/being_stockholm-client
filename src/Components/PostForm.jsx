@@ -1,26 +1,30 @@
 import React, { Component } from 'react'
-import { Form, Button, Icon, Message, Segment, Container, Sidebar } from 'semantic-ui-react';
+import { Form, Button, Icon, Message, Segment, Container, Sidebar, Divider } from 'semantic-ui-react';
 import axios from 'axios';
 import ImageUploader from 'react-images-upload'
 import MessageTopSidebar from './MessageTopSidebar';
 import PropTypes from 'prop-types'
 
-const TopSidebar = ({ visible, message }) => (
+const TopSidebar = ({ visible, message, successMessage, closeButton }) => (
+  <>
   <Sidebar
-    id='message-topsidebar'
+    id={(successMessage=== true) ? 'message-topsidebar-success' : 'message-topsidebar-error'}
     as={Segment}
     animation='overlay'
     direction='top'
     visible={visible}>
  
     <p>{message}</p>
-    
+    {closeButton}
   </Sidebar>
+  
+  </>
 )
 
 TopSidebar.propTypes = {
   visible: PropTypes.bool,
   message: PropTypes.string,
+  successMessage: PropTypes.bool
 }
 
 
@@ -65,7 +69,6 @@ class PostForm extends Component {
       longitude: 53.06,
       latitude: 18.03
     }
-
     axios.post(path, payload)
       .then(response => {
         console.log(response)
@@ -84,11 +87,6 @@ class PostForm extends Component {
           messageVisible: true,
           errors: error.response.data.error
         })
-        
-        // if (this.state.messageVisible === true) {
-        //   setTimeout(function () {this.state.messageVisible= false}, 2000 )
-        // }
-
       })
   }
 
@@ -107,10 +105,7 @@ class PostForm extends Component {
     if (this.state.successMessage === true) {
       message = (
         <>
-        <Message color="green">
           Thank you for sharing your picture! Your post is sent for review and will soon be uploaded! Click on the map in the background to continue.
-        </Message>
-        <Button onClick={this.handleMessageVisibility('overlay')}>Close</Button>
         </>
       )
     }
@@ -118,17 +113,13 @@ class PostForm extends Component {
     if (this.state.errorMessage === true && this.state.image.length === 0) {
       message = (
         <>
-          <br />
-          <Message color="red">
-            <p>Your post could not be created because of following error(s):</p>
-            <ul>
+            <p>Your post could not be created since:</p>
+            <ul id="message-error-list">
               {this.state.errors.map(error => (
                 <li key={error}>{error}</li>
               ))}
               <li>You need to upload an image</li>
             </ul>
-          </Message>
-          <Button onClick={this.handleMessageVisibility('overlay')}>Close</Button>
         </>
       )
     }
@@ -136,16 +127,12 @@ class PostForm extends Component {
     if (this.state.errorMessage === true && this.state.image.length !== 0) {
       message = (
         <>
-          <br />
-          <Message color="red">
-            <p>Your post could not be created because of following error(s):</p>
-            <ul>
+            <p>Your post could not be created since:</p>
+            <ul id="message-error-list">
               {this.state.errors.map(error => (
                 <li key={error}>{error}</li>
               ))}
             </ul>
-          </Message>
-          <Button onClick={this.handleMessageVisibility('overlay')}>Close</Button>
         </>
       )
     }
@@ -156,12 +143,17 @@ class PostForm extends Component {
 
     const { activeItem } = this.state
 
-    // let closeButton
-    // if (this.state.messageVisible === true) {
-    //   closeButton = (
-    //     <Button onClick={this.handleMessageVisibility('overlay')}>Close</Button>
-    //   )
-    // }
+    let closeButton
+    
+    if (this.state.successMessage=== false) {
+      closeButton = (
+        <Button 
+          id='close-topsidebar-error'
+          onClick={this.handleMessageVisibility('overlay')}
+          >
+          Close
+        </Button>
+    )}
 
     return (
       <>
@@ -169,15 +161,13 @@ class PostForm extends Component {
         <Sidebar.Pushable as={Segment} textAlign='center'
           className={this.state.activeItem}>
 
-          {/* <div id="close-button">
-            {closeButton}
-          </div> */}
-
           <TopSidebar
             message={message}
             visible={this.state.messageVisible}
+            successMessage={this.state.successMessage}
+            closeButton={closeButton}
           />
-
+          
           <h3>Add a photo</h3>
 
           <Container>
