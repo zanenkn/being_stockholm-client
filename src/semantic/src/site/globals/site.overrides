@@ -35,6 +35,11 @@
   display: block;
 }
 
+.chooseFileButton.show-button {
+  border-radius: 0px;
+  background: grey;
+}
+
 .fileContainer {
   padding: 0px;
   box-shadow: 0px 0px 0px 0px;
