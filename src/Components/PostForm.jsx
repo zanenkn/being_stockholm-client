@@ -152,7 +152,7 @@ class PostForm extends Component {
                 placeholder="Write your caption here"
               />
             </Form>
-            <br></br>
+        
             <p id="location">
               <Icon
                 name='map marker alternate' />
