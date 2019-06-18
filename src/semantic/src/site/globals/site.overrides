@@ -2,6 +2,10 @@
          Site Overrides
 *******************************/
 
+/*******************************
+         Map
+*******************************/
+
 #map {
   height: 100%; 
   width: 100%;
@@ -18,13 +22,14 @@
   width: 100%;
 }
 
-#footer {
-  height: 10vh;
-  margin: auto;
-}
+/*******************************
+        Popup Upload Post
+*******************************/
 
-#footer-logo {
-  font-size: 5vw;
+@media screen and (min-width: 900px) {
+  .popup-content {
+    width: 50% !important;
+    }
 }
 
 .hide-button {
@@ -102,6 +107,19 @@
   font-size: 15px;
 }
 
+/*******************************
+         Footer
+*******************************/
+
+#footer {
+  height: 10vh;
+  margin: auto;
+}
+
+#footer-logo {
+  font-size: 5vw;
+}
+
 @media screen and (min-width: 1200px) {
   #footer-logo {
     font-size: 30px;
@@ -127,6 +145,10 @@
   }
 }
 
+/*******************************
+         Sidebarmenu
+*******************************/
+
 #menu-sidebar {
   z-index: 4001;
   background-color: #F2711C;
@@ -134,10 +156,4 @@
 
 #menu-sidebar-grid {
   height: 100%!important;
-}
-
-@media screen and (min-width: 900px) {
-  .popup-content {
-    width: 50% !important;
-    }
 }
