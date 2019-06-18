@@ -37,7 +37,7 @@
 
 .chooseFileButton.show-button {
   border-radius: 0px;
-  background: grey;
+  background: #D5D9D8;
 }
 
 .fileContainer {
@@ -57,20 +57,31 @@
   border: none !important;
   padding: 0px !important;
   width: 70% !important;
+  border-radius: 20px
 }
 
 .play {
-  border: 5px solid green !important;
-  border-radius: 0px !important;
+  border: 3px solid #cd9903 !important;
+  border-radius: 20px !important;
 }
 
 .work {
-  border: 5px solid red !important;
-  border-radius: 0px !important;
+  border: 3px solid #00b5ad !important;
+  border-radius: 20px !important;
+}
+
+#upload-button {
+  border-radius: 30px;
 }
 
 .fileContainer .uploadPictureContainer {
   width: 80% !important;
+  padding: 0px;
+}
+
+.fileContainer .deleteImage {
+  background: grey;
+  font-size: 15px;
 }
 
 @media screen and (min-width: 1200px) {

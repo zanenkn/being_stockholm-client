@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Icon, Message, Segment } from 'semantic-ui-react';
+import { Form, Button, Icon, Message, Segment, Container } from 'semantic-ui-react';
 import axios from 'axios';
 import ImageUploader from 'react-images-upload'
 
@@ -118,69 +118,73 @@ class PostForm extends Component {
     const { activeItem } = this.state
     return (
       <>
+
         <Segment textAlign='center'
           className={this.state.activeItem}>
-          <h3>Upload you post!</h3>
+          <h3>Add a photo</h3>
           <p>{message}</p>
+          <Container>
 
-          <ImageUploader
-            buttonText={
-              <div>
-              <p id="add-photo-headline">Add Image</p>
-              <Icon id="add-photo-icon" name="image outline" size="huge"></Icon>
-              <p id="add-photo-label">Maximum image file size: 5 MB, Accepted image types: JPG</p>
-              </div>
-            }
-            buttonClassName={this.state.button}
-            withLabel={false}
-            withIcon={false}
-            withPreview={true}
-            singleImage={true}
-            onChange={this.onImageDropHandler}
-            imgExtension={['.jpg']}
-            maxFileSize={5242880}
-          />
-
-          <Form type='medium' id={this.state.form}>
-            <Form.Input
-              required
-              id="caption"
-              value={this.state.caption}
-              onChange={this.onChangeHandler}
-              placeholder="Write your caption here"
+            <ImageUploader
+              buttonText={
+                <div>
+                  <p id="add-photo-headline">Add Image</p>
+                  <Icon id="add-photo-icon" name="image outline" size="huge"></Icon>
+                  <p id="add-photo-label">Maximum image file size: 5 MB, Accepted image types: JPG</p>
+                </div>
+              }
+              buttonClassName={this.state.button}
+              withLabel={false}
+              withIcon={false}
+              withPreview={true}
+              singleImage={true}
+              onChange={this.onImageDropHandler}
+              imgExtension={['.jpg']}
+              maxFileSize={5242880}
             />
-          </Form>
 
-          <p id="location">
-            <Icon
-              name='map marker alternate' />
-            Södermalm, Swedenborgsgatan</p>
+            <Form type='medium' id={this.state.form}>
+              <Form.Input
+                required
+                id="caption"
+                value={this.state.caption}
+                onChange={this.onChangeHandler}
+                placeholder="Write your caption here"
+              />
+            </Form>
+            <br></br>
+            <p id="location">
+              <Icon
+                name='map marker alternate' />
+              Södermalm, Swedenborgsgatan</p>
 
-          <Button.Group
-            id={this.state.toggle}
-            toggle={true}
-            inverted={true}>
-            <Button
-              id='work'
-              basic color='red'
-              active={activeItem === 'work'}
-              value='work'
-              onClick={this.handleChangeCategory}>
-              WORK
+            <Button.Group
+              id={this.state.toggle}
+              toggle={true}
+              inverted={true}>
+              <Button
+                id='work'
+                basic color='teal'
+                active={activeItem === 'work'}
+                value='work'
+                onClick={this.handleChangeCategory}>
+                WORK
           </Button>
 
-            <Button
-              id='play'
-              basic color='green'
-              active={activeItem === 'play'}
-              value='play'
-              onClick={this.handleChangeCategory}>
-              PLAY
+              <Button
+                id='play'
+                basic color='yellow'
+                active={activeItem === 'play'}
+                value='play'
+                onClick={this.handleChangeCategory}>
+                PLAY
             </Button>
-          </Button.Group>
+            </Button.Group>
+            <br></br>
+            <br></br>
 
-          <Button id="upload-button" onClick={this.uploadPost}>MAP IT!</Button>
-
+            <Button id="upload-button" onClick={this.uploadPost}>MAP IT!</Button>
+          </Container>
         </Segment>
       </>
     )
