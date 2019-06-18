@@ -121,7 +121,6 @@ class PostForm extends Component {
         <Segment
           className={this.state.activeItem}>
           <h3>Upload you post!</h3>
-          <p>Images must have geotaging infomration available. If not, you can use an online service (like <a href='https://www.photo-location.net/' target='_blank' rel='noopener noreferrer'>this</a> or <a href='https://www.geoimgr.com/' target='_blank' rel='noopener noreferrer'>this</a>) to geotag your images before uploading.</p>
           <p>{message}</p>
 
           <Button.Group
@@ -154,7 +153,7 @@ class PostForm extends Component {
               buttonClassName={this.state.button}
               withIcon={false}
               withLabel={true}
-              label={'Maximum image file size: 5 MB, Accepted image types: JPG'}
+              label={'Maximum image file size: 5 MB, Accepted image types: JPG, Images must have geotaging infomration available'}
               withPreview={true}
               singleImage={true}
               onChange={this.onImageDropHandler}
