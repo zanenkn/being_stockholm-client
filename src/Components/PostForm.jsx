@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Icon, Message } from 'semantic-ui-react';
+import { Form, Button, Icon, Message, Segment } from 'semantic-ui-react';
 import axios from 'axios';
 import ImageUploader from 'react-images-upload'
 
@@ -118,25 +118,29 @@ class PostForm extends Component {
     const { activeItem } = this.state
     return (
       <>
+     <Segment 
+     className = { this.state.activeItem }
+     >
         <h3>Upload you post!</h3>
         <p>Images must have geotaging infomration available. If not, you can use an online service (like <a href='https://www.photo-location.net/' target='_blank' rel='noopener noreferrer'>this</a> or <a href='https://www.geoimgr.com/' target='_blank' rel='noopener noreferrer'>this</a>) to geotag your images before uploading.</p>
         <p>{message}</p>
 
         <Button.Group
           id={this.state.toggle}
-          color='orange'
           toggle={true}
           inverted={true}>
           <Button
             id='work'
+            basic color='red'
             active={activeItem === 'work'}
             value='work'
             onClick={this.handleChangeCategory}>
             WORK
-            </Button>
+          </Button>
 
           <Button
             id='play'
+            basic color='green'
             active={activeItem === 'play'}
             value='play'
             onClick={this.handleChangeCategory}>
@@ -175,6 +179,7 @@ class PostForm extends Component {
           <Button id="upload-button">Upload</Button>
 
         </Form>
+        </Segment>
       </>
     )
   }
