@@ -21,14 +21,10 @@ class Map extends Component {
     axios.get('/api/v1/posts').then(response => {
       console.log(response)
       this.setState({ posts: response.data });
-    });   
+    });
   }
 
   render() {
-
-    this.state.posts.map(post=> {
-
-    })
 
     return (
 
@@ -44,16 +40,15 @@ class Map extends Component {
           bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY_GOOGLE_MAPS }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
-          options={{ styles: MapStyle }}
-        >
-        {this.state.posts.map(post => (
-          <Icon name='circle' 
-            lat={post.latitude}
-            lng={post.longitude}
-            id={`post_${post.id}`}
-            color={(post.category === 'work')? 'teal' : 'yellow'}
-          />
-        ))}
+          options={{ styles: MapStyle }}>
+
+          {this.state.posts.map(post => (
+            <Icon name='circle'
+              lat={post.latitude}
+              lng={post.longitude}
+              id={`post_${post.id}`}
+              color={(post.category === 'work') ? 'teal' : 'yellow'} />
+          ))}
 
         </GoogleMapReact>
       </div>

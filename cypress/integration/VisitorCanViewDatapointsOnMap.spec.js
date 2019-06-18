@@ -40,9 +40,5 @@ describe('Visitor can view on the map', () => {
         cy.get(post).should('have.class', 'yellow')
         })
     })
-  
-    //Test that we find datapoints on the map (cy.get the correct Div Id?)
-    //Test that datapoints are in the right position on the map?
-    //Test that datapoints have the right color, based on category?
-
+    
 })
