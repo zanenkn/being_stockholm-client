@@ -1,23 +1,19 @@
 describe('Visitor can', () => {
+
   beforeEach(function () {
     cy.server();
     cy.route({
       method: 'POST',
       url: 'http://localhost:3002/api/v1/posts',
-      response: 'fixture:create_post_success.json'
-    })
-    cy.route({
-      method: 'GET',
-      url: 'http://localhost:3002/api/v1/posts/1',
-      response: 'fixture:full_post.json',
+      response: 'fixture:create_post_success.json',
       status: 200
     })
-    cy.route({
-      method: 'GET',
-      url: 'http://localhost:3002/api/v1/posts',
-      response: 'fixture:kittens.jpg',
-      status: 200
-    })
+  //  cy.route({
+   //   method: 'POST',
+   //   url: 'http://localhost:3002/api/v1/posts',
+  //    response: 'fixture:kittens.jpg',
+  //    status: 200
+//    })
     cy.visit('http://localhost:3000')
     cy.get('#map-icon-plus').click()
   })
@@ -25,46 +21,18 @@ describe('Visitor can', () => {
   it('create post successfully', () => {
 
     cy.contains('Upload you post!')
-
-    let form = [
-      ["#caption", "Swedenborgsgatan great summer street!"]
-    ]
-
-    form.forEach(element => {
-      cy.get(element[0]).type(element[1])
-    })
-
-    // cy.get('#create-post > .fileUploader > .fileContainer > .chooseFileButton').click()
-    // cy.get('input[type=file]')
- 
-    // // cy.get('#create-post > .fileUploader > .fileContainer > input').click()
- 
-    // cy.contains('fixtures/kittens.jpg')
-
-    // cy.get('#create-post > .fileUploader > .fileContainer > .chooseFileButton').click()
-    // cy.get('.popup-content > #create-post > .fileUploader > .fileContainer > input').click()
-    // cy.get('#create-post > .fileUploader > .fileContainer > input').contains('cypress/fixtures/kittens.jpg')
- 
-    // cy.get('.fileContainer > .uploadPicturesWrapper > div > .uploadPictureContainer > .deleteImage').click()
- 
-    // cy.get('#create-post > .fileUploader > .fileContainer > .chooseFileButton').click()
- 
-    // cy.get('#create-post > .fileUploader > .fileContainer > input').click()
- 
-    // cy.get('#create-post > .fileUploader > .fileContainer > input').type('./fixtures/kittens.jpg')
- 
- 
-    cy.get('#caption').type('hello')
-    cy.get('#upload-button').click()
-
+    cy.contains('Images must have geotaging infomration available. If not, you can use an online service')
+    cy.get('#caption').type('Swedenborgsgatan great summer street!')
     cy.get('#play').should('have.class', 'active')
-    cy.get('#work').click().should('have.class', 'active')
     cy.get('#upload-button').click()
+    cy.contains('Thank you for sharing your picture! Your post is sent for review and will soon be uploaded!')
+  })
 
-    let text = ["Thank you for sharing your picture! Your post will soon be uploaded!"]
+  it('not create post if image is not uploaded and/or caption is over 140 characters long', () => {
 
-    text.forEach(contain => {
-      cy.contains(contain)
-    })
+    cy.contains('Upload you post!')
+    cy.contains('Images must have geotaging infomration available. If not, you can use an online service')
+    cy.get('#caption').type('This is a very long caption and i should get an error message if I write it in the caption field! This is a very long caption and i should get an error message if I write it in the caption field!')
+    cy.get('#upload-button').click()
   })
 })
