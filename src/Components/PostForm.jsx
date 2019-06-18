@@ -120,7 +120,7 @@ class PostForm extends Component {
         <p>Images must have geotaging infomration available. If not, you can use an online service (like <a href='https://www.photo-location.net/' target='_blank' rel='noopener noreferrer'>this</a> or <a href='https://www.geoimgr.com/' target='_blank' rel='noopener noreferrer'>this</a>) to geotag your images before uploading.</p>
         <p>{message}</p>
 
-        <Form type='medium' id={this.state.form}>
+        <Form type='medium' id={this.state.form} onSubmit={this.onSubmit}>
 
           <ImageUploader
             buttonText={'Upload your picture'}
@@ -135,9 +135,13 @@ class PostForm extends Component {
             maxFileSize={5242880}
           />
 
-          <p id="location"><Icon name='map marker alternate' />Södermalm, Swedenborgsgatan</p>
+          <p id="location">
+            <Icon
+              name='map marker alternate' />
+            Södermalm, Swedenborgsgatan</p>
 
           <Form.Input
+            required
             id="caption"
             value={this.state.caption}
             onChange={this.onChangeHandler}
@@ -165,7 +169,7 @@ class PostForm extends Component {
             </Button>
           </Button.Group>
 
-          <Button id="upload-button" onClick={this.onSubmit}>Upload</Button>
+          <Button id="upload-button">Upload</Button>
         </Form>
       </>
     )
