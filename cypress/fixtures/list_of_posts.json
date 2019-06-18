@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "status": "pending",
+    "latitude": 59.330651,
+    "longitude": 18.068562,
+    "category": "work"
+  },
+  {
+    "id": 2,
+    "status": "pending",
+    "latitude": 59.315749,
+    "longitude": 18.064151,
+    "category": "play"
+  },
+  {
+    "id": 3,
+    "status": "pending",
+    "latitude": 59.329051,
+    "longitude": 18.046244,
+    "category": "work"
+  },
+  {
+    "id": 4,
+    "status": "pending",
+    "latitude": 59.357546,
+    "longitude": 18.013345,
+    "category": "play"
+  },
+  {
+    "id": 5,
+    "status": "pending",
+    "latitude": 59.345836,
+    "longitude": 18.073531,
+    "category": "work"
+  }
+]
