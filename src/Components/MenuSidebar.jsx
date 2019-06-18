@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Grid, Header, Segment, Sidebar } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
-const HorizontalSidebar = ({ visible }) => (
+const VerticalSidebar = ({ visible }) => (
   <Sidebar
     id='menu-sidebar'
     as={Segment}
@@ -73,7 +73,7 @@ const HorizontalSidebar = ({ visible }) => (
   </Sidebar>
 )
 
-HorizontalSidebar.propTypes = {
+VerticalSidebar.propTypes = {
   visible: PropTypes.bool,
 }
 
@@ -83,7 +83,7 @@ export default class MenuSidebar extends Component {
 
     return (
       <>
-        <HorizontalSidebar visible={this.props.visible} />
+        <VerticalSidebar visible={this.props.visible} />
       </>
     )
   }

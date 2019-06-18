@@ -1,7 +1,28 @@
 import React, { Component } from 'react'
-import { Form, Button, Icon, Message, Segment, Container } from 'semantic-ui-react';
+import { Form, Button, Icon, Message, Segment, Container, Sidebar } from 'semantic-ui-react';
 import axios from 'axios';
 import ImageUploader from 'react-images-upload'
+import MessageTopSidebar from './MessageTopSidebar';
+import PropTypes from 'prop-types'
+
+const TopSidebar = ({ visible, message }) => (
+  <Sidebar
+    id='message-topsidebar'
+    as={Segment}
+    animation='overlay'
+    direction='top'
+    visible={visible}>
+ 
+    <p>{message}</p>
+    
+  </Sidebar>
+)
+
+TopSidebar.propTypes = {
+  visible: PropTypes.bool,
+  message: PropTypes.string,
+}
+
 
 class PostForm extends Component {
   state = {
@@ -17,7 +38,8 @@ class PostForm extends Component {
     activeItem: 'play',
     button: 'show-button',
     form: 'show-form',
-    toggle: 'show-toggle'
+    toggle: 'show-toggle',
+    messageVisible: false,
   }
 
   onChangeHandler = (e) => {
@@ -52,14 +74,21 @@ class PostForm extends Component {
           showPostForm: false,
           errorMessage: false,
           form: 'hide-form',
-          toggle: 'hide-toggle'
+          toggle: 'hide-toggle',
+          messageVisible: true,
         })
       })
       .catch(error => {
         this.setState({
           errorMessage: true,
+          messageVisible: true,
           errors: error.response.data.error
         })
+        
+        // if (this.state.messageVisible === true) {
+        //   setTimeout(function () {this.state.messageVisible= false}, 2000 )
+        // }
+
       })
   }
 
@@ -67,14 +96,22 @@ class PostForm extends Component {
     this.setState({ category: e.target.value, activeItem: e.target.value })
   }
 
+  handleMessageVisibility = animation => () =>
+    this.setState(prevState => ({ animation, messageVisible: !prevState.messageVisible })
+    )
+
+
   render() {
     let message
 
     if (this.state.successMessage === true) {
       message = (
+        <>
         <Message color="green">
           Thank you for sharing your picture! Your post is sent for review and will soon be uploaded! Click on the map in the background to continue.
         </Message>
+        <Button onClick={this.handleMessageVisibility('overlay')}>Close</Button>
+        </>
       )
     }
 
@@ -91,6 +128,7 @@ class PostForm extends Component {
               <li>You need to upload an image</li>
             </ul>
           </Message>
+          <Button onClick={this.handleMessageVisibility('overlay')}>Close</Button>
         </>
       )
     }
@@ -107,6 +145,7 @@ class PostForm extends Component {
               ))}
             </ul>
           </Message>
+          <Button onClick={this.handleMessageVisibility('overlay')}>Close</Button>
         </>
       )
     }
@@ -116,15 +155,32 @@ class PostForm extends Component {
     }
 
     const { activeItem } = this.state
+
+    // let closeButton
+    // if (this.state.messageVisible === true) {
+    //   closeButton = (
+    //     <Button onClick={this.handleMessageVisibility('overlay')}>Close</Button>
+    //   )
+    // }
+
     return (
       <>
 
-        <Segment textAlign='center'
+        <Sidebar.Pushable as={Segment} textAlign='center'
           className={this.state.activeItem}>
-          <h3>Add a photo</h3>
-          <p>{message}</p>
-          <Container>
 
+          {/* <div id="close-button">
+            {closeButton}
+          </div> */}
+
+          <TopSidebar
+            message={message}
+            visible={this.state.messageVisible}
+          />
+
+          <h3>Add a photo</h3>
+
+          <Container>
             <ImageUploader
               buttonText={
                 <div>
@@ -152,7 +208,7 @@ class PostForm extends Component {
                 placeholder="Write your caption here"
               />
             </Form>
-        
+
             <p id="location">
               <Icon
                 name='map marker alternate' />
@@ -170,7 +226,7 @@ class PostForm extends Component {
                 onClick={this.handleChangeCategory}>
                 WORK
           </Button>
-              
+
               <Button
                 id='play'
                 basic color='yellow'
@@ -184,8 +240,11 @@ class PostForm extends Component {
             <br></br>
 
             <Button id="upload-button" onClick={this.uploadPost}>MAP IT!</Button>
+            <br></br>
+            <br></br>
           </Container>
-        </Segment>
+
+        </Sidebar.Pushable>
       </>
     )
   }

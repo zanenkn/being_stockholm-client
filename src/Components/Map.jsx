@@ -5,7 +5,6 @@ import { Icon } from 'semantic-ui-react';
 import Popup from 'reactjs-popup';
 import PostForm from './PostForm'
 
-// const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Map extends Component {
   static defaultProps = {
@@ -17,7 +16,6 @@ class Map extends Component {
   };
 
   render() {
-
     return (
 
       <div id='map'>
@@ -37,7 +35,7 @@ class Map extends Component {
           position="right center"
         >
           <>
-            <PostForm />
+            <PostForm/>
           </>
         </Popup>
 
@@ -48,11 +46,6 @@ class Map extends Component {
           defaultZoom={this.props.zoom}
           options={{ styles: MapStyle }}
         >
-          {/* <AnyReactComponent
-            lat={59.330651}
-            lng={18.068562}
-            text="Hello Sthml!"
-          /> */}
 
         </GoogleMapReact>
       </div>

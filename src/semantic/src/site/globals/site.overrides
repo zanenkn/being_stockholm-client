@@ -32,6 +32,10 @@
     }
 }
 
+#close-button {
+  z-index: 6000;
+}
+
 .hide-button {
   display: none;
 }
@@ -64,7 +68,7 @@
 }
 
 #location {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 #hide-toggle {
