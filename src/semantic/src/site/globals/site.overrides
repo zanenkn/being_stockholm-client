@@ -32,16 +32,22 @@
     }
 }
 
+#upload-post-wrapper {
+  padding: 1rem;
+}
+
 #message-topsidebar-success {
   background-color: #21ba45;
   color: #FFFFFF !important;
   font-size: 12px;
+  padding: 8px;
 }
 
 #message-topsidebar-error {
   background-color: #f2711c;
   color: #FFFFFF !important;
   font-size: 12px;
+  padding: 8px;
 }
 
 #message-error-list {
@@ -68,7 +74,11 @@
 }
 
 .chooseFileButton.show-button:hover {
-  background-color: grey;
+  background-color: #C2C1C0;
+}
+
+.chooseFileButton.show-button:active {
+  background-color: #C2C1C0;
 }
 
 .fileContainer {
@@ -82,7 +92,7 @@
   padding-left: 0.2rem !important;
   padding-right: 0.2rem !important;
   border-radius: 0px !important;
-  margin: 0rem 1rem 1rem 1rem;
+  margin: 0rem 0.5rem 1rem 0.5rem;
 }
 
 #location {
@@ -107,12 +117,12 @@
 }
 
 .play {
-  border: 3px solid #cd9903 !important;
+  border: 4px solid #cd9903 !important;
   border-radius: 20px !important;
 }
 
 .work {
-  border: 3px solid #00b5ad !important;
+  border: 4px solid #00b5ad !important;
   border-radius: 20px !important;
 }
 

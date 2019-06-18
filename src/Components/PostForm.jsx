@@ -1,23 +1,22 @@
 import React, { Component } from 'react'
-import { Form, Button, Icon, Message, Segment, Container, Sidebar, Divider } from 'semantic-ui-react';
+import { Form, Button, Icon, Header, Segment, Container, Sidebar, Divider } from 'semantic-ui-react';
 import axios from 'axios';
 import ImageUploader from 'react-images-upload'
-import MessageTopSidebar from './MessageTopSidebar';
 import PropTypes from 'prop-types'
 
 const TopSidebar = ({ visible, message, successMessage, closeButton }) => (
   <>
-  <Sidebar
-    id={(successMessage=== true) ? 'message-topsidebar-success' : 'message-topsidebar-error'}
-    as={Segment}
-    animation='overlay'
-    direction='top'
-    visible={visible}>
- 
-    <p>{message}</p>
-    {closeButton}
-  </Sidebar>
-  
+    <Sidebar
+      id={(successMessage === true) ? 'message-topsidebar-success' : 'message-topsidebar-error'}
+      as={Segment}
+      animation='overlay'
+      direction='top'
+      visible={visible}>
+
+      <p>{message}</p>
+      {closeButton}
+    </Sidebar>
+
   </>
 )
 
@@ -105,7 +104,8 @@ class PostForm extends Component {
     if (this.state.successMessage === true) {
       message = (
         <>
-          Thank you for sharing your picture! Your post is sent for review and will soon be uploaded! Click on the map in the background to continue.
+          <h5>Thank you for sharing your picture!</h5>
+          <p>Your post is sent for review and will soon be uploaded! Click on the map in the background to continue.</p>
         </>
       )
     }
@@ -113,13 +113,13 @@ class PostForm extends Component {
     if (this.state.errorMessage === true && this.state.image.length === 0) {
       message = (
         <>
-            <p>Your post could not be created since:</p>
-            <ul id="message-error-list">
-              {this.state.errors.map(error => (
-                <li key={error}>{error}</li>
-              ))}
-              <li>You need to upload an image</li>
-            </ul>
+          <p>Your post could not be created since:</p>
+          <ul id="message-error-list">
+            {this.state.errors.map(error => (
+              <li key={error}>{error}</li>
+            ))}
+            <li>You need to upload an image</li>
+          </ul>
         </>
       )
     }
@@ -127,12 +127,12 @@ class PostForm extends Component {
     if (this.state.errorMessage === true && this.state.image.length !== 0) {
       message = (
         <>
-            <p>Your post could not be created since:</p>
-            <ul id="message-error-list">
-              {this.state.errors.map(error => (
-                <li key={error}>{error}</li>
-              ))}
-            </ul>
+          <p>Your post could not be created since:</p>
+          <ul id="message-error-list">
+            {this.state.errors.map(error => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
         </>
       )
     }
@@ -144,16 +144,16 @@ class PostForm extends Component {
     const { activeItem } = this.state
 
     let closeButton
-    
-    if (this.state.successMessage=== false) {
+    if (this.state.successMessage === false) {
       closeButton = (
-        <Button 
+        <Button
           id='close-topsidebar-error'
           onClick={this.handleMessageVisibility('overlay')}
-          >
+        >
           Close
         </Button>
-    )}
+      )
+    }
 
     return (
       <>
@@ -167,73 +167,75 @@ class PostForm extends Component {
             successMessage={this.state.successMessage}
             closeButton={closeButton}
           />
-          
-          <h3>Add a photo</h3>
 
-          <Container>
-            <ImageUploader
-              buttonText={
-                <div>
-                  <p id="add-photo-headline">Add Image</p>
-                  <Icon id="add-photo-icon" name="image outline" size="huge"></Icon>
-                  <p id="add-photo-label">Maximum image file size: 5 MB, Accepted image types: JPG</p>
-                </div>
-              }
-              buttonClassName={this.state.button}
-              withLabel={false}
-              withIcon={false}
-              withPreview={true}
-              singleImage={true}
-              onChange={this.onImageDropHandler}
-              imgExtension={['.jpg']}
-              maxFileSize={5242880}
-            />
+          <Sidebar.Pusher dimmed={this.state.messageVisible}>
 
-            <Form size="mini" type='medium' id={this.state.form}>
-              <Form.Input
-                required
-                id="caption"
-                value={this.state.caption}
-                onChange={this.onChangeHandler}
-                placeholder="Write your caption here"
+            <Container id="upload-post-wrapper">
+
+              <Header as='h3'>Add a photo</Header>
+
+              <ImageUploader
+                buttonText={
+                  <div>
+                    <p id="add-photo-headline">Add Image</p>
+                    <Icon id="add-photo-icon" name="image outline" size="huge"></Icon>
+                    <p id="add-photo-label">Maximum image file size: 5 MB, Accepted image types: JPG</p>
+                  </div>
+                }
+                buttonClassName={this.state.button}
+                withLabel={false}
+                withIcon={false}
+                withPreview={true}
+                singleImage={true}
+                onChange={this.onImageDropHandler}
+                imgExtension={['.jpg']}
+                maxFileSize={5242880}
               />
-            </Form>
 
-            <p id="location">
-              <Icon
-                name='map marker alternate' />
-              Södermalm, Swedenborgsgatan</p>
-            <br></br>
-            <Button.Group
-              id={this.state.toggle}
-              toggle={true}
-              inverted={true}>
-              <Button
-                id='work'
-                basic color='teal'
-                active={activeItem === 'work'}
-                value='work'
-                onClick={this.handleChangeCategory}>
-                WORK
+              <Form size="mini" type='medium' id={this.state.form}>
+                <Form.Input
+                  required
+                  id="caption"
+                  value={this.state.caption}
+                  onChange={this.onChangeHandler}
+                  placeholder="Write your caption here"
+                />
+              </Form>
+
+              <p id="location">
+                <Icon
+                  name='map marker alternate' />
+                Södermalm, Swedenborgsgatan</p>
+              <br></br>
+              <Button.Group
+                id={this.state.toggle}
+                toggle={true}
+                inverted={true}>
+                <Button
+                  id='work'
+                  basic color='teal'
+                  active={activeItem === 'work'}
+                  value='work'
+                  onClick={this.handleChangeCategory}>
+                  WORK
           </Button>
 
-              <Button
-                id='play'
-                basic color='yellow'
-                active={activeItem === 'play'}
-                value='play'
-                onClick={this.handleChangeCategory}>
-                PLAY
+                <Button
+                  id='play'
+                  basic color='yellow'
+                  active={activeItem === 'play'}
+                  value='play'
+                  onClick={this.handleChangeCategory}>
+                  PLAY
             </Button>
-            </Button.Group>
-            <br></br>
-            <br></br>
+              </Button.Group>
+              <br></br>
+              <br></br>
 
-            <Button id="upload-button" onClick={this.uploadPost}>MAP IT!</Button>
-            <br></br>
-            <br></br>
-          </Container>
+              <Button id="upload-button" onClick={this.uploadPost}>MAP IT!</Button>
+            </Container>
 
+          </Sidebar.Pusher>
         </Sidebar.Pushable>
       </>
     )
