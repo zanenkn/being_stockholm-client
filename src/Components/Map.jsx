@@ -16,20 +16,29 @@ class Map extends Component {
   };
 
   state = {
-    posts: []
+    posts: [],
+    refreshData: false
   }
 
   componentDidMount() {
     axios.get('/api/v1/posts').then(response => {
       console.log(response)
-      this.setState({ posts: response.data });
+      this.setState({ posts: response.data, refreshData: false });
     });
   }
 
-  refreshPage() {
-    window.location.reload()
+  componentDidUpdate(prevState) {
+    if (prevState.refreshData !== this.state.refreshData) {
+      axios.get('/api/v1/posts').then(response => {
+        console.log(response)
+        this.setState({ posts: response.data, refreshData: false  });
+      });
+    }
   }
 
+  refreshData = () => {
+    this.setState({ refreshData: true })
+  }
 
   render() {
     return (
@@ -49,7 +58,8 @@ class Map extends Component {
           />
         }
           position="right center"
-          onClose={this.refreshPage}
+          closeOnDocumentClick={true}
+          onClose={this.refreshData.bind(this)}
         >
           <>
             <PostForm/>

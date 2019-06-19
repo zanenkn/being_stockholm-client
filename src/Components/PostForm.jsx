@@ -4,6 +4,26 @@ import axios from 'axios';
 import ImageUploader from 'react-images-upload'
 import PropTypes from 'prop-types'
 
+const TopSidebar = ({ visible, message, successMessage, closeButton }) => (
+  <>
+    <Sidebar
+      id={(successMessage === true) ? 'message-topsidebar-success' : 'message-topsidebar-error'}
+      as={Segment}
+      animation='overlay'
+      direction='top'
+      visible={visible}>
+
+      <p>{message}</p>
+      {closeButton}
+    </Sidebar>
+
+  </>
+)
+TopSidebar.propTypes = {
+  visible: PropTypes.bool,
+  message: PropTypes.string,
+  successMessage: PropTypes.bool
+}
 class PostForm extends Component {
   state = {
     caption: '',
@@ -15,24 +35,21 @@ class PostForm extends Component {
     successMessage: false,
     errorMessage: false,
     errors: '',
-    activeItem: 'play', hideTopSidebar = () => this.setState({ visible: false })
+    activeItem: 'play',
     button: 'show-button',
     messageVisible: false,
   }
-
   onChangeHandler = (e) => {
     this.setState({
       [e.target.id]: e.target.value
     })
   }
-
   onImageDropHandler = (pictureFiles, pictureDataURLs) => {
     this.setState({
       image: pictureDataURLs,
       button: 'hide-button'
     })
   }
-
   uploadPost = (e) => {
     e.preventDefault();
     const path = '/api/v1/posts'
@@ -40,8 +57,8 @@ class PostForm extends Component {
       image: this.state.image,
       caption: this.state.caption,
       category: this.state.category,
-      latitude: 59.317985,
-      longitude: 18.065382
+      latitude: 59.330393,
+      longitude: 18.040709
     }
     axios.post(path, payload)
       .then(response => {
@@ -82,7 +99,6 @@ class PostForm extends Component {
         </>
       )
     }
-
     if (this.state.errorMessage === true && this.state.image.length === 0) {
       message = (
         <>
@@ -96,7 +112,6 @@ class PostForm extends Component {
         </>
       )
     }
-
     if (this.state.errorMessage === true && this.state.image.length !== 0) {
       message = (
         <>
@@ -109,13 +124,10 @@ class PostForm extends Component {
         </>
       )
     }
-
     if (this.state.image.length === 0) {
       this.state.button = 'show-button'
     }
-
     const { activeItem } = this.state
-
     let closeButton
     if (this.state.successMessage === false) {
       closeButton = (
@@ -127,42 +139,19 @@ class PostForm extends Component {
         </Button>
       )
     }
-
     return (
       <>
-
         <Sidebar.Pushable as={Segment} textAlign='center'
           className={this.state.activeItem}>
-               
-            <Sidebar
-              id={(successMessage === true) ? 'message-topsidebar-success' : 'message-topsidebar-error'}
-              as={Segment}
-              animation='overlay'
-              direction='top'
-              visible={visible}
-              onHide={this.hideTopSidebar}
-            >
-
-              <p>{message}</p>
-              {closeButton}
-            </Sidebar>
-
-        
-          )
-
-          {/* <TopSidebar
+          <TopSidebar
             message={message}
             visible={this.state.messageVisible}
             successMessage={this.state.successMessage}
             closeButton={closeButton}
-          /> */}
-
+          />
           <Sidebar.Pusher dimmed={this.state.messageVisible}>
-
             <Container id="upload-post-wrapper">
-
               <Header as='h3'>Add a photo</Header>
-
               <ImageUploader
                 buttonText={
                   <div>
@@ -180,7 +169,6 @@ class PostForm extends Component {
                 imgExtension={['.jpg']}
                 maxFileSize={5242880}
               />
-
               <Form size="mini" type='medium'>
                 <Form.Input
                   required
@@ -190,13 +178,11 @@ class PostForm extends Component {
                   placeholder="Write your caption here"
                 />
               </Form>
-
               <p id="location">
                 <Icon
                   name='map marker alternate' />
                 Södermalm, Swedenborgsgatan</p>
               <br></br>
-
               <Button.Group
                 toggle={true}
                 inverted={true}>
@@ -208,7 +194,6 @@ class PostForm extends Component {
                   onClick={this.handleChangeCategory}>
                   WORK
           </Button>
-
                 <Button
                   id='play'
                   basic color='yellow'
@@ -220,15 +205,12 @@ class PostForm extends Component {
               </Button.Group>
               <br></br>
               <br></br>
-
               <Button id="upload-button" onClick={this.uploadPost}>MAP IT!</Button>
             </Container>
-
           </Sidebar.Pusher>
         </Sidebar.Pushable>
       </>
     )
   }
 }
-
 export default PostForm
