@@ -9,12 +9,12 @@ import AboutProject from './Components/AboutProject';
 import Partners from './Components/Partners';
 import GetInTouch from './Components/GetInTouch';
 import LegalInfo from './Components/LegalInfo';
+import { connect } from 'react-redux';
 
 
 class App extends Component {
-  
-  state = {
-    sidebarVisible: false,
+  constructor(props) {
+    super(props);
   }
 
   handleAnimationChange = animation => () =>
@@ -24,8 +24,9 @@ class App extends Component {
     this.setState({ sidebarVisible: false })
   }
 
-  render() {
 
+  render() {
+  
     const MyLogInSignUp = (props) => {
       return (
         <LogInSignUp
@@ -86,14 +87,18 @@ class App extends Component {
             <Route exact path='/legal-info' render={MyLegalInfo}></Route>
           </Switch>
 
-          <MenuSidebar visible={this.state.sidebarVisible} />
-
+          <MenuSidebar visible={this.props.sidebarVisible} />
         </Sidebar.Pushable>
-
         <Footer handleAnimationChange={this.handleAnimationChange} />
       </>
     )
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    state: state
+  }
+}
+
+export default connect(mapStateToProps)(App)

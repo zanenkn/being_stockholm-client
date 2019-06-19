@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Grid, Header } from 'semantic-ui-react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Footer extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
 
@@ -15,7 +19,8 @@ class Footer extends Component {
           textAlign='center'
           verticalAlign='middle'
           width={3}>
-          <svg className='footer-icon' id='footer-menu-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" onClick={this.props.handleAnimationChange('overlay')}><path fill="#F2711C" d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
+            {/* onClick={this.props.handleAnimationChange('overlay')} */}
+          <svg className='footer-icon' id='footer-menu-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"  onClick={() => props.dispatch({ type: 'CHANGE_VISIBILITY', sidebarVisible: true })}><path fill="#F2711C" d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
         </Grid.Column>
 
         <Grid.Column
@@ -46,4 +51,10 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+const mapStateToProps = (state) => {
+  return {
+    state: state
+  }
+}
+
+export default connect(mapStateToProps)(Footer)
