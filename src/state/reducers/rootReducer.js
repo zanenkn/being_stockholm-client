@@ -1,13 +1,8 @@
-import initialState from '../store/initialState'
+import animationReducer from './animationReducer';
+import { combineReducers } from 'redux';
 
-const rootReducer = (state = initialState, action) => {
-  if (action.type === 'CHANGE_VISIBILITY') {
-    return {
-      ...state,
-      sidebarVisible: action.sidebarVisible
-    }
-  } else {
-    return state
-  }
-}
+const rootReducer = combineReducers({
+  animation: animationReducer
+})
+
 export default rootReducer
