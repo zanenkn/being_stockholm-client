@@ -26,6 +26,10 @@ class Map extends Component {
     });
   }
 
+  refreshPage() {
+    window.location.reload()
+  }
+
 
   render() {
     return (
@@ -45,6 +49,7 @@ class Map extends Component {
           />
         }
           position="right center"
+          onClose={this.refreshPage}
         >
           <>
             <PostForm/>

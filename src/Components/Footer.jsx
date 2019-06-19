@@ -3,6 +3,11 @@ import { Grid, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 
 class Footer extends Component {
+
+refreshPage() {
+  window.location.reload()
+}
+
   render() {
     return (
 
@@ -23,6 +28,7 @@ class Footer extends Component {
           width={10}>
 
           <Header
+            onClick={this.refreshPage}
             color='orange'
             id='footer-logo'
             as={Link}
