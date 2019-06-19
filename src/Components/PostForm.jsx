@@ -40,8 +40,8 @@ class PostForm extends Component {
     errors: '',
     activeItem: 'play',
     button: 'show-button',
-    form: 'show-form',
-    toggle: 'show-toggle',
+    // form: 'show-form',
+    // toggle: 'show-toggle',
     messageVisible: false,
   }
 
@@ -75,8 +75,6 @@ class PostForm extends Component {
           successMessage: true,
           showPostForm: false,
           errorMessage: false,
-          form: 'hide-form',
-          toggle: 'hide-toggle',
           messageVisible: true,
         })
       })
@@ -192,7 +190,7 @@ class PostForm extends Component {
                 maxFileSize={5242880}
               />
 
-              <Form size="mini" type='medium' id={this.state.form}>
+              <Form size="mini" type='medium'>
                 <Form.Input
                   required
                   id="caption"
@@ -207,8 +205,8 @@ class PostForm extends Component {
                   name='map marker alternate' />
                 Södermalm, Swedenborgsgatan</p>
               <br></br>
+
               <Button.Group
-                id={this.state.toggle}
                 toggle={true}
                 inverted={true}>
                 <Button
