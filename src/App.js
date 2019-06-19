@@ -5,28 +5,14 @@ import Map from './Components/Map'
 import MenuSidebar from './Components/MenuSidebar';
 import { Switch, Route } from 'react-router-dom'
 import LogInSignUp from './Components/LogInSignUp';
-// import AboutProject from './Components/AboutProject';
-// import Partners from './Components/Partners';
-// import GetInTouch from './Components/GetInTouch';
-// import LegalInfo from './Components/LegalInfo';
+import AboutProject from './Components/AboutProject';
+import Partners from './Components/Partners';
+import GetInTouch from './Components/GetInTouch';
+import LegalInfo from './Components/LegalInfo';
 import { connect } from 'react-redux'
 
-
 class App extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-  
-
-
-  handleAnimationChange = animation => () => {
-    this.setState(prevState => ({ animation, sidebarVisible: !prevState.sidebarVisible }))
-    //store.dispatch({ type: 'CHANGE_VISIBILITY', sidebarVisible: this.state.sidebarVisible })
-  }
   render() {
-
-    
     return (
       <>
         <Sidebar.Pushable
@@ -35,27 +21,19 @@ class App extends Component {
 
           <Switch>
             <Route exact path='/' component={Map}></Route>
-            <Route exact path='/log-in' component={() => <LogInSignUp sidebarVisible={this.props.sidebarVisible}/>}></Route>
-            {/* <Route exact path='/about' render={MyAbout}></Route>
-            <Route exact path='/contact' render={MyGetInTouch}></Route>
-            <Route exact path='/partnerds' render={MyPartners}></Route>
-            <Route exact path='/legal-info' render={MyLegalInfo}></Route> */}
+            <Route exact path='/log-in' component={LogInSignUp}></Route>
+            <Route exact path='/about' component={AboutProject}></Route>
+            <Route exact path='/contact' component={GetInTouch}></Route>
+            <Route exact path='/partnerds' component={Partners}></Route>
+            <Route exact path='/legal-info' component={LegalInfo}></Route>
           </Switch>
 
-          <MenuSidebar visible={this.props.state.sidebarVisible} />
-
+          <MenuSidebar/>
         </Sidebar.Pushable>
-
-        <Footer handleAnimationChange={this.handleAnimationChange} />
+        <Footer />
       </>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    state: state
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default connect()(App)
