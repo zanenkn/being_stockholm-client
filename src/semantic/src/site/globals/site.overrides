@@ -23,7 +23,7 @@
 }
 
 /*******************************
-        Popup Upload Post
+  Popup - Create Image Entry
 *******************************/
 
 @media screen and (min-width: 900px) {
@@ -33,7 +33,11 @@
 }
 
 #upload-post-wrapper {
-  padding: 1rem;
+  padding: 0.7rem;
+}
+
+#upload-post-header {
+  margin: 0 0 0 0;
 }
 
 #message-topsidebar-success {
@@ -119,17 +123,24 @@
 .play {
   border: 4px solid #cd9903 !important;
   border-radius: 20px !important;
-  font-size: 12px;
 }
 
 .work {
   border: 4px solid #00b5ad !important;
   border-radius: 20px !important;
-  font-size: 12px;
+}
+
+#play {
+  font-size: 12px !important;
+}
+
+#work {
+  font-size: 12px !important;
 }
 
 #upload-button {
   border-radius: 30px;
+  margin: 1rem 0 0 0;
 }
 
 .fileContainer .uploadPictureContainer {

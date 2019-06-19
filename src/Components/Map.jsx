@@ -43,7 +43,7 @@ class Map extends Component {
             id='map-icon-plus'
           />
         }
-          position="right center"
+          position="top center"
           closeOnDocumentClick={true}
         >
           <>

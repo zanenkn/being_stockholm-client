@@ -87,7 +87,7 @@ class CreateImageEntry extends Component {
 
           <Sidebar.Pusher dimmed={this.state.messageVisible}>
             <Container id="upload-post-wrapper">
-              <Header as='h3'>Add a photo</Header>
+              <Header id="upload-post-header" as='h3'>Add a photo</Header>
               <ImageUploader
                 buttonText={
                   <div>
@@ -139,7 +139,6 @@ class CreateImageEntry extends Component {
                   PLAY
             </Button>
               </Button.Group>
-              <br></br>
               <br></br>
               <Button id="upload-button" onClick={this.uploadPost}>MAP IT!</Button>
             </Container>
