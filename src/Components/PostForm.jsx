@@ -4,29 +4,6 @@ import axios from 'axios';
 import ImageUploader from 'react-images-upload'
 import PropTypes from 'prop-types'
 
-const TopSidebar = ({ visible, message, successMessage, closeButton }) => (
-  <>
-    <Sidebar
-      id={(successMessage === true) ? 'message-topsidebar-success' : 'message-topsidebar-error'}
-      as={Segment}
-      animation='overlay'
-      direction='top'
-      visible={visible}>
-
-      <p>{message}</p>
-      {closeButton}
-    </Sidebar>
-
-  </>
-)
-
-TopSidebar.propTypes = {
-  visible: PropTypes.bool,
-  message: PropTypes.string,
-  successMessage: PropTypes.bool
-}
-
-
 class PostForm extends Component {
   state = {
     caption: '',
@@ -38,7 +15,7 @@ class PostForm extends Component {
     successMessage: false,
     errorMessage: false,
     errors: '',
-    activeItem: 'play',
+    activeItem: 'play', hideTopSidebar = () => this.setState({ visible: false })
     button: 'show-button',
     messageVisible: false,
   }
@@ -156,13 +133,29 @@ class PostForm extends Component {
 
         <Sidebar.Pushable as={Segment} textAlign='center'
           className={this.state.activeItem}>
+               
+            <Sidebar
+              id={(successMessage === true) ? 'message-topsidebar-success' : 'message-topsidebar-error'}
+              as={Segment}
+              animation='overlay'
+              direction='top'
+              visible={visible}
+              onHide={this.hideTopSidebar}
+            >
 
-          <TopSidebar
+              <p>{message}</p>
+              {closeButton}
+            </Sidebar>
+
+        
+          )
+
+          {/* <TopSidebar
             message={message}
             visible={this.state.messageVisible}
             successMessage={this.state.successMessage}
             closeButton={closeButton}
-          />
+          /> */}
 
           <Sidebar.Pusher dimmed={this.state.messageVisible}>
 
