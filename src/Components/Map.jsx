@@ -3,6 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import MapStyle from '../Modules/MapStyle'
 import { Icon } from 'semantic-ui-react';
 import axios from 'axios'
+import { connect } from 'react-redux'
 
 class Map extends Component {
   static defaultProps = {
@@ -28,7 +29,8 @@ class Map extends Component {
 
     return (
 
-      <div id='map'>
+      <div id='map'
+      onClick={() => this.props.dispatch({ type: 'HIDE_SIDEBAR'})}>
 
         <Icon
           id='map-icon-plus'
@@ -56,4 +58,4 @@ class Map extends Component {
   }
 }
 
-export default Map;
+export default connect()(Map);
