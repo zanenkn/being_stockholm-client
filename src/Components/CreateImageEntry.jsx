@@ -2,38 +2,15 @@ import React, { Component } from 'react'
 import { Form, Button, Icon, Header, Segment, Container, Sidebar } from 'semantic-ui-react';
 import axios from 'axios';
 import ImageUploader from 'react-images-upload'
-import ImageUploadMessage from './ImageUploadMessage'
+import ImageEntryMessage from './ImageEntryMessage'
 
-// const TopSidebar = ({ visible, message, successMessage, closeButton }) => (
-//   <>
-//     <Sidebar
-//       id={(successMessage === true) ? 'message-topsidebar-success' : 'message-topsidebar-error'}
-//       as={Segment}
-//       animation='overlay'
-//       direction='top'
-//       visible={visible}>
-
-//       <p>{message}</p>
-//       {closeButton}
-//     </Sidebar>
-//   </>
-// )
-// TopSidebar.propTypes = {
-//   visible: PropTypes.bool,
-//   message: PropTypes.string,
-//   successMessage: PropTypes.bool
-// }
-
-
-
-class PostForm extends Component {
+class CreateImageEntry extends Component {
   state = {
     caption: '',
     image: '',
     longitude: '',
     latitude: '',
     category: 'play',
-    showPostForm: true,
     successMessage: false,
     errorMessage: false,
     errors: '',
@@ -41,6 +18,7 @@ class PostForm extends Component {
     button: 'show-button',
     messageVisible: false,
   }
+
   onChangeHandler = (e) => {
     this.setState({
       [e.target.id]: e.target.value
@@ -66,7 +44,6 @@ class PostForm extends Component {
       .then(response => {
         this.setState({
           successMessage: true,
-          showPostForm: false,
           errorMessage: false,
           messageVisible: true,
         })
@@ -85,46 +62,10 @@ class PostForm extends Component {
   }
 
   handleMessageVisibility = animation => () =>
-    this.setState(prevState => ({ animation, messageVisible: !prevState.messageVisible })
-    )
-
+    this.setState(prevState => ({ animation, messageVisible: !prevState.messageVisible }))
 
   render() {
-    let message
 
-    if (this.state.successMessage === true) {
-      message = (
-        <>
-          <h5>Thank you for sharing your picture!</h5>
-          <p>Your post is sent for review and will soon be uploaded! Click on the map in the background to continue.</p>
-        </>
-      )
-    }
-    if (this.state.errorMessage === true && this.state.image.length === 0) {
-      message = (
-        <>
-          <p>Your post could not be created since:</p>
-          <ul id="message-error-list">
-            {this.state.errors.map(error => (
-              <li key={error}>{error}</li>
-            ))}
-            <li>You need to upload an image</li>
-          </ul>
-        </>
-      )
-    }
-    if (this.state.errorMessage === true && this.state.image.length !== 0) {
-      message = (
-        <>
-          <p>Your post could not be created since:</p>
-          <ul id="message-error-list">
-            {this.state.errors.map(error => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
-        </>
-      )
-    }
     if (this.state.image.length === 0) {
       this.state.button = 'show-button'
     }
@@ -135,11 +76,13 @@ class PostForm extends Component {
         <Sidebar.Pushable as={Segment} textAlign='center'
           className={this.state.activeItem}>
 
-          <ImageUploadMessage
-            message={message}
+          <ImageEntryMessage
             visible={this.state.messageVisible}
             successMessage={this.state.successMessage}
-            handleMessageVisibility={this.handleMessageVisibility}
+            errorMessage={this.state.errorMessage}
+            image={this.state.image}
+            handleMessageVisibility={this.handleMessageVisibility}      
+            errors={this.state.errors}      
           />
 
           <Sidebar.Pusher dimmed={this.state.messageVisible}>
@@ -206,4 +149,4 @@ class PostForm extends Component {
     )
   }
 }
-export default PostForm
+export default CreateImageEntry

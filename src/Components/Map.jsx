@@ -3,7 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import MapStyle from '../Modules/MapStyle'
 import { Icon } from 'semantic-ui-react';
 import Popup from 'reactjs-popup';
-import PostForm from './PostForm'
+import CreateImageEntry from './CreateImageEntry'
 import axios from 'axios'
 
 class Map extends Component {
@@ -47,7 +47,7 @@ class Map extends Component {
           closeOnDocumentClick={true}
         >
           <>
-            <PostForm/>
+            <CreateImageEntry/>
           </>
         </Popup>
 
