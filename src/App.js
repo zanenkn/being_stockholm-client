@@ -5,10 +5,10 @@ import Map from './Components/Map'
 import MenuSidebar from './Components/MenuSidebar';
 import { Switch, Route } from 'react-router-dom'
 import LogInSignUp from './Components/LogInSignUp';
-import AboutProject from './Components/AboutProject';
-import Partners from './Components/Partners';
-import GetInTouch from './Components/GetInTouch';
-import LegalInfo from './Components/LegalInfo';
+// import AboutProject from './Components/AboutProject';
+// import Partners from './Components/Partners';
+// import GetInTouch from './Components/GetInTouch';
+// import LegalInfo from './Components/LegalInfo';
 import { connect } from 'react-redux'
 
 
@@ -42,7 +42,7 @@ class App extends Component {
             <Route exact path='/legal-info' render={MyLegalInfo}></Route> */}
           </Switch>
 
-          <MenuSidebar visible={this.props.state.rootReducer.sidebarVisible} />
+          <MenuSidebar visible={this.props.state.sidebarVisible} />
 
         </Sidebar.Pushable>
 
@@ -58,6 +58,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(
-  mapStateToProps
-)(App)
+export default connect(mapStateToProps)(App)

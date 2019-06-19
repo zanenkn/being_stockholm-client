@@ -1,10 +1,10 @@
 import initialState from '../store/initialState'
 
 const rootReducer = (state = initialState, action) => {
-  if (action.type === 'CHANGE_GREETING') {
+  if (action.type === 'CHANGE_VISIBILITY') {
     return {
       ...state,
-      greeting: action.greeting
+      sidebarVisible: action.sidebarVisible
     }
   } else {
     return state
