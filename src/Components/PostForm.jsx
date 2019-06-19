@@ -2,28 +2,30 @@ import React, { Component } from 'react'
 import { Form, Button, Icon, Header, Segment, Container, Sidebar } from 'semantic-ui-react';
 import axios from 'axios';
 import ImageUploader from 'react-images-upload'
-import PropTypes from 'prop-types'
+import ImageUploadMessage from './ImageUploadMessage'
 
-const TopSidebar = ({ visible, message, successMessage, closeButton }) => (
-  <>
-    <Sidebar
-      id={(successMessage === true) ? 'message-topsidebar-success' : 'message-topsidebar-error'}
-      as={Segment}
-      animation='overlay'
-      direction='top'
-      visible={visible}>
+// const TopSidebar = ({ visible, message, successMessage, closeButton }) => (
+//   <>
+//     <Sidebar
+//       id={(successMessage === true) ? 'message-topsidebar-success' : 'message-topsidebar-error'}
+//       as={Segment}
+//       animation='overlay'
+//       direction='top'
+//       visible={visible}>
 
-      <p>{message}</p>
-      {closeButton}
-    </Sidebar>
+//       <p>{message}</p>
+//       {closeButton}
+//     </Sidebar>
+//   </>
+// )
+// TopSidebar.propTypes = {
+//   visible: PropTypes.bool,
+//   message: PropTypes.string,
+//   successMessage: PropTypes.bool
+// }
 
-  </>
-)
-TopSidebar.propTypes = {
-  visible: PropTypes.bool,
-  message: PropTypes.string,
-  successMessage: PropTypes.bool
-}
+
+
 class PostForm extends Component {
   state = {
     caption: '',
@@ -127,27 +129,19 @@ class PostForm extends Component {
       this.state.button = 'show-button'
     }
     const { activeItem } = this.state
-    let closeButton
-    if (this.state.successMessage === false) {
-      closeButton = (
-        <Button
-          id='close-topsidebar-error'
-          onClick={this.handleMessageVisibility('overlay')}
-        >
-          Close
-        </Button>
-      )
-    }
+  
     return (
       <>
         <Sidebar.Pushable as={Segment} textAlign='center'
           className={this.state.activeItem}>
-          <TopSidebar
+
+          <ImageUploadMessage
             message={message}
             visible={this.state.messageVisible}
             successMessage={this.state.successMessage}
-            closeButton={closeButton}
+            handleMessageVisibility={this.handleMessageVisibility}
           />
+
           <Sidebar.Pusher dimmed={this.state.messageVisible}>
             <Container id="upload-post-wrapper">
               <Header as='h3'>Add a photo</Header>
