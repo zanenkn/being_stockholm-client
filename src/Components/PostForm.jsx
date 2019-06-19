@@ -65,8 +65,8 @@ class PostForm extends Component {
       image: this.state.image,
       caption: this.state.caption,
       category: this.state.category,
-      longitude: 53.06,
-      latitude: 18.03
+      longitude: 59.345744,
+      latitude: 18.072504
     }
     axios.post(path, payload)
       .then(response => {
