@@ -26,6 +26,7 @@ class Map extends Component {
     });
   }
 
+
   render() {
     return (
 
@@ -50,7 +51,6 @@ class Map extends Component {
           </>
         </Popup>
 
-
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY_GOOGLE_MAPS }}
           defaultCenter={this.props.center}
@@ -59,8 +59,9 @@ class Map extends Component {
 
           {this.state.posts.map(post => (
             <Icon name='circle'
-              lat={post.latitude}
-              lng={post.longitude}
+              lat={parseFloat(post.latitude)}
+              lng={parseFloat(post.longitude)}
+              key={post.id}
               id={`post_${post.id}`}
               color={(post.category === 'work') ? 'teal' : 'yellow'} />
           ))}

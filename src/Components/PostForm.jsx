@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Icon, Header, Segment, Container, Sidebar, Divider } from 'semantic-ui-react';
+import { Form, Button, Icon, Header, Segment, Container, Sidebar } from 'semantic-ui-react';
 import axios from 'axios';
 import ImageUploader from 'react-images-upload'
 import PropTypes from 'prop-types'
@@ -40,8 +40,6 @@ class PostForm extends Component {
     errors: '',
     activeItem: 'play',
     button: 'show-button',
-    // form: 'show-form',
-    // toggle: 'show-toggle',
     messageVisible: false,
   }
 
@@ -65,8 +63,8 @@ class PostForm extends Component {
       image: this.state.image,
       caption: this.state.caption,
       category: this.state.category,
-      longitude: 59.345744,
-      latitude: 18.072504
+      latitude: 59.317985,
+      longitude: 18.065382
     }
     axios.post(path, payload)
       .then(response => {
