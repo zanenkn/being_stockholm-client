@@ -6,7 +6,7 @@ describe('Visitor can', () => {
       method: 'POST',
       url: 'http://localhost:3002/api/v1/posts',
       response: 'fixture:create_post_no_success.json',
-      status: 422
+      status: 422,
     })
     cy.visit('http://localhost:3000')
     cy.get('#map-icon-plus').click()
@@ -30,5 +30,4 @@ describe('Visitor can', () => {
     cy.get('#close-topsidebar-error').click()
     cy.get('#caption').type('This works fine!')
   })
-
 })

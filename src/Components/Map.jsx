@@ -22,22 +22,8 @@ class Map extends Component {
 
   componentDidMount() {
     axios.get('/api/v1/posts').then(response => {
-      console.log(response)
-      this.setState({ posts: response.data, refreshData: false });
+      this.setState({ posts: response.data });
     });
-  }
-
-  componentDidUpdate(prevState) {
-    if (prevState.refreshData !== this.state.refreshData) {
-      axios.get('/api/v1/posts').then(response => {
-        console.log(response)
-        this.setState({ posts: response.data, refreshData: false  });
-      });
-    }
-  }
-
-  refreshData = () => {
-    this.setState({ refreshData: true })
   }
 
   render() {
@@ -59,7 +45,6 @@ class Map extends Component {
         }
           position="right center"
           closeOnDocumentClick={true}
-          onClose={this.refreshData.bind(this)}
         >
           <>
             <PostForm/>

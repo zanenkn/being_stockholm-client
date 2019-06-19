@@ -62,7 +62,6 @@ class PostForm extends Component {
     }
     axios.post(path, payload)
       .then(response => {
-        console.log(response)
         this.setState({
           successMessage: true,
           showPostForm: false,
@@ -182,7 +181,7 @@ class PostForm extends Component {
                 <Icon
                   name='map marker alternate' />
                 Södermalm, Swedenborgsgatan</p>
-              <br></br>
+                
               <Button.Group
                 toggle={true}
                 inverted={true}>

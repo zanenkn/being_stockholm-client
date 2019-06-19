@@ -4,10 +4,6 @@ import { Link } from 'react-router-dom'
 
 class Footer extends Component {
 
-refreshPage() {
-  window.location.reload()
-}
-
   render() {
     return (
 
@@ -28,7 +24,6 @@ refreshPage() {
           width={10}>
 
           <Header
-            onClick={this.refreshPage}
             color='orange'
             id='footer-logo'
             as={Link}
