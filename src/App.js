@@ -9,67 +9,10 @@ import AboutProject from './Components/AboutProject';
 import Partners from './Components/Partners';
 import GetInTouch from './Components/GetInTouch';
 import LegalInfo from './Components/LegalInfo';
+import { connect } from 'react-redux'
 
-
-class App extends Component {  
-  state = {
-    sidebarVisible: false,
-  }
-
-  handleAnimationChange = animation => () =>
-    this.setState(prevState => ({ animation, sidebarVisible: !prevState.sidebarVisible }))
-
-  sidebarVisibility = () => {
-    this.setState({ sidebarVisible: false })
-  }
-
+class App extends Component {
   render() {
-
-    const MyLogInSignUp = (props) => {
-      return (
-        <LogInSignUp
-          sidebarVisibility={this.sidebarVisibility}
-          {...props}
-        />
-      );
-    }
-
-    const MyAbout = (props) => {
-      return (
-        <AboutProject
-          sidebarVisibility={this.sidebarVisibility}
-          {...props}
-        />
-      );
-    }
-
-    const MyGetInTouch = (props) => {
-      return (
-        <GetInTouch
-          sidebarVisibility={this.sidebarVisibility}
-          {...props}
-        />
-      );
-    }
-
-    const MyPartners = (props) => {
-      return (
-        <Partners
-          sidebarVisibility={this.sidebarVisibility}
-          {...props}
-        />
-      );
-    }
-
-    const MyLegalInfo = (props) => {
-      return (
-        <LegalInfo
-          sidebarVisibility={this.sidebarVisibility}
-          {...props}
-        />
-      );
-    }
-
     return (
       <>
         <Sidebar.Pushable
@@ -78,21 +21,19 @@ class App extends Component {
 
           <Switch>
             <Route exact path='/' component={Map}></Route>
-            <Route exact path='/log-in' render={MyLogInSignUp}></Route>
-            <Route exact path='/about' render={MyAbout}></Route>
-            <Route exact path='/contact' render={MyGetInTouch}></Route>
-            <Route exact path='/partnerds' render={MyPartners}></Route>
-            <Route exact path='/legal-info' render={MyLegalInfo}></Route>
+            <Route exact path='/log-in' component={LogInSignUp}></Route>
+            <Route exact path='/about' component={AboutProject}></Route>
+            <Route exact path='/contact' component={GetInTouch}></Route>
+            <Route exact path='/partnerds' component={Partners}></Route>
+            <Route exact path='/legal-info' component={LegalInfo}></Route>
           </Switch>
 
-          <MenuSidebar visible={this.state.sidebarVisible} />
-
+          <MenuSidebar/>
         </Sidebar.Pushable>
-
-        <Footer handleAnimationChange={this.handleAnimationChange} />
+        <Footer />
       </>
     )
   }
 }
 
-export default App;
+export default connect()(App)

@@ -5,6 +5,7 @@ import { Icon } from 'semantic-ui-react';
 import Popup from 'reactjs-popup';
 import CreateImageEntry from './CreateImageEntry'
 import axios from 'axios'
+import { connect } from 'react-redux'
 
 class Map extends Component {
   static defaultProps = {
@@ -28,7 +29,9 @@ class Map extends Component {
   render() {
     return (
 
-      <div id='map'>
+      <div id='map'
+      onClick={this.props.sidebarVisible? ()=> { this.props.dispatch({ type: 'CHANGE_VISIBILITY'}) } : () => {}} 
+       >
 
         <Popup modal trigger={
           <Icon style={{
@@ -71,4 +74,8 @@ class Map extends Component {
   }
 }
 
-export default Map;
+const mapStateToProps = state => ({
+  sidebarVisible: state.animation.sidebarVisible
+})
+
+export default connect(mapStateToProps)(Map);
