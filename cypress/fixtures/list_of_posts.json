@@ -33,15 +33,5 @@
     "latitude": 59.345836,
     "longitude": 18.073531,
     "category": "work"
-  },
-  {
-    "id": 6,
-    "status": "pending",
-    "caption": "Midsommar",
-    "category": "play",
-    "longitude": "12.3647444444444",
-    "latitude": "57.8156472222222",
-    "created_at": "2019-06-20T17:28:48.061Z",
-    "image": "https://image.freepik.com/free-photo/white-pink-flowers-green-grass-fields-with-sun-shining_34998-179.jpg"
   }
 ]

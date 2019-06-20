@@ -16,8 +16,8 @@ class EntryPopup extends Component {
     address: ''
   }
 
-  componentDidMount() {
-    axios.get('/api/v1/posts/' + `${this.props.id}`).then(response => {
+  async componentDidMount() {
+    await axios.get('/api/v1/posts/' + `${this.props.id}`).then(response => {
       this.setState({
         caption: response.data.caption,
         category: response.data.category,
@@ -27,16 +27,10 @@ class EntryPopup extends Component {
         longitude: response.data.longitude
       })
     })
+    this.geolocationDataAddress()
   }
 
-  render() {
-
-    let dateString = this.state.created_at
-    let dateObj = new Date(dateString)
-    let momentObj = moment(dateObj)
-    let date = momentObj.format('DD-MM-YYYY')
-    let time = momentObj.format('LT')
-
+  geolocationDataAddress = () => {
     Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
     Geocode.fromLatLng(parseFloat(this.state.latitude), parseFloat(this.state.longitude)).then(
       response => {
@@ -47,22 +41,30 @@ class EntryPopup extends Component {
         console.error(error);
       }
     )
+  }
+
+  render() {
+
+    let dateString = this.state.created_at
+    let dateObj = new Date(dateString)
+    let momentObj = moment(dateObj)
+    let date = momentObj.format('DD-MM-YYYY')
+    let time = momentObj.format('LT')
 
     return (
       <>
-      <Container id='upload-post-wrapper'>
-      <Image fluid alt='entry image' src={this.state.image} />
-        {this.state.caption}
-        <p id="location">
-          <Icon
-            name='map marker alternate' />
-          {this.state.address}
-        </p>
-        <p>
-        {date} | {time}
-        </p>
-        
-      </Container>
+        <Container className={this.state.category} id='entry-wrapper'>
+          <Image fluid id={`image_${this.props.id}`} alt='entry image' src={this.state.image} />
+          {this.state.caption}
+          <p id='entry-location'>
+            <Icon
+              name='map marker alternate' />
+            {this.state.address}
+          </p>
+          <p>
+            {date} | {time}
+          </p>
+        </Container>
       </>
     )
   }
