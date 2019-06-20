@@ -4,6 +4,7 @@ import MapStyle from '../Modules/MapStyle'
 import { Icon } from 'semantic-ui-react'
 import Popup from 'reactjs-popup'
 import CreateImageEntry from './CreateImageEntry'
+import EntryPopup from './EntryPopup'
 import axios from 'axios'
 import { connect } from 'react-redux'
 
@@ -18,12 +19,10 @@ class Map extends Component {
 
   state = {
     openEntryPopup: false,
-    posts: []
+    posts: [],
+    id: ''
   }
 
-  openModal = () => {
-    this.setState({ openEntryPopup: true })
-  }
 
   closeModal = () => {
     this.setState({ openEntryPopup: false })
@@ -68,10 +67,7 @@ class Map extends Component {
           onClose={this.closeModal}>
 
           <div className="modal">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae magni
-            omnis delectus nemo, maxime molestiae dolorem numquam mollitia, voluptate
-            ea, accusamus excepturi deleniti ratione sapiente! Laudantium, aperiam
-            doloribus. Odit, aut.
+            <EntryPopup id={this.state.id} />
           </div>
         </Popup>
 
@@ -82,13 +78,14 @@ class Map extends Component {
           options={{ styles: MapStyle }}>
 
           {this.state.posts.map(post => (
+   
             <Icon name='circle'
               size='large'
               lat={parseFloat(post.latitude)}
               lng={parseFloat(post.longitude)}
               key={post.id}
               id={`post_${post.id}`}
-              onClick={this.openModal}
+              onClick={() => {this.setState({id: post.id, openEntryPopup: true}) }}
               color={(post.category === 'work') ? 'teal' : 'yellow'} />
           ))}
 
