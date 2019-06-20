@@ -104,6 +104,7 @@ class CreateImageEntry extends Component {
                 onChange={this.onImageDropHandler}
                 imgExtension={['.jpg']}
                 maxFileSize={5242880}
+                errorClass={(this.state.image.length > 0) ? 'image-upload-error-hidden' : 'image-upload-error-visible'}
               />
               <Form size="mini" type='medium'>
                 <Form.Input

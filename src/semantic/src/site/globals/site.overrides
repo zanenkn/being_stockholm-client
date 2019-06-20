@@ -64,6 +64,11 @@
   padding: 0rem;
 }
 
+.image-upload-error-hidden {
+  height: 0;
+  visibility: hidden;
+}
+
 .hide-button {
   display: none;
 }
