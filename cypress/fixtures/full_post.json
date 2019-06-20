@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "image": {
+    "type": "image/png",
+    "encoder": "name=carbon (5).png;base64",
+    "data": "iVBORw0KGgoAAAANSUhEUgAABjAAAAOmCAYAAABFYNwHAAAgAElEQVR4XuzdB3gU1cLG8Te9EEgISQi9I71KFbBXbFixN6zfvSiIjSuKInoVFOyIDcWuiKiIol4Q6SBVOtI7IYSWBkm+58y6yW4a2SS7O4n/eZ7vuWR35pwzvzO76zf",
+    "extension": "png" 
+  },
+  "caption": "Swedenborgsgatan great summer street!",
+  "longitude": 18.06,
+  "latitude": 58.03,
+  "category": "play",
+  "created_at": "2019-05-24T09:56:01.168Z",
+  "status": "pending"
+}

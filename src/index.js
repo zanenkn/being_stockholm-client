@@ -6,7 +6,10 @@ import './semantic/dist/semantic.min.css';
 import { BrowserRouter } from 'react-router-dom'
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:3002'
+const loc = 'http://localhost:3002'
+const her = 'https://being-stockholm.herokuapp.com'
+
+axios.defaults.baseURL = loc
 
 ReactDOM.render(
   <BrowserRouter>

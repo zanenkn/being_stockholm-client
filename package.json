@@ -8,8 +8,10 @@
     "gulp": "^3.9.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-images-upload": "^1.2.7",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "reactjs-popup": "^1.4.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.87.1"
   },

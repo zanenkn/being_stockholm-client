@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import MapStyle from '../Modules/MapStyle'
 import { Icon } from 'semantic-ui-react';
+import Popup from 'reactjs-popup';
+import CreateImageEntry from './CreateImageEntry'
 import axios from 'axios'
 
 class Map extends Component {
@@ -19,22 +21,34 @@ class Map extends Component {
 
   componentDidMount() {
     axios.get('/api/v1/posts').then(response => {
-      console.log(response)
       this.setState({ posts: response.data });
     });
   }
 
   render() {
-
     return (
 
       <div id='map'>
 
-        <Icon
-          id='map-icon-plus'
-          name='plus'
-          size='huge'
-          color='orange' />
+        <Popup modal trigger={
+          <Icon style={{
+            position: 'absolute',
+            zIndex: '4000',
+            padding: '1rem'
+          }}
+            name='plus'
+            size='huge'
+            color='orange'
+            id='map-icon-plus'
+          />
+        }
+          position="top center"
+          closeOnDocumentClick={true}
+        >
+          <>
+            <CreateImageEntry/>
+          </>
+        </Popup>
 
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY_GOOGLE_MAPS }}
@@ -44,8 +58,9 @@ class Map extends Component {
 
           {this.state.posts.map(post => (
             <Icon name='circle'
-              lat={post.latitude}
-              lng={post.longitude}
+              lat={parseFloat(post.latitude)}
+              lng={parseFloat(post.longitude)}
+              key={post.id}
               id={`post_${post.id}`}
               color={(post.category === 'work') ? 'teal' : 'yellow'} />
           ))}

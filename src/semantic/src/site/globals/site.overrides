@@ -2,6 +2,10 @@
          Site Overrides
 *******************************/
 
+/*******************************
+         Map
+*******************************/
+
 #map {
   height: 100%; 
   width: 100%;
@@ -17,6 +21,146 @@
   height: 90vh; 
   width: 100%;
 }
+
+/*******************************
+  Popup - Create Image Entry
+*******************************/
+
+@media screen and (min-width: 900px) {
+  .popup-content {
+    width: 50% !important;
+    }
+}
+
+#upload-post-wrapper {
+  padding: 0.7rem;
+}
+
+#upload-post-header {
+  margin: 0 0 0 0;
+}
+
+#message-topsidebar-success {
+  background-color: #21ba45;
+  color: #FFFFFF !important;
+  font-size: 12px;
+  padding: 8px;
+}
+
+#message-topsidebar-error {
+  background-color: #f2711c;
+  color: #FFFFFF !important;
+  font-size: 12px;
+  padding: 8px;
+}
+
+#message-error-list {
+  text-align: left;
+}
+
+#close-topsidebar-error {
+  background-color: #f2711c !important;
+  color: #FFFFFF !important;
+  padding: 0rem;
+}
+
+.image-upload-error-hidden {
+  height: 0;
+  visibility: hidden;
+}
+
+.hide-button {
+  display: none;
+}
+
+.show-button {
+  display: block;
+}
+
+.chooseFileButton.show-button {
+  border-radius: 0px;
+  background: #D5D9D8;
+}
+
+.chooseFileButton.show-button:hover {
+  background-color: #C2C1C0;
+}
+
+.chooseFileButton.show-button:active {
+  background-color: #C2C1C0;
+}
+
+.fileContainer {
+  padding: 0px;
+  box-shadow: 0px 0px 0px 0px;
+}
+
+.uploadPicturesWrapper {
+  max-height: 220px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#caption {
+  border: none !important;
+  border-bottom: thin solid gray !important;
+  padding-left: 0.2rem !important;
+  padding-right: 0.2rem !important;
+  border-radius: 0px !important;
+  margin: 0rem 0.5rem 1rem 0.5rem;
+}
+
+#location {
+  font-size: 12px;
+}
+
+.popup-content {
+  border: none !important;
+  padding: 0px !important;
+  width: 70% !important;
+  border-radius: 20px;
+  max-width: 300px;
+  max-height: 400px;
+}
+
+.play {
+  border: 4px solid #cd9903 !important;
+  border-radius: 20px !important;
+}
+
+.work {
+  border: 4px solid #00b5ad !important;
+  border-radius: 20px !important;
+}
+
+#play {
+  font-size: 12px !important;
+}
+
+#work {
+  font-size: 12px !important;
+}
+
+#upload-button {
+  border-radius: 30px;
+  margin: 1rem 0 0 0;
+}
+
+.fileContainer .uploadPictureContainer {
+  width: 90% !important;
+  padding: 0px;
+}
+
+.fileContainer .deleteImage {
+  background: grey;
+  font-size: 15px;
+}
+
+/*******************************
+         Footer
+*******************************/
 
 #footer {
   height: 10vh;
@@ -51,6 +195,10 @@
     margin-top: 5rem!important;
   }
 }
+
+/*******************************
+         Sidebarmenu
+*******************************/
 
 #menu-sidebar {
   z-index: 4001;
