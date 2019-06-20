@@ -16,8 +16,7 @@ class Map extends Component {
   };
 
   state = {
-    posts: [],
-    refreshData: false
+    posts: []
   }
 
   componentDidMount() {

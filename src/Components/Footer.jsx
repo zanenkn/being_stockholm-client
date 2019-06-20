@@ -3,7 +3,6 @@ import { Grid, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 
 class Footer extends Component {
-
   render() {
     return (
 
