@@ -5,6 +5,7 @@ class ImageEntryMessage extends Component {
 
   render() {
     let closeButton
+    let message
 
     if (this.props.successMessage === false) {
       closeButton = (
@@ -15,12 +16,7 @@ class ImageEntryMessage extends Component {
           Close
         </Button>
       )
-    }
-
-
-    let message
-
-    if (this.props.successMessage === true) {
+    } else {
       message = (
         <>
           <h5>Thank you for sharing your picture!</h5>
@@ -28,6 +24,7 @@ class ImageEntryMessage extends Component {
         </>
       )
     }
+    
     if (this.props.errorMessage === true && this.props.image.length === 0) {
       message = (
         <>

@@ -62,7 +62,8 @@ class CreateImageEntry extends Component {
   }
 
   handleMessageVisibility = animation => () =>
-    this.setState(prevState => ({ animation, messageVisible: !prevState.messageVisible }))
+    this.setState(prevState => ({ animation, messageVisible: !prevState.messageVisible })
+  )
 
   render() {
 
