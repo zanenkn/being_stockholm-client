@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Grid, Header, Segment, Sidebar } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';

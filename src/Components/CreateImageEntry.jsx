@@ -3,6 +3,9 @@ import { Form, Button, Icon, Header, Segment, Container, Sidebar } from 'semanti
 import axios from 'axios';
 import ImageUploader from 'react-images-upload'
 import ImageEntryMessage from './ImageEntryMessage'
+import ExifReader from 'exifreader'
+import fileToArrayBuffer from 'file-to-array-buffer'
+import Geocode from 'react-geocode'
 
 class CreateImageEntry extends Component {
   state = {
@@ -17,6 +20,7 @@ class CreateImageEntry extends Component {
     activeItem: 'play',
     button: 'show-button',
     messageVisible: false,
+    address: ''
   }
 
   onChangeHandler = (e) => {
@@ -24,12 +28,48 @@ class CreateImageEntry extends Component {
       [e.target.id]: e.target.value
     })
   }
+
   onImageDropHandler = (pictureFiles, pictureDataURLs) => {
-    this.setState({
-      image: pictureDataURLs,
-      button: 'hide-button'
-    })
+    if (pictureFiles.length > 0) {
+      let image = pictureFiles[0]
+      fileToArrayBuffer(image).then((data) => {
+        const tags = ExifReader.load(data)
+        if (tags.GPSLatitude === undefined) {
+          this.setState({
+            image: pictureDataURLs,
+            button: 'hide-button',
+            address: 'Your image does not contain any location information'
+          })
+        } else {
+          this.setState({
+            image: pictureDataURLs,
+            button: 'hide-button',
+            longitude: tags.GPSLongitude.description,
+            latitude: tags.GPSLatitude.description
+          })
+          Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS);
+          Geocode.fromLatLng(this.state.latitude, this.state.longitude).then(
+            response => {
+              const addressGeocode = response.results[0].formatted_address;
+              this.setState({ address: addressGeocode })
+            },
+            error => {
+              console.error(error);
+            }
+          )
+        }
+      })
+    } else {
+      this.setState({
+        button: 'show-button',
+        address: '',
+        image: '',
+        latitude: '',
+        longitude: ''
+      })
+    }
   }
+
   uploadPost = (e) => {
     e.preventDefault();
     const path = '/api/v1/posts'
@@ -37,8 +77,8 @@ class CreateImageEntry extends Component {
       image: this.state.image,
       caption: this.state.caption,
       category: this.state.category,
-      latitude: 59.330393,
-      longitude: 18.040709
+      latitude: this.state.latitude,
+      longitude: this.state.longitude
     }
     axios.post(path, payload)
       .then(response => {
@@ -63,7 +103,7 @@ class CreateImageEntry extends Component {
 
   handleMessageVisibility = animation => () =>
     this.setState(prevState => ({ animation, messageVisible: !prevState.messageVisible })
-  )
+    )
 
   render() {
 
@@ -71,7 +111,7 @@ class CreateImageEntry extends Component {
       this.state.button = 'show-button'
     }
     const { activeItem } = this.state
-  
+
     return (
       <>
         <Sidebar.Pushable as={Segment} textAlign='center'
@@ -82,8 +122,8 @@ class CreateImageEntry extends Component {
             successMessage={this.state.successMessage}
             errorMessage={this.state.errorMessage}
             image={this.state.image}
-            handleMessageVisibility={this.handleMessageVisibility}      
-            errors={this.state.errors}      
+            handleMessageVisibility={this.handleMessageVisibility}
+            errors={this.state.errors}
           />
 
           <Sidebar.Pusher dimmed={this.state.messageVisible}>
@@ -115,12 +155,13 @@ class CreateImageEntry extends Component {
                   onChange={this.onChangeHandler}
                   placeholder="Write your caption here"
                 />
+
               </Form>
               <p id="location">
                 <Icon
                   name='map marker alternate' />
-                Södermalm, Swedenborgsgatan</p>
-                
+                {this.state.address}</p>
+
               <Button.Group
                 toggle={true}
                 inverted={true}>
