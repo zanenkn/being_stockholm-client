@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Geocode from 'react-geocode'
+import moment from 'moment'
+import { Container, Image, Icon } from 'semantic-ui-react'
 
 class EntryPopup extends Component {
 
@@ -29,7 +31,11 @@ class EntryPopup extends Component {
 
   render() {
 
-    let dataAndTime
+    let dateString = this.state.created_at
+    let dateObj = new Date(dateString)
+    let momentObj = moment(dateObj)
+    let date = momentObj.format('DD-MM-YYYY')
+    let time = momentObj.format('LT')
 
     Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
     Geocode.fromLatLng(parseFloat(this.state.latitude), parseFloat(this.state.longitude)).then(
@@ -44,7 +50,19 @@ class EntryPopup extends Component {
 
     return (
       <>
-        {this.state.address}
+      <Container id='upload-post-wrapper'>
+      <Image fluid alt='entry image' src={this.state.image} />
+        {this.state.caption}
+        <p id="location">
+          <Icon
+            name='map marker alternate' />
+          {this.state.address}
+        </p>
+        <p>
+        {date} | {time}
+        </p>
+        
+      </Container>
       </>
     )
   }
