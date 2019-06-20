@@ -4,7 +4,7 @@ import Footer from './Components/Footer';
 import Map from './Components/Map'
 import MenuSidebar from './Components/MenuSidebar';
 import { Switch, Route } from 'react-router-dom'
-import LogInSignUp from './Components/LogInSignUp';
+import Login from './Components/Login';
 import AboutProject from './Components/AboutProject';
 import Partners from './Components/Partners';
 import GetInTouch from './Components/GetInTouch';
@@ -21,7 +21,7 @@ class App extends Component {
 
           <Switch>
             <Route exact path='/' component={Map}></Route>
-            <Route exact path='/log-in' component={LogInSignUp}></Route>
+            <Route exact path='/log-in' component={Login}></Route>
             <Route exact path='/about' component={AboutProject}></Route>
             <Route exact path='/contact' component={GetInTouch}></Route>
             <Route exact path='/partnerds' component={Partners}></Route>

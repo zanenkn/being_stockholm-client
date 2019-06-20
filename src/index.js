@@ -7,14 +7,20 @@ import { BrowserRouter } from 'react-router-dom'
 import axios from 'axios'
 import { Provider } from 'react-redux'
 import configureStore from './state/store/configureStore';
+import { setupInterceptors } from './Modules/axiosInterceptor';
+import { verifyCredentials } from './reduxTokenAuthConfig'
+
+setupInterceptors()
 
 const loc = 'http://localhost:3002'
 const her = 'https://being-stockholm.herokuapp.com'
 
-axios.defaults.baseURL = her
+axios.defaults.baseURL = loc
 
 const store = configureStore();
+verifyCredentials(store)
 window.store = store
+
 
 ReactDOM.render(
   <Provider store={store}>
