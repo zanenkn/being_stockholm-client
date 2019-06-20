@@ -46,7 +46,7 @@ class Login extends Component {
         <>
           <br />
           <Message color="green">
-            <p>You have succesfully logged in. Wait to be redirected to the main page.</p>
+            <p>You have succesfully logged in!</p>
           </Message>
         </>
       )
