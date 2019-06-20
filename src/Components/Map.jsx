@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
+import React, { Component } from 'react'
+import GoogleMapReact from 'google-map-react'
 import MapStyle from '../Modules/MapStyle'
-import { Icon } from 'semantic-ui-react';
-import Popup from 'reactjs-popup';
+import { Icon } from 'semantic-ui-react'
+import Popup from 'reactjs-popup'
 import CreateImageEntry from './CreateImageEntry'
 import axios from 'axios'
 import { connect } from 'react-redux'
@@ -17,7 +17,16 @@ class Map extends Component {
   };
 
   state = {
+    openEntryPopup: false,
     posts: []
+  }
+
+  openModal = () => {
+    this.setState({ openEntryPopup: true })
+  }
+
+  closeModal = () => {
+    this.setState({ openEntryPopup: false })
   }
 
   componentDidMount() {
@@ -30,8 +39,8 @@ class Map extends Component {
     return (
 
       <div id='map'
-      onClick={this.props.sidebarVisible? ()=> { this.props.dispatch({ type: 'CHANGE_VISIBILITY'}) } : () => {}} 
-       >
+        onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_VISIBILITY' }) } : () => { }}
+      >
 
         <Popup modal trigger={
           <Icon style={{
@@ -49,8 +58,21 @@ class Map extends Component {
           closeOnDocumentClick={true}
         >
           <>
-            <CreateImageEntry/>
+            <CreateImageEntry />
           </>
+        </Popup>
+
+        <Popup
+          open={this.state.openEntryPopup}
+          closeOnDocumentClick={true}
+          onClose={this.closeModal}>
+
+          <div className="modal">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae magni
+            omnis delectus nemo, maxime molestiae dolorem numquam mollitia, voluptate
+            ea, accusamus excepturi deleniti ratione sapiente! Laudantium, aperiam
+            doloribus. Odit, aut.
+          </div>
         </Popup>
 
         <GoogleMapReact
@@ -61,10 +83,12 @@ class Map extends Component {
 
           {this.state.posts.map(post => (
             <Icon name='circle'
+              size='large'
               lat={parseFloat(post.latitude)}
               lng={parseFloat(post.longitude)}
               key={post.id}
               id={`post_${post.id}`}
+              onClick={this.openModal}
               color={(post.category === 'work') ? 'teal' : 'yellow'} />
           ))}
 
