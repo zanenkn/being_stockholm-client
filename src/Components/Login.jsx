@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Form, Button, Container, Message } from 'semantic-ui-react'
+import { Form, Button, Container, Message, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { signInUser } from '../reduxTokenAuthConfig'
+import { Link } from 'react-router-dom'
 
 class Login extends Component {
   state = {
@@ -81,6 +82,13 @@ class Login extends Component {
           />
           <Button id="login_form_button">Login</Button>
         </Form>
+
+        <Header
+        id="sign_up_link"
+        as={Link}
+        to='sign-up'
+        >
+        Not registered? Create an account!</Header>
       </Container>
     )
   }

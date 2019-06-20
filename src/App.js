@@ -5,6 +5,7 @@ import Map from './Components/Map'
 import MenuSidebar from './Components/MenuSidebar';
 import { Switch, Route } from 'react-router-dom'
 import Login from './Components/Login';
+import SignUp from './Components/SignUp';
 import AboutProject from './Components/AboutProject';
 import Partners from './Components/Partners';
 import GetInTouch from './Components/GetInTouch';
@@ -22,6 +23,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Map}></Route>
             <Route exact path='/log-in' component={Login}></Route>
+            <Route exact path='/sign-up' component={SignUp}></Route>
             <Route exact path='/about' component={AboutProject}></Route>
             <Route exact path='/contact' component={GetInTouch}></Route>
             <Route exact path='/partnerds' component={Partners}></Route>
