@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Grid, Header, Segment, Sidebar } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
@@ -13,9 +12,13 @@ class MenuSidebar extends Component {
     const { history, signOutUser } = this.props
     signOutUser()
       .then(response => {
+        this.handleSidebarVisibilty()
         history.push('/')
       })
-      
+  }
+
+  handleSidebarVisibilty = (e) => {
+    this.props.sidebarVisbilityHandler()
   }
 
   render() {
@@ -34,7 +37,7 @@ class MenuSidebar extends Component {
             as={Link}
             to='log-out'
             // onClick={()=> this.props.dispatch({ type: 'CHANGE_VISIBILITY'}) && signOut }>
-            onClick={ signOut }>
+            onClick={signOut}>
             Log out
           </Header>
         </>
@@ -47,7 +50,7 @@ class MenuSidebar extends Component {
             className="sidebar-menu-link"
             as={Link}
             to='log-in'
-            onClick={() => this.props.dispatch({ type: 'CHANGE_VISIBILITY' })}>
+            onClick={this.handleSidebarVisibilty}>
             Log in / Sign up
           </Header> 
         </>
@@ -77,7 +80,7 @@ class MenuSidebar extends Component {
               className="sidebar-menu-link"
               as={Link}
               to='about'
-              onClick={() => this.props.dispatch({ type: 'CHANGE_VISIBILITY' })}>
+              onClick={this.handleSidebarVisibilty}>
               About Project
             </Header>
             <br></br>
@@ -88,7 +91,7 @@ class MenuSidebar extends Component {
               className="sidebar-menu-link"
               as={Link}
               to='contact'
-              onClick={() => this.props.dispatch({ type: 'CHANGE_VISIBILITY' })}>
+              onClick={this.handleSidebarVisibilty}>
               Get in touch
             </Header>
             <br></br>
@@ -99,7 +102,7 @@ class MenuSidebar extends Component {
               className="sidebar-menu-link"
               as={Link}
               to='partnerds'
-              onClick={() => this.props.dispatch({ type: 'CHANGE_VISIBILITY' })}>
+              onClick={this.handleSidebarVisibilty}>
               Partners
              </Header>
             <br></br>
@@ -110,7 +113,7 @@ class MenuSidebar extends Component {
               className="sidebar-menu-link"
               as={Link}
               to='legal-info'
-              onClick={() => this.props.dispatch({ type: 'CHANGE_VISIBILITY' })}>
+              onClick={this.handleSidebarVisibilty}>
               Legal info
             </Header>
           </Grid.Column>
@@ -129,6 +132,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
+  sidebarVisbilityHandler: sidebarVisible => ({
+    type: 'CHANGE_VISIBILITY',
+    sidebarVisbible: sidebarVisible
+  }),
   signOutUser
 }
 

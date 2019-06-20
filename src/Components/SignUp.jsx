@@ -8,10 +8,10 @@ class SignUp extends Component {
     email: '',
     password: '',
     password_confirmation: '',
+    level: '',
     message: '',
     errors_signup: '',
-    level: '',
-    activeItem: ''
+    activeItem: '',
   }
 
   onChangeHandler = (e) => {
@@ -31,7 +31,7 @@ class SignUp extends Component {
       email,
       password,
       password_confirmation,
-      level
+      level,
     } = this.state
     registerUser({ email, password, password_confirmation, level })
       .then(response => {
@@ -114,16 +114,16 @@ class SignUp extends Component {
             id='newbie'
             basic color='teal'
             active={activeItem === 'newbie'}
-            value='newbie'
-            onClick={this.handleChangeCategory}>
+            value={'newbie'}
+            onClick={this.handleChangeLevel}>
             NEWBIE
           </Button>
           <Button
             id='settled'
             basic color='yellow'
             active={activeItem === 'settled'}
-            value='settled'
-            onClick={this.handleChangeCategory}>
+            value={'settled'}
+            onClick={this.handleChangeLevel}>
             SETTLED
             </Button>
         </Button.Group>
