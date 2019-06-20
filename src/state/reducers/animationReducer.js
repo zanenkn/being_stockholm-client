@@ -8,10 +8,6 @@ const locationReducer = (state = initialState, action) => {
       return {
         sidebarVisible: !state.sidebarVisible
       }
-    case 'HIDE_SIDEBAR':
-      return {
-        sidebarVisible: false
-      }
     default:
       return state
   }

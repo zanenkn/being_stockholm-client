@@ -30,7 +30,8 @@ class Map extends Component {
     return (
 
       <div id='map'
-      onClick={() => this.props.dispatch({ type: 'HIDE_SIDEBAR'})}>
+      onClick={this.props.sidebarVisible? ()=> { this.props.dispatch({ type: 'CHANGE_VISIBILITY'}) } : () => {}} 
+       >
 
         <Icon
           id='map-icon-plus'
@@ -58,4 +59,8 @@ class Map extends Component {
   }
 }
 
-export default connect()(Map);
+const mapStateToProps = state => ({
+  sidebarVisible: state.animation.sidebarVisible
+})
+
+export default connect(mapStateToProps)(Map);
