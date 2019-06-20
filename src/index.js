@@ -11,7 +11,7 @@ import configureStore from './state/store/configureStore';
 const loc = 'http://localhost:3002'
 const her = 'https://being-stockholm.herokuapp.com'
 
-axios.defaults.baseURL = loc
+axios.defaults.baseURL = her
 
 const store = configureStore();
 window.store = store
