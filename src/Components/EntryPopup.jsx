@@ -49,21 +49,27 @@ class EntryPopup extends Component {
     let dateObj = new Date(dateString)
     let momentObj = moment(dateObj)
     let date = momentObj.format('DD-MM-YYYY')
-    let time = momentObj.format('LT')
+    let time = momentObj.format('HH:mm')
 
     return (
       <>
         <Container className={this.state.category} id='entry-wrapper'>
-          <Image fluid id={`image_${this.props.id}`} alt='entry image' src={this.state.image} />
-          {this.state.caption}
+          <Image
+            fluid
+            rounded
+            centered
+            verticalAlign='top'
+            size='medium'
+            id={`image_${this.props.id}`}
+            alt='entry image'
+            src={this.state.image} />
+          <h3> {this.state.caption} </h3>
           <p id='entry-location'>
             <Icon
               name='map marker alternate' />
             {this.state.address}
           </p>
-          <p>
-            {date} | {time}
-          </p>
+          <p><i> {date} @ {time} </i></p>
         </Container>
       </>
     )

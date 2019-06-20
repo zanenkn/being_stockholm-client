@@ -23,7 +23,6 @@ class Map extends Component {
     id: ''
   }
 
-
   closeModal = () => {
     this.setState({ openEntryPopup: false })
   }
