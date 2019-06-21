@@ -23,6 +23,31 @@
 }
 
 /*******************************
+  Views - directed from menu
+*******************************/
+
+.views-main-container {
+  padding: 10% 10% 10% 10%; 
+  margin: 0rem !important;
+  width: 100% !important;
+}
+
+.views-main-header {
+  color: #f2711c !important;
+}
+
+.submit-button {
+  border-radius: 30px !important;
+  margin: 1rem 0 0 0 !important;
+  padding: 1rem 3rem 1rem 3rem !important;
+  font-size: 1.2rem !important;
+}
+
+#sign_up_link {
+  font-size: 15px;
+}
+
+/*******************************
   Popup - Create Image Entry
 *******************************/
 
@@ -38,6 +63,11 @@
 
 #upload-post-header {
   margin: 0 0 0 0;
+}
+
+#upload-button{
+  border-radius: 30px;
+  margin: 1rem 0 0 0;
 }
 
 #message-topsidebar-success {
@@ -143,10 +173,6 @@
   font-size: 12px !important;
 }
 
-#upload-button {
-  border-radius: 30px;
-  margin: 1rem 0 0 0;
-}
 
 .fileContainer .uploadPictureContainer {
   width: 90% !important;

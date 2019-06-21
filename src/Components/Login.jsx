@@ -62,7 +62,15 @@ class Login extends Component {
       )
     }
     return (
-      <Container>
+
+      <Container className="views-main-container"textAlign='center'>
+
+        <Header className="views-main-header" as='h1'>
+          Log In
+        </Header>
+        <br></br>
+        <br></br>
+
         <p>{message}</p>
         <Form id="login-form" onSubmit={this.onSubmit}>
           <Form.Input
@@ -80,15 +88,22 @@ class Login extends Component {
             onChange={this.onChangeHandler}
             placeholder="Password"
           />
-          <Button id="login_form_button">Login</Button>
+            <br></br>
+
+          <Button className="submit-button" id="login_form_button">Login</Button>
         </Form>
+
+        <br></br>
+        <br></br>
 
         <Header
         id="sign_up_link"
         as={Link}
         to='sign-up'
         >
-        Not registered? Create an account!</Header>
+          Not registered? Create an account!
+        </Header>
+
       </Container>
     )
   }
