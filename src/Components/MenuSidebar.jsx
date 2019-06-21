@@ -36,7 +36,6 @@ class MenuSidebar extends Component {
             className="sidebar-menu-link"
             as={Link}
             to='log-out'
-            // onClick={()=> this.props.dispatch({ type: 'CHANGE_VISIBILITY'}) && signOut }>
             onClick={signOut}>
             Log out
           </Header>
