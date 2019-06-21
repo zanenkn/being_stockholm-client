@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import GoogleMapReact from 'google-map-react';
 import MapStyle from '../Modules/MapStyle'
 import { Icon } from 'semantic-ui-react';
 import Popup from 'reactjs-popup';
-import CreateImageEntry from './CreateImageEntry'
-import axios from 'axios'
-import { connect } from 'react-redux'
+import CreateImageEntry from './CreateImageEntry';
+import axios from 'axios';
+import { connect } from 'react-redux';
 
 class Map extends Component {
   static defaultProps = {
@@ -27,11 +28,24 @@ class Map extends Component {
   }
 
   render() {
+    let createEntry
+    let user = this.props.currentUser.isSignedIn
+
+    if (user === true) {
+      createEntry = (
+        <CreateImageEntry />
+      )
+    } else {
+      createEntry = (
+        <Redirect to='/log-in' />
+      )
+    }
+
     return (
 
       <div id='map'
-      onClick={this.props.sidebarVisible? ()=> { this.props.dispatch({ type: 'CHANGE_VISIBILITY'}) } : () => {}} 
-       >
+        onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_VISIBILITY' }) } : () => { }}
+      >
 
         <Popup modal trigger={
           <Icon style={{
@@ -48,9 +62,7 @@ class Map extends Component {
           position="top center"
           closeOnDocumentClick={true}
         >
-          <>
-            <CreateImageEntry/>
-          </>
+          {createEntry}
         </Popup>
 
         <GoogleMapReact
@@ -75,6 +87,8 @@ class Map extends Component {
 }
 
 const mapStateToProps = state => ({
+  state: state,
+  currentUser: state.reduxTokenAuth.currentUser,
   sidebarVisible: state.animation.sidebarVisible
 })
 
