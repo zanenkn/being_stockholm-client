@@ -2,6 +2,13 @@ describe('Visitor can click links in footer', () => {
 
   beforeEach(function () {
     cy.viewport(1366, 542)
+    cy.server()
+    cy.route({
+      method: 'GET',
+      url: 'http://localhost:3002/api/v1/posts',
+      response: 'fixture:list_of_posts.json',
+      status: 200
+    })
     cy.visit('http://localhost:3000/')
   })
 
@@ -29,5 +36,5 @@ describe('Visitor can click links in footer', () => {
     cy.get('#profile-icon').click()
     cy.contains('Log In / Sign Up')
   })
-  
+
 })

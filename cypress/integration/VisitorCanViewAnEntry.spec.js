@@ -1,7 +1,7 @@
 describe('Visitor can view', () => {
 
   beforeEach(function () {
-    cy.server();
+    cy.server()
     cy.route({
       method: 'GET',
       url: 'http://localhost:3002/api/v1/posts',
@@ -19,9 +19,13 @@ describe('Visitor can view', () => {
 
   it('can view an entry', () => {
     cy.get('#post_5').click()
-    cy.contains('Midsommar')
-    cy.contains('Ballonggatan 23, 169 71 Solna, Sweden')
-    cy.contains('20-06-2019 | 7:28 PM')
+
+    let text = ['Midsommar', 'Ballonggatan 23, 169 71 Solna, Sweden', '20-06-2019 @ 19:28']
+
+    text.forEach(post => {
+      cy.contains(post)
+    })
+
     cy.get('#image_5').should('have.attr', 'src')
     cy.get('#entry-wrapper').should('have.class', 'play')
   })
