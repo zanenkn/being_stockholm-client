@@ -41,10 +41,13 @@
   margin: 1rem 0 0 0 !important;
   padding: 1rem 3rem 1rem 3rem !important;
   font-size: 1.2rem !important;
+  background-color: #f2711c !important;
+  color: #ffffff !important;
 }
 
-#sign_up_link {
-  font-size: 15px;
+.text {
+  font-size: 15px !important;
+  color: grey !important;
 }
 
 /*******************************

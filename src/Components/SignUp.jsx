@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Container, Message } from 'semantic-ui-react'
+import { Form, Button, Container, Message, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { registerUser } from '../reduxTokenAuthConfig'
 
@@ -76,8 +76,17 @@ class SignUp extends Component {
       )
     }
     return (
-      <Container>
+
+      <Container className="views-main-container"textAlign='center'>
+
+        <Header className="views-main-header" as='h1'>
+          Sign Up
+        </Header>
+        <br></br>
+        <br></br>
+
         {message}
+
         <Form id="signup-form">
           <Form.Input
             required
@@ -103,16 +112,19 @@ class SignUp extends Component {
             placeholder="Password Confirmation"
           />
         </Form>
+        <br></br>
 
-        <p>What kind of stockholmer do you consider yourself to be?</p>
-        <p>Im a:</p>
+        <p
+        className='text'>
+        What kind of stockholmer do you consider yourself to be?</p>
 
         <Button.Group
+          className='button-group'
           toggle={true}
           inverted={true}>
           <Button
             id='newbie'
-            basic color='teal'
+            basic color='grey'
             active={activeItem === 'newbie'}
             value={'newbie'}
             onClick={this.handleChangeLevel}>
@@ -120,15 +132,17 @@ class SignUp extends Component {
           </Button>
           <Button
             id='settled'
-            basic color='yellow'
+            basic color='grey'
             active={activeItem === 'settled'}
             value={'settled'}
             onClick={this.handleChangeLevel}>
             SETTLED
             </Button>
         </Button.Group>
+        <br></br>
+        <br></br>
 
-        <Button id="sign_up_button" onClick={this.createUser}>Sign Up</Button>
+        <Button className='submit-button' id="sign_up_button" onClick={this.createUser}>Sign Up</Button>
 
       </Container>
     )

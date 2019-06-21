@@ -97,6 +97,7 @@ class Login extends Component {
         <br></br>
 
         <Header
+        className='text'
         id="sign_up_link"
         as={Link}
         to='sign-up'
