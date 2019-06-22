@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Geocode from 'react-geocode'
 import moment from 'moment'
-import { Container, Image, Icon } from 'semantic-ui-react'
+import { Container, Image, Icon, Header } from 'semantic-ui-react'
 
 class EntryPopup extends Component {
 
@@ -54,6 +54,8 @@ class EntryPopup extends Component {
     return (
       <>
         <Container className={this.state.category} id='entry-wrapper'>
+
+        <Container id='entry-image-wrapper'>
           <Image
             fluid
             rounded
@@ -63,13 +65,22 @@ class EntryPopup extends Component {
             id={`image_${this.props.id}`}
             alt='entry image'
             src={this.state.image} />
-          <h3> {this.state.caption} </h3>
-          <p id='entry-location'>
+          </Container>
+
+          <Header id="entry-caption" as="h3">
+           {this.state.caption}
+          </Header>
+          
+          <Container id='entry-location'>
             <Icon
               name='map marker alternate' />
             {this.state.address}
-          </p>
-          <p><i> {date} @ {time} </i></p>
+          </Container>
+
+          <Container id='date-container'>
+            <p><i> {date} | {time} </i></p>
+          </Container>
+
         </Container>
       </>
     )
