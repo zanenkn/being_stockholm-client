@@ -80,7 +80,7 @@ class MenuSidebar extends Component {
               as={Link}
               to='about'
               onClick={this.handleSidebarVisibilty}>
-              About Project
+              About
             </Header>
             <br></br>
             <br></br>
