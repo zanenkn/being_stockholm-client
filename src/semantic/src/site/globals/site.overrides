@@ -68,6 +68,10 @@
   text-align: justify !important;
 }
 
+.views-image {
+  border-radius: 10px !important;
+}
+
 #urbanbeings-main-header {
   color: #f2711c !important;
   text-align: left !important;
