@@ -43,10 +43,6 @@ class EntryPopup extends Component {
     )
   }
 
-  executeOnClick(isExpanded) {
-    console.log(isExpanded);
-  }
-
   render() {
 
     let dateString = this.state.created_at

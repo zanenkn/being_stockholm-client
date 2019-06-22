@@ -16,8 +16,6 @@
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "react-show-more": "^2.0.0",
-    "react-show-more-text": "^1.0.5",
     "reactjs-popup": "^1.4.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
