@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Header, Container, Image, List, Segment, Grid, Sidebar } from 'semantic-ui-react'
+import { Header, Container, Image, List, Segment, Grid, Sidebar, Divider } from 'semantic-ui-react'
 
 class AboutProject extends Component {
   render() {
     return (
       <>
-      <Sidebar.Pushable as={Container}>
+      <Sidebar.Pushable as={Container} id="views-main-container-sidebar">
         <Container className="views-main-container">
 
           <Header className="views-main-header" as='h1'>
@@ -35,6 +35,7 @@ class AboutProject extends Component {
               We believe that when people understand more about the places where they live, they will develop a sense of pride and ownership of it, so that they will become active and engaged citizens who will take care of their cities.          </p>
           </Container>
           <br></br>
+          <Divider></Divider>
 
           <Header id="urbanbeings-main-header" as='h2'>
             UrbanBeings
@@ -73,9 +74,9 @@ class AboutProject extends Component {
               Key projects which influenced Being Stockholm include:
           </p>
             <List bulleted>
-              <List.Item>Strategic urban planning frameworks (Mayor of London) to guide the design and delivery of regeneration areas.</List.Item>
-              <List.Item>Toddle in the City a treasure hunt with a camera for toddlers to explore and learn about the city</List.Item>
-              <List.Item>Walk and Swim (London European Club) funded by the Mayor of London’s Sports Legacy Fund to encourage Londoners to stay active</List.Item>
+              <List.Item><b>Strategic urban planning frameworks</b> (Mayor of London) to guide the design and delivery of regeneration areas.</List.Item>
+              <List.Item><b>Toddle in the City</b> a treasure hunt with a camera for toddlers to explore and learn about the city</List.Item>
+              <List.Item><b>Walk and Swim</b> (London European Club) funded by the Mayor of London’s Sports Legacy Fund to encourage Londoners to stay active</List.Item>
             </List>
           </Container>
 

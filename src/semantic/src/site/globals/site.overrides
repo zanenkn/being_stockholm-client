@@ -25,6 +25,9 @@
 /*******************************
   Views - directed from menu
 *******************************/
+#views-main-container-sidebar {
+  width: 100% !important;
+}
 
 .views-main-container {
   padding: 10% 8% 10% 8%; 
