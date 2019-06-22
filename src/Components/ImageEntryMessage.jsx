@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Segment, Sidebar, Button } from 'semantic-ui-react';
+import React, { Component } from 'react'
+import { Segment, Sidebar, Button } from 'semantic-ui-react'
 
 class ImageEntryMessage extends Component {
 

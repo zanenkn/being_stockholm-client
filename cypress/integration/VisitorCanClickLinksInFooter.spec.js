@@ -34,7 +34,8 @@ describe('Visitor can click links in footer', () => {
 
   it('on profile icon and be redirected to log in / sign up', () => {
     cy.get('#profile-icon').click()
-    cy.contains('Log In / Sign Up')
+    cy.get('#email')
+    cy.get('#password')
   })
 
 })

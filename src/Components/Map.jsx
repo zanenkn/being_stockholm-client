@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import GoogleMapReact from 'google-map-react'
 import MapStyle from '../Modules/MapStyle'
 import { Icon } from 'semantic-ui-react'
@@ -43,6 +44,19 @@ class Map extends Component {
   }
 
   render() {
+    let createEntry
+    let user = this.props.currentUser.isSignedIn
+
+    if (user === true) {
+      createEntry = (
+        <CreateImageEntry />
+      )
+    } else {
+      createEntry = (
+        <Redirect to='/log-in' />
+      )
+    }
+
     return (
 
       <div id='map'
@@ -64,9 +78,7 @@ class Map extends Component {
           position="top center"
           closeOnDocumentClick={true}
         >
-          <>
-            <CreateImageEntry />
-          </>
+          {createEntry}
         </Popup>
 
         <Popup
@@ -104,6 +116,8 @@ class Map extends Component {
 }
 
 const mapStateToProps = state => ({
+  state: state,
+  currentUser: state.reduxTokenAuth.currentUser,
   sidebarVisible: state.animation.sidebarVisible
 })
 

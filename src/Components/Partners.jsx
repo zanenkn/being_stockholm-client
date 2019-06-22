@@ -1,11 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Header } from 'semantic-ui-react'
 
 class Partners extends Component {
-
-  componentDidMount() {
-    this.props.sidebarVisibility()
-  }
 
   render() {
     return (

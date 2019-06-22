@@ -60,33 +60,26 @@ class EntryPopup extends Component {
       <>
         <Container className={this.state.category} id='entry-wrapper'>
 
-        <Container id='entry-image-wrapper'>
-          <Image
-            fluid
-            rounded
-            centered
-            verticalAlign='top'
-            size='medium'
-            id={`image_${this.props.id}`}
-            alt='entry image'
-            src={this.state.image} />
+          <Container id='entry-image-wrapper'>
+            <Image
+              fluid
+              rounded
+              centered
+              verticalAlign='top'
+              size='medium'
+              id={`image_${this.props.id}`}
+              alt='entry image'
+              src={this.state.image} />
           </Container>
 
           <Header id="entry-caption">
-            <ShowMoreText
-              lines={1}
-              more='Show more'
-              less='Show less'
-              anchorClass=''
-              onClick={this.executeOnClick}
-              >
-              {this.state.caption}
-            </ShowMoreText>
+            {this.state.caption}
           </Header>
-          
+
           <Container id='entry-location'>
             <Icon
-              name='map marker alternate' />
+              name='map marker alternate'
+            />
             {this.state.address}
           </Container>
 
