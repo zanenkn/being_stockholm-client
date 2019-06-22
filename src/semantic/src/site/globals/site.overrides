@@ -30,6 +30,7 @@
   padding: 10% 8% 10% 8%; 
   margin: 0rem !important;
   width: 100% !important;
+  color: grey !important;
 }
 
 .views-main-header {
