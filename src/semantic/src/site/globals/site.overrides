@@ -27,13 +27,14 @@
 *******************************/
 
 .views-main-container {
-  padding: 10% 10% 10% 10%; 
+  padding: 10% 8% 10% 8%; 
   margin: 0rem !important;
   width: 100% !important;
 }
 
 .views-main-header {
   color: #f2711c !important;
+  text-align: center !important;
 }
 
 .submit-button {
@@ -47,6 +48,33 @@
 
 .text {
   font-size: 15px !important;
+  color: grey !important;
+}
+
+.views-ingress-container {
+  font-size: 15px !important;
+  font-weight: bold !important;
+  max-width: 100% !important;
+}
+
+.views-text-container {
+  max-width: 100% !important;
+}
+
+#urbanbeings-main-header {
+  color: #f2711c !important;
+  text-align: left !important;
+  margin-bottom: 0 !important;
+}
+
+#urbanbeings-subheader-1 {
+  font-size: 12px !important;
+  font-weight: bold !important; 
+}
+
+#urbanbeings-subheader-2 {
+  font-size: 10px !important;
+  font-weight: bold !important;
   color: grey !important;
 }
 
