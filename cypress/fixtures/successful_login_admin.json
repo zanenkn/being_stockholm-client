@@ -1,0 +1,14 @@
+{
+  "data": {
+    "id": 2,
+    "email": "yatwan@mail.com",
+    "provider": "email",
+    "level": "settled",
+    "uid": "yatwan@mail.com",
+    "allow_password_change": false,
+    "name": null,
+    "nickname": null,
+    "image": null,
+    "admin": true
+  }
+}
