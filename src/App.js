@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { Container, Sidebar } from 'semantic-ui-react';
-import Footer from './Components/Footer';
+import React, { Component } from 'react'
+import { Container, Sidebar } from 'semantic-ui-react'
+import Footer from './Components/Footer'
 import Map from './Components/Map'
-import MenuSidebar from './Components/MenuSidebar';
+import MenuSidebar from './Components/MenuSidebar'
 import { Switch, Route } from 'react-router-dom'
-import Login from './Components/Login';
-import SignUp from './Components/SignUp';
-import AboutProject from './Components/AboutProject';
-import Partners from './Components/Partners';
-import GetInTouch from './Components/GetInTouch';
-import LegalInfo from './Components/LegalInfo';
+import Login from './Components/Login'
+import SignUp from './Components/SignUp'
+import AboutProject from './Components/AboutProject'
+import Partners from './Components/Partners'
+import GetInTouch from './Components/GetInTouch'
+import LegalInfo from './Components/LegalInfo'
 import { connect } from 'react-redux'
 
 class App extends Component {
