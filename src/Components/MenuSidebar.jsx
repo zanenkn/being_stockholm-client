@@ -34,6 +34,7 @@ class MenuSidebar extends Component {
           <Header
             id='admin-link'
             className="sidebar-menu-link"
+            onClick={this.handleSidebarVisibilty}
             as={Link}
             to='admin'>
             Admin Page
