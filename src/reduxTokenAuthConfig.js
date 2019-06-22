@@ -6,7 +6,8 @@ const her = 'https://being-stockholm.herokuapp.com/api/v1/auth'
 const config = {
   authUrl: loc,
   userAttributes: {
-    uid: 'uid'
+    uid: 'uid',
+    id: 'id'
   },
   userRegistrationAttributes: {
     password_confirmation: 'password_confirmation',

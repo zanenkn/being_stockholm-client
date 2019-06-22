@@ -6,6 +6,7 @@ import ImageEntryMessage from './ImageEntryMessage'
 import ExifReader from 'exifreader'
 import fileToArrayBuffer from 'file-to-array-buffer'
 import Geocode from 'react-geocode'
+import { connect } from 'react-redux'
 
 class CreateImageEntry extends Component {
   state = {
@@ -33,8 +34,13 @@ class CreateImageEntry extends Component {
     if (pictureFiles.length > 0) {
       let image = pictureFiles[0]
       fileToArrayBuffer(image).then((data) => {
-        const tags = ExifReader.load(data)
-        if (tags.GPSLatitude === undefined) {
+        try {
+          var tags = ExifReader.load(data)
+        }
+        catch (error) {
+          this.setState({ messageVisible: true, errorMessage: true, errors: ['This is an invalid JPG/JPEG image format'] })
+        }
+        if (tags === undefined || tags.GPSLatitude === undefined) {
           this.setState({
             image: pictureDataURLs,
             button: 'hide-button',
@@ -47,10 +53,10 @@ class CreateImageEntry extends Component {
             longitude: tags.GPSLongitude.description,
             latitude: tags.GPSLatitude.description
           })
-          Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS);
+          Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
           Geocode.fromLatLng(this.state.latitude, this.state.longitude).then(
             response => {
-              const addressGeocode = response.results[0].formatted_address;
+              const addressGeocode = response.results[0].formatted_address
               this.setState({ address: addressGeocode })
             },
             error => {
@@ -78,7 +84,8 @@ class CreateImageEntry extends Component {
       caption: this.state.caption,
       category: this.state.category,
       latitude: this.state.latitude,
-      longitude: this.state.longitude
+      longitude: this.state.longitude,
+      user_id: this.props.currentUser.attributes.id
     }
     axios.post(path, payload)
       .then(response => {
@@ -191,4 +198,11 @@ class CreateImageEntry extends Component {
     )
   }
 }
-export default CreateImageEntry
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  }
+}
+
+export default connect(mapStateToProps)(CreateImageEntry)

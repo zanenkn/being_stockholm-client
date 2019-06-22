@@ -1,7 +1,13 @@
 describe('Visitor can', () => {
 
   beforeEach(function () {
-    cy.server();
+    cy.server()
+    cy.route({
+      method: 'GET',
+      url: 'http://localhost:3002/api/v1/posts',
+      response: 'fixture:list_of_posts.json',
+      status: 200
+    })
     cy.route({
       method: 'POST',
       url: 'http://localhost:3002/api/v1/posts',
