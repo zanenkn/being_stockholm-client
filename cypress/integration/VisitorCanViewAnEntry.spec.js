@@ -20,7 +20,7 @@ describe('Visitor can view', () => {
   it('can view an entry', () => {
     cy.get('#post_5').click()
 
-    let text = ['Midsommar', 'Ballonggatan 23, 169 71 Solna, Sweden', '20-06-2019 @ 19:28']
+    let text = ['Midsommar', 'Ballonggatan 23, 169 71 Solna, Sweden', '20-06-2019 | 19:28']
 
     text.forEach(post => {
       cy.contains(post)
