@@ -28,16 +28,25 @@ class Map extends Component {
   }
 
   componentDidMount() {
+    this.axiosGetPosts()
+  }
+
+  combineFunctions = () => {
+    this.props.dispatch({ type: 'CHANGE_VISIBILITY' })
+    this.axiosGetPosts()
+  }
+
+  axiosGetPosts = () => {
     axios.get('/api/v1/posts').then(response => {
-      this.setState({ posts: response.data });
-    });
+      this.setState({ posts: response.data })
+    })
   }
 
   render() {
     return (
 
       <div id='map'
-        onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_VISIBILITY' }) } : () => { }}
+        onClick={this.props.sidebarVisible ? () => { this.combineFunctions() } : () => { this.axiosGetPosts() }}
       >
 
         <Popup modal trigger={
@@ -77,14 +86,14 @@ class Map extends Component {
           options={{ styles: MapStyle }}>
 
           {this.state.posts.map(post => (
-   
+
             <Icon name='circle'
               size='large'
               lat={parseFloat(post.latitude)}
               lng={parseFloat(post.longitude)}
               key={post.id}
               id={`post_${post.id}`}
-              onClick={() => {this.setState({id: post.id, openEntryPopup: true}) }}
+              onClick={() => { this.setState({ id: post.id, openEntryPopup: true }) }}
               color={(post.category === 'work') ? 'teal' : 'yellow'} />
           ))}
 
