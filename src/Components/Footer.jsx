@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Grid, Header } from 'semantic-ui-react';
+import React, { Component } from 'react'
+import { Grid, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 

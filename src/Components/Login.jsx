@@ -28,7 +28,7 @@ class Login extends Component {
     signInUser({ email, password })
       .then(response => {
         this.setState({ message: true })
-        setTimeout(function () { history.push('/') }, 3000)
+        setTimeout(function () { history.push('/') }, 1000)
       }).catch(error => {
         this.setState({
           errorsLogin: error.response.data.errors[0],
@@ -72,7 +72,11 @@ class Login extends Component {
         <br></br>
 
         <p>{message}</p>
-        <Form id="login-form" onSubmit={this.onSubmit}>
+        <Form 
+        id="login-form" 
+        onSubmit={this.onSubmit}
+        >
+
           <Form.Input
             required
             id="email"

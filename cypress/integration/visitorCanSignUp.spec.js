@@ -20,10 +20,18 @@ describe('User can sign up', () => {
     cy.get('#profile-icon').click()
     cy.get('#sign_up_link').click()
     cy.get('#signup-form').within(() => {
-      cy.get('#email').type('zane@mail.com')
-      cy.get('#password').type('password')
-      cy.get('#password_confirmation').type('password')
-    })
+
+      let text = [
+        ['#email', 'zane@mail.com'],
+        ['#password', 'password'],
+        ['#password_confirmation', 'password']
+        ]
+        
+        text.forEach(post => {
+          cy.get(post[0]).type(post[1])
+        })
+      })
+
     cy.get('#newbie').click()
     cy.get('#sign_up_button').click()
     cy.contains('You have succesfully created an account!')
@@ -40,14 +48,29 @@ describe('User can sign up', () => {
     cy.get('#profile-icon').click()
     cy.get('#sign_up_link').click()
     cy.get('#signup-form').within(() => {
-      cy.get('#email').type('boa@')
-      cy.get('#password').type('pass')
-      cy.get('#password_confirmation').type('password')
+
+      let text = [
+      ['#email', 'boa@'],
+      ['#password', 'pass'],
+      ['#password_confirmation', 'password']
+      ]
+
+      text.forEach(post => {
+        cy.get(post[0]).type(post[1])
+      })
     })
+
     cy.get('#sign_up_button').click()
     cy.contains("Password confirmation doesn't match Password")
-    cy.contains("Password is too short (minimum is 6 characters")
-    cy.contains("Email is not an email")
-    cy.contains("Level can't be blank")
-  })
+
+    let text = [
+      'Password is too short (minimum is 6 characters',
+      'Email is not an email',
+      "Level can't be blank",
+      ]
+
+      text.forEach(post => {
+        cy.contains(post)
+      })
+    })
 })

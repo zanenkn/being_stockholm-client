@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import GoogleMapReact from 'google-map-react';
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
+import GoogleMapReact from 'google-map-react'
 import MapStyle from '../Modules/MapStyle'
-import { Icon } from 'semantic-ui-react';
-import Popup from 'reactjs-popup';
-import CreateImageEntry from './CreateImageEntry';
-import axios from 'axios';
-import { connect } from 'react-redux';
+import { Icon } from 'semantic-ui-react'
+import Popup from 'reactjs-popup'
+import CreateImageEntry from './CreateImageEntry'
+import axios from 'axios'
+import { connect } from 'react-redux'
 
 class Map extends Component {
   static defaultProps = {

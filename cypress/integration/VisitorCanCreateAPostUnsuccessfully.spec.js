@@ -39,9 +39,15 @@ describe('Visitor can', () => {
 
   it('not create post if image is not uploaded and/or caption is over 140 characters long', () => {
     
-    cy.contains('Your post could not be created since')
-    cy.contains('Caption is too long (maximum is 140 characters)')
-    cy.contains('You need to upload an image')
+    let text = [
+      'Your post could not be created since', 
+      'Caption is too long (maximum is 140 characters)',
+      'You need to upload an image',
+    ]
+
+    text.forEach(post => {
+      cy.contains(post)
+    })
   })
 
   it('not continue creating post without closing error message', () => {

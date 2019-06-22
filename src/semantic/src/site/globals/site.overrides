@@ -237,3 +237,14 @@
 #menu-sidebar-grid {
   height: 100%!important;
 }
+
+
+/*******************************
+        Form
+*******************************/
+
+.ui.form {
+    max-width: 450px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
