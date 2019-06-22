@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container } from 'semantic-ui-react'
+import { Header, Container, Image, Label, Segment } from 'semantic-ui-react'
 
 class AboutProject extends Component {
   render() {
@@ -12,14 +12,14 @@ class AboutProject extends Component {
         </Header>
         <br></br>
 
-          <Container text className="views-ingress-container">
+          <Container className="views-ingress-container">
           <p>
             We want to inspire Stockholmers to explore new places and try out new activities. We would love to see where and how you spend your working and free time, so that you can share your favourite places and activities - no matter how long you have lived in Stockholm or what language you speak.
           </p>
           </Container>
           <br></br>
 
-          <Container text className="views-text-container">
+          <Container className="views-text-container">
           <p>
             By sharing your photos, you will help us map and illustrate how Stockholmers use the city region. This can help urban planners see how the city is used and changing - if the new places and amenities are used as they are designed or need adapting, so that the urban development process can be more responsive. 
           </p>
@@ -29,7 +29,7 @@ class AboutProject extends Component {
           </Container>
           <br></br>
 
-          <Container text className="views-ingress-container">
+          <Container className="views-ingress-container">
           <p>
             We believe that when people understand more about the places where they live, they will develop a sense of pride and ownership of it, so that they will become active and engaged citizens who will take care of their cities.          </p>
           </Container>
@@ -43,6 +43,27 @@ class AboutProject extends Component {
           <p id="urbanbeings-subheader-2">Design & Research / Events / Education</p>
         </Container>
           <br></br>
+
+        <Container className="views-text-container">
+
+        <Segment className="image-segment-left" floated="left">
+          <div>
+            <Image src='yat.png' size='small'></Image>
+            <p className="image-segment-label" >Yatwan Hui</p>
+            <p className="image-segment-label" >| Architect and urban designer</p>
+          </div>
+          </Segment>
+
+          <p>
+          Being Stockholm is an Urban Beings project, inspired by our move from London to Stockholm in October 2017. 
+          </p>
+          <p>
+          Urban Beings was founded in London in 2010 to help people enjoy the city by connecting the human experiences with those creating and shaping the city. Urban Beings focuses on design and research projects, organising events and education and works with the public sectors, communities and universities.
+          </p>
+          <p>
+          Key projects which influenced Being Stockholm include:
+          </p>
+        </Container>
 
       </Container>
       </>
