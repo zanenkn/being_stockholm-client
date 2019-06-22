@@ -5,7 +5,7 @@ class AboutProject extends Component {
   render() {
     return (
       <>
-      <Sidebar.Pusher>
+      <Sidebar.Pushable as={Container}>
         <Container className="views-main-container">
 
           <Header className="views-main-header" as='h1'>
@@ -94,7 +94,7 @@ class AboutProject extends Component {
           </Container>
 
         </Container>
-      </Sidebar.Pusher>
+      </Sidebar.Pushable>
       </>
     )
   }
