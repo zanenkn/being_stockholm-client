@@ -3,6 +3,7 @@ import axios from 'axios'
 import Geocode from 'react-geocode'
 import moment from 'moment'
 import { Container, Image, Icon, Header } from 'semantic-ui-react'
+import ShowMoreText from 'react-show-more-text';
 
 class EntryPopup extends Component {
 
@@ -43,6 +44,10 @@ class EntryPopup extends Component {
     )
   }
 
+  executeOnClick(isExpanded) {
+    console.log(isExpanded);
+  }
+
   render() {
 
     let dateString = this.state.created_at
@@ -67,8 +72,16 @@ class EntryPopup extends Component {
             src={this.state.image} />
           </Container>
 
-          <Header id="entry-caption" as="h3">
-           {this.state.caption}
+          <Header id="entry-caption">
+            <ShowMoreText
+              lines={1}
+              more='Show more'
+              less='Show less'
+              anchorClass=''
+              onClick={this.executeOnClick}
+              >
+              {this.state.caption}
+            </ShowMoreText>
           </Header>
           
           <Container id='entry-location'>
