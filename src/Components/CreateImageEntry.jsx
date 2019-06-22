@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Form, Button, Icon, Header, Segment, Container, Sidebar } from 'semantic-ui-react';
-import axios from 'axios';
+import { Form, Button, Icon, Header, Segment, Container, Sidebar } from 'semantic-ui-react'
+import axios from 'axios'
 import ImageUploader from 'react-images-upload'
 import ImageEntryMessage from './ImageEntryMessage'
 import ExifReader from 'exifreader'
