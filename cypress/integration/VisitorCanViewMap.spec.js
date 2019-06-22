@@ -2,6 +2,13 @@ describe('Visitor can view Map', () => {
 
   beforeEach(function () {
     cy.viewport(1536, 785)
+    cy.server()
+    cy.route({
+      method: 'GET',
+      url: 'http://localhost:3002/api/v1/posts',
+      response: 'fixture:list_of_posts.json',
+      status: 200
+    })
     cy.visit('http://localhost:3000/')
   })
 
