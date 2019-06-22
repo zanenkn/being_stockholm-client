@@ -6,6 +6,7 @@ import ImageEntryMessage from './ImageEntryMessage'
 import ExifReader from 'exifreader'
 import fileToArrayBuffer from 'file-to-array-buffer'
 import Geocode from 'react-geocode'
+import { connect } from 'react-redux'
 
 class CreateImageEntry extends Component {
   state = {
@@ -192,4 +193,11 @@ class CreateImageEntry extends Component {
     )
   }
 }
-export default CreateImageEntry
+
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.reduxTokenAuth.currentUser
+  }
+}
+
+export default connect(mapStateToProps)(CreateImageEntry)
