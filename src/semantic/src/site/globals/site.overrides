@@ -184,6 +184,12 @@
   font-size: 12px;
 }
 
+#entry-caption {
+  margin: 1rem 0 1rem 0;
+  font-size: 14px;
+}
+
+
 /*******************************
          Footer
 *******************************/
