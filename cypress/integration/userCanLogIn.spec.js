@@ -21,13 +21,13 @@ describe('User can log in', () => {
       }
     })
     cy.visit('http://localhost:3000')
-    cy.get('#login').click()
+    cy.get('#profile-icon').click()
     cy.get('#login-form').within(() => {
       cy.get('#email').type('carla@mail.com')
       cy.get('#password').type('password')
     })
     cy.get('#login_form_button').click()
-    cy.contains('Welcome Carla')
+    cy.contains('You have succesfully logged in')
   })
 
   it('with invalid credentials', () => {
@@ -39,7 +39,7 @@ describe('User can log in', () => {
       response: 'fixture:unsuccessful_login.json',
     })
     cy.visit('http://localhost:3000')
-    cy.get('#login').click()
+    cy.get('#profile-icon').click()
     cy.get('#login-form').within(() => {
       cy.get('#email').type('carla@mail.com')
       cy.get('#password').type('wrongpassword')
