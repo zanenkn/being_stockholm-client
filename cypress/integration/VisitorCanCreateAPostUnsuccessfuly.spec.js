@@ -1,7 +1,13 @@
 describe('Visitor can', () => {
 
   beforeEach(function () {
-    cy.server();
+    cy.server()
+    cy.route({
+      method: 'GET',
+      url: 'http://localhost:3002/api/v1/posts',
+      response: 'fixture:list_of_posts.json',
+      status: 200
+    })
     cy.route({
       method: 'POST',
       url: 'http://localhost:3002/api/v1/posts',
@@ -15,7 +21,7 @@ describe('Visitor can', () => {
   })
 
   it('not create post if image is not uploaded and/or caption is over 140 characters long', () => {
-    
+
     cy.contains('Your post could not be created since')
     cy.contains('Caption is too long (maximum is 140 characters)')
     cy.contains('You need to upload an image')

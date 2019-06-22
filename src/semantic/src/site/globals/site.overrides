@@ -96,7 +96,7 @@
 }
 
 .uploadPicturesWrapper {
-  max-height: 220px;
+  max-height: 210px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -156,6 +156,32 @@
 .fileContainer .deleteImage {
   background: grey;
   font-size: 15px;
+}
+
+/*******************************
+  Popup - Single Image Entry
+*******************************/
+
+#entry-wrapper {
+  background-color: white;
+  padding: 1rem;
+}
+#entry-image-wrapper {
+  max-height: 210px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#date-container {
+  color: #b2afaf;
+  font-size: 12px;
+}
+
+#entry-location {
+  padding: 0 0 0.7rem 0;
+  font-size: 12px;
 }
 
 /*******************************
