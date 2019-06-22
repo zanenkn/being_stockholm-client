@@ -30,7 +30,7 @@ class App extends Component {
 
           <Switch>
             <Route exact path='/' component={Map}></Route>
-            <Route exact path='/admin' component={requireSignIn(AdminPage)}></Route>
+            <Route exact path='/admin' component={AdminPage}></Route>
             <Route exact path='/log-in' component={Login}></Route>
             <Route exact path='/sign-up' component={SignUp}></Route>
             <Route exact path='/about' component={AboutProject}></Route>

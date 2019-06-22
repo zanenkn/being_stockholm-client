@@ -18,17 +18,24 @@ describe('Admin can', () => {
       }
     })
     cy.visit('http://localhost:3000')
+    cy.get('#profile-icon').click()
+    cy.get('#login-form').within(() => {
+      cy.get('#email').type('yatwan@mail.com')
+      cy.get('#password').type('password')
+    })
+    cy.get('#login_form_button').click()
+    cy.wait(3000) 
   })
 
   it('see the Admin link in the menu', () => {
     cy.get('#footer-menu-icon').click()
-    cy.get('#admin').should('be.visible')
+    cy.get('#admin-link').should('be.visible')
   })
 
 
   it('be redirected to Admin page and see unpublished posts on the map', () => {
     cy.get('#footer-menu-icon').click()
-    cy.get('#admin').click()
+    cy.get('#admin-link').click()
 
     let pending = [
       '#post_2', '#post_4', '#post_5'
