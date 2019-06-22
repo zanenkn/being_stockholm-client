@@ -10,9 +10,17 @@ import AboutProject from './Components/AboutProject'
 import Partners from './Components/Partners'
 import GetInTouch from './Components/GetInTouch'
 import LegalInfo from './Components/LegalInfo'
+import AdminPage from './Components/AdminPage'
 import { connect } from 'react-redux'
+import { generateRequireSignInWrapper } from 'redux-token-auth'
+
+
+const requireSignIn = generateRequireSignInWrapper({
+  redirectPathIfNotSignedIn: '/log-in',
+})
 
 class App extends Component {
+
   render() {
     return (
       <>
@@ -22,6 +30,7 @@ class App extends Component {
 
           <Switch>
             <Route exact path='/' component={Map}></Route>
+            <Route exact path='/admin' component={requireSignIn(AdminPage)}></Route>
             <Route exact path='/log-in' component={Login}></Route>
             <Route exact path='/sign-up' component={SignUp}></Route>
             <Route exact path='/about' component={AboutProject}></Route>

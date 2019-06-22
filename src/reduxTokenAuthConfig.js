@@ -7,7 +7,8 @@ const config = {
   authUrl: loc,
   userAttributes: {
     uid: 'uid',
-    id: 'id'
+    id: 'id',
+    admin: 'admin'
   },
   userRegistrationAttributes: {
     password_confirmation: 'password_confirmation',
