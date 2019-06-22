@@ -3,7 +3,6 @@ import axios from 'axios'
 import Geocode from 'react-geocode'
 import moment from 'moment'
 import { Container, Image, Icon, Header } from 'semantic-ui-react'
-import ShowMoreText from 'react-show-more-text';
 
 class EntryPopup extends Component {
 
