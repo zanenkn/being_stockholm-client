@@ -9,7 +9,7 @@ describe('Visitor can click links in menu', () => {
     cy.get('#footer-menu-icon').click()
     cy.get('#menu-sidebar').should('be.visible')
     cy.get('#about').click()
-    cy.contains('About Project')
+    cy.contains('About Being Stockholm')
     cy.get('#menu-sidebar').should('not.be.visible')
   })
 
@@ -17,7 +17,7 @@ describe('Visitor can click links in menu', () => {
     cy.get('#footer-menu-icon').click()
     cy.get('#menu-sidebar').should('be.visible')
     cy.get('#about').click()
-    cy.contains('About Project')
+    cy.contains('About Being Stockholm')
     cy.get('#menu-sidebar').should('not.be.visible')
     cy.get('#footer-menu-icon').click()
     cy.get('#contact').click()
