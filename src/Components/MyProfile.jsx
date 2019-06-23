@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Header, Container, Sidebar } from 'semantic-ui-react'
+import { Header, Container, Sidebar, Button, Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class MyProfile extends Component {
@@ -21,8 +21,20 @@ class MyProfile extends Component {
             <p>
               {greeting}
             </p>
+            <p>
+              Please help us make Being Stockholm better and answer six questions about yourself.
+            </p>
           </Container>
         </Container>
+        <Grid centered>
+          <Button 
+            className="submit-button" 
+            href="https://github.com"
+            target="_blank"
+            >
+              Take me to the survey
+          </Button>
+        </Grid>
       </div>
     </Sidebar.Pushable>
   )
