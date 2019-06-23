@@ -5,7 +5,6 @@ describe('User can', () => {
   })
 
   it('view user page', () => {
-
     cy.route({
       method: 'POST',
       url: 'http://localhost:3002/api/v1/auth/sign_in',
@@ -27,11 +26,9 @@ describe('User can', () => {
     cy.contains('Hello Carla!')
     cy.contains('Please help us make Being Stockholm better and answer six questions about yourself.')
     cy.get('#survey-button').click()
-    //and be redirected to MailChimp
   })
 
   it('not view profile page if not logged in', () => {
-    
     cy.visit('http://localhost:3000')
     cy.get('#profile-icon').click()
     cy.contains('Hello Carla').should('not.exist')
