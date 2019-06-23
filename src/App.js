@@ -12,12 +12,7 @@ import GetInTouch from './Components/GetInTouch'
 import LegalInfo from './Components/LegalInfo'
 import AdminPage from './Components/AdminPage'
 import { connect } from 'react-redux'
-import { generateRequireSignInWrapper } from 'redux-token-auth'
 
-
-const requireSignIn = generateRequireSignInWrapper({
-  redirectPathIfNotSignedIn: '/log-in',
-})
 
 class App extends Component {
 
