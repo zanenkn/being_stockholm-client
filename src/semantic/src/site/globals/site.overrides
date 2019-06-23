@@ -105,6 +105,18 @@
   color: grey !important;
 }
 
+.contact-label-rows {
+  padding-bottom: 0rem !important;
+}
+
+.contact-labels {
+  color: #f2711c !important;
+}
+
+.contact-text-columns {
+  width: 80% !important;
+}
+
 /*******************************
   Popup - Create Image Entry
 *******************************/

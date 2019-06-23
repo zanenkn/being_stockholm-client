@@ -91,7 +91,7 @@ class MenuSidebar extends Component {
               as={Link}
               to='contact'
               onClick={this.handleSidebarVisibilty}>
-              Get in touch
+              Contact
             </Header>
             <br></br>
             <br></br>
