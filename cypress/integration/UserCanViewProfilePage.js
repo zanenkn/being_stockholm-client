@@ -24,7 +24,10 @@ describe('User can', () => {
     cy.get('#login_form_button').click()
     cy.wait(3000)
     cy.get('#profile-icon').click()
-    cy.contains('Hello Carla')
+    cy.contains('Hello Carla!')
+    cy.contains('Please help us make Being Stockholm better and answer six questions about yourself.')
+    cy.get('#survey-button').click()
+    //and be redirected to MailChimp
   })
 
   it('not view profile page if not logged in', () => {
