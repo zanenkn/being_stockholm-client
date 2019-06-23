@@ -28,7 +28,7 @@ describe('Visitor can click links in menu', () => {
     cy.get('#menu-sidebar').should('not.be.visible')
     cy.get('#footer-menu-icon').click()
     cy.get('#contact').click()
-    cy.contains('Get In Touch')
+    cy.contains('Contact')
     cy.get('#menu-sidebar').should('not.be.visible')
   })
 
