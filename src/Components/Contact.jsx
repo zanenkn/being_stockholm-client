@@ -62,10 +62,7 @@ class Contact extends Component {
                     <p><b>Open Lab</b> Vallhallavägen 79, 114 28 Stockholm, Sweden</p>
                   </Grid.Column>
                 </Grid.Row>
-
               </Grid>
-
-              
             </Container>
           </div>
         </Sidebar.Pushable>
