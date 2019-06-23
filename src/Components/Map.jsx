@@ -64,11 +64,7 @@ class Map extends Component {
       >
 
         <Popup modal trigger={
-          <Icon style={{
-            position: 'absolute',
-            zIndex: '4000',
-            padding: '1rem'
-          }}
+          <Icon
             name='plus'
             size='huge'
             color='orange'

@@ -22,6 +22,12 @@
   width: 100%;
 }
 
+#map-icon-admin {
+  position: absolute;
+  z-index: 4000;
+  padding: 1rem;
+}
+
 /*******************************
   Views - directed from menu
 *******************************/
