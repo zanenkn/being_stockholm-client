@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import GoogleMapReact from 'google-map-react'
 import MapStyle from '../Modules/MapStyle'
-import { Icon } from 'semantic-ui-react'
+import { Icon, Container } from 'semantic-ui-react'
 import Popup from 'reactjs-popup'
 import EntryPopup from './EntryPopup'
 import axios from 'axios'
@@ -94,7 +94,14 @@ class AdminPage extends Component {
     } else {
       adminView = (
         <>
-          <h1> You cannot access this page! </h1>
+          <Container
+            textAlign='center'>
+            <Icon
+              name='stop circle'
+              size='massive'
+              color='red' />
+            <h1> You cannot access this page! </h1>
+          </Container>
         </>
       )
     }
