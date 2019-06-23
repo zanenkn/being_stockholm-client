@@ -10,6 +10,7 @@ import AboutProject from './Components/AboutProject'
 import Partners from './Components/Partners'
 import GetInTouch from './Components/GetInTouch'
 import LegalInfo from './Components/LegalInfo'
+import MyProfile from './Components/MyProfile'
 import { connect } from 'react-redux'
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
             <Route exact path='/contact' component={GetInTouch}></Route>
             <Route exact path='/partnerds' component={Partners}></Route>
             <Route exact path='/legal-info' component={LegalInfo}></Route>
+            <Route exact path='/my-profile' component={MyProfile}></Route>
           </Switch>
 
           <MenuSidebar/>
