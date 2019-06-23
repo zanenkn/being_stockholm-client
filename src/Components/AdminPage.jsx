@@ -36,61 +36,74 @@ class AdminPage extends Component {
     this.axiosGetUnpublished()
   }
 
-  async axiosGetUnpublished () {
+  async axiosGetUnpublished() {
     await axios.get('/api/v1/posts').then(response => {
-      this.setState({ posts: response.data }) 
+      this.setState({ posts: response.data })
     })
-    //debugger
     let unpublished = []
     await this.state.posts.map(post => {
-      if(post.status === 'pending'){
+      if (post.status === 'pending') {
         unpublished.push(post)
       }
     })
-    //debugger
     this.setState({ unpublished: unpublished })
-    //debugger
   }
 
   render() {
-    //let user = this.props.currentUser.isSignedIn
+    let user = this.props.currentUser.isSignedIn
+    let adminView
+
+    if (user === true && this.props.admin === true) {
+      adminView = (
+        <>
+          <div id='map'
+            onClick={this.props.sidebarVisible ? () => { this.combineFunctions() } : () => { this.axiosGetUnpublished() }}
+          >
+            <Popup
+              open={this.state.openEntryPopup}
+              closeOnDocumentClick={true}
+              onClose={this.closeModal}>
+
+              <div className="modal">
+                <EntryPopup id={this.state.id} />
+              </div>
+            </Popup>
+
+            <GoogleMapReact
+              bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY_GOOGLE_MAPS }}
+              defaultCenter={this.props.center}
+              defaultZoom={this.props.zoom}
+              options={{ styles: MapStyle }}>
+
+              {this.state.unpublished.map(post => (
+
+                <Icon name='circle'
+                  size='large'
+                  lat={parseFloat(post.latitude)}
+                  lng={parseFloat(post.longitude)}
+                  key={post.id}
+                  id={`post_${post.id}`}
+                  onClick={() => { this.setState({ id: post.id, openEntryPopup: true }) }}
+                  color={(post.category === 'work') ? 'teal' : 'yellow'} />
+              ))}
+
+            </GoogleMapReact>
+          </div>
+        </>
+      )
+    } else {
+      adminView = (
+        <>
+          <p> No pass mother fucker!!!! </p>
+        </>
+      )
+    }
 
     return (
-
-      <div id='map'
-        onClick={this.props.sidebarVisible ? () => { this.combineFunctions() } : () => { this.axiosGetUnpublished() }}
-      >
-        <Popup
-          open={this.state.openEntryPopup}
-          closeOnDocumentClick={true}
-          onClose={this.closeModal}>
-
-          <div className="modal">
-            <EntryPopup id={this.state.id} />
-          </div>
-        </Popup>
-
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY_GOOGLE_MAPS }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-          options={{ styles: MapStyle }}>
-
-          {this.state.unpublished.map(post => (
-
-            <Icon name='circle'
-              size='large'
-              lat={parseFloat(post.latitude)}
-              lng={parseFloat(post.longitude)}
-              key={post.id}
-              id={`post_${post.id}`}
-              onClick={() => { this.setState({ id: post.id, openEntryPopup: true }) }}
-              color={(post.category === 'work') ? 'teal' : 'yellow'} />
-          ))}
-
-        </GoogleMapReact>
-      </div>
-    );
+      <>
+        {adminView}
+      </>
+    )
   }
 }
 
