@@ -46,6 +46,36 @@ class HowThisWorks extends Component {
                   </div>
                 </Grid.Column>
               </Grid>
+              <br></br>
+
+              <Header className="views-second-header" as='h3'>
+                Share your recommendations!
+              </Header>
+              <Header className="views-third-header" as='h4'>
+                1. First, you’ll need to set up a profile
+              </Header>
+              <br></br>
+
+              <Grid columns={2}>
+                <Grid.Column>
+                  <div>
+                    <Image className="views-image" src='screenshot_mock.png' size='medium'></Image>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div>
+                    <Image className="views-image" src='screenshot_mock.png' size='medium'></Image>
+                  </div>
+                </Grid.Column>
+              </Grid>
+            
+            <Container>
+              <p className="screenshot-label">
+                We’d like to see if New and Settled Stockholmers go to the same places and use them in different ways - so let us know whether you feel you’re a Newbie or a Settled local!
+              </p>
+            </Container>
+
+              
 
 
 
