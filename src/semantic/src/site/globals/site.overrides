@@ -25,15 +25,20 @@
 /*******************************
   Views - directed from menu
 *******************************/
+#views-main-container-sidebar {
+  width: 100% !important;
+}
 
 .views-main-container {
-  padding: 10% 10% 10% 10%; 
+  padding: 10% 8% 10% 8%; 
   margin: 0rem !important;
   width: 100% !important;
+  color: grey !important;
 }
 
 .views-main-header {
   color: #f2711c !important;
+  text-align: center !important;
 }
 
 .submit-button {
@@ -47,6 +52,56 @@
 
 .text {
   font-size: 15px !important;
+  color: grey !important;
+  max-width: 100% !important;
+}
+
+.views-ingress-container {
+  font-size: 15px !important;
+  font-weight: bold !important;
+  max-width: 100% !important;
+  text-align: justify !important;
+}
+
+.views-text-container {
+  max-width: 100% !important;
+  text-align: justify !important;
+}
+
+.views-image {
+  border-radius: 10px !important;
+}
+
+#urbanbeings-main-header {
+  color: #f2711c !important;
+  text-align: left !important;
+  margin-bottom: 0 !important;
+}
+
+#urbanbeings-subheader-1 {
+  font-size: 12px !important;
+  font-weight: bold !important;
+  margin: 0 !important;
+}
+
+#urbanbeings-subheader-2 {
+  font-size: 10px !important;
+  font-weight: bold !important;
+  color: grey !important;
+}
+
+.image-segment-left {
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 1.3rem 1rem 0 !important;
+}
+
+.image-segment-label {
+  font-style: italic !important;
+  font-size: 12px !important;
+  margin: 0 !important;
   color: grey !important;
 }
 
@@ -129,7 +184,7 @@
 }
 
 .uploadPicturesWrapper {
-  max-height: 220px;
+  max-height: 210px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -188,12 +243,46 @@
 }
 
 /*******************************
+  Popup - Single Image Entry
+*******************************/
+
+#entry-wrapper {
+  background-color: white;
+  padding: 1rem;
+}
+#entry-image-wrapper {
+  max-height: 210px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#date-container {
+  color: #b2afaf;
+  font-size: 12px;
+}
+
+#entry-location {
+  padding: 0 0 0.7rem 0;
+  font-size: 12px;
+}
+
+#entry-caption {
+  margin: 1rem 0 1rem 0;
+  font-size: 14px;
+}
+
+
+/*******************************
          Footer
 *******************************/
 
 #footer {
   height: 10vh;
   margin: auto;
+  border-top: solid 2px;
+  border-color: #F4F3F2;
 }
 
 #footer-logo {

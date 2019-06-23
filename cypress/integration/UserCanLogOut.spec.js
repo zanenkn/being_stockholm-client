@@ -9,7 +9,7 @@ describe('User can log out', () => {
     cy.route({
       method: 'POST',
       url: 'http://localhost:3002/api/v1/auth/sign_in',
-      response: 'fixture:successful_login.json',
+      response: 'fixture:successful_login_user.json',
       headers: {
         "uid": "zane@mail.com"
       }

@@ -34,8 +34,13 @@ class CreateImageEntry extends Component {
     if (pictureFiles.length > 0) {
       let image = pictureFiles[0]
       fileToArrayBuffer(image).then((data) => {
-        const tags = ExifReader.load(data)
-        if (tags.GPSLatitude === undefined) {
+        try {
+          var tags = ExifReader.load(data)
+        }
+        catch (error) {
+          this.setState({ messageVisible: true, errorMessage: true, errors: ['This is an invalid JPG/JPEG image format'] })
+        }
+        if (tags === undefined || tags.GPSLatitude === undefined) {
           this.setState({
             image: pictureDataURLs,
             button: 'hide-button',
@@ -48,10 +53,10 @@ class CreateImageEntry extends Component {
             longitude: tags.GPSLongitude.description,
             latitude: tags.GPSLatitude.description
           })
-          Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS);
+          Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
           Geocode.fromLatLng(this.state.latitude, this.state.longitude).then(
             response => {
-              const addressGeocode = response.results[0].formatted_address;
+              const addressGeocode = response.results[0].formatted_address
               this.setState({ address: addressGeocode })
             },
             error => {
