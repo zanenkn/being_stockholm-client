@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container, Image, List, Segment, Grid, Sidebar, Divider } from 'semantic-ui-react'
+import { Header, Container, Image, Grid, Sidebar, Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class HowThisWorks extends Component {
@@ -14,8 +14,41 @@ class HowThisWorks extends Component {
               </Header>
               <br></br>
 
+              <Container className="views-ingress-container">
+                <p>
+                  Are you looking for inspirations of things to do and new places to explore in Stockholm?
+                </p>
+                <p>
+                  Do you have a favourite place or activity that you’d like to shout about?
+                </p>
+                <p>
+                  If so, Being Stockholm is the place for you!
+                </p>
+              </Container>
+              <br></br>
 
-              
+              <Header className="views-second-header" as='h3'>
+                See where and how Stockholmers work and play
+              </Header>
+              <br></br>
+
+              <Grid columns={2}>
+                <Grid.Column>
+                  <div>
+                    <Image className="views-image" src='screenshot_mock.png' size='medium'></Image>
+                    <p className="screenshot-label">Placeholder for screenshot caption including explanation</p>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  <div>
+                    <Image className="views-image" src='screenshot_mock.png' size='medium'></Image>
+                    <p className="screenshot-label">Placeholder for screenshot caption including explanation</p>
+                  </div>
+                </Grid.Column>
+              </Grid>
+
+
+
             </Container>
           </div>
         </Sidebar.Pushable>

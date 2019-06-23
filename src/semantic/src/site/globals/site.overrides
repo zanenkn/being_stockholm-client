@@ -41,6 +41,11 @@
   text-align: center !important;
 }
 
+.views-second-header {
+  color: #f2711c !important;
+
+}
+
 .submit-button {
   border-radius: 30px !important;
   margin: 1rem 0 0 0 !important;
@@ -96,6 +101,11 @@
   box-shadow: none !important;
   margin: 0 !important;
   padding: 0 1.3rem 1rem 0 !important;
+}
+
+.screenshot-label {
+  font-size: 12px !important;
+  padding-left: 1rem !important;
 }
 
 .image-segment-label {
