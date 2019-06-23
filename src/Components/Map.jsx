@@ -65,6 +65,7 @@ class Map extends Component {
 
         <Popup modal trigger={
           <Icon
+            className='map-icons'
             name='plus'
             size='huge'
             color='orange'

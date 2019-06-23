@@ -60,12 +60,13 @@ class AdminPage extends Component {
             onClick={this.props.sidebarVisible ? () => { this.combineFunctions() } : () => { this.axiosGetUnpublished() }}
           >
 
-          <Icon
-            name='adn'
-            size='huge'
-            color='orange'
-            id='map-icon-admin'
-          />
+            <Icon
+              className='map-icons'
+              name='adn'
+              size='huge'
+              color='orange'
+              id='map-icon-admin'
+            />
 
             <Popup
               open={this.state.openEntryPopup}

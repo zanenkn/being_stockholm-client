@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class Footer extends Component {
+
   render() {
+    
     let user = this.props.currentUser.isSignedIn
     let adminIcon
 
@@ -34,7 +36,6 @@ class Footer extends Component {
                 to='/'>
                 Being Stockholm
               </Header>
-
             </Grid.Column>
 
             <Grid.Column
@@ -133,7 +134,6 @@ class Footer extends Component {
         </>
       )
     }
-
 
     return (
       <>
