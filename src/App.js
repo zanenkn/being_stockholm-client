@@ -6,6 +6,7 @@ import MenuSidebar from './Components/MenuSidebar'
 import { Switch, Route } from 'react-router-dom'
 import Login from './Components/Login'
 import SignUp from './Components/SignUp'
+import HowThisWorks from './Components/HowThisWorks'
 import AboutProject from './Components/AboutProject'
 import Partners from './Components/Partners'
 import Contact from './Components/Contact'
@@ -24,6 +25,7 @@ class App extends Component {
             <Route exact path='/' component={Map}></Route>
             <Route exact path='/log-in' component={Login}></Route>
             <Route exact path='/sign-up' component={SignUp}></Route>
+            <Route exact path='/how-this-works' component={HowThisWorks}></Route>
             <Route exact path='/about' component={AboutProject}></Route>
             <Route exact path='/contact' component={Contact}></Route>
             <Route exact path='/partnerds' component={Partners}></Route>
