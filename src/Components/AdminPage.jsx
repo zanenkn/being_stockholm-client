@@ -94,7 +94,7 @@ class AdminPage extends Component {
     } else {
       adminView = (
         <>
-          <p> No pass mother fucker!!!! </p>
+          <h1> You cannot access this page! </h1>
         </>
       )
     }

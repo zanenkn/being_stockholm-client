@@ -1,4 +1,4 @@
-describe('Admin can', () => {
+describe('Non admin cannot', () => {
 
   beforeEach(function () {
     cy.server();
@@ -12,15 +12,15 @@ describe('Admin can', () => {
       method: 'POST',
       url: 'http://localhost:3002/api/v1/auth/sign_in',
       status: 200,
-      response: 'fixture:successful_login_admin.json',
+      response: 'fixture:successful_login_user.json',
       headers: {
-        "uid": "yatwan@mail.com"
+        "uid": "carla@mail.com"
       }
     })
     cy.visit('http://localhost:3000')
     cy.get('#profile-icon').click()
     cy.get('#login-form').within(() => {
-      cy.get('#email').type('yatwan@mail.com')
+      cy.get('#email').type('carla@mail.com')
       cy.get('#password').type('password')
     })
     cy.get('#login_form_button').click()
@@ -29,27 +29,12 @@ describe('Admin can', () => {
 
   it('see the Admin link in the menu', () => {
     cy.get('#footer-menu-icon').click()
-    cy.get('#admin-link').should('be.visible')
+    cy.get('#admin-link').should('not.be.visible')
   })
 
-  it('be redirected to Admin page and see unpublished posts on the map', () => {
-    cy.get('#footer-menu-icon').click()
-    cy.get('#admin-link').click()
-
-    let pending = [
-      '#post_2', '#post_4', '#post_5'
-    ]
-
-    let published = [
-      '#post_1', '#post_3'
-    ]
-
-    pending.forEach(post => {
-      cy.get(post).should('be.visible')
-    })
-
-    published.forEach(post => {
-      cy.get(post).should('not.be.visible')
-    })
+  it('access the Admin page even if she manually enters the route in the browser', () => {
+    cy.visit('http://localhost:3000/admin')
+    cy.get('#map').should('not.be.visible')
+    cy.contains('You cannot access this page!')
   })
 })
