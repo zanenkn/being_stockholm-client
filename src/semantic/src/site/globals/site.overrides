@@ -295,6 +295,10 @@
   font-size: 5vw;
 }
 
+#admin-icon {
+  color: #616161;
+}
+
 @media screen and (min-width: 1200px) {
   #footer-logo {
     font-size: 30px;

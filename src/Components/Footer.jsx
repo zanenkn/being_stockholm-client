@@ -38,7 +38,7 @@ class Footer extends Component {
             </Grid.Column>
 
             <Grid.Column
-              id='profile-icon'
+              id='admin-icon'
               as={Link}
               to='admin'
               textAlign='center'
@@ -46,7 +46,6 @@ class Footer extends Component {
               <Icon
                 name='key'
                 size='large'
-                color='black'
               >
               </Icon>
             </Grid.Column>
