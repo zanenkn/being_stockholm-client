@@ -35,8 +35,8 @@ describe('User can log in', () => {
     cy.route({
       method: 'POST',
       url: 'http://localhost:3002/api/v1/auth/sign_in',
-      status: "401",
-      response: 'fixture:unsuccessful_login_user.json',
+      status: 401,
+      response: 'fixture:unsuccessful_login.json',
     })
     cy.visit('http://localhost:3000')
     cy.get('#profile-icon').click()
