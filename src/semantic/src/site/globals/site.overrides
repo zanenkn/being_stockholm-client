@@ -2,6 +2,11 @@
          Site Overrides
 *******************************/
 
+.align-center {
+  margin: auto;
+  text-align: center;
+}
+
 /*******************************
          Map
 *******************************/
@@ -52,7 +57,7 @@
 
 .submit-button {
   border-radius: 30px !important;
-  margin: 1rem 0 0 0 !important;
+  margin: 1rem auto 0 auto !important;
   padding: 1rem 3rem 1rem 3rem !important;
   font-size: 1.2rem !important;
   background-color: #f2711c !important;
@@ -367,4 +372,14 @@
   max-width: 450px !important;
   margin-left: auto !important;
   margin-right: auto !important;
+}
+
+/*******************************
+        Profile page
+*******************************/
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  .ui.container {
+    width: 100% !important;
+  }
 }

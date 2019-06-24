@@ -11,6 +11,7 @@ import AboutProject from './Components/AboutProject'
 import Partners from './Components/Partners'
 import Contact from './Components/Contact'
 import LegalInfo from './Components/LegalInfo'
+import MyProfile from './Components/MyProfile'
 import AdminPage from './Components/AdminPage'
 import { connect } from 'react-redux'
 
@@ -34,6 +35,7 @@ class App extends Component {
             <Route exact path='/contact' component={Contact}></Route>
             <Route exact path='/partnerds' component={Partners}></Route>
             <Route exact path='/legal-info' component={LegalInfo}></Route>
+            <Route exact path='/my-profile' component={MyProfile}></Route>
           </Switch>
 
           <MenuSidebar/>
