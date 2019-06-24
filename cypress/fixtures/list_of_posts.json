@@ -18,11 +18,11 @@
     "status": "published",
     "latitude": 59.329051,
     "longitude": 18.046244,
-    "category": "work"
+    "category": "play"
   },
   {
     "id": 4,
-    "status": "pending",
+    "status": "declined",
     "latitude": 59.357546,
     "longitude": 18.013345,
     "category": "play"
