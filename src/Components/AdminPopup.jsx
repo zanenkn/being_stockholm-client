@@ -18,7 +18,8 @@ class AdminPopup extends Component {
     successMessage: false,
     errorMessage: false,
     messageVisible: false,
-    errors: ''
+    errors: '',
+    adminMessage: ''
   }
 
   async componentDidMount() {
@@ -59,6 +60,7 @@ class AdminPopup extends Component {
           successMessage: true,
           errorMessage: false,
           messageVisible: true,
+          adminMessage: true
         })
       })
       .catch(error => {
@@ -81,6 +83,7 @@ class AdminPopup extends Component {
           successMessage: true,
           errorMessage: false,
           messageVisible: true,
+          adminMessage: false
         })
       })
       .catch(error => {
@@ -116,6 +119,7 @@ class AdminPopup extends Component {
             errorMessage={this.state.errorMessage}
             handleMessageVisibility={this.handleMessageVisibility}
             errors={this.state.errors}
+            adminMessage={this.state.adminMessage}
           />
 
           <Sidebar.Pusher dimmed={this.state.messageVisible}>
@@ -148,16 +152,19 @@ class AdminPopup extends Component {
 
             <Container>
               <Button
+                color='green'
                 onClick={this.acceptButton.bind(this)}
               >
                 Accept
               </Button>
 
               <Button
+                color='red'
                 onClick={this.declineButton.bind(this)}
               >
                 Decline
               </Button>
+              <br></br>
               <br></br>
 
             </Container>

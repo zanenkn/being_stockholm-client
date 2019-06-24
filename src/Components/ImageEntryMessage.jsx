@@ -16,6 +16,20 @@ class ImageEntryMessage extends Component {
           Close
         </Button>
       )
+    } else if (this.props.adminMessage === true) {
+      message = (
+        <>
+          <h5>You have accepted this post!</h5>
+          <p>Click on map to continue</p>
+        </>
+      )
+    } else if (this.props.adminMessage === false) {
+      message = (
+        <>
+          <h5>You have declined this post!</h5>
+          <p>Click on map to continue</p>
+        </>
+      )
     } else {
       message = (
         <>
@@ -24,7 +38,7 @@ class ImageEntryMessage extends Component {
         </>
       )
     }
-    
+
     if (this.props.errorMessage === true && this.props.image.length === 0) {
       message = (
         <>
