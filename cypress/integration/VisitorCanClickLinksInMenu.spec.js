@@ -40,4 +40,12 @@ describe('Visitor can click links in menu', () => {
     cy.get('#menu-sidebar').should('not.be.visible')
   })
 
+  it('and click on Being Stockholm Beta and be redirected', () => {
+    cy.get('#footer-menu-icon').click()
+    cy.get('#menu-sidebar').should('be.visible')
+    cy.get('#being-stockholm-beta').click()
+    cy.contains('Being Stockholm Beta')
+    cy.get('#menu-sidebar').should('not.be.visible')
+  })
+
 })
