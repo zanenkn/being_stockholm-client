@@ -30,6 +30,6 @@ describe('User can', () => {
   it('not view profile page if not logged in', () => {
     cy.visit('http://localhost:3000')
     cy.get('#profile-icon').click()
-    cy.contains('Hello Carla').should('not.exist')
+    cy.contains('Please help us make Being Stockholm better and answer six questions about yourself.').should('not.exist')
   })
 })
