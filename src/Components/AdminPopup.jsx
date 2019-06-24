@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Geocode from 'react-geocode'
 import moment from 'moment'
-import { Container, Image, Icon, Header, Button } from 'semantic-ui-react'
+import { Container, Image, Icon, Header, Button, Sidebar, Segment } from 'semantic-ui-react'
+import ImageEntryMessage from './ImageEntryMessage'
 
 class AdminPopup extends Component {
 
@@ -69,6 +70,32 @@ class AdminPopup extends Component {
       })
   }
 
+  declineButton = () => {
+    const path = '/api/v1/posts/' + `${this.props.id}`
+    const payload = {
+      status: 'declined'
+    }
+    axios.patch(path, payload)
+      .then(response => {
+        this.setState({
+          successMessage: true,
+          errorMessage: false,
+          messageVisible: true,
+        })
+      })
+      .catch(error => {
+        this.setState({
+          errorMessage: true,
+          messageVisible: true,
+          errors: error.response.data.error
+        })
+      })
+  }
+
+  handleMessageVisibility = animation => () =>
+    this.setState(prevState => ({ animation, messageVisible: !prevState.messageVisible })
+    )
+
   render() {
 
     let dateString = this.state.created_at
@@ -79,46 +106,63 @@ class AdminPopup extends Component {
 
     return (
       <>
-        <Container className={this.state.category} id='entry-wrapper'>
+        <Sidebar.Pushable as={Segment} textAlign='center'
+          className={this.state.category}
+        >
 
-          <Container id='entry-image-wrapper'>
-            <Image
-              fluid
-              rounded
-              centered
-              verticalAlign='top'
-              size='medium'
-              id={`image_${this.props.id}`}
-              alt='entry image'
-              src={this.state.image} />
-          </Container>
+          <ImageEntryMessage
+            visible={this.state.messageVisible}
+            successMessage={this.state.successMessage}
+            errorMessage={this.state.errorMessage}
+            handleMessageVisibility={this.handleMessageVisibility}
+            errors={this.state.errors}
+          />
 
-          <Header id="entry-caption">
-            {this.state.caption}
-          </Header>
+          <Sidebar.Pusher dimmed={this.state.messageVisible}>
+            <Container id="upload-post-wrapper">
+              <Image
+                fluid
+                rounded
+                centered
+                verticalAlign='top'
+                size='medium'
+                id={`image_${this.props.id}`}
+                alt='entry image'
+                src={this.state.image} />
+            </Container>
 
-          <Container id='entry-location'>
-            <Icon
-              name='map marker alternate'
-            />
-            {this.state.address}
-          </Container>
+            <Header id="entry-caption">
+              {this.state.caption}
+            </Header>
 
-          <Container id='date-container'>
-            <p><i> {date} | {time} </i></p>
-          </Container>
+            <Container id='entry-location'>
+              <Icon
+                name='map marker alternate'
+              />
+              {this.state.address}
+            </Container>
 
-          <Container>
-            <Button
-              onClick={this.acceptButton.bind(this)}
-            >
-              Accept
-            </Button>
+            <Container id='date-container'>
+              <p><i> {date} | {time} </i></p>
+            </Container>
 
-            <Button>Decline</Button>
-          </Container>
+            <Container>
+              <Button
+                onClick={this.acceptButton.bind(this)}
+              >
+                Accept
+              </Button>
 
-        </Container>
+              <Button
+                onClick={this.declineButton.bind(this)}
+              >
+                Decline
+              </Button>
+              <br></br>
+
+            </Container>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
       </>
     )
   }

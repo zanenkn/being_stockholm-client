@@ -179,7 +179,8 @@ class CreateImageEntry extends Component {
                   value='work'
                   onClick={this.handleChangeCategory}>
                   WORK
-          </Button>
+                </Button>
+
                 <Button
                   id='play'
                   basic color='yellow'
@@ -187,7 +188,7 @@ class CreateImageEntry extends Component {
                   value='play'
                   onClick={this.handleChangeCategory}>
                   PLAY
-            </Button>
+                </Button>
               </Button.Group>
               <br></br>
               <Button id="upload-button" onClick={this.uploadPost}>MAP IT!</Button>
