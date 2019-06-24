@@ -62,7 +62,7 @@ class AdminPage extends Component {
 
             <Icon
               className='map-icons'
-              name='adn'
+              name='font'
               size='huge'
               color='orange'
               id='map-icon-admin'
@@ -104,7 +104,7 @@ class AdminPage extends Component {
       adminView = (
         <>
           <Container
-          className='views-main-container'
+            className='views-main-container'
             textAlign='center'>
             <Icon
               name='stop circle'

@@ -110,9 +110,9 @@ class AdminPopup extends Component {
     return (
       <>
         <Sidebar.Pushable as={Segment} textAlign='center' id='pushable-segment'>
-        <Container id='entry-wrapper' className={this.state.category}>
+          <Container id='entry-wrapper' className={this.state.category}>
 
-        <ImageEntryMessage
+            <ImageEntryMessage
               visible={this.state.messageVisible}
               successMessage={this.state.successMessage}
               errorMessage={this.state.errorMessage}
@@ -160,6 +160,7 @@ class AdminPopup extends Component {
 
               <Container>
                 <Button
+                  id='accept-button'
                   color='green'
                   onClick={this.acceptButton.bind(this)}
                 >
@@ -167,6 +168,7 @@ class AdminPopup extends Component {
                 </Button>
 
                 <Button
+                  id='decline-button'
                   color='red'
                   onClick={this.declineButton.bind(this)}
                 >
