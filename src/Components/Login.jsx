@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Container, Message, Header } from 'semantic-ui-react'
+import { Form, Button, Container, Message, Header, Sidebar } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { signInUser } from '../reduxTokenAuthConfig'
 import { Link } from 'react-router-dom'
@@ -9,7 +9,7 @@ class Login extends Component {
     email: '',
     password: '',
     message: '',
-    errorsLogin: ''
+    errorsLogin: '',
   }
 
   onChangeHandler = (e) => {
@@ -62,63 +62,61 @@ class Login extends Component {
       )
     }
     return (
+      <Sidebar.Pushable as={Container} id="views-main-container-sidebar">
+        <Container className="views-main-container"textAlign='center'>
 
-      <Container className="views-main-container"textAlign='center'>
+          <Header className="views-main-header" as='h1'>
+            Log In
+          </Header>
+          <br></br>
+          <br></br>
 
-        <Header className="views-main-header" as='h1'>
-          Log In
-        </Header>
-        <br></br>
-        <br></br>
+          <p>{message}</p>
+          <Form 
+          id="login-form" 
+          onSubmit={this.onSubmit}
+          >
 
-        <p>{message}</p>
-        <Form 
-        id="login-form" 
-        onSubmit={this.onSubmit}
-        >
+            <Form.Input
+              required
+              id="email"
+              value={this.state.email}
+              onChange={this.onChangeHandler}
+              placeholder="Email"
+            />
+            <Form.Input
+              required
+              id="password"
+              type="password"
+              value={this.state.password}
+              onChange={this.onChangeHandler}
+              placeholder="Password"
+            />
+              <br></br>
 
-          <Form.Input
-            required
-            id="email"
-            value={this.state.email}
-            onChange={this.onChangeHandler}
-            placeholder="Email"
-          />
-          <Form.Input
-            required
-            id="password"
-            type="password"
-            value={this.state.password}
-            onChange={this.onChangeHandler}
-            placeholder="Password"
-          />
-            <br></br>
+            <Button className="submit-button" id="login_form_button">Login</Button>
+          </Form>
 
-          <Button className="submit-button" id="login_form_button">Login</Button>
-        </Form>
+          <br></br>
+          <br></br>
 
-        <br></br>
-        <br></br>
+          <Header
+          className='text'
+          id="sign_up_link"
+          as={Link}
+          to='sign-up'
+          >
+            Not registered? Create an account!
+          </Header>
 
-        <Header
-        className='text'
-        id="sign_up_link"
-        as={Link}
-        to='sign-up'
-        >
-          Not registered? Create an account!
-        </Header>
-
-      </Container>
+        </Container>
+      </Sidebar.Pushable>    
     )
   }
 }
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.reduxTokenAuth.currentUser
+    currentUser: state.reduxTokenAuth.currentUser   
   }
 }
-export default connect(
-  mapStateToProps,
-  { signInUser },
-)(Login)
+export default connect(mapStateToProps,{ signInUser },)(Login)
