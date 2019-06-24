@@ -13,7 +13,10 @@ class AdminPopup extends Component {
     image: '',
     latitude: '',
     longitude: '',
-    address: ''
+    address: '',
+    successMessage: false,
+    errorMessage: false,
+    errors: ''
   }
 
   async componentDidMount() {
@@ -41,6 +44,28 @@ class AdminPopup extends Component {
         console.error(error);
       }
     )
+  }
+
+  acceptButton = () => {
+    const path = '/api/v1/posts/' + `${this.props.id}`
+    const payload = {
+      status: 'published'
+    }
+    axios.patch(path, payload)
+      .then(response => {
+        this.setState({
+          successMessage: true,
+          errorMessage: false,
+          messageVisible: true,
+        })
+      })
+      .catch(error => {
+        this.setState({
+          errorMessage: true,
+          messageVisible: true,
+          // errors: error.response.data.error
+        })
+      })
   }
 
   render() {
@@ -83,7 +108,11 @@ class AdminPopup extends Component {
           </Container>
 
           <Container>
-            <Button>Accept</Button>
+            <Button
+              onClick={this.acceptButton()}>
+              Accept
+            </Button>
+
             <Button>Decline</Button>
           </Container>
 
