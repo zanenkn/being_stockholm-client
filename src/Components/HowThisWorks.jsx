@@ -104,7 +104,7 @@ class HowThisWorks extends Component {
                   Please make sure the GPS / location services is switched on for your camera so that we can map the photo in its correct location.
                 </p>
                 <p className="screenshot-label">
-                  Help with <a>iPhones</a> and <a>Android</a> or manually <a>add GPS</a> coordinates.
+                  Help with manually adding coordinates to your photos can be found <a href='https://tool.geoimgr.com/' target='_blank' rel='noopener noreferrer'>here</a>.
                 </p>
               </Container>
               <br></br>
@@ -136,7 +136,7 @@ class HowThisWorks extends Component {
 
               <Header className="views-second-header" as='h3'>
                 How we use your information
-            </Header>
+              </Header>
 
               <Container className="views-ingress-container">
                 <p>
@@ -153,7 +153,7 @@ class HowThisWorks extends Component {
                 </p>
                 <p>
                   Thank you for helping us understand how different Stockholmers use the city region for work and play!
-              </p>
+                </p>
               </Container>
             </Container>
           </div>

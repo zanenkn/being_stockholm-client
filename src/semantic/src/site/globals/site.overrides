@@ -125,7 +125,7 @@
 }
 
 .contact-labels {
-  color: #f2711c !important;
+  height: 20px !important;
 }
 
 .contact-text-columns {
