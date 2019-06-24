@@ -8,7 +8,11 @@
 }
 
 a {
-  color: #f2711c !important;
+  color: #f2711c;
+}
+
+a:hover {
+  color: #A65F18;
 }
 
 /*******************************
