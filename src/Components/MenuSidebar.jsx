@@ -28,7 +28,31 @@ class MenuSidebar extends Component {
     let user = this.props.currentUser.isSignedIn
     let loginLabels
 
-    if (user === true) {
+    if (user === true && this.props.admin === true) {
+      loginLabels = (
+        <>
+          <Header
+            id='admin-link'
+            className="sidebar-menu-link"
+            onClick={this.handleSidebarVisibilty}
+            as={Link}
+            to='admin'>
+            Admin Page
+          </Header>
+          <br></br>
+          <br></br>
+
+          <Header
+            id='log-out-link'
+            className="sidebar-menu-link"
+            as={Link}
+            to='log-out'
+            onClick={signOut}>
+            Log out
+          </Header>
+        </>
+      )
+    } else if (user === true && this.props.admin === false) {
       loginLabels = (
         <>
           <Header
@@ -51,7 +75,7 @@ class MenuSidebar extends Component {
             to='log-in'
             onClick={this.handleSidebarVisibilty}>
             Log in / Sign up
-          </Header> 
+          </Header>
         </>
       )
     }
@@ -138,6 +162,7 @@ const mapStateToProps = (state) => {
   return {
     state: state,
     currentUser: state.reduxTokenAuth.currentUser,
+    admin: state.reduxTokenAuth.currentUser.attributes.admin,
     visible: state.animation.sidebarVisible
   }
 }

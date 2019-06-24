@@ -11,7 +11,7 @@
   width: 100%;
 }
 
-#map-icon-plus {
+.map-icons {
   position: absolute;
   z-index: 4000;
   padding: 1rem;
@@ -314,6 +314,10 @@
 
 #footer-logo {
   font-size: 5vw;
+}
+
+#admin-icon {
+  color: #616161;
 }
 
 @media screen and (min-width: 1200px) {

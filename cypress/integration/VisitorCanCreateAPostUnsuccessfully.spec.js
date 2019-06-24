@@ -24,7 +24,7 @@ describe('Visitor can', () => {
       method: 'POST',
       url: 'http://localhost:3002/api/v1/auth/sign_in',
       status: 200,
-      response: 'fixture:successful_login.json',
+      response: 'fixture:successful_login_user.json',
       headers: {
         "uid": "carla@mail.com"
       }

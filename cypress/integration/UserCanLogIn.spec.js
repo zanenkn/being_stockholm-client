@@ -15,7 +15,7 @@ describe('User can log in', () => {
       method: 'POST',
       url: 'http://localhost:3002/api/v1/auth/sign_in',
       status: 200,
-      response: 'fixture:successful_login.json',
+      response: 'fixture:successful_login_user.json',
       headers: {
         "uid": "carla@mail.com"
       }
@@ -35,7 +35,7 @@ describe('User can log in', () => {
     cy.route({
       method: 'POST',
       url: 'http://localhost:3002/api/v1/auth/sign_in',
-      status: "401",
+      status: 401,
       response: 'fixture:unsuccessful_login.json',
     })
     cy.visit('http://localhost:3000')
