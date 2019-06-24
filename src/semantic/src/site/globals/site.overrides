@@ -16,7 +16,7 @@
   width: 100%;
 }
 
-#map-icon-plus {
+.map-icons {
   position: absolute;
   z-index: 4000;
   padding: 1rem;
@@ -46,6 +46,15 @@
   text-align: center !important;
 }
 
+.views-second-header {
+  color: #f2711c !important;
+}
+
+.views-third-header {
+  color: grey !important;
+  margin-top: 1rem !important;
+}
+
 .submit-button {
   border-radius: 30px !important;
   margin: 1rem auto 0 auto !important;
@@ -64,12 +73,12 @@
 .views-ingress-container {
   font-size: 15px !important;
   font-weight: bold !important;
-  max-width: 100% !important;
+  width: 100% !important;
   text-align: justify !important;
 }
 
 .views-text-container {
-  max-width: 100% !important;
+  width: 100% !important;
   text-align: justify !important;
 }
 
@@ -103,11 +112,29 @@
   padding: 0 1.3rem 1rem 0 !important;
 }
 
+.screenshot-label {
+  font-size: 12px !important;
+  padding: 1rem 0 0 1rem !important;
+  font-style: italic !important;
+}
+
 .image-segment-label {
   font-style: italic !important;
   font-size: 12px !important;
   margin: 0 !important;
   color: grey !important;
+}
+
+.contact-label-rows {
+  padding-bottom: 0rem !important;
+}
+
+.contact-labels {
+  height: 20px !important;
+}
+
+.contact-text-columns {
+  width: 80% !important;
 }
 
 /*******************************
@@ -292,6 +319,10 @@
 
 #footer-logo {
   font-size: 5vw;
+}
+
+#admin-icon {
+  color: #616161;
 }
 
 @media screen and (min-width: 1200px) {

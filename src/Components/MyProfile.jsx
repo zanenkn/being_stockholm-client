@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container, Sidebar, Button, Grid, Divider } from 'semantic-ui-react'
+import { Header, Container, Sidebar, Button, Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class MyProfile extends Component {

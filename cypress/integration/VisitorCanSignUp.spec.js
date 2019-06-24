@@ -61,9 +61,9 @@ describe('User can sign up', () => {
     })
 
     cy.get('#sign_up_button').click()
-    cy.contains("Password confirmation doesn't match Password")
 
     let text = [
+      "Password confirmation doesn't match Password",
       'Password is too short (minimum is 6 characters',
       'Email is not an email',
       "Level can't be blank",

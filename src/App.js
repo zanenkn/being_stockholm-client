@@ -6,14 +6,18 @@ import MenuSidebar from './Components/MenuSidebar'
 import { Switch, Route } from 'react-router-dom'
 import Login from './Components/Login'
 import SignUp from './Components/SignUp'
+import HowThisWorks from './Components/HowThisWorks'
 import AboutProject from './Components/AboutProject'
 import Partners from './Components/Partners'
-import GetInTouch from './Components/GetInTouch'
+import Contact from './Components/Contact'
 import LegalInfo from './Components/LegalInfo'
 import MyProfile from './Components/MyProfile'
+import AdminPage from './Components/AdminPage'
 import { connect } from 'react-redux'
 
+
 class App extends Component {
+
   render() {
     return (
       <>
@@ -23,10 +27,12 @@ class App extends Component {
 
           <Switch>
             <Route exact path='/' component={Map}></Route>
+            <Route exact path='/admin' component={AdminPage}></Route>
             <Route exact path='/log-in' component={Login}></Route>
             <Route exact path='/sign-up' component={SignUp}></Route>
+            <Route exact path='/how-this-works' component={HowThisWorks}></Route>
             <Route exact path='/about' component={AboutProject}></Route>
-            <Route exact path='/contact' component={GetInTouch}></Route>
+            <Route exact path='/contact' component={Contact}></Route>
             <Route exact path='/partnerds' component={Partners}></Route>
             <Route exact path='/legal-info' component={LegalInfo}></Route>
             <Route exact path='/my-profile' component={MyProfile}></Route>
