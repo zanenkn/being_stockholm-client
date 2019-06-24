@@ -86,7 +86,7 @@
   border-radius: 10px !important;
 }
 
-#urbanbeings-main-header {
+.views-second-header{
   color: #f2711c !important;
   text-align: left !important;
   margin-bottom: 0 !important;

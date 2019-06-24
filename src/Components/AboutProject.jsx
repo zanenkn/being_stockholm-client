@@ -39,7 +39,7 @@ class AboutProject extends Component {
               <br></br>
               <Divider></Divider>
 
-              <Header id="urbanbeings-main-header" as='h2'>
+              <Header className="views-second-header" as='h2'>
                 UrbanBeings
               </Header>
 

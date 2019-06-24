@@ -13,6 +13,12 @@ describe('User can view', () => {
     })
     cy.route({
       method: 'GET',
+      url: 'http://localhost:3002/api/v1/posts?user_id=1',
+      response: 'fixture:one_users_posts.json',
+      status: 200
+    })
+    cy.route({
+      method: 'GET',
       url: 'http://localhost:3002/api/v1/posts',
       response: 'fixture:list_of_posts.json',
       status: 200
@@ -30,17 +36,17 @@ describe('User can view', () => {
 
   it('status of her entries', () => {
     cy.get('#published-entries').within(() => {
-      cy.contains('Your published entries')
+      cy.contains('Your Published Entries')
       cy.contains('Midsummer joy in Södermalm')
       cy.contains('Hard day at the office')
     })
     cy.get('#pending-entries').within(() => {
-      cy.contains('Your pending entries')
+      cy.contains('Your Pending Entries')
       cy.contains('Work hard, play hard')
       cy.contains('A crazy night out')
     })
-    cy.get('#declined-articles').within(() => {
-      cy.contains('Your declined entries')
+    cy.get('#declined-entries').within(() => {
+      cy.contains('Your Declined Entries')
       cy.contains('I like to swear €%€#&&#')
     })
   })
