@@ -1,9 +1,41 @@
 import React, { Component } from 'react'
 import { Header, Container, Sidebar, Button, Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import axios from 'axios';
 
 class MyProfile extends Component {
+  state = {
+    entries: []
+  }
+  
+  componentDidMount() {
+    axios.get(`/api/v1/posts?user_id=${this.props.currentUser.attributes.id}`).then(response => {
+      this.setState({ entries: response.data })
+    })
+  }
+
   render() {
+    
+    let publishedEntriesToDisplay
+    let pendingEntriesToDisplay
+    let declinedEntriesToDisplay
+
+    let publishedEntries = []
+    let pendingEntries = []
+    let declinedEntries = []
+
+    this.state.entries.map(entry => {
+      debugger
+      if (entry.status === 'published') {
+        return publishedEntries.push(entry)
+      } else if (entry.status === 'pending') {
+        return pendingEntries.push(entry)
+      } else if (entry.status === 'declined') {
+        return declinedEntries.push(entry)
+      }
+    })
+
+
     return (
       <Sidebar.Pushable as={Container} id="views-main-container-sidebar">
         <div fluid onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_VISIBILITY' }) } : () => { }}>
