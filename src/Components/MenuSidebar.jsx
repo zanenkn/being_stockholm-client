@@ -133,12 +133,12 @@ class MenuSidebar extends Component {
             <br></br>
 
             <Header
-              id='partnerds'
+              id='being-stockholm-beta'
               className="sidebar-menu-link"
               as={Link}
-              to='partnerds'
+              to='being-stockholm-beta'
               onClick={this.handleSidebarVisibilty}>
-              Partners
+              Being Stockholm Beta
              </Header>
             <br></br>
             <br></br>
