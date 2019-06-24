@@ -16,6 +16,7 @@ class AdminPopup extends Component {
     address: '',
     successMessage: false,
     errorMessage: false,
+    messageVisible: false,
     errors: ''
   }
 
@@ -63,7 +64,7 @@ class AdminPopup extends Component {
         this.setState({
           errorMessage: true,
           messageVisible: true,
-          // errors: error.response.data.error
+          errors: error.response.data.error
         })
       })
   }
@@ -109,7 +110,8 @@ class AdminPopup extends Component {
 
           <Container>
             <Button
-              onClick={this.acceptButton()}>
+              onClick={this.acceptButton.bind(this)}
+            >
               Accept
             </Button>
 
