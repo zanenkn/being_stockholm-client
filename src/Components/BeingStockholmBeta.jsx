@@ -30,7 +30,7 @@ class BeingStockholmBeta extends Component {
                   <b>Big thank you</b> for all your hard work, love and nerdery:
                 </p>
                 <p>
-                  <i>In Stockholm: </i>Felix Bonnier, Carla Rosen, George Tomaris.
+                  <i>In Stockholm: </i>Felix Bonnier, Carla Rosen, George Tomaras.
                 </p>
                 <p>
                   <i>In Gothenburg: </i>Stefan Karlberg, Zane Neikena

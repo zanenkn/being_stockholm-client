@@ -9,7 +9,7 @@ class Login extends Component {
     email: '',
     password: '',
     message: '',
-    errorsLogin: '',
+    errorsLogin: ''
   }
 
   onChangeHandler = (e) => {
