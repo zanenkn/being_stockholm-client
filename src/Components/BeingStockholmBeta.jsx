@@ -49,7 +49,7 @@ class BeingStockholmBeta extends Component {
                 <div>
                   <Image className="views-image" src='craft_team_photo.jpg' size='medium'></Image>
                   <br></br>
-                  <p className="image-segment-label" >CraftAcademy squad</p>
+                  <p className="image-segment-label" >CraftAcademy squad - GOTHENBURG TO BE ADDED!</p>
                 </div>
               </Segment>
 
