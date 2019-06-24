@@ -21,7 +21,8 @@ class Map extends Component {
   state = {
     openEntryPopup: false,
     posts: [],
-    id: ''
+    id: '',
+    published: []
   }
 
   closeModal = () => {
@@ -29,18 +30,25 @@ class Map extends Component {
   }
 
   componentDidMount() {
-    this.axiosGetPosts()
+    this.axiosGetPublishedPosts()
   }
 
   combineFunctions = () => {
     this.props.dispatch({ type: 'CHANGE_VISIBILITY' })
-    this.axiosGetPosts()
+    this.axiosGetPublishedPosts()
   }
 
-  axiosGetPosts = () => {
-    axios.get('/api/v1/posts').then(response => {
+  async axiosGetPublishedPosts() {
+    await axios.get('/api/v1/posts').then(response => {
       this.setState({ posts: response.data })
     })
+    let published = []
+    await this.state.posts.map(post => {
+      if (post.status === 'published') {
+        published.push(post)
+      }
+    })
+    this.setState({ published: published })
   }
 
   render() {
@@ -60,7 +68,7 @@ class Map extends Component {
     return (
 
       <div id='map'
-        onClick={this.props.sidebarVisible ? () => { this.combineFunctions() } : () => { this.axiosGetPosts() }}
+        onClick={this.props.sidebarVisible ? () => { this.combineFunctions() } : () => { this.axiosGetPublishedPosts() }}
       >
 
         <Popup modal trigger={
@@ -94,7 +102,7 @@ class Map extends Component {
           defaultZoom={this.props.zoom}
           options={{ styles: MapStyle }}>
 
-          {this.state.posts.map(post => (
+          {this.state.published.map(post => (
 
             <Icon name='circle'
               size='large'
