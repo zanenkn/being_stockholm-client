@@ -305,6 +305,22 @@
   font-size: 14px;
 }
 
+/*******************************
+         My Profile
+*******************************/
+
+.my-profile-entry-segment {
+  height: 120px !important;
+}
+
+.my-profile-entry-image {
+  background-size: cover !important;
+  background-position: center center !important;
+  min-height: 100% !important;
+  border-radius: 0px !important;
+  background-repeat: no-repeat !important;
+}
+
 
 /*******************************
          Footer

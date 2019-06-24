@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container, Sidebar, Button, Divider } from 'semantic-ui-react'
+import { Header, Container, Sidebar, Button, Divider, Segment, Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import axios from 'axios';
 
@@ -25,7 +25,6 @@ class MyProfile extends Component {
     let declinedEntries = []
 
     this.state.entries.map(entry => {
-      debugger
       if (entry.status === 'published') {
         return publishedEntries.push(entry)
       } else if (entry.status === 'pending') {
@@ -34,6 +33,25 @@ class MyProfile extends Component {
         return declinedEntries.push(entry)
       }
     })
+
+    pendingEntriesToDisplay = (
+      pendingEntries.map(entry => {
+        return (
+          <>
+            <Segment id={entry.id}>
+              <Grid className='my-profile-entry-segment'>
+                <Grid.Column className='my-profile-entry-image' width={6}
+                  style={{background: `url(${entry.image})`}}>
+                </Grid.Column>
+                <Grid.Column width={10}>
+                  <p>{entry.caption}</p>
+                </Grid.Column>
+              </Grid>
+            </Segment>
+          </>
+        )
+      })
+    )
 
 
     return (
@@ -60,6 +78,15 @@ class MyProfile extends Component {
                 Take me to the survey
               </Button>
             </Container>
+          
+
+          <Divider></Divider>
+
+          <Header>Pending Entries</Header>
+            <>
+            {pendingEntriesToDisplay}
+            </>
+
           </Container>
         </div>
       </Sidebar.Pushable>
