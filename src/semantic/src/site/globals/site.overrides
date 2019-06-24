@@ -383,3 +383,12 @@
     width: 100% !important;
   }
 }
+
+/*******************************
+        Admin popup
+*******************************/
+
+#pushable-segment {
+  border: none !important;
+  border-radius: 20px !important;
+}

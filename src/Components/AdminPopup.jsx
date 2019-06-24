@@ -109,66 +109,74 @@ class AdminPopup extends Component {
 
     return (
       <>
-        <Sidebar.Pushable as={Segment} textAlign='center'
-          className={this.state.category}
-        >
+        <Sidebar.Pushable as={Segment} textAlign='center' id='pushable-segment'>
+        <Container id='entry-wrapper' className={this.state.category}>
 
-          <ImageEntryMessage
-            visible={this.state.messageVisible}
-            successMessage={this.state.successMessage}
-            errorMessage={this.state.errorMessage}
-            handleMessageVisibility={this.handleMessageVisibility}
-            errors={this.state.errors}
-            adminMessage={this.state.adminMessage}
-          />
+        <ImageEntryMessage
+              visible={this.state.messageVisible}
+              successMessage={this.state.successMessage}
+              errorMessage={this.state.errorMessage}
+              handleMessageVisibility={this.handleMessageVisibility}
+              errors={this.state.errors}
+              adminMessage={this.state.adminMessage}
+            />
 
-          <Sidebar.Pusher dimmed={this.state.messageVisible}>
-            <Container id="upload-post-wrapper">
-              <Image
-                fluid
-                rounded
-                centered
-                verticalAlign='top'
-                size='medium'
-                id={`image_${this.props.id}`}
-                alt='entry image'
-                src={this.state.image} />
-            </Container>
+            <ImageEntryMessage
+              visible={this.state.messageVisible}
+              successMessage={this.state.successMessage}
+              errorMessage={this.state.errorMessage}
+              handleMessageVisibility={this.handleMessageVisibility}
+              errors={this.state.errors}
+              adminMessage={this.state.adminMessage}
+            />
 
-            <Header id="entry-caption">
-              {this.state.caption}
-            </Header>
+            <Sidebar.Pusher dimmed={this.state.messageVisible}>
+              <Container id='entry-image-wrapper'>
+                <Image
+                  fluid
+                  rounded
+                  centered
+                  verticalAlign='top'
+                  size='medium'
+                  id={`image_${this.props.id}`}
+                  alt='entry image'
+                  src={this.state.image} />
+              </Container>
 
-            <Container id='entry-location'>
-              <Icon
-                name='map marker alternate'
-              />
-              {this.state.address}
-            </Container>
+              <Header id="entry-caption">
+                {this.state.caption}
+              </Header>
 
-            <Container id='date-container'>
-              <p><i> {date} | {time} </i></p>
-            </Container>
+              <Container id='entry-location'>
+                <Icon
+                  name='map marker alternate'
+                />
+                {this.state.address}
+              </Container>
 
-            <Container>
-              <Button
-                color='green'
-                onClick={this.acceptButton.bind(this)}
-              >
-                Accept
-              </Button>
+              <Container id='date-container'>
+                <p><i> {date} | {time} </i></p>
+              </Container>
 
-              <Button
-                color='red'
-                onClick={this.declineButton.bind(this)}
-              >
-                Decline
-              </Button>
-              <br></br>
-              <br></br>
+              <Container>
+                <Button
+                  color='green'
+                  onClick={this.acceptButton.bind(this)}
+                >
+                  Accept
+                </Button>
 
-            </Container>
-          </Sidebar.Pusher>
+                <Button
+                  color='red'
+                  onClick={this.declineButton.bind(this)}
+                >
+                  Decline
+                </Button>
+                <br></br>
+
+              </Container>
+            </Sidebar.Pusher>
+          </Container>
         </Sidebar.Pushable>
       </>
     )
