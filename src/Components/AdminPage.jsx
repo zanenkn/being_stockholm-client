@@ -104,6 +104,7 @@ class AdminPage extends Component {
       adminView = (
         <>
           <Container
+          className='views-main-container'
             textAlign='center'>
             <Icon
               name='stop circle'
