@@ -74,6 +74,18 @@ class MenuSidebar extends Component {
             <br></br>
             <br></br>
 
+            
+            <Header
+              id='how-this-works'
+              className="sidebar-menu-link"
+              as={Link}
+              to='how-this-works'
+              onClick={this.handleSidebarVisibilty}>
+              How this works
+            </Header>
+            <br></br>
+            <br></br>
+
             <Header
               id='about'
               className="sidebar-menu-link"
@@ -91,7 +103,7 @@ class MenuSidebar extends Component {
               as={Link}
               to='contact'
               onClick={this.handleSidebarVisibilty}>
-              Get in touch
+              Contact
             </Header>
             <br></br>
             <br></br>
