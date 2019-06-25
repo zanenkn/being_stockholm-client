@@ -65,7 +65,7 @@
     "id": 9,
     "status": "published",
     "latitude": 59.329051,
-    "longitude": 18.045244,
+    "longitude": 18.059244,
     "category": "play",
     "level": "settled",
     "user_id": 1
@@ -74,7 +74,7 @@
     "id": 10,
     "status": "published",
     "latitude": 59.329051,
-    "longitude": 18.058244,
+    "longitude": 18.068244,
     "category": "play",
     "level": "settled",
     "user_id": 1
@@ -83,7 +83,7 @@
     "id": 11,
     "status": "published",
     "latitude": 59.329051,
-    "longitude": 18.066244,
+    "longitude": 18.076244,
     "category": "play",
     "level": "newbie",
     "user_id": 2
