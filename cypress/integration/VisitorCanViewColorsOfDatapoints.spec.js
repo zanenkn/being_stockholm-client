@@ -22,17 +22,17 @@ describe('Visitor can view on the map', () => {
     })
   })
 
-  it('datapoints in 4 different category colors when not signed-in', () => {
+  it('datapoints in 4 different category classes when not signed-in', () => {
 
     // work
-    cy.get('#post_6').should('have.class', 'purple')
-    cy.get('#post_7').should('have.class', 'purple')
-    cy.get('#post_8').should('have.class', 'pink')
+    cy.get('#post_6').should('have.class', 'datapoint-work-settled')
+    cy.get('#post_7').should('have.class', 'datapoint-work-settled')
+    cy.get('#post_8').should('have.class', 'datapoint-work-newbie')
 
     // play
-    cy.get('#post_9').should('have.class', 'green')
-    cy.get('#post_10').should('have.class', 'green')
-    cy.get('#post_11').should('have.class', 'olive')
+    cy.get('#post_9').should('have.class', 'datapoint-play-settled')
+    cy.get('#post_10').should('have.class', 'datapoint-play-settled')
+    cy.get('#post_11').should('have.class', 'datapoint-play-newbie')
   })
 
   it('datapoints in 6 different category colors when signed-in', () => {

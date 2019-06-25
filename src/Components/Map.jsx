@@ -61,8 +61,32 @@ class Map extends Component {
     })
     this.setState({ published: published })
   }
-  
+
+
   setDatapointColor = (post) => {
+    let user = this.props.currentUser.isSignedIn
+    let userSession = this.props.currentUser.attributes.uid
+
+    if (user === true) {
+      if (post.user.uid === userSession) {
+        if (post.category === 'work') {
+          return 'datapoint-my-work'
+        } else if (post.category === 'play') {
+          return 'datapoint-my-play'
+        }
+      }
+      else {
+        if (post.category === 'work' && post.user.level === 'settled') {
+          return 'datapoint-work-settled'
+        } else if (post.category === 'work' && post.user.level === 'newbie') {
+          return 'datapoint-work-newbie'
+        } else if (post.category === 'play' && post.user.level === 'settled') {
+          return 'datapoint-play-settled'
+        } else if (post.category === 'play' && post.user.level === 'newbie') {
+          return 'datapoint-play-newbie'
+        }
+      }
+    } else if (user === false) {
       if (post.category === 'work' && post.user.level === 'settled') {
         return 'datapoint-work-settled'
       } else if (post.category === 'work' && post.user.level === 'newbie') {
@@ -72,8 +96,9 @@ class Map extends Component {
       } else if (post.category === 'play' && post.user.level === 'newbie') {
         return 'datapoint-play-newbie'
       }
+    }
   }
-  
+
 
   render() {
 

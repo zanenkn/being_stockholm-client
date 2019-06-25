@@ -60,6 +60,14 @@ a:hover {
   width: 100%;
 }
 
+.datapoint-my-work {
+  color: #312783 !important;
+}
+
+.datapoint-my-play {
+  color: #00a19a !important;
+}
+
 .datapoint-work-settled {
   color: #951b81 !important;
 }
