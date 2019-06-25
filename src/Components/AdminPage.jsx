@@ -20,7 +20,8 @@ class AdminPage extends Component {
     openEntryPopup: false,
     posts: [],
     id: '',
-    unpublished: []
+    unpublished: [],
+    datapointClass: ''
   }
 
   closeModal = () => {
@@ -47,6 +48,12 @@ class AdminPage extends Component {
       }
     })
     this.setState({ unpublished: unpublished })
+  }
+
+  handleDatapointClick = (e) => {
+    const datapointClass = e.target.className.substr(18)
+    const id = e.target.id
+    this.setState({ id: id, datapointClass: datapointClass, openEntryPopup: true })
   }
 
   setDatapointColor = (post) => {
@@ -86,7 +93,10 @@ class AdminPage extends Component {
               onClose={this.closeModal}>
 
               <div className="modal">
-                <AdminPopup id={this.state.id} />
+                <AdminPopup 
+                id={this.state.id} 
+                datapointClass={this.state.datapointClass}
+                />
               </div>
             </Popup>
 
@@ -103,8 +113,8 @@ class AdminPage extends Component {
                   lat={parseFloat(post.latitude)}
                   lng={parseFloat(post.longitude)}
                   key={post.id}
-                  id={`post_${post.id}`}
-                  onClick={() => { this.setState({ id: post.id, openEntryPopup: true }) }}
+                  id={post.id}
+                  onClick={this.handleDatapointClick}
                   className={this.setDatapointColor(post)} />
               ))}
 

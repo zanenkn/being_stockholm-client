@@ -110,7 +110,7 @@ class AdminPopup extends Component {
     return (
       <>
         <Sidebar.Pushable as={Segment} textAlign='center' id='pushable-segment'>
-          <Container id='entry-wrapper' className={this.state.category}>
+          <Container id='entry-wrapper' className={`entry-wrapper-${this.props.datapointClass}`}>
 
             <ImageEntryMessage
               visible={this.state.messageVisible}
