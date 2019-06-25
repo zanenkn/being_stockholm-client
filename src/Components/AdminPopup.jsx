@@ -121,15 +121,6 @@ class AdminPopup extends Component {
               adminMessage={this.state.adminMessage}
             />
 
-            <ImageEntryMessage
-              visible={this.state.messageVisible}
-              successMessage={this.state.successMessage}
-              errorMessage={this.state.errorMessage}
-              handleMessageVisibility={this.handleMessageVisibility}
-              errors={this.state.errors}
-              adminMessage={this.state.adminMessage}
-            />
-
             <Sidebar.Pusher dimmed={this.state.messageVisible}>
               <Container id='entry-image-wrapper'>
                 <Image
