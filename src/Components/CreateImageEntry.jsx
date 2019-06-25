@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Icon, Header, Segment, Container, Sidebar } from 'semantic-ui-react'
+import { Form, Button, Icon, Segment, Container, Sidebar, Input, Grid } from 'semantic-ui-react'
 import axios from 'axios'
 import ImageUploader from 'react-images-upload'
 import ImageEntryMessage from './ImageEntryMessage'
@@ -22,7 +22,8 @@ class CreateImageEntry extends Component {
     button: 'show-button',
     messageVisible: false,
     address: '',
-    userInputAddress: ''
+    userInputAddress: '',
+    addressSearch: false
   }
 
   onChangeHandler = (e) => {
@@ -38,7 +39,8 @@ class CreateImageEntry extends Component {
         const { lat, lng } = response.results[0].geometry.location;
         this.setState({
           latitude: lat,
-          longitude: lng,
+          longitude: lng
+
         })
         this.geolocationDataCoords()
       },
@@ -53,7 +55,10 @@ class CreateImageEntry extends Component {
     Geocode.fromLatLng(this.state.latitude, this.state.longitude).then(
       response => {
         const addressGeocode = response.results[0].formatted_address
-        this.setState({ address: addressGeocode })
+        this.setState({
+          address: addressGeocode,
+          addressSearch: false
+        })
       },
       error => {
         console.error(error);
@@ -142,23 +147,48 @@ class CreateImageEntry extends Component {
     }
     const { activeItem } = this.state
 
-    let addressField
 
-    if (this.state.address === "Your image does not contain any location information") {
-      addressField = (
-        <>
-          <Form.Input
-            required
-            id="userInputAddress"
-            value={this.state.userInputAddress}
-            onChange={this.onChangeHandler}
-            placeholder="Your address"
-          />
-          <Button onClick={this.geolocationDataAddress.bind(this)}>
-            Search
-            </Button>
-        </>
-      )
+    let addressSearch
+    if (this.state.image.length > 0) {
+      if (this.state.addressSearch === true) {
+        addressSearch = (
+          <>
+            <Grid>
+              <Grid.Row columns={2}>
+                <Grid.Column width={12}>
+                  <Form size="mini" type='medium'>
+                    <Form.Input
+                      required
+                      id="userInputAddress"
+                      value={this.state.userInputAddress}
+                      onChange={this.onChangeHandler}
+                      placeholder="Your address"
+                    />
+                  </Form>
+
+                </Grid.Column>
+
+                <Grid.Column width={4}>
+                  <Icon
+                    circular
+                    name='search'
+                    onClick={this.geolocationDataAddress.bind(this)}
+                  />
+                </Grid.Column>
+              </Grid.Row>
+
+            </Grid>
+          </>
+        )
+      } else {
+        addressSearch = (
+          <>
+            <a onClick={() => { this.setState({ addressSearch: true }) }}>
+              enter address manually
+            </a>
+          </>
+        )
+      }
     }
 
     return (
@@ -177,65 +207,66 @@ class CreateImageEntry extends Component {
 
           <Sidebar.Pusher dimmed={this.state.messageVisible}>
             <Container id="upload-post-wrapper">
-              <Header id="upload-post-header" as='h3'>Add a photo</Header>
-              <ImageUploader
-                buttonText={
-                  <div>
-                    <p id="add-photo-headline">Add Image</p>
-                    <Icon id="add-photo-icon" name="image outline" size="huge"></Icon>
-                    <p id="add-photo-label">Maximum image file size: 5 MB, Accepted image types: JPG</p>
-                  </div>
-                }
-                buttonClassName={this.state.button}
-                withLabel={false}
-                withIcon={false}
-                withPreview={true}
-                singleImage={true}
-                onChange={this.onImageDropHandler}
-                imgExtension={['.jpg']}
-                maxFileSize={5242880}
-                errorClass={(this.state.image.length > 0) ? 'image-upload-error-hidden' : 'image-upload-error-visible'}
-              />
-              <Form size="mini" type='medium'>
-                <Form.Input
-                  required
-                  id="caption"
-                  value={this.state.caption}
-                  onChange={this.onChangeHandler}
-                  placeholder="Write your caption here"
+              <Container padded>
+                <ImageUploader
+                  buttonText={
+                    <div>
+                      <p id="add-photo-headline">Add Image</p>
+                      <Icon id="add-photo-icon" name="image outline" size="huge"></Icon>
+                      <p id="add-photo-label">Maximum image file size: 5 MB, Accepted image types: JPG</p>
+                    </div>
+                  }
+                  buttonClassName={this.state.button}
+                  withLabel={false}
+                  withIcon={false}
+                  withPreview={true}
+                  singleImage={true}
+                  onChange={this.onImageDropHandler}
+                  imgExtension={['.jpg']}
+                  maxFileSize={5242880}
+                  errorClass={(this.state.image.length > 0) ? 'image-upload-error-hidden' : 'image-upload-error-visible'}
                 />
+                <Form size="mini" type='medium'>
+                  <Form.Input
+                    required
+                    id="caption"
+                    value={this.state.caption}
+                    onChange={this.onChangeHandler}
+                    placeholder="Write your caption here"
+                  />
 
-              </Form>
-              <p id="location">
-                <Icon
-                  name='map marker alternate' />
-                {this.state.address}</p>
+                </Form>
+                <p id="location">
+                  <Icon
+                    name='map marker alternate' />
+                  {this.state.address}</p>
 
-              {addressField}
+                {addressSearch}
 
-              <Button.Group
-                toggle={true}
-                inverted={true}>
-                <Button
-                  id='work'
-                  basic color='teal'
-                  active={activeItem === 'work'}
-                  value='work'
-                  onClick={this.handleChangeCategory}>
-                  WORK
+                <Button.Group
+                  toggle={true}
+                  inverted={true}>
+                  <Button
+                    id='work'
+                    basic color='teal'
+                    active={activeItem === 'work'}
+                    value='work'
+                    onClick={this.handleChangeCategory}>
+                    WORK
                 </Button>
 
-                <Button
-                  id='play'
-                  basic color='yellow'
-                  active={activeItem === 'play'}
-                  value='play'
-                  onClick={this.handleChangeCategory}>
-                  PLAY
+                  <Button
+                    id='play'
+                    basic color='yellow'
+                    active={activeItem === 'play'}
+                    value='play'
+                    onClick={this.handleChangeCategory}>
+                    PLAY
                 </Button>
-              </Button.Group>
-              <br></br>
-              <Button id="upload-button" onClick={this.uploadPost}>MAP IT!</Button>
+                </Button.Group>
+                <br></br>
+                <Button id="upload-button" onClick={this.uploadPost}>MAP IT!</Button>
+              </Container>
             </Container>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
