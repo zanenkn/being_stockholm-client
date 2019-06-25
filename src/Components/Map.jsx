@@ -63,10 +63,14 @@ class Map extends Component {
   }
   
   setDatapointColor = (post) => {
-      if (post.category === 'work') {
-        return 'orange'
-      } else if (post.category === 'play') {
+      if (post.category === 'work' && post.user.level === 'settled') {
         return 'purple'
+      } else if (post.category === 'work' && post.user.level === 'newbie') {
+        return 'pink'
+      } else if (post.category === 'play' && post.user.level === 'settled') {
+        return 'green'
+      } else if (post.category === 'play' && post.user.level === 'newbie') {
+        return 'olive'
       }
   }
   
