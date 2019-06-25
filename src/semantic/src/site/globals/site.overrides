@@ -60,6 +60,22 @@ a:hover {
   width: 100%;
 }
 
+.datapoint-work-settled {
+  color: #951b81 !important;
+}
+
+.datapoint-work-newbie {
+  color: #e6007e !important;
+}
+
+.datapoint-play-settled {
+  color: #006633 !important;
+}
+
+.datapoint-play-newbie {
+  color: #95c11f !important;
+}
+
 /*******************************
   Views - directed from menu
 *******************************/

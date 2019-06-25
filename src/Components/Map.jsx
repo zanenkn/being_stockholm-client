@@ -64,13 +64,13 @@ class Map extends Component {
   
   setDatapointColor = (post) => {
       if (post.category === 'work' && post.user.level === 'settled') {
-        return 'purple'
+        return 'datapoint-work-settled'
       } else if (post.category === 'work' && post.user.level === 'newbie') {
-        return 'pink'
+        return 'datapoint-work-newbie'
       } else if (post.category === 'play' && post.user.level === 'settled') {
-        return 'green'
+        return 'datapoint-play-settled'
       } else if (post.category === 'play' && post.user.level === 'newbie') {
-        return 'olive'
+        return 'datapoint-play-newbie'
       }
   }
   
@@ -130,13 +130,13 @@ class Map extends Component {
           {this.state.published.map(post => (
 
             <Icon name='circle'
-              size='large'
+              size='small'
               lat={parseFloat(post.latitude)}
               lng={parseFloat(post.longitude)}
               key={post.id}
               id={`post_${post.id}`}
               onClick={() => { this.setState({ id: post.id, openEntryPopup: true }) }}
-              color={this.setDatapointColor(post)} />
+              className={this.setDatapointColor(post)} />
           ))}
 
         </GoogleMapReact>
