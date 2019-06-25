@@ -85,6 +85,7 @@ class CreateImageEntry extends Component {
       category: this.state.category,
       latitude: this.state.latitude,
       longitude: this.state.longitude,
+      address: this.state.address,
       user_id: this.props.currentUser.attributes.id
     }
     axios.post(path, payload)
