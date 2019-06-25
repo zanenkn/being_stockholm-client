@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container, Image, List, Segment, Grid, Sidebar, Divider } from 'semantic-ui-react'
+import { Header, Container, Image, Segment, Sidebar, Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class BeingStockholmBeta extends Component {

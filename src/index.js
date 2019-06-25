@@ -15,7 +15,7 @@ setupInterceptors()
 const loc = 'http://localhost:3002'
 const her = 'https://being-stockholm.herokuapp.com'
 
-axios.defaults.baseURL = her
+axios.defaults.baseURL = loc
 
 const store = configureStore();
 verifyCredentials(store)

@@ -94,7 +94,7 @@ a:hover {
   border-radius: 10px !important;
 }
 
-#urbanbeings-main-header {
+.views-second-header{
   color: #f2711c !important;
   text-align: left !important;
   margin-bottom: 0 !important;
@@ -311,6 +311,22 @@ a:hover {
 #entry-caption {
   margin: 1rem 0 1rem 0;
   font-size: 14px;
+}
+
+/*******************************
+         My Profile
+*******************************/
+
+.my-profile-entry-segment {
+  height: 120px !important;
+}
+
+.my-profile-entry-image {
+  background-size: cover !important;
+  background-position: center center !important;
+  min-height: 100% !important;
+  border-radius: 0px !important;
+  background-repeat: no-repeat !important;
 }
 
 
