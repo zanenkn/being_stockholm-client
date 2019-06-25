@@ -313,13 +313,14 @@ a:hover {
 }
 
 #play {
+  color: #00a19a !important;
   font-size: 12px !important;
 }
 
 #work {
+  color: #312783 !important;
   font-size: 12px !important;
 }
-
 
 .fileContainer .uploadPictureContainer {
   width: 90% !important;
