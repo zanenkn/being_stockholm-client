@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { Header, Container, Sidebar, Button, Divider, Segment, Grid } from 'semantic-ui-react'
+import { Header, Container, Sidebar, Button, Divider, Segment, Grid, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import moment from 'moment'
-import Geocode from 'react-geocode'
-import { isTSConstructSignatureDeclaration } from '@babel/types';
+
 
 class MyProfile extends Component {
   state = {
@@ -25,20 +24,6 @@ class MyProfile extends Component {
     let time = momentObj.format('HH:mm')
     return `${date} | ${time}`
   }
-
-  geolocationDataAddress = (lat, long) => {
-   Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
-    Geocode.fromLatLng(lat,long).then(
-      response => {
-        const address = response.results[0].formatted_address
-        return address
-      },
-      error => {
-        console.error(error);
-      }
-    )
-  }
-
 
   render() {
 
@@ -63,22 +48,6 @@ class MyProfile extends Component {
     pendingEntriesToDisplay = (
       pendingEntries.map(entry => {
         let entryDate = this.date(entry.created_at)
-let address
-        Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
-    Geocode.fromLatLng(parseFloat(entry.latitude), parseFloat(entry.longitude)).then(
-      response => {
-     //   debugger
-       address = response.results[0].formatted_address
-      },
-      error => {
-        console.error(error);
-      }
-    )
-
-
-
-     //   let entryAddress = this.geolocationDataAddress(parseFloat(entry.latitude), parseFloat(entry.longitude))
-    //  debugger
         return (
           <>
             <Segment id={entry.id}>
@@ -89,7 +58,12 @@ let address
                 <Grid.Column width={10}>
                   <p>{entry.caption}</p>
                   <p>{entryDate}</p>
-                  {address}
+                  <Container id='entry-location'>
+                    <Icon
+                      name='map marker alternate'
+                    />
+                    {entry.address}
+                  </Container>
                 </Grid.Column>
               </Grid>
             </Segment>
@@ -111,6 +85,12 @@ let address
                 <Grid.Column width={10}>
                   <p>{entry.caption}</p>
                   <p>{entryDate}</p>
+                  <Container id='entry-location'>
+                    <Icon
+                      name='map marker alternate'
+                    />
+                    {entry.address}
+                  </Container>
                 </Grid.Column>
               </Grid>
             </Segment>
@@ -132,6 +112,12 @@ let address
                 <Grid.Column width={10}>
                   <p>{entry.caption}</p>
                   <p>{entryDate}</p>
+                  <Container id='entry-location'>
+                    <Icon
+                      name='map marker alternate'
+                    />
+                    {entry.address}
+                  </Container>
                 </Grid.Column>
               </Grid>
             </Segment>
