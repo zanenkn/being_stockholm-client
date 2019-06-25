@@ -32,17 +32,15 @@ class CreateImageEntry extends Component {
   }
 
   geolocationDataAddress = () => {
-  
     Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
     Geocode.fromAddress(this.state.userInputAddress).then(
       response => {
-        ///debugger
         const { lat, lng } = response.results[0].geometry.location;
-        console.log(lat, lng);
         this.setState({
           latitude: lat,
-          longitude: lng
+          longitude: lng,
         })
+        this.geolocationDataCoords()
       },
       error => {
         console.error(error);
@@ -50,7 +48,19 @@ class CreateImageEntry extends Component {
     )
   }
 
-  
+  geolocationDataCoords = () => {
+    Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
+    Geocode.fromLatLng(this.state.latitude, this.state.longitude).then(
+      response => {
+        const addressGeocode = response.results[0].formatted_address
+        this.setState({ address: addressGeocode })
+      },
+      error => {
+        console.error(error);
+      }
+    )
+  }
+
   onImageDropHandler = (pictureFiles, pictureDataURLs) => {
     if (pictureFiles.length > 0) {
       let image = pictureFiles[0]
@@ -74,16 +84,7 @@ class CreateImageEntry extends Component {
             longitude: tags.GPSLongitude.description,
             latitude: tags.GPSLatitude.description
           })
-          Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
-          Geocode.fromLatLng(this.state.latitude, this.state.longitude).then(
-            response => {
-              const addressGeocode = response.results[0].formatted_address
-              this.setState({ address: addressGeocode })
-            },
-            error => {
-              console.error(error);
-            }
-          )
+          this.geolocationDataCoords()
         }
       })
     } else {
@@ -143,18 +144,18 @@ class CreateImageEntry extends Component {
 
     let addressField
 
-    if(this.state.address === "Your image does not contain any location information"){
+    if (this.state.address === "Your image does not contain any location information") {
       addressField = (
         <>
           <Form.Input
-              required
-              id="userInputAddress"
-              value={this.state.userInputAddress}
-              onChange={this.onChangeHandler}
-              placeholder="Your address"
-            />
-            <Button onClick={this.geolocationDataAddress.bind(this)}>
-              Search
+            required
+            id="userInputAddress"
+            value={this.state.userInputAddress}
+            onChange={this.onChangeHandler}
+            placeholder="Your address"
+          />
+          <Button onClick={this.geolocationDataAddress.bind(this)}>
+            Search
             </Button>
         </>
       )
@@ -210,7 +211,7 @@ class CreateImageEntry extends Component {
                   name='map marker alternate' />
                 {this.state.address}</p>
 
-                {addressField}
+              {addressField}
 
               <Button.Group
                 toggle={true}
