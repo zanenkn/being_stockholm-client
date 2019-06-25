@@ -1,5 +1,5 @@
 describe('Visitor can view on the map', () => {
-  
+
   beforeEach(function () {
     cy.server();
     cy.route({
@@ -11,34 +11,28 @@ describe('Visitor can view on the map', () => {
     cy.visit('http://localhost:3000')
   })
 
-  it('datapoints of posts', () => {
+  it('datapoints of posts only if they are published', () => {
 
-    let posts = [
-      "#post_1","#post_2", "#post_3","#post_4", "#post_5"
+    let postsPublished = [
+      "#post_1", "#post_3"
     ]
 
-    posts.forEach(post => {
+    postsPublished.forEach(post => {
       cy.get(post).should('be.visible')
-      })
     })
 
-    it('datapoints in different category colors', () => {
+    let postsNotPublished = [
+      "#post_2", "#post_4", "#post_5"
+    ]
 
-      let work = [
-        "#post_1", "#post_3", "#post_5"
-      ]
-      
-      let play = [
-        "#post_2", "#post_4"
-      ]
-
-      work.forEach(post => {
-        cy.get(post).should('have.class', 'teal')
-        })
-
-      play.forEach(post => {
-        cy.get(post).should('have.class', 'yellow')
-        })
+    postsNotPublished.forEach(post => {
+      cy.get(post).should('not.be.visible')
     })
-    
+  })
+
+  it('datapoints in different category colors', () => {
+
+    cy.get('#post_1').should('have.class', 'teal')
+    cy.get('#post_3').should('have.class', 'yellow')
+  })
 })

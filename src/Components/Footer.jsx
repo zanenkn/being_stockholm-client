@@ -72,19 +72,19 @@ class Footer extends Component {
           <Grid.Column
             textAlign='center'
             width={10}>
-          <Header
-            color='orange'
-            id='footer-logo'
-            as={Link}
-            to='/'>
-            Being Stockholm
-          </Header>
+            <Header
+              color='orange'
+              id='footer-logo'
+              as={Link}
+              to='/'>
+              Being Stockholm
+            </Header>
 
-        </Grid.Column>
+          </Grid.Column>
 
-        {userIcon}
+          {userIcon}
 
-      </Grid>
+        </Grid>
       </>
     )
   }

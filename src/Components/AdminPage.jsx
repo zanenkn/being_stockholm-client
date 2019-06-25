@@ -3,9 +3,9 @@ import GoogleMapReact from 'google-map-react'
 import MapStyle from '../Modules/MapStyle'
 import { Icon, Container } from 'semantic-ui-react'
 import Popup from 'reactjs-popup'
-import EntryPopup from './EntryPopup'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import AdminPopup from './AdminPopup'
 
 class AdminPage extends Component {
   static defaultProps = {
@@ -62,7 +62,7 @@ class AdminPage extends Component {
 
             <Icon
               className='map-icons'
-              name='adn'
+              name='font'
               size='huge'
               color='orange'
               id='map-icon-admin'
@@ -74,7 +74,7 @@ class AdminPage extends Component {
               onClose={this.closeModal}>
 
               <div className="modal">
-                <EntryPopup id={this.state.id} />
+                <AdminPopup id={this.state.id} />
               </div>
             </Popup>
 
@@ -104,7 +104,7 @@ class AdminPage extends Component {
       adminView = (
         <>
           <Container
-          className='views-main-container'
+            className='views-main-container'
             textAlign='center'>
             <Icon
               name='stop circle'

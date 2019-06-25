@@ -10,7 +10,7 @@ describe('Visitor can view', () => {
     })
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3002/api/v1/posts/5',
+      url: 'http://localhost:3002/api/v1/posts/3',
       response: 'fixture:view_single_entry.json',
       status: 200
     })
@@ -18,7 +18,7 @@ describe('Visitor can view', () => {
   })
 
   it('can view an entry', () => {
-    cy.get('#post_5').click()
+    cy.get('#post_3').click()
 
     let text = ['Midsommar', 'Ballonggatan 23, 169 71 Solna, Sweden', '20-06-2019 | 19:28']
 
@@ -26,7 +26,7 @@ describe('Visitor can view', () => {
       cy.contains(post)
     })
 
-    cy.get('#image_5').should('have.attr', 'src')
+    cy.get('#image_3').should('have.attr', 'src')
     cy.get('#entry-wrapper').should('have.class', 'play')
   })
 })

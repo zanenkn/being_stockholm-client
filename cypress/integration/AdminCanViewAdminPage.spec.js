@@ -37,7 +37,7 @@ describe('Admin can', () => {
     cy.get('#admin-link').click()
 
     let pending = [
-      '#post_2', '#post_4', '#post_5'
+      '#post_2', '#post_5'
     ]
 
     let published = [
