@@ -61,7 +61,7 @@
     "longitude": 18.01244,
     "category": "work",
     "user": {
-      "uid": 1,
+      "uid": "carla@mail.com",
       "level": "settled"
     }
   },
@@ -94,7 +94,7 @@
     "longitude": 18.059244,
     "category": "play",
     "user": {
-      "uid": 1,
+      "uid": "carla@mail.com",
       "level": "settled"
     }
   },

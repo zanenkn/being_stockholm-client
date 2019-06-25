@@ -55,14 +55,14 @@ describe('Visitor can view on the map', () => {
     cy.contains('You have succesfully logged in')
 
     // work
-    cy.get('#post_6').should('have.class', 'teal')
-    cy.get('#post_7').should('have.class', 'teal')
-    cy.get('#post_8').should('have.class', 'teal')
+    cy.get('#post_6').should('have.class', 'datapoint-my-work')
+    cy.get('#post_7').should('have.class', 'datapoint-work-settled')
+    cy.get('#post_8').should('have.class', 'datapoint-work-newbie')
 
     // play
-    cy.get('#post_9').should('have.class', 'teal')
-    cy.get('#post_10').should('have.class', 'teal')
-    cy.get('#post_11').should('have.class', 'teal')
+    cy.get('#post_9').should('have.class', 'datapoint-my-play')
+    cy.get('#post_10').should('have.class', 'datapoint-play-settled')
+    cy.get('#post_11').should('have.class', 'datapoint-play-newbie')
   })
 
 })

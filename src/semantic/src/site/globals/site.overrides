@@ -303,12 +303,12 @@ a:hover {
 }
 
 .play {
-  border: 4px solid #cd9903 !important;
+  border: 4px solid #00a19a !important;
   border-radius: 20px !important;
 }
 
 .work {
-  border: 4px solid #00b5ad !important;
+  border: 4px solid #312783 !important;
   border-radius: 20px !important;
 }
 
