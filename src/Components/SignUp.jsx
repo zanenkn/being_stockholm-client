@@ -117,11 +117,10 @@ class SignUp extends Component {
 
           <Button.Group
             className='button-group'
-            toggle={true}
-            inverted={true}>
+            basic
+          >
             <Button
               id='newbie'
-              basic color='grey'
               active={activeItem === 'newbie'}
               value={'newbie'}
               onClick={this.handleChangeLevel}>
@@ -129,7 +128,6 @@ class SignUp extends Component {
             </Button>
             <Button
               id='settled'
-              basic color='grey'
               active={activeItem === 'settled'}
               value={'settled'}
               onClick={this.handleChangeLevel}>
