@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container, Image, List, Segment, Grid, Sidebar, Divider } from 'semantic-ui-react'
+import { Header, Container, Image, Segment, Sidebar, Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class BeingStockholmBeta extends Component {
@@ -30,17 +30,17 @@ class BeingStockholmBeta extends Component {
                   <b>Big thank you</b> for all your hard work, love and nerdery:
                 </p>
                 <p>
-                  <i>In Stockholm: </i>Felix Bonnier, Carla Rosén, George Tomaras.
+                  <i>In Stockholm:</i><a href='https://github.com/leiter007'>&nbsp;Felix Bonnier,</a><a href='https://github.com/Carrosen'>&nbsp;Carla Rosén,</a><a href='https://gtomaras-portfolio.netlify.com/'>&nbsp;George Tomaras</a>
                 </p>
                 <p>
-                  <i>In Gothenburg: </i>Stefan Karlberg, Zane Neikena
+                  <i>In Gothenburg:</i><a href='https://www.linkedin.com/in/stefankarlberg'>&nbsp;Stefan Karlberg,&nbsp;</a><a href='https://www.linkedin.com/in/zane-neikena'>Zane Neikena</a>
                 </p>
                 <br></br>
                 <p>
                   <b>Special thanks:</b>
                 </p>
                 <p>
-                  Faraz Naaem and Thomas Ochman for guiding and coaching the students and Urban Beings on this journey!
+                  <a href='https://github.com/tochman'>Thomas Ochman,</a><a href='https://github.com/faraznaeem'>&nbsp;Faraz Naaem,</a><a href='https://github.com/oliverochman'>&nbsp;Oliver Ochman,</a><a href='https://github.com/GergKllai1'>&nbsp;Gregory Kallai</a>&nbsp;and<a href='https://github.com/kianaditya'>&nbsp;Aditya Naik</a> for guiding and coaching the students and Urban Beings on this journey!
                 </p>
               </Container>
               <br></br>
