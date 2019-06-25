@@ -49,7 +49,8 @@
     "latitude": 59.329051,
     "longitude": 18.026244,
     "category": "work",
-    "level": "settled"
+    "level": "settled",
+    "user_id": 2
   },
   {
     "id": 8,
@@ -57,7 +58,8 @@
     "latitude": 59.329051,
     "longitude": 18.03244,
     "category": "work",
-    "level": "newbie"
+    "level": "newbie",
+    "user_id": 2
   },
   {
     "id": 9,
@@ -65,7 +67,8 @@
     "latitude": 59.329051,
     "longitude": 18.045244,
     "category": "play",
-    "level": "settled"
+    "level": "settled",
+    "user_id": 1
   },
   {
     "id": 10,
@@ -73,7 +76,8 @@
     "latitude": 59.329051,
     "longitude": 18.058244,
     "category": "play",
-    "level": "settled"
+    "level": "settled",
+    "user_id": 1
   },
   {
     "id": 11,
@@ -81,6 +85,7 @@
     "latitude": 59.329051,
     "longitude": 18.066244,
     "category": "play",
-    "level": "newbie"
+    "level": "newbie",
+    "user_id": 2
   }
 ]

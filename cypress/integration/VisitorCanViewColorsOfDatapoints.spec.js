@@ -16,3 +16,5 @@ describe('Visitor can view on the map', () => {
     let postsPublished = [
       "#post_1", "#post_3",  "#post_6",  "#post_7",  "#post_8",  "#post_9",  "#post_10", "#post_11"
     ]
+  })
+})
