@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container, Sidebar, Button, Divider, Segment, Grid, Icon } from 'semantic-ui-react'
+import { Header, Container, Sidebar, Button, Divider, Grid, Icon, Label } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import moment from 'moment'
@@ -47,26 +47,42 @@ class MyProfile extends Component {
 
     pendingEntriesToDisplay = (
       pendingEntries.map(entry => {
+
+        let trimmedEntryCaption = entry.caption.substr(0, 40);
+        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ....'
+  
         let entryDate = this.date(entry.created_at)
+
         return (
           <>
-            <Segment id={entry.id}>
-              <Grid className='my-profile-entry-segment'>
-                <Grid.Column className='my-profile-entry-image' width={6}
-                  style={{ background: `url(${entry.image})` }}>
+              <Grid id={entry.id} className='my-profile-card'>
+                <Grid.Column 
+                  mobile={4} tablet={5} computer={6}
+                  href={entry.image}
+                  target='_blank'
+                  className='my-profile-entry-image' 
+                  style={{ background: `url(${entry.image})` }}
+                  >
                 </Grid.Column>
-                <Grid.Column width={10}>
-                  <p>{entry.caption}</p>
-                  <p>{entryDate}</p>
-                  <Container id='entry-location'>
-                    <Icon
-                      name='map marker alternate'
-                    />
-                    {entry.address}
-                  </Container>
+                <Grid.Column className='my-profile-entry-data'mobile={12} tablet={11} computer={10}>
+                  <h3 className='my-profile-caption'>{trimmedCaption}</h3>
+                  <p className='my-profile-date'>{entryDate}</p>
+                  <Grid columns={2}>
+                    <Grid.Column width={11} >
+                    <p className='my-profile-geo' id='entry-location'>
+                      <Icon name='map marker alternate' />
+                      {entry.address}
+                    </p>
+                    </Grid.Column>
+                    <Grid.Column width={5}>
+                    <Label as='a' basic>
+                      {entry.category}
+                    </Label>
+                    </Grid.Column>
+                  </Grid>
                 </Grid.Column>
               </Grid>
-            </Segment>
+              <Divider section className='my-profile-divider'/>
           </>
         )
       })
@@ -74,26 +90,41 @@ class MyProfile extends Component {
 
     declinedEntriesToDisplay = (
       declinedEntries.map(entry => {
+
+        let trimmedEntryCaption = entry.caption.substr(0, 40);
+        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ....'
+  
         let entryDate = this.date(entry.created_at)
         return (
           <>
-            <Segment id={entry.id}>
-              <Grid className='my-profile-entry-segment'>
-                <Grid.Column className='my-profile-entry-image' width={6}
-                  style={{ background: `url(${entry.image})` }}>
+              <Grid id={entry.id} className='my-profile-card'>
+                <Grid.Column 
+                  mobile={4} tablet={5} computer={6}
+                  href={entry.image}
+                  target='_blank'
+                  className='my-profile-entry-image' 
+                  style={{ background: `url(${entry.image})` }}
+                  >
                 </Grid.Column>
-                <Grid.Column width={10}>
-                  <p>{entry.caption}</p>
-                  <p>{entryDate}</p>
-                  <Container id='entry-location'>
-                    <Icon
-                      name='map marker alternate'
-                    />
-                    {entry.address}
-                  </Container>
+                <Grid.Column className='my-profile-entry-data'mobile={12} tablet={11} computer={10}>
+                  <h3 className='my-profile-caption'>{trimmedCaption}</h3>
+                  <p className='my-profile-date'>{entryDate}</p>
+                  <Grid columns={2}>
+                    <Grid.Column width={11} >
+                    <p className='my-profile-geo' id='entry-location'>
+                      <Icon name='map marker alternate' />
+                      {entry.address}
+                    </p>
+                    </Grid.Column>
+                    <Grid.Column width={5}>
+                    <Label as='a' basic>
+                      {entry.category}
+                    </Label>
+                    </Grid.Column>
+                  </Grid>
                 </Grid.Column>
               </Grid>
-            </Segment>
+              <Divider section className='my-profile-divider'/>
           </>
         )
       })
@@ -101,31 +132,45 @@ class MyProfile extends Component {
 
     publishedEntriesToDisplay = (
       publishedEntries.map(entry => {
+
+        let trimmedEntryCaption = entry.caption.substr(0, 40);
+        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ....'
+  
         let entryDate = this.date(entry.created_at)
         return (
           <>
-            <Segment id={entry.id}>
-              <Grid className='my-profile-entry-segment'>
-                <Grid.Column className='my-profile-entry-image' width={6}
-                  style={{ background: `url(${entry.image})` }}>
+              <Grid id={entry.id} className='my-profile-card'>
+                <Grid.Column 
+                  mobile={4} tablet={5} computer={6}
+                  href={entry.image}
+                  target='_blank'
+                  className='my-profile-entry-image' 
+                  style={{ background: `url(${entry.image})` }}
+                  >
                 </Grid.Column>
-                <Grid.Column width={10}>
-                  <p>{entry.caption}</p>
-                  <p>{entryDate}</p>
-                  <Container id='entry-location'>
-                    <Icon
-                      name='map marker alternate'
-                    />
-                    {entry.address}
-                  </Container>
+                <Grid.Column className='my-profile-entry-data'mobile={12} tablet={11} computer={10}>
+                  <h3 className='my-profile-caption'>{trimmedCaption}</h3>
+                  <p className='my-profile-date'>{entryDate}</p>
+                  <Grid columns={2}>
+                    <Grid.Column width={11} >
+                    <p className='my-profile-geo' id='entry-location'>
+                      <Icon name='map marker alternate' />
+                      {entry.address}
+                    </p>
+                    </Grid.Column>
+                    <Grid.Column width={5}>
+                    <Label as='a' basic>
+                      {entry.category}
+                    </Label>
+                    </Grid.Column>
+                  </Grid>
                 </Grid.Column>
               </Grid>
-            </Segment>
+              <Divider section className='my-profile-divider'/>
           </>
         )
       })
     )
-
 
     return (
       <Sidebar.Pushable as={Container} id="views-main-container-sidebar">
@@ -150,26 +195,23 @@ class MyProfile extends Component {
               <Divider hidden />
             </Container>
 
+            <Grid >
+              <Grid.Column id='pending-entries' mobile={16} tablet={16} computer={5}>
+              <Header as='h2' textAlign='center'>You have ({pendingEntries.length}) Pending Entries </Header>
+                {pendingEntriesToDisplay}
+              </Grid.Column>
 
-            <Divider></Divider>
-
-            <div id='pending-entries'>
-              <Header className='views-second-header'>Your Pending Entries</Header>
-              {pendingEntriesToDisplay}
-            </div>
-            <Divider hidden />
-
-            <div id='declined-entries'>
-              <Header className='views-second-header'>Your Declined Entries</Header>
+              <Grid.Column id='declined-entries' mobile={16} tablet={16} computer={5}>
+              <Header as='h2' textAlign='center'>You have ({declinedEntries.length}) Declined Entries</Header>
               {declinedEntriesToDisplay}
-            </div>
-            <Divider hidden />
+              </Grid.Column>
 
-            <div id='published-entries'>
-              <Header className='views-second-header'>Your Published Entries</Header>
+              <Grid.Column id='published-entries' mobile={16} tablet={16} computer={6}>
+              <Header as='h2' textAlign='center'>You have ({publishedEntries.length}) Published Entries</Header>
               {publishedEntriesToDisplay}
-            </div>
-
+              </Grid.Column>
+            </Grid>
+            
           </Container>
         </div>
       </Sidebar.Pushable>

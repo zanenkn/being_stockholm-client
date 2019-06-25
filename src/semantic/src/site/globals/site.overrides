@@ -15,6 +15,11 @@ a:hover {
   color: #A65F18;
 }
 
+h2 {
+  color: #f2711c !important;
+  font-size: 1.5rem !important;
+}
+
 /*******************************
          Map
 *******************************/
@@ -52,10 +57,6 @@ a:hover {
 .views-main-header {
   color: #f2711c !important;
   text-align: center !important;
-}
-
-.views-second-header {
-  color: #f2711c !important;
 }
 
 .views-third-header {
@@ -97,7 +98,6 @@ a:hover {
 .views-second-header{
   color: #f2711c !important;
   text-align: left !important;
-  margin-bottom: 0 !important;
 }
 
 #urbanbeings-subheader-1 {
@@ -317,8 +317,11 @@ a:hover {
          My Profile
 *******************************/
 
-.my-profile-entry-segment {
-  height: 120px !important;
+.my-profile-card {
+  height: 150px!important;
+  margin-top: 20px!important;
+  margin-bottom: 30px!important;
+  display: block !important;
 }
 
 .my-profile-entry-image {
@@ -327,6 +330,47 @@ a:hover {
   min-height: 100% !important;
   border-radius: 0px !important;
   background-repeat: no-repeat !important;
+}
+
+.my-profile-divider {
+  margin-left:-15px !important;
+  margin-right:-15px !important;
+}
+
+@media only screen and (max-width: 579px){
+  .my-profile-card {
+  height: 100px !important;
+  }
+
+  .my-profile-entry-data {
+  margin: 5px 0px 0px 0px !important;
+  padding: 0px 10px 10px 10px !important
+}
+
+  h3.my-profile-caption {
+  margin: 0px !important;
+  padding: 0px 10px 3px 10px !important;
+  font-size: 1rem !important
+  }
+
+  p.my-profile-geo {
+  margin: 0px !important;
+  padding: 0px 7px 0px 10px !important;
+  font-size: 0.75rem !important
+  }
+
+  p.my-profile-data {
+  margin: 0px !important;
+  padding: 0px 7px 0px 10px !important;
+  font-size: 0.75rem !important
+  }
+
+  p.my-profile-date {
+  margin: 0!important;
+  padding: 0 7px 12px 10px!important;
+  font-size: 0.75rem !important;
+  }
+
 }
 
 
