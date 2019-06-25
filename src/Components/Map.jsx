@@ -9,6 +9,17 @@ import EntryPopup from './EntryPopup'
 import axios from 'axios'
 import { connect } from 'react-redux'
 
+
+// colors = {
+//   myWork: '',
+//   myPlay:
+//   workSettled:
+//   workNewbie:
+//   playSettled:
+//   playNewbie:
+// }
+
+
 class Map extends Component {
   static defaultProps = {
     center: {
@@ -50,8 +61,18 @@ class Map extends Component {
     })
     this.setState({ published: published })
   }
+  
+  setDatapointColor = (post) => {
+      if (post.category === 'work') {
+        return 'orange'
+      } else if (post.category === 'play') {
+        return 'purple'
+      }
+  }
+  
 
   render() {
+
     let createEntry
     let user = this.props.currentUser.isSignedIn
 
@@ -111,7 +132,7 @@ class Map extends Component {
               key={post.id}
               id={`post_${post.id}`}
               onClick={() => { this.setState({ id: post.id, openEntryPopup: true }) }}
-              color={(post.category === 'work') ? 'teal' : 'yellow'} />
+              color={this.setDatapointColor(post)} />
           ))}
 
         </GoogleMapReact>

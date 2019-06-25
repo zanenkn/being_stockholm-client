@@ -22,7 +22,7 @@ describe('Visitor can view on the map', () => {
     })
   })
 
-  it('datapoints in different category colors', () => {
+  it('datapoints in 4 different category colors when not signed-in', () => {
 
     // work
     cy.get('#post_6').should('have.class', 'teal')
@@ -34,4 +34,35 @@ describe('Visitor can view on the map', () => {
     cy.get('#post_10').should('have.class', 'teal')
     cy.get('#post_11').should('have.class', 'teal')
   })
+
+  it('datapoints in 6 different category colors when signed-in', () => {
+    cy.route({
+      method: 'POST',
+      url: 'http://localhost:3002/api/v1/auth/sign_in',
+      status: 200,
+      response: 'fixture:successful_login_user.json',
+      headers: {
+        "uid": "carla@mail.com"
+      }
+    })
+    cy.visit('http://localhost:3000')
+    cy.get('#profile-icon').click()
+    cy.get('#login-form').within(() => {
+      cy.get('#email').type('carla@mail.com')
+      cy.get('#password').type('password')
+    })
+    cy.get('#login_form_button').click()
+    cy.contains('You have succesfully logged in')
+
+    // work
+    cy.get('#post_6').should('have.class', 'teal')
+    cy.get('#post_7').should('have.class', 'teal')
+    cy.get('#post_8').should('have.class', 'teal')
+
+    // play
+    cy.get('#post_9').should('have.class', 'teal')
+    cy.get('#post_10').should('have.class', 'teal')
+    cy.get('#post_11').should('have.class', 'teal')
+  })
+
 })
