@@ -49,6 +49,18 @@ class AdminPage extends Component {
     this.setState({ unpublished: unpublished })
   }
 
+  setDatapointColor = (post) => {
+    if (post.category === 'work' && post.user.level === 'settled') {
+      return 'datapoint-work-settled'
+    } else if (post.category === 'work' && post.user.level === 'newbie') {
+      return 'datapoint-work-newbie'
+    } else if (post.category === 'play' && post.user.level === 'settled') {
+      return 'datapoint-play-settled'
+    } else if (post.category === 'play' && post.user.level === 'newbie') {
+      return 'datapoint-play-newbie'
+    }
+  }
+
   render() {
     let user = this.props.currentUser.isSignedIn
     let adminView
@@ -93,7 +105,7 @@ class AdminPage extends Component {
                   key={post.id}
                   id={`post_${post.id}`}
                   onClick={() => { this.setState({ id: post.id, openEntryPopup: true }) }}
-                  color={(post.category === 'work') ? 'teal' : 'yellow'} />
+                  className={this.setDatapointColor(post)} />
               ))}
 
             </GoogleMapReact>

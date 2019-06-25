@@ -9,17 +9,6 @@ import EntryPopup from './EntryPopup'
 import axios from 'axios'
 import { connect } from 'react-redux'
 
-
-// colors = {
-//   myWork: '',
-//   myPlay:
-//   workSettled:
-//   workNewbie:
-//   playSettled:
-//   playNewbie:
-// }
-
-
 class Map extends Component {
   static defaultProps = {
     center: {
@@ -33,7 +22,8 @@ class Map extends Component {
     openEntryPopup: false,
     posts: [],
     id: '',
-    published: []
+    published: [],
+    datapointClass: ''
   }
 
   closeModal = () => {
@@ -62,6 +52,11 @@ class Map extends Component {
     this.setState({ published: published })
   }
 
+  handleDatapointClick = (e) => {
+    const datapointClass = e.target.className.substr(18)
+    const id = e.target.id
+    this.setState({ id: id, datapointClass: datapointClass, openEntryPopup: true })
+  }
 
   setDatapointColor = (post) => {
     let user = this.props.currentUser.isSignedIn
@@ -142,7 +137,10 @@ class Map extends Component {
           onClose={this.closeModal}>
 
           <div className="modal">
-            <EntryPopup id={this.state.id} />
+            <EntryPopup 
+            id={this.state.id}
+            datapointClass={this.state.datapointClass}
+             />
           </div>
         </Popup>
 
@@ -153,14 +151,13 @@ class Map extends Component {
           options={{ styles: MapStyle }}>
 
           {this.state.published.map(post => (
-
             <Icon name='circle'
               size='small'
               lat={parseFloat(post.latitude)}
               lng={parseFloat(post.longitude)}
               key={post.id}
-              id={`post_${post.id}`}
-              onClick={() => { this.setState({ id: post.id, openEntryPopup: true }) }}
+              id={post.id}
+              onClick={this.handleDatapointClick}
               className={this.setDatapointColor(post)} />
           ))}
 

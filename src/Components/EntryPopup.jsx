@@ -53,7 +53,7 @@ class EntryPopup extends Component {
 
     return (
       <>
-        <Container className={this.state.category} id='entry-wrapper'>
+        <Container className={`entry-wrapper-${this.props.datapointClass}`}id='entry-wrapper'>
 
           <Container id='entry-image-wrapper'>
             <Image
