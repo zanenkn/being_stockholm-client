@@ -93,12 +93,7 @@ class MenuSidebar extends Component {
           verticalAlign='middle'
           id='menu-sidebar-grid'>
 
-          <Grid.Column>
-            {loginLabels}
-            <br></br>
-            <br></br>
-
-            
+          <Grid.Column>            
             <Header
               id='how-this-works'
               className="sidebar-menu-link"
@@ -122,6 +117,28 @@ class MenuSidebar extends Component {
             <br></br>
 
             <Header
+              id='being-stockholm-beta'
+              className="sidebar-menu-link"
+              as={Link}
+              to='being-stockholm-beta'
+              onClick={this.handleSidebarVisibilty}>
+              Being Stockholm beta
+             </Header>
+            <br></br>
+            <br></br>
+
+            <Header
+              id='faq'
+              className="sidebar-menu-link"
+              as={Link}
+              to='faq'
+              onClick={this.handleSidebarVisibilty}>
+              FAQs
+            </Header>
+            <br></br>
+            <br></br>
+
+            <Header
               id='contact'
               className="sidebar-menu-link"
               as={Link}
@@ -132,25 +149,7 @@ class MenuSidebar extends Component {
             <br></br>
             <br></br>
 
-            <Header
-              id='being-stockholm-beta'
-              className="sidebar-menu-link"
-              as={Link}
-              to='being-stockholm-beta'
-              onClick={this.handleSidebarVisibilty}>
-              Being Stockholm Beta
-             </Header>
-            <br></br>
-            <br></br>
-
-            <Header
-              id='legal-info'
-              className="sidebar-menu-link"
-              as={Link}
-              to='legal-info'
-              onClick={this.handleSidebarVisibilty}>
-              Legal info
-            </Header>
+            {loginLabels}
           </Grid.Column>
         </Grid>
       </Sidebar>
