@@ -27,6 +27,18 @@ class MyProfile extends Component {
 
   render() {
 
+    let user = this.props.currentUser.isSignedIn
+    let userEmail = this.props.currentUser.attributes.uid
+    let emailLabels
+
+    if (user === true) {
+        emailLabels = (
+          <Header className="profile-email-header" as='h3'>
+            {userEmail}
+          </Header>
+        )
+       }
+    
     let publishedEntriesToDisplay
     let pendingEntriesToDisplay
     let declinedEntriesToDisplay
@@ -179,18 +191,24 @@ class MyProfile extends Component {
             <Header className="views-main-header" as='h1'>
               My profile
             </Header>
+            
+            {emailLabels}
             <br></br>
+
             <Grid className="align-center">
               <Grid.Column>
               <p>
-                Please help us make Being Stockholm better and answer this 1 minute survey.
+                Your personal details will not be visible on the post but shown only as posted by a Newbie/Settled
+              </p>
+              <p>
+              We’d love to find out more about you and how to stay in touch
               </p>
               <Button
                 className='submit-button'
                 href='https://urbanbeings.us18.list-manage.com/subscribe?u=511ba4646c76ccebddfc09524&id=4b6589bfcd'
                 target='_blank'
               >
-                Take me to the survey
+                1 min survey
               </Button>
               </Grid.Column>
             </Grid>

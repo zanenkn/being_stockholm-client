@@ -114,6 +114,12 @@ h2 {
   margin-top: 1rem !important;
 }
 
+.profile-email-header {
+  color: grey !important;
+  margin-top: 1rem !important;
+  text-align: center !important;
+}
+
 .submit-button {
   border-radius: 30px !important;
   margin: 1rem auto 0 auto !important;
