@@ -68,39 +68,36 @@ class CreateImageEntry extends Component {
 
 
   onImageDropHandler = (pictureFiles, pictureDataURLs) => {
-    if (pictureFiles.length > 0 && pictureFiles[0].type === 'image/jpeg') {
+    if (pictureFiles.length > 0){
       this.setState({
         button: 'hide-button'
       })
-      let image = pictureFiles[0]
-      fileToArrayBuffer(image).then((data) => {
-        try {
-          var tags = ExifReader.load(data)
-        }
-        catch (error) {
-          this.setState({ messageVisible: true, errorMessage: true, errors: ['This is an invalid image format'] })
-        }
-        if (tags === undefined || tags.GPSLatitude === undefined) {
-          this.setState({
-            image: pictureDataURLs,
-            button: 'hide-button',
-            address: 'No location data detected'
-          })
-        } else {
-          this.setState({
-            image: pictureDataURLs,
-            button: 'hide-button',
-            longitude: tags.GPSLongitude.description,
-            latitude: tags.GPSLatitude.description
-          })
-          this.geolocationDataCoords()
-        }
-      })
-    } else if (pictureFiles.length > 0) {
-      if (pictureFiles[0].type === 'image/gif' || pictureFiles[0].type === 'image/png') {
+      if (pictureFiles[0].type === 'image/jpeg') {
+        let image = pictureFiles[0]
+        fileToArrayBuffer(image).then((data) => {
+          try {
+            var tags = ExifReader.load(data)
+          }
+          catch (error) {
+            this.setState({ messageVisible: true, errorMessage: true, errors: ['This is an invalid image format'] })
+          }
+          if (tags === undefined || tags.GPSLatitude === undefined) {
+            this.setState({
+              image: pictureDataURLs,
+              address: 'No location data detected'
+            })
+          } else {
+            this.setState({
+              image: pictureDataURLs,
+              longitude: tags.GPSLongitude.description,
+              latitude: tags.GPSLatitude.description
+            })
+            this.geolocationDataCoords()
+          }
+        })
+      } else if (pictureFiles[0].type === 'image/gif' || pictureFiles[0].type === 'image/png') {
         this.setState({
           image: pictureDataURLs,
-          button: 'hide-button',
           address: 'No location data detected'
         })
       }
