@@ -122,7 +122,7 @@ class MenuSidebar extends Component {
               as={Link}
               to='being-stockholm-beta'
               onClick={this.handleSidebarVisibilty}>
-              Being Stockholm beta
+              Being Stockholm <span style={{fontWeight: 100}}>beta</span> 
              </Header>
             <br></br>
             <br></br>
