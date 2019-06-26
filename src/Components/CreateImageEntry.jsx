@@ -228,7 +228,7 @@ class CreateImageEntry extends Component {
                   <div>
                     <p id="add-photo-headline">Add Image</p>
                     <Icon id="add-photo-icon" name="image outline" size="huge"></Icon>
-                    <p id="add-photo-label">Maximum image file size: 5 MB, Accepted image types: JPG/JPEG/PNG/GIF</p>
+                    <p id="add-photo-label">Maximum image file size: 5 MB</p>
                   </div>
                 }
                 buttonClassName={this.state.button}
