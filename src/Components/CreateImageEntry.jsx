@@ -66,8 +66,12 @@ class CreateImageEntry extends Component {
     )
   }
 
+
   onImageDropHandler = (pictureFiles, pictureDataURLs) => {
     if (pictureFiles.length > 0 && pictureFiles[0].type === 'image/jpeg') {
+      this.setState({
+        button: 'hide-button'
+      })
       let image = pictureFiles[0]
       fileToArrayBuffer(image).then((data) => {
         try {
@@ -149,10 +153,6 @@ class CreateImageEntry extends Component {
     )
 
   render() {
-
-    if (this.state.image.length === 0) {
-      this.state.button = 'show-button'
-    }
     const { activeItem } = this.state
 
     let addressSearch
