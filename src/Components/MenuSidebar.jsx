@@ -95,6 +95,7 @@ class MenuSidebar extends Component {
     if (user === true) {
       createEntry = (
         <Header
+          id='add-a-photo'
           className="sidebar-menu-link"
           onClick={this.openPopUp}
           as={Link}
