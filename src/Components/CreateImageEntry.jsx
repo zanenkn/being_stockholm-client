@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Icon, Segment, Container, Sidebar, Input, Grid } from 'semantic-ui-react'
+import { Form, Button, Icon, Segment, Container, Sidebar, Grid } from 'semantic-ui-react'
 import axios from 'axios'
 import ImageUploader from 'react-images-upload'
 import ImageEntryMessage from './ImageEntryMessage'
@@ -80,7 +80,7 @@ class CreateImageEntry extends Component {
           this.setState({
             image: pictureDataURLs,
             button: 'hide-button',
-            address: 'Your image does not contain any location information'
+            address: 'No location data detected'
           })
         } else {
           this.setState({
@@ -89,16 +89,7 @@ class CreateImageEntry extends Component {
             longitude: tags.GPSLongitude.description,
             latitude: tags.GPSLatitude.description
           })
-          Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
-          Geocode.fromLatLng(this.state.latitude, this.state.longitude).then(
-            response => {
-              const addressGeocode = response.results[0].formatted_address
-              this.setState({ address: addressGeocode })
-            },
-            error => {
-              console.error(error);
-            }
-          )
+          this.geolocationDataCoords()
         }
       })
     } else {
@@ -215,7 +206,6 @@ class CreateImageEntry extends Component {
 
           <Sidebar.Pusher dimmed={this.state.messageVisible}>
             <Container id="upload-post-wrapper">
-              <Header id="upload-post-header" as='h3'>Add a photo</Header>
               <ImageUploader
                 buttonText={
                   <div>
@@ -248,6 +238,8 @@ class CreateImageEntry extends Component {
                 <Icon
                   name='map marker alternate' />
                 {this.state.address}</p>
+              
+              {addressSearch}
 
               <Button.Group
                 basic
