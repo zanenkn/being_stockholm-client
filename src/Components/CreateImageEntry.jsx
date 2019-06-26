@@ -74,7 +74,7 @@ class CreateImageEntry extends Component {
           var tags = ExifReader.load(data)
         }
         catch (error) {
-          this.setState({ messageVisible: true, errorMessage: true, errors: ['This is an invalid JPG/JPEG image format'] })
+          this.setState({ messageVisible: true, errorMessage: true, errors: ['This is an invalid image format'] })
         }
         if (tags === undefined || tags.GPSLatitude === undefined) {
           this.setState({
@@ -160,22 +160,22 @@ class CreateImageEntry extends Component {
       if (this.state.addressSearch === true) {
         addressSearch = (
           <>
-            <Grid>
-              <Grid.Row columns={2}>
-                <Grid.Column width={12}>
+            <Grid id='user-input-address-grid'>
+              <Grid.Row id='user-input-address-row' columns={2}>
+                <Grid.Column id='user-input-address-column' width={13}>
                   <Form size="mini" type='medium'>
                     <Form.Input
                       required
                       id="userInputAddress"
                       value={this.state.userInputAddress}
                       onChange={this.onChangeHandler}
-                      placeholder="Your address"
+                      placeholder="Write your address"
                     />
                   </Form>
 
                 </Grid.Column>
 
-                <Grid.Column width={4}>
+                <Grid.Column id='adress-icon-column' width={3}>
                   <Icon
                     circular
                     name='search'
@@ -187,13 +187,22 @@ class CreateImageEntry extends Component {
             </Grid>
           </>
         )
-      } else {
+      } else if (this.state.address === "No location data detected") {
         addressSearch = (
-          <>
+          <div className="change-address-link">
             <a onClick={() => { this.setState({ addressSearch: true }) }}>
-              enter address manually
+              Enter address manually
             </a>
-          </>
+          </div>
+        )
+      }
+      else {
+        addressSearch = (
+          <div className="change-address-link">
+            <a onClick={() => { this.setState({ addressSearch: true }) }}>
+              Change location
+            </a>
+          </div>
         )
       }
     }
@@ -219,7 +228,7 @@ class CreateImageEntry extends Component {
                   <div>
                     <p id="add-photo-headline">Add Image</p>
                     <Icon id="add-photo-icon" name="image outline" size="huge"></Icon>
-                    <p id="add-photo-label">Maximum image file size: 5 MB, Accepted image types: JPG</p>
+                    <p id="add-photo-label">Maximum image file size: 5 MB, Accepted image types: JPG/JPEG/PNG/GIF</p>
                   </div>
                 }
                 buttonClassName={this.state.button}
@@ -236,6 +245,7 @@ class CreateImageEntry extends Component {
                 <Form.Input
                   required
                   id="caption"
+                  className="image-upload-caption"
                   value={this.state.caption}
                   onChange={this.onChangeHandler}
                   placeholder="Write your caption here"
@@ -247,7 +257,9 @@ class CreateImageEntry extends Component {
                   name='map marker alternate' />
                 {this.state.address}</p>
 
-              {addressSearch}
+              <Container>
+                {addressSearch}
+                </Container>
 
               <Button.Group
                 basic

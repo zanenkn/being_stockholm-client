@@ -289,6 +289,39 @@ h2 {
   margin: 0rem 0.5rem 1rem 0.5rem;
 }
 
+.change-address-link {
+  margin: -0.5rem 0rem 0.7rem 0rem !important;
+  font-size: 12px !important;
+}
+
+#user-input-address-grid {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+#user-input-address-row {
+  border-top: thin solid gray !important;
+  border-bottom: thin solid gray !important;
+  padding: 0rem !important;
+  padding-left: .2rem!important;
+  padding-right: .2rem!important;
+  margin: 0 .5rem 1rem .5rem;
+}
+
+#user-input-address-column {
+  padding-left: 0rem !important;
+}
+
+#adress-icon-column {
+  padding: 0.2rem 0rem 0.2rem 0.2rem !important;
+}
+
+#userInputAddress {
+  border: none !important;
+  border-radius: 0px !important;
+  padding: 0.7rem 0rem 0.7rem 0.2rem !important;
+}
+
 #location {
   font-size: 12px;
 }
@@ -315,11 +348,13 @@ h2 {
 #play {
   color: #00a19a !important;
   font-size: 12px !important;
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem !important;
 }
 
 #work {
   color: #312783 !important;
   font-size: 12px !important;
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem !important;
 }
 
 .fileContainer .uploadPictureContainer {
