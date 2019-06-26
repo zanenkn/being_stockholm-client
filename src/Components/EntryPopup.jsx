@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Geocode from 'react-geocode'
 import moment from 'moment'
 import { Container, Image, Icon, Header } from 'semantic-ui-react'
 
@@ -24,23 +23,10 @@ class EntryPopup extends Component {
         created_at: response.data.created_at,
         image: response.data.image,
         latitude: response.data.latitude,
-        longitude: response.data.longitude
+        longitude: response.data.longitude,
+        address: response.data.address
       })
     })
-    this.geolocationDataAddress()
-  }
-
-  geolocationDataAddress = () => {
-    Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
-    Geocode.fromLatLng(parseFloat(this.state.latitude), parseFloat(this.state.longitude)).then(
-      response => {
-        const address = response.results[0].formatted_address
-        this.setState({ address: address })
-      },
-      error => {
-        console.error(error);
-      }
-    )
   }
 
   render() {
