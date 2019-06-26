@@ -50,6 +50,22 @@ class CreateImageEntry extends Component {
     )
   }
 
+  geolocationDataCoords = () => {
+    Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
+    Geocode.fromLatLng(this.state.latitude, this.state.longitude).then(
+      response => {
+        const addressGeocode = response.results[0].formatted_address
+        this.setState({
+          address: addressGeocode,
+          addressSearch: false
+        })
+      },
+      error => {
+        console.error(error);
+      }
+    )
+  }
+
   onImageDropHandler = (pictureFiles, pictureDataURLs) => {
     if (pictureFiles.length > 0) {
       let image = pictureFiles[0]
@@ -139,6 +155,49 @@ class CreateImageEntry extends Component {
       this.state.button = 'show-button'
     }
     const { activeItem } = this.state
+
+    let addressSearch
+    if (this.state.image.length > 0) {
+      if (this.state.addressSearch === true) {
+        addressSearch = (
+          <>
+            <Grid>
+              <Grid.Row columns={2}>
+                <Grid.Column width={12}>
+                  <Form size="mini" type='medium'>
+                    <Form.Input
+                      required
+                      id="userInputAddress"
+                      value={this.state.userInputAddress}
+                      onChange={this.onChangeHandler}
+                      placeholder="Your address"
+                    />
+                  </Form>
+
+                </Grid.Column>
+
+                <Grid.Column width={4}>
+                  <Icon
+                    circular
+                    name='search'
+                    onClick={this.geolocationDataAddress.bind(this)}
+                  />
+                </Grid.Column>
+              </Grid.Row>
+
+            </Grid>
+          </>
+        )
+      } else {
+        addressSearch = (
+          <>
+            <a onClick={() => { this.setState({ addressSearch: true }) }}>
+              enter address manually
+            </a>
+          </>
+        )
+      }
+    }
 
     return (
       <>
