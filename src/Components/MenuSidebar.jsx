@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Header, Segment, Sidebar } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signOutUser } from '../reduxTokenAuthConfig'
 import { withRouter } from 'react-router-dom'
@@ -8,6 +8,9 @@ import Popup from 'reactjs-popup'
 import CreateImageEntry from './CreateImageEntry'
 
 class MenuSidebar extends Component {
+  state = {
+    redirectToCreateImageEntry: false
+  }
 
   signOut = (e) => {
     e.preventDefault()
@@ -24,12 +27,8 @@ class MenuSidebar extends Component {
   }
 
   openPopUp = () => {
-    console.log('sssstefan')
-    // const { history }
-    //   .then(response => {
-    //     this.handleSidebarVisibilty()
-    //     history.push('/')
-    //   })
+    this.handleSidebarVisibilty()
+    this.props.createImageHandler()
   }
 
   render() {
@@ -95,16 +94,13 @@ class MenuSidebar extends Component {
 
     if (user === true) {
       createEntry = (
-     
-        <Popup
-        trigger={
-        <button> Open Modal </button>}
-        modal
-        onOpen={this.openPopUp}
-        closeOnDocumentClick
+        <Header
+        className="sidebar-menu-link"
+        onClick={this.openPopUp}
+        as={Link}
         >
-     <CreateImageEntry />
-      </Popup>
+        Add a photo
+      </Header>
       )
     } else {
       createEntry = (
@@ -224,6 +220,10 @@ const mapDispatchToProps = {
     type: 'CHANGE_VISIBILITY',
     sidebarVisbible: sidebarVisible
   }),
+  createImageHandler: () => ({
+    type: 'CREATE_IMAGE_POST'
+  }),
+
   signOutUser
 }
 

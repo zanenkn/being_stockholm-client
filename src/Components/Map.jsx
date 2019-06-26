@@ -144,6 +144,10 @@ class Map extends Component {
           </div>
         </Popup>
 
+        <Popup modal open={this.props.renderCreate} position="right center">
+          <CreateImageEntry />
+        </Popup>
+
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY_GOOGLE_MAPS }}
           defaultCenter={this.props.center}
@@ -170,7 +174,8 @@ class Map extends Component {
 const mapStateToProps = state => ({
   state: state,
   currentUser: state.reduxTokenAuth.currentUser,
-  sidebarVisible: state.animation.sidebarVisible
+  sidebarVisible: state.animation.sidebarVisible,
+  renderCreate: state.animation.renderCreate
 })
 
 export default connect(mapStateToProps)(Map);
