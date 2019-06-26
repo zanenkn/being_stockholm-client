@@ -46,7 +46,7 @@ describe('Visitor can', () => {
     cy.get('#play').should('have.class', 'active')
     cy.get('#work').click()
     cy.get('#upload-button').click()
-    cy.contains('Thank you for sharing your picture!')
+    cy.contains('Thank you')
 
     let text = ['#show-form', '#show-toggle', '#hide-form', '#hide-toggle']
 
