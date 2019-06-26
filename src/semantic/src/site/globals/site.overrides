@@ -65,6 +65,7 @@ h2 {
   width: 100%;
 }
 
+
 .datapoint-my-work {
   color: #312783 !important;
 }
@@ -253,6 +254,15 @@ h2 {
   padding: 0rem;
 }
 
+#add-photo-headline {
+  font-size: 14px !important;
+}
+
+#add-photo-label {
+  font-size: 10px !important;
+}
+
+
 .image-upload-error-hidden {
   height: 0;
   visibility: hidden;
@@ -299,10 +309,17 @@ h2 {
   padding-right: 0.2rem !important;
   border-radius: 0px !important;
   margin: 0rem 0.5rem 1rem 0.5rem;
+  font-size: 12px !important;
 }
 
 #location {
   font-size: 12px;
+}
+
+#image-upload-button-headline {
+  font-size: 12px;
+  color: grey !important;
+  margin-bottom: 0.2rem;;
 }
 
 .popup-content {

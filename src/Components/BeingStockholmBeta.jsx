@@ -10,13 +10,13 @@ class BeingStockholmBeta extends Component {
           <div onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_VISIBILITY' }) } : () => { }}>
             <Container className="views-main-container">
               <Header className="views-main-header" as='h1'>
-                Being Stockholm Beta
+                Being Stockholm <span style={{fontWeight: 100}}>beta</span>
               </Header>
               <br></br>
 
               <Container className="views-ingress-container">
                 <p>
-                This is our first web app to test the project idea over Summer 2019.
+                This is our first web app to test the project idea in 2019.
                 </p>
               </Container>
               <br></br>
@@ -61,7 +61,10 @@ class BeingStockholmBeta extends Component {
 
               <Container className="views-text-container">
                 <p>
-                  After this beta testing over the summer holidays, we will curate an exhibition of how Stockholmers use the city region for work and play and release an update to the map. Sign up to our mailing list to stay updated on our next steps!
+                  After this beta testing, we will curate an exhibition of how Stockholmers work and play and release an update to the app.
+                </p>
+                <p>
+                  <a>Sign up </a>to our mailing list to stay updated on our next steps!
                 </p>
               </Container>
 

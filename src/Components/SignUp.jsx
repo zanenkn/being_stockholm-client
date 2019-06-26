@@ -65,7 +65,7 @@ class SignUp extends Component {
         <>
           <br />
           <Message negative>
-            <Message.Header textAlign='center'>Oops!</Message.Header>
+            <Message.Header textAlign='center'>Ooops!</Message.Header>
             <ul id="message-error-list">
               {this.state.errors_signup.map(error => (
                 <li key={error}>{error}</li>

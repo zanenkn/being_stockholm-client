@@ -140,9 +140,9 @@ class CreateImageEntry extends Component {
               <ImageUploader
                 buttonText={
                   <div>
-                    <p id="add-photo-headline">Add Image</p>
+                    <p id="add-photo-headline">1. Add a photo!</p>
                     <Icon id="add-photo-icon" name="image outline" size="huge"></Icon>
-                    <p id="add-photo-label">Maximum image file size: 5 MB, Accepted image types: JPG</p>
+                    <p id="add-photo-label">Maximum image file size: 5 MB</p>
                   </div>
                 }
                 buttonClassName={this.state.button}
@@ -161,7 +161,7 @@ class CreateImageEntry extends Component {
                   id="caption"
                   value={this.state.caption}
                   onChange={this.onChangeHandler}
-                  placeholder="Write your caption here"
+                  placeholder="2. Add a caption!"
                 />
 
               </Form>
@@ -169,6 +169,8 @@ class CreateImageEntry extends Component {
                 <Icon
                   name='map marker alternate' />
                 {this.state.address}</p>
+              
+              <p id="image-upload-button-headline">3. I am at:</p>
 
               <Button.Group
                 basic
