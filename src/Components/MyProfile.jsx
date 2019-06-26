@@ -183,7 +183,7 @@ class MyProfile extends Component {
             <Grid className="align-center">
               <Grid.Column>
               <p>
-                Please help us make Being Stockholm better and answer six questions about yourself.
+                Please help us make Being Stockholm better and take this 1 minute survey.
               </p>
               <Button
                 className='submit-button'
