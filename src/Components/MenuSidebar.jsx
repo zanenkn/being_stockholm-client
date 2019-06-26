@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signOutUser } from '../reduxTokenAuthConfig'
 import { withRouter } from 'react-router-dom'
+import Popup from 'reactjs-popup'
+import CreateImageEntry from './CreateImageEntry'
 
 class MenuSidebar extends Component {
 
@@ -19,6 +21,15 @@ class MenuSidebar extends Component {
 
   handleSidebarVisibilty = (e) => {
     this.props.sidebarVisbilityHandler()
+  }
+
+  openPopUp = () => {
+    console.log('sssstefan')
+    // const { history }
+    //   .then(response => {
+    //     this.handleSidebarVisibilty()
+    //     history.push('/')
+    //   })
   }
 
   render() {
@@ -80,6 +91,34 @@ class MenuSidebar extends Component {
       )
     }
 
+    let createEntry
+
+    if (user === true) {
+      createEntry = (
+     
+        <Popup
+        trigger={
+        <button> Open Modal </button>}
+        modal
+        onOpen={this.openPopUp}
+        closeOnDocumentClick
+        >
+     <CreateImageEntry />
+      </Popup>
+      )
+    } else {
+      createEntry = (
+        <Header
+        id='log-in'
+        className="sidebar-menu-link"
+        as={Link}
+        to='log-in'
+        onClick={this.handleSidebarVisibilty}>
+        Add a photo
+      </Header>
+      )
+    }
+
     return (
       <Sidebar
         id='menu-sidebar'
@@ -93,7 +132,21 @@ class MenuSidebar extends Component {
           verticalAlign='middle'
           id='menu-sidebar-grid'>
 
-          <Grid.Column>            
+          <Grid.Column>     
+
+
+        
+
+
+
+          {createEntry}
+
+
+
+
+
+
+
             <Header
               id='how-this-works'
               className="sidebar-menu-link"
