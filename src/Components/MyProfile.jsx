@@ -180,8 +180,8 @@ class MyProfile extends Component {
               My profile
             </Header>
             <br></br>
-            <Container className="align-center">
-              <Divider hidden />
+            <Grid className="align-center">
+              <Grid.Column>
               <p>
                 Please help us make Being Stockholm better and answer six questions about yourself.
               </p>
@@ -192,21 +192,21 @@ class MyProfile extends Component {
               >
                 Take me to the survey
               </Button>
-              <Divider hidden />
-            </Container>
+              </Grid.Column>
+            </Grid>
 
             <Grid >
-              <Grid.Column id='pending-entries' mobile={16} tablet={16} computer={5}>
+              <Grid.Column id='pending-entries' mobile={16} tablet={16} computer={16} largeScreen={5} widescreen={5}>
               <Header as='h2' textAlign='center'>You have ({pendingEntries.length}) Pending Entries </Header>
                 {pendingEntriesToDisplay}
               </Grid.Column>
 
-              <Grid.Column id='declined-entries' mobile={16} tablet={16} computer={5}>
+              <Grid.Column id='declined-entries' mobile={16} tablet={16} computer={16} largeScreen={5} widescreen={5}>
               <Header as='h2' textAlign='center'>You have ({declinedEntries.length}) Declined Entries</Header>
               {declinedEntriesToDisplay}
               </Grid.Column>
 
-              <Grid.Column id='published-entries' mobile={16} tablet={16} computer={6}>
+              <Grid.Column id='published-entries' mobile={16} tablet={16} computer={16} largeScreen={6} widescreen={6}>
               <Header as='h2' textAlign='center'>You have ({publishedEntries.length}) Published Entries</Header>
               {publishedEntriesToDisplay}
               </Grid.Column>
