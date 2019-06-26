@@ -14,7 +14,7 @@ describe('Visitor can view on the map', () => {
   it('datapoints of posts only if they are published', () => {
 
     let postsPublished = [
-      "#post_1", "#post_3"
+      "#1", "#3"
     ]
 
     postsPublished.forEach(post => {
@@ -22,17 +22,11 @@ describe('Visitor can view on the map', () => {
     })
 
     let postsNotPublished = [
-      "#post_2", "#post_4", "#post_5"
+      "#2", "#4", "#5"
     ]
 
     postsNotPublished.forEach(post => {
       cy.get(post).should('not.be.visible')
     })
-  })
-
-  it('datapoints in different category colors', () => {
-
-    cy.get('#post_1').should('have.class', 'teal')
-    cy.get('#post_3').should('have.class', 'yellow')
   })
 })

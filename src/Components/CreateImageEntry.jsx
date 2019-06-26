@@ -171,11 +171,10 @@ class CreateImageEntry extends Component {
                 {this.state.address}</p>
 
               <Button.Group
-                toggle={true}
-                inverted={true}>
+                basic
+              >
                 <Button
                   id='work'
-                  basic color='teal'
                   active={activeItem === 'work'}
                   value='work'
                   onClick={this.handleChangeCategory}>
@@ -184,7 +183,6 @@ class CreateImageEntry extends Component {
 
                 <Button
                   id='play'
-                  basic color='yellow'
                   active={activeItem === 'play'}
                   value='play'
                   onClick={this.handleChangeCategory}>

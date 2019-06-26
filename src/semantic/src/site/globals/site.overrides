@@ -21,6 +21,31 @@ h2 {
 }
 
 /*******************************
+         Datapoints colors
+*******************************/
+
+
+ /* 
+    
+  My WORK - #312783 
+
+  WORK Settled - #951b81
+
+  WORK Newbie - #e6007e
+
+  -----------------------------
+
+  My PLAY - #00a19a
+
+  PLAY Settled - #006633
+
+  PLAY Newbie - #95c11f
+    
+  */
+
+
+
+/*******************************
          Map
 *******************************/
 
@@ -38,6 +63,30 @@ h2 {
 #main-content {
   height: 90vh; 
   width: 100%;
+}
+
+.datapoint-my-work {
+  color: #312783 !important;
+}
+
+.datapoint-my-play {
+  color: #00a19a !important;
+}
+
+.datapoint-work-settled {
+  color: #951b81 !important;
+}
+
+.datapoint-work-newbie {
+  color: #e6007e !important;
+}
+
+.datapoint-play-settled {
+  color: #006633 !important;
+}
+
+.datapoint-play-newbie {
+  color: #95c11f !important;
 }
 
 /*******************************
@@ -254,23 +303,24 @@ h2 {
 }
 
 .play {
-  border: 4px solid #cd9903 !important;
+  border: 4px solid #00a19a !important;
   border-radius: 20px !important;
 }
 
 .work {
-  border: 4px solid #00b5ad !important;
+  border: 4px solid #312783 !important;
   border-radius: 20px !important;
 }
 
 #play {
+  color: #00a19a !important;
   font-size: 12px !important;
 }
 
 #work {
+  color: #312783 !important;
   font-size: 12px !important;
 }
-
 
 .fileContainer .uploadPictureContainer {
   width: 90% !important;
@@ -285,6 +335,43 @@ h2 {
 /*******************************
   Popup - Single Image Entry
 *******************************/
+
+.entry-wrapper-datapoint-my-work {
+  border: 4px solid !important;
+  border-radius: 20px !important;
+  border-color: #312783 !important;
+}
+
+.entry-wrapper-datapoint-my-play {
+  border: 4px solid !important;
+  border-radius: 20px !important;
+  border-color: #00a19a !important;
+}
+
+.entry-wrapper-datapoint-work-settled {
+  border: 4px solid !important;
+  border-radius: 20px !important;
+  border-color: #951b81 !important;
+}
+
+.entry-wrapper-datapoint-work-newbie {
+  border: 4px solid !important;
+  border-radius: 20px !important;
+  border-color: #e6007e !important;
+}
+
+.entry-wrapper-datapoint-play-settled {
+  border: 4px solid !important;
+  border-radius: 20px !important;
+  border-color: #006633 !important;
+}
+
+.entry-wrapper-datapoint-play-newbie {
+  border: 4px solid !important;
+  border-radius: 20px !important;
+  border-color: #95c11f !important;
+}
+
 
 #entry-wrapper {
   background-color: white;

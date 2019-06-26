@@ -49,7 +49,7 @@ class MyProfile extends Component {
       pendingEntries.map(entry => {
 
         let trimmedEntryCaption = entry.caption.substr(0, 40);
-        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ....'
+        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ...'
   
         let entryDate = this.date(entry.created_at)
 
@@ -75,7 +75,7 @@ class MyProfile extends Component {
                     </p>
                     </Grid.Column>
                     <Grid.Column width={5}>
-                    <Label as='a' basic>
+                    <Label basic>
                       {entry.category}
                     </Label>
                     </Grid.Column>
@@ -92,7 +92,7 @@ class MyProfile extends Component {
       declinedEntries.map(entry => {
 
         let trimmedEntryCaption = entry.caption.substr(0, 40);
-        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ....'
+        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ...'
   
         let entryDate = this.date(entry.created_at)
         return (
@@ -117,7 +117,7 @@ class MyProfile extends Component {
                     </p>
                     </Grid.Column>
                     <Grid.Column width={5}>
-                    <Label as='a' basic>
+                    <Label basic>
                       {entry.category}
                     </Label>
                     </Grid.Column>
@@ -134,7 +134,7 @@ class MyProfile extends Component {
       publishedEntries.map(entry => {
 
         let trimmedEntryCaption = entry.caption.substr(0, 40);
-        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ....'
+        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ...'
   
         let entryDate = this.date(entry.created_at)
         return (
@@ -159,7 +159,7 @@ class MyProfile extends Component {
                     </p>
                     </Grid.Column>
                     <Grid.Column width={5}>
-                    <Label as='a' basic>
+                    <Label basic>
                       {entry.category}
                     </Label>
                     </Grid.Column>
@@ -183,7 +183,7 @@ class MyProfile extends Component {
             <Grid className="align-center">
               <Grid.Column>
               <p>
-                Please help us make Being Stockholm better and take this 1 minute survey.
+                Please help us make Being Stockholm better and answer this 1 minute survey.
               </p>
               <Button
                 className='submit-button'

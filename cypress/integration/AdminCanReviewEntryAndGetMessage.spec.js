@@ -39,7 +39,7 @@ describe('Admin can review an entry and', () => {
   it('get Accept popup message if she accepts the entry', () => {
 
     let IDs = [
-      '#footer-menu-icon', '#admin-link', '#post_2', '#accept-button'
+      '#footer-menu-icon', '#admin-link', '#2', '#accept-button'
     ]
 
     IDs.forEach(id => {
@@ -52,7 +52,7 @@ describe('Admin can review an entry and', () => {
   it('get Decline popup message if she does not accept the entry', () => {
 
     let IDs = [
-      '#footer-menu-icon', '#admin-link', '#post_2', '#decline-button'
+      '#footer-menu-icon', '#admin-link', '#2', '#decline-button'
     ]
 
     IDs.forEach(id => {

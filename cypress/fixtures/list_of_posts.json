@@ -4,34 +4,120 @@
     "status": "published",
     "latitude": 59.330651,
     "longitude": 18.068562,
-    "category": "work"
+    "category": "work",
+    "user": {
+      "uid": 3,
+      "level": "newbie"
+    }
   },
   {
     "id": 2,
     "status": "pending",
     "latitude": 59.315749,
     "longitude": 18.064151,
-    "category": "play"
+    "category": "play",
+    "user": {
+      "uid": 3,
+      "level": "newbie"
+    }
   },
   {
     "id": 3,
     "status": "published",
     "latitude": 59.329051,
     "longitude": 18.046244,
-    "category": "play"
+    "category": "play",
+    "user": {
+      "uid": 3,
+      "level": "newbie"
+    }
   },
   {
     "id": 4,
     "status": "declined",
     "latitude": 59.357546,
     "longitude": 18.013345,
-    "category": "play"
+    "category": "play",
+    "user": {
+      "uid": 3,
+      "level": "newbie"
+    }
   },
   {
     "id": 5,
     "status": "pending",
     "latitude": 59.345836,
     "longitude": 18.073531,
-    "category": "work"
+    "category": "work",
+    "user": {
+      "uid": 3,
+      "level": "newbie"
+    }
+  },
+  {
+    "id": 6,
+    "status": "published",
+    "latitude": 59.329051,
+    "longitude": 18.01244,
+    "category": "work",
+    "user": {
+      "uid": "carla@mail.com",
+      "level": "settled"
+    }
+  },
+  {
+    "id": 7,
+    "status": "published",
+    "latitude": 59.329051,
+    "longitude": 18.026244,
+    "category": "work",
+    "user": {
+      "uid": 2,
+      "level": "settled"
+    }
+  },
+  {
+    "id": 8,
+    "status": "published",
+    "latitude": 59.329051,
+    "longitude": 18.03244,
+    "category": "work",
+    "user": {
+      "uid": 2,
+      "level": "newbie"
+    }
+  },
+  {
+    "id": 9,
+    "status": "published",
+    "latitude": 59.329051,
+    "longitude": 18.059244,
+    "category": "play",
+    "user": {
+      "uid": "carla@mail.com",
+      "level": "settled"
+    }
+  },
+  {
+    "id": 10,
+    "status": "published",
+    "latitude": 59.329051,
+    "longitude": 18.068244,
+    "category": "play",
+    "user": {
+      "uid": 2,
+      "level": "settled"
+    }
+  },
+  {
+    "id": 11,
+    "status": "published",
+    "latitude": 59.329051,
+    "longitude": 18.076244,
+    "category": "play",
+    "user": {
+      "uid": 2,
+      "level": "newbie"
+    }
   }
 ]
