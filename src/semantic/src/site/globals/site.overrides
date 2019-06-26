@@ -233,6 +233,7 @@ h2 {
 
 #message-error-list {
   text-align: left;
+  padding-left: 1rem;
 }
 
 #close-topsidebar-error {

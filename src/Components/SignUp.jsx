@@ -55,7 +55,7 @@ class SignUp extends Component {
       message = (
         <>
           <br />
-          <Message color="green">
+          <Message positive>
             <p>You have succesfully created an account!</p>
           </Message>
         </>
@@ -64,9 +64,9 @@ class SignUp extends Component {
       message = (
         <>
           <br />
-          <Message color="red">
-            <p>Your account could not be created because of following error(s):</p>
-            <ul>
+          <Message negative>
+            <Message.Header textAlign='center'>Oops!</Message.Header>
+            <ul id="message-error-list">
               {this.state.errors_signup.map(error => (
                 <li key={error}>{error}</li>
               ))}
@@ -80,12 +80,11 @@ class SignUp extends Component {
         <Container className="views-main-container"textAlign='center'>
 
           <Header className="views-main-header" as='h1'>
-            Sign Up
+            Sign up
           </Header>
           <br></br>
-          <br></br>
-
           {message}
+          <br></br>
 
           <Form id="signup-form">
             <Form.Input
@@ -106,14 +105,14 @@ class SignUp extends Component {
               type="password"
               value={this.state.password_confirmation}
               onChange={this.onChangeHandler}
-              placeholder="Password Confirmation"
+              placeholder="Repeat password"
             />
           </Form>
           <br></br>
 
           <p
           className='text'>
-          What kind of stockholmer do you consider yourself to be?</p>
+          What type of Stockholmer do you consider yourself to be?</p>
 
           <Button.Group
             className='button-group'
@@ -124,20 +123,20 @@ class SignUp extends Component {
               active={activeItem === 'newbie'}
               value={'newbie'}
               onClick={this.handleChangeLevel}>
-              NEWBIE
+              Newbie
             </Button>
             <Button
               id='settled'
               active={activeItem === 'settled'}
               value={'settled'}
               onClick={this.handleChangeLevel}>
-              SETTLED
+              Settled
               </Button>
           </Button.Group>
           <br></br>
           <br></br>
 
-          <Button className='submit-button' id="sign_up_button" onClick={this.createUser}>Sign Up</Button>
+          <Button className='submit-button' id="sign_up_button" onClick={this.createUser}>Sign up</Button>
 
         </Container>
       </Sidebar.Pushable>  
