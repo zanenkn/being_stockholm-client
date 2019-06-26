@@ -49,7 +49,7 @@ class MyProfile extends Component {
       pendingEntries.map(entry => {
 
         let trimmedEntryCaption = entry.caption.substr(0, 40);
-        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ...'
+        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(""))) + ' ...'
   
         let entryDate = this.date(entry.created_at)
 
@@ -92,7 +92,7 @@ class MyProfile extends Component {
       declinedEntries.map(entry => {
 
         let trimmedEntryCaption = entry.caption.substr(0, 40);
-        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ...'
+        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(""))) + ' ...'
   
         let entryDate = this.date(entry.created_at)
         return (
@@ -134,7 +134,7 @@ class MyProfile extends Component {
       publishedEntries.map(entry => {
 
         let trimmedEntryCaption = entry.caption.substr(0, 40);
-        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ...'
+        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(""))) + ' ...'
   
         let entryDate = this.date(entry.created_at)
         return (

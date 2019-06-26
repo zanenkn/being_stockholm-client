@@ -67,7 +67,7 @@ class CreateImageEntry extends Component {
   }
 
   onImageDropHandler = (pictureFiles, pictureDataURLs) => {
-    if (pictureFiles.length > 0) {
+    if (pictureFiles.length > 0 && pictureFiles[0].type === 'image/jpeg') {
       let image = pictureFiles[0]
       fileToArrayBuffer(image).then((data) => {
         try {
@@ -92,6 +92,14 @@ class CreateImageEntry extends Component {
           this.geolocationDataCoords()
         }
       })
+    } else if (pictureFiles.length > 0) {
+      if (pictureFiles[0].type === 'image/gif' || pictureFiles[0].type === 'image/png') {
+        this.setState({
+          image: pictureDataURLs,
+          button: 'hide-button',
+          address: 'No location data detected'
+        })
+      }
     } else {
       this.setState({
         button: 'show-button',
@@ -220,7 +228,7 @@ class CreateImageEntry extends Component {
                 withPreview={true}
                 singleImage={true}
                 onChange={this.onImageDropHandler}
-                imgExtension={['.jpg']}
+                imgExtension={['.jpg', '.png', '.gif', '.jpeg']}
                 maxFileSize={5242880}
                 errorClass={(this.state.image.length > 0) ? 'image-upload-error-hidden' : 'image-upload-error-visible'}
               />
@@ -238,7 +246,7 @@ class CreateImageEntry extends Component {
                 <Icon
                   name='map marker alternate' />
                 {this.state.address}</p>
-              
+
               {addressSearch}
 
               <Button.Group
