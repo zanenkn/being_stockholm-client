@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Icon, Header, Segment, Container, Sidebar } from 'semantic-ui-react'
+import { Form, Button, Icon, Segment, Container, Sidebar, Input, Grid } from 'semantic-ui-react'
 import axios from 'axios'
 import ImageUploader from 'react-images-upload'
 import ImageEntryMessage from './ImageEntryMessage'
@@ -21,13 +21,33 @@ class CreateImageEntry extends Component {
     activeItem: 'play',
     button: 'show-button',
     messageVisible: false,
-    address: ''
+    address: '',
+    userInputAddress: '',
+    addressSearch: false
   }
 
   onChangeHandler = (e) => {
     this.setState({
       [e.target.id]: e.target.value
     })
+  }
+
+  geolocationDataAddress = () => {
+    Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
+    Geocode.fromAddress(this.state.userInputAddress).then(
+      response => {
+        const { lat, lng } = response.results[0].geometry.location;
+        this.setState({
+          latitude: lat,
+          longitude: lng
+
+        })
+        this.geolocationDataCoords()
+      },
+      error => {
+        console.error(error);
+      }
+    )
   }
 
   onImageDropHandler = (pictureFiles, pictureDataURLs) => {
