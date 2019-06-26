@@ -95,9 +95,9 @@ class MenuSidebar extends Component {
     if (user === true) {
       createEntry = (
         <Header
-        className="sidebar-menu-link"
-        onClick={this.openPopUp}
-        as={Link}
+          className="sidebar-menu-link"
+          onClick={this.openPopUp}
+          as={Link}
         >
         Add a photo
       </Header>
@@ -128,20 +128,10 @@ class MenuSidebar extends Component {
           verticalAlign='middle'
           id='menu-sidebar-grid'>
 
-          <Grid.Column>     
-
-
-        
-
-
-
-          {createEntry}
-
-
-
-
-
-
+          <Grid.Column>
+            {createEntry}
+            <br></br>
+            <br></br>
 
             <Header
               id='how-this-works'
@@ -223,7 +213,6 @@ const mapDispatchToProps = {
   createImageHandler: () => ({
     type: 'CREATE_IMAGE_POST'
   }),
-
   signOutUser
 }
 
