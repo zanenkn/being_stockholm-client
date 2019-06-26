@@ -132,12 +132,10 @@ h2 {
   font-size: 15px !important;
   font-weight: bold !important;
   width: 100% !important;
-  text-align: justify !important;
 }
 
 .views-text-container {
   width: 100% !important;
-  text-align: justify !important;
 }
 
 .views-image {
@@ -169,14 +167,27 @@ h2 {
   padding: 0 1.3rem 1rem 0 !important;
 }
 
+.image-segment-urbanbeings {
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 0 0 -1rem !important;
+  padding: 0 1.3rem 1rem 0 !important;
+}
+
 .screenshot-label {
   font-size: 12px !important;
   padding: 1rem 0 0 1rem !important;
   font-style: italic !important;
 }
 
-.image-segment-label {
-  font-style: italic !important;
+.image-segment-label-1 {
+  font-size: 12px !important;
+  margin: 0 !important;
+  color: #F2711c !important;
+}
+
+.image-segment-label-2 {
   font-size: 12px !important;
   margin: 0 !important;
   color: grey !important;

@@ -10,9 +10,13 @@ class AboutProject extends Component {
           <div onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_VISIBILITY' }) } : () => { }}>
             <Container className="views-main-container">
               <Header className="views-main-header" as='h1'>
-                About Being Stockholm
+                About
               </Header>
               <br></br>
+
+              <Header className="views-second-header" as='h3'>
+                Being Stockholm
+              </Header>
 
               <Container className="views-ingress-container">
                 <p>
@@ -23,31 +27,27 @@ class AboutProject extends Component {
 
               <Container className="views-text-container">
                 <p>
-                  By sharing your photos, you will help us map and illustrate how Stockholmers use the city region. This can help urban planners see how the city is used and changing - if the new places and amenities are used as they are designed or need adapting, so that the urban development process can be more responsive.
+                  By sharing your photos, you will help us map and illustrate how Stockholmers use their city. This can help urban planners see how the city is used and changing - if the new places and amenities are used as they are designed or need adapting and make the urban development process more responsive. 
                 </p>
                 <p>
-                  Your photos can also offer a glimpse of what it is really like to live and work in Stockholm. This can help prospective Stockholmers to plan their move as well as Newbies discover more of their new city. For those who have lived in Stockholm for a long time, you can share some of the local gems and also be inspired by the curiosity and energy of the newcomers.
+                  Your photos can also offer a glimpse of what it is really like to live and work in Stockholm. This can help prospective Stockholmers to plan their move as well as Newbies to discover more of their new city. For those who already live in Stockholm for a while, you can share some of the local gems and also be inspired by the curiosity and energy of the newcomers.
                 </p>
               </Container>
               <br></br>
 
               <Container className="views-ingress-container">
                 <p>
-                  We believe that when people understand more about the places where they live, they will develop a sense of pride and ownership of it, so that they will become active and engaged citizens who will take care of their cities.
+                  We believe that when people understand more about the places where they live, they will develop a sense of pride and ownership of it, so that they will become active and engaged citizens who will take care of their cities!
                 </p>
               </Container>
               <br></br>
               <Divider></Divider>
 
-              <Header className="views-second-header" as='h2'>
-                UrbanBeings
-              </Header>
-
-              <Container>
-                <p id="urbanbeings-subheader-1">Helping you to enjoy the city</p>
-                <p id="urbanbeings-subheader-2">Design & Research / Events / Education</p>
-              </Container>
-              <br></br>
+              <Segment className="image-segment-urbanbeings">
+                <div>
+                  <Image className="views-image" src='urban_being.png' size='small'></Image>
+                </div>
+              </Segment>
 
               <Grid>
                 <Grid.Column>
@@ -55,8 +55,8 @@ class AboutProject extends Component {
                     <Segment className="image-segment-left" floated="left">
                       <div>
                         <Image className="views-image" src='yat.png' size='small'></Image>
-                        <p className="image-segment-label" >Yatwan Hui</p>
-                        <p className="image-segment-label" >| Architect and urban designer</p>
+                        <p className="image-segment-label-1" >Yatwan Hui</p>
+                        <p className="image-segment-label-2" >Architect and urban designer</p>
                       </div>
                     </Segment>
                     <p>
@@ -82,17 +82,16 @@ class AboutProject extends Component {
               </Container>
               <br></br>
 
-              <Container className="views-ingress-container">
-                <p>
-                  With thanks to:
-                </p>
-              </Container>
-              <br></br>
-              <Container className="views-text-container">
-                <p>
-                  Our project consortium for the guiding and development of Being Stockholm
-                </p>
-              </Container>
+              <Header className="views-second-header" as='h3'>
+                With thanks to
+              </Header>
+
+              <Segment className="image-segment-left">
+                <div>
+                  <Image className="views-image" src='consortium_logos.jpg' size='large'></Image>
+                </div>
+              </Segment>
+
             </Container>
           </div>
         </Sidebar.Pushable>
