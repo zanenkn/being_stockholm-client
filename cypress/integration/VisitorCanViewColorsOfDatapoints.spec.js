@@ -14,7 +14,7 @@ describe('Visitor can view on the map', () => {
   it('datapoints of posts only if they are published', () => {
 
     let postsPublished = [
-      "#post_6", "#post_7", "#post_8", "#post_9", "#post_10", "#post_11"
+      "#6", "#7", "#8", "#9", "#10", "#11"
     ]
 
     postsPublished.forEach(post => {
@@ -25,14 +25,14 @@ describe('Visitor can view on the map', () => {
   it('datapoints in 4 different category classes when not signed-in', () => {
 
     // work
-    cy.get('#post_6').should('have.class', 'datapoint-work-settled')
-    cy.get('#post_7').should('have.class', 'datapoint-work-settled')
-    cy.get('#post_8').should('have.class', 'datapoint-work-newbie')
+    cy.get('#6').should('have.class', 'datapoint-work-settled')
+    cy.get('#7').should('have.class', 'datapoint-work-settled')
+    cy.get('#8').should('have.class', 'datapoint-work-newbie')
 
     // play
-    cy.get('#post_9').should('have.class', 'datapoint-play-settled')
-    cy.get('#post_10').should('have.class', 'datapoint-play-settled')
-    cy.get('#post_11').should('have.class', 'datapoint-play-newbie')
+    cy.get('#9').should('have.class', 'datapoint-play-settled')
+    cy.get('#10').should('have.class', 'datapoint-play-settled')
+    cy.get('#11').should('have.class', 'datapoint-play-newbie')
   })
 
   it('datapoints in 6 different category colors when signed-in', () => {
@@ -55,14 +55,14 @@ describe('Visitor can view on the map', () => {
     cy.contains('You have succesfully logged in')
 
     // work
-    cy.get('#post_6').should('have.class', 'datapoint-my-work')
-    cy.get('#post_7').should('have.class', 'datapoint-work-settled')
-    cy.get('#post_8').should('have.class', 'datapoint-work-newbie')
+    cy.get('#6').should('have.class', 'datapoint-my-work')
+    cy.get('#7').should('have.class', 'datapoint-work-settled')
+    cy.get('#8').should('have.class', 'datapoint-work-newbie')
 
     // play
-    cy.get('#post_9').should('have.class', 'datapoint-my-play')
-    cy.get('#post_10').should('have.class', 'datapoint-play-settled')
-    cy.get('#post_11').should('have.class', 'datapoint-play-newbie')
+    cy.get('#9').should('have.class', 'datapoint-my-play')
+    cy.get('#10').should('have.class', 'datapoint-play-settled')
+    cy.get('#11').should('have.class', 'datapoint-play-newbie')
   })
 
 })

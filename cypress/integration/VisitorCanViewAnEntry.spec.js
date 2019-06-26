@@ -18,7 +18,7 @@ describe('Visitor can view', () => {
   })
 
   it('can view an entry', () => {
-    cy.get('#post_3').click()
+    cy.get('#3').click()
 
     let text = ['Midsommar', 'Ballonggatan 23, 169 71 Solna, Sweden', '20-06-2019 | 19:28']
 
@@ -27,6 +27,6 @@ describe('Visitor can view', () => {
     })
 
     cy.get('#image_3').should('have.attr', 'src')
-    cy.get('#entry-wrapper').should('have.class', 'play')
+    cy.get('#entry-wrapper').should('have.class', 'entry-wrapper-datapoint-play-newbie')
   })
 })
