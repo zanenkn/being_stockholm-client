@@ -109,7 +109,7 @@ class AdminPage extends Component {
               {this.state.unpublished.map(post => (
 
                 <Icon name='circle'
-                  size='small'
+                  size='large'
                   lat={parseFloat(post.latitude)}
                   lng={parseFloat(post.longitude)}
                   key={post.id}

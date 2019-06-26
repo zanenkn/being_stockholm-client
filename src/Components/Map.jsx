@@ -152,7 +152,7 @@ class Map extends Component {
 
           {this.state.published.map(post => (
             <Icon name='circle'
-              size='small'
+              size='large'
               lat={parseFloat(post.latitude)}
               lng={parseFloat(post.longitude)}
               key={post.id}
