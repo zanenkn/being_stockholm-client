@@ -66,7 +66,6 @@ class CreateImageEntry extends Component {
     )
   }
 
-
   onImageDropHandler = (pictureFiles, pictureDataURLs) => {
     if (pictureFiles.length > 0){
       this.setState({

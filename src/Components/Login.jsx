@@ -40,9 +40,9 @@ class Login extends Component {
   render() {
 
     let message
-    let user = this.props.currentUser.isSignedIn
+    let userSignedIn = this.props.currentUser.isSignedIn
 
-    if (user === true && this.state.message === true) {
+    if (userSignedIn === true && this.state.message === true) {
       message = (
         <>
           <br />
