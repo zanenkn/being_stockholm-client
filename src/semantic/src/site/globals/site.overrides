@@ -9,6 +9,7 @@
 
 a {
   color: #f2711c;
+  cursor: pointer;
 }
 
 a:hover {
@@ -18,6 +19,16 @@ a:hover {
 h2 {
   color: #f2711c !important;
   font-size: 1.5rem !important;
+}
+
+.fake-link {
+  color: #f2711c!important;
+  cursor: pointer!important;
+  font-size: 14px!important;
+}
+
+.fake-link:hover {
+  color: #A65F18!important;
 }
 
 /*******************************
