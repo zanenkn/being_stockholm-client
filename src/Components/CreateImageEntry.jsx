@@ -45,7 +45,7 @@ class CreateImageEntry extends Component {
         this.geolocationDataCoords()
       },
       error => {
-        console.error(error);
+        this.setState({ messageVisible: true, errorMessage: true, errors: [error] })
       }
     )
   }
@@ -61,13 +61,13 @@ class CreateImageEntry extends Component {
         })
       },
       error => {
-        console.error(error);
+        this.setState({ messageVisible: true, errorMessage: true, errors: [error] })
       }
     )
   }
 
   onImageDropHandler = (pictureFiles, pictureDataURLs) => {
-    if (pictureFiles.length > 0){
+    if (pictureFiles.length > 0) {
       this.setState({
         button: 'hide-button'
       })
@@ -124,7 +124,7 @@ class CreateImageEntry extends Component {
       user_id: this.props.currentUser.attributes.id
     }
     axios.post(path, payload)
-      .then(response => {
+      .then( () => {
         this.setState({
           successMessage: true,
           errorMessage: false,
@@ -255,7 +255,7 @@ class CreateImageEntry extends Component {
 
               <Container>
                 {addressSearch}
-                </Container>
+              </Container>
 
               <Button.Group
                 basic

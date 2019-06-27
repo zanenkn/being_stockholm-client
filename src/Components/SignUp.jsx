@@ -34,7 +34,7 @@ class SignUp extends Component {
       level,
     } = this.state
     registerUser({ email, password, password_confirmation, level })
-      .then(response => {
+      .then( () => {
         this.setState({ message: true })
         setTimeout(function () { history.push('/') }, 1000)
       }).catch(error => {

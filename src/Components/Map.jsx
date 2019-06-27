@@ -40,11 +40,10 @@ class Map extends Component {
   }
 
   async axiosGetPublishedPosts() {
-    await axios.get('/api/v1/posts').then(response => {
-      this.setState({ posts: response.data })
-    })
+    let response = await axios.get('/api/v1/posts')
+    this.setState({ posts: response.data })
     let published = []
-    await this.state.posts.map(post => {
+    this.state.posts.map(post => {
       if (post.status === 'published') {
         published.push(post)
       }
@@ -136,10 +135,10 @@ class Map extends Component {
           onClose={this.closeModal}>
 
           <div className="modal">
-            <EntryPopup 
-            id={this.state.id}
-            datapointClass={this.state.datapointClass}
-             />
+            <EntryPopup
+              id={this.state.id}
+              datapointClass={this.state.datapointClass}
+            />
           </div>
         </Popup>
 

@@ -26,7 +26,7 @@ class Login extends Component {
       password
     } = this.state
     signInUser({ email, password })
-      .then(response => {
+      .then( () => {
         this.setState({ message: true })
         setTimeout(function () { history.push('/') }, 1000)
       }).catch(error => {
@@ -119,4 +119,4 @@ const mapStateToProps = (state) => {
     currentUser: state.reduxTokenAuth.currentUser   
   }
 }
-export default connect(mapStateToProps,{ signInUser },)(Login)
+export default connect(mapStateToProps,{ signInUser })(Login)

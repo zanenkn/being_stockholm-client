@@ -11,7 +11,7 @@ class MenuSidebar extends Component {
     e.preventDefault()
     const { history, signOutUser } = this.props
     signOutUser()
-      .then(response => {
+      .then( () => {
         this.handleSidebarVisibilty()
         history.push('/')
       })
