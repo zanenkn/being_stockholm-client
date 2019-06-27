@@ -509,6 +509,53 @@ h2 {
 }
 
 /*******************************
+         Legend
+*******************************/
+
+ /* 
+    
+  My WORK - #312783 
+
+  WORK Settled - #951b81
+
+  WORK Newbie - #e6007e
+
+  -----------------------------
+
+  My PLAY - #00a19a
+
+  PLAY Settled - #006633
+
+  PLAY Newbie - #95c11f
+    
+  */
+
+  #circle-my-work {
+    color: #312783;
+  }
+
+  #circle-settled-work {
+    color: #951b81;
+  }
+
+  #circle-newbie-work {
+    color: #e6007e;
+  }
+
+  #circle-my-play {
+    color: #00a19a;
+  }
+
+  #circle-settled-play {
+    color: #006633;
+  }
+
+  #circle-newbie-play {
+    color: #95c11f;
+  }
+
+
+/*******************************
          Footer
 *******************************/
 
