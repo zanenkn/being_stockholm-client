@@ -20,7 +20,7 @@ class Legend extends Component {
           visible={this.props.visible}
           onClick={this.hideLegend}
         >
-          <Grid>
+          <Grid >
             <Grid.Column textAlign='center' className="legend-padding" >
               <Icon
                 name='window minimize outline' 
@@ -34,62 +34,83 @@ class Legend extends Component {
             </Grid.Column>
           </Grid>
 
-          <Grid>
-            <Grid.Column width={8}>
-              <Header>
+          <Grid
+          className='legend-grid'
+          >
+          <Grid.Column width={6}>
+              <Header as='h4'>
+                Me at
+              </Header>
+
+              <Header as='h4'>
+                Newbie at
+              </Header>
+
+              <Header as='h4'>
+                Settled at
+              </Header>
+
+            </Grid.Column>
+            <Grid.Column width={5}>
+            <Header as='h4'>
                 <Icon
                   id='circle-my-work'
                   name='circle'
-                  size='large'>
+                  size='small'
+                  >
                 </Icon>
-                My work
+                work
               </Header>
 
-              <Header>
+              <Header as='h4'>
                 <Icon
                   id='circle-settled-work'
                   name='circle'
-                  size='large'>
+                  size='small'
+                  >
                 </Icon>
-                Settled Work
+                work
               </Header>
 
-              <Header>
+              <Header as='h4'>
                 <Icon
                   id='circle-newbie-work'
                   name='circle'
-                  size='large'>
+                  size='small'
+                  >
                 </Icon>
-                Nembie Work
+                work
               </Header>
             </Grid.Column>
 
-            <Grid.Column width={8}>
-              <Header>
+            <Grid.Column width={5}>
+              <Header as='h4'>
                 <Icon
                   id='circle-my-play'
                   name='circle'
-                  size='large'>
+                  >
                 </Icon>
-                My play
+                play
               </Header>
 
-              <Header>
+              <Header as='h4'>
                 <Icon
                   id='circle-settled-play'
                   name='circle'
-                  size='large'>
+                  size='small'
+                  >
                 </Icon>
-                Settled Play
+                play
               </Header>
 
-              <Header>
+              <Header as='h4'>
                 <Icon
                   id='circle-newbie-play'
                   name='circle'
-                  size='large'>
+                  size='small'
+                  >
                 </Icon>
-                Newbie Play
+                play
               </Header>
             </Grid.Column>
 

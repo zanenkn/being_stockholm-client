@@ -8,7 +8,7 @@
 *******************************/
 
 .ui.bottom.sidebar {
-  height: 300px !important;
+  height: 140px !important;
   margin-bottom: 20px !important;
   border: none !important;
  }
@@ -23,7 +23,7 @@
 
 .ui.segment.ui.overlay.bottom.animating.sidebar.legend-content {
 margin-bottom: -20px !important;
-height: 320px !important;
+height: 160px !important;
 }
 
 .legend-padding {
