@@ -83,8 +83,33 @@ class Faq extends Component {
               </Container>
               <br></br>
 
+              <Header className="views-third-header" as='h4'>
+                How will my data be used?
+              </Header>
+              <Container className="views-text-container">
+                <p>
+                  Firstly, thank you for helping us test and develop the Being Stockholm project!</p>
+                <p>
+                  Your posts will help inspire fellow Stockholmers to explore new places and try new activities! It will be colour coded to show whether it’s submitted by a new or settled Stockholm at work or play. Your personal information will not be visible.
+                </p>
+                <p>
+                  Your posts will also help us to understand where and how new and settled Stockholmers work and play. We plan to work with public authorities to help them design, plan and promote the city with a citizen-sourced map.
+                </p>
+                <p>
+                  All the data collected will only be used by Urban Beings as part of our research and development. Your posts may be used to promote the project online and in exhibitions, but your personal information (name, email, gender etc) will never be shared with any other third parties.
+                </p>
+              </Container>
+              <br></br>
 
-
+              <Header className="views-third-header" as='h4'>
+                Any other questions?
+              </Header>
+              <Container className="views-text-container">
+                <p>
+                  Drop Yat a line &nbsp;<a>hello@beingstockholm.se</a>
+                </p>
+              </Container>
+              <br></br>
 
             </Container>
           </div>
