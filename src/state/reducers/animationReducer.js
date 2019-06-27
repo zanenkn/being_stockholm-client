@@ -1,5 +1,6 @@
 const initialState = {
-  sidebarVisible: false
+  sidebarVisible: false,
+  legendVisible: false,
 }
 
 const locationReducer = (state = initialState, action) => {
@@ -7,6 +8,10 @@ const locationReducer = (state = initialState, action) => {
     case 'CHANGE_VISIBILITY':
       return {
         sidebarVisible: !state.sidebarVisible
+      }
+    case 'CHANGE_LEGEND_VISIBILITY':
+      return {
+        legendVisible: !state.legendVisible
       }
     default:
       return state
