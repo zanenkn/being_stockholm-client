@@ -94,10 +94,13 @@ class Map extends Component {
     }
   }
 
+
   render() {
+
 
     let createEntry
     let userSignedIn = this.props.currentUser.isSignedIn
+
 
     if (userSignedIn === true) {
       createEntry = (
