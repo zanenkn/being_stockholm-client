@@ -12,10 +12,10 @@ import { verifyCredentials } from './reduxTokenAuthConfig'
 
 setupInterceptors()
 
-const loc = 'http://localhost:3002'
-const her = 'https://being-stockholm.herokuapp.com'
+const development = 'http://localhost:3002'
+const production = 'https://being-stockholm.herokuapp.com'
 
-axios.defaults.baseURL = her
+axios.defaults.baseURL = production
 
 const store = configureStore();
 verifyCredentials(store)

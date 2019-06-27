@@ -215,6 +215,8 @@ h2 {
 #upload-button{
   border-radius: 30px;
   margin: 1rem 0 0 0;
+  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+  font-size: 14px;
 }
 
 #message-topsidebar-success {
@@ -257,6 +259,7 @@ h2 {
 .chooseFileButton.show-button {
   border-radius: 0px;
   background: #D5D9D8;
+  width: 100% !important;
 }
 
 .chooseFileButton.show-button:hover {
@@ -273,7 +276,7 @@ h2 {
 }
 
 .uploadPicturesWrapper {
-  max-height: 210px;
+  max-height: 200px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -289,17 +292,50 @@ h2 {
   margin: 0rem 0.5rem 1rem 0.5rem;
 }
 
+.change-address-link {
+  margin: -0.5rem 0rem 0.7rem 0rem !important;
+  font-size: 12px !important;
+}
+
+#user-input-address-grid {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+#user-input-address-row {
+  border-bottom: thin solid gray !important;
+  padding: 0rem !important;
+  padding-left: .2rem!important;
+  padding-right: .2rem!important;
+  margin: 0 .5rem 1rem .5rem;
+}
+
+#user-input-address-column {
+  padding-left: 0rem !important;
+}
+
+#adress-icon-column {
+  padding: 0.2rem 0rem 0.2rem 0.2rem !important;
+}
+
+#userInputAddress {
+  border: none !important;
+  border-radius: 0px !important;
+  padding: 0.7rem 0rem 0.7rem 0.2rem !important;
+}
+
 #location {
   font-size: 12px;
+  margin-botton: 0.5rem !important;
 }
 
 .popup-content {
   border: none !important;
   padding: 0px !important;
-  width: 70% !important;
+  width: 80% !important;
   border-radius: 20px;
-  max-width: 300px;
-  max-height: 400px;
+  max-width: 280px;
+  max-height: 95% !important;
 }
 
 .play {
@@ -315,11 +351,13 @@ h2 {
 #play {
   color: #00a19a !important;
   font-size: 12px !important;
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem !important;
 }
 
 #work {
   color: #312783 !important;
   font-size: 12px !important;
+  padding: 0.5rem 1.2rem 0.5rem 1.2rem !important;
 }
 
 .fileContainer .uploadPictureContainer {
