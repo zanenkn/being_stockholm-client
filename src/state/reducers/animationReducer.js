@@ -3,7 +3,7 @@ const initialState = {
   legendVisible: false,
 }
 
-const locationReducer = (state = initialState, action) => {
+const animationReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE_SIDEBAR_VISIBILITY':
       return {
@@ -26,4 +26,4 @@ const locationReducer = (state = initialState, action) => {
   }
 }
 
-export default locationReducer
+export default animationReducer
