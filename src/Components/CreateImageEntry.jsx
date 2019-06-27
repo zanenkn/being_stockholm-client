@@ -252,13 +252,13 @@ class CreateImageEntry extends Component {
                 <Icon
                   name='map marker alternate' />
                 {this.state.address}</p>
-              
-              <p id="image-upload-button-headline">3. I am at:</p>
 
               <Container>
                 {addressSearch}
                 </Container>
-
+              
+              <p id="image-upload-button-headline">3. I am at:</p>
+              
               <Button.Group
                 basic
               >

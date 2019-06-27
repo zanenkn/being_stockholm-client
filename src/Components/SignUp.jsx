@@ -43,6 +43,7 @@ class SignUp extends Component {
           message: false
         })
       })
+    
   }
 
   render() {
@@ -112,7 +113,7 @@ class SignUp extends Component {
 
           <p
           className='text'>
-          What type of Stockholmer do you consider yourself to be?</p>
+          I am a</p>
 
           <Button.Group
             className='button-group'
@@ -133,8 +134,17 @@ class SignUp extends Component {
               Settled
               </Button>
           </Button.Group>
+          <p
+          className='text'>
+          Stockholmer</p>
+
           <br></br>
-          <br></br>
+
+          <Container className="signup-text-container">
+            <p>
+            By signing up, I allow my posts (photos and captions) to be used for the Being Stockholm map and website. It may be used only be Urban Beings for marketing purposes such as social media, exhibitions and prospective partners. Your personal information will not be displayed publicly or shared with any third parties.
+            </p>
+          </Container>
 
           <Button className='submit-button' id="sign_up_button" onClick={this.createUser}>Sign up</Button>
 

@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { Grid, Header, Segment, Sidebar } from 'semantic-ui-react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signOutUser } from '../reduxTokenAuthConfig'
 import { withRouter } from 'react-router-dom'
-import Popup from 'reactjs-popup'
-import CreateImageEntry from './CreateImageEntry'
 
 class MenuSidebar extends Component {
   state = {
