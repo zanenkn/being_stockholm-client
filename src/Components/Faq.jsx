@@ -10,7 +10,7 @@ class Faq extends Component {
           <div onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_VISIBILITY' }) } : () => { }}>
             <Container className="views-main-container">
               <Header className="views-main-header" as='h1'>
-                FAQ's
+                FAQs
               </Header>
               <br></br>
             </Container>

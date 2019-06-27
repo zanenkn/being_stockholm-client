@@ -83,7 +83,6 @@ class SignUp extends Component {
           <Header className="views-main-header" as='h1'>
             Sign up
           </Header>
-          <br></br>
           {message}
           <br></br>
 
@@ -109,7 +108,6 @@ class SignUp extends Component {
               placeholder="Repeat password"
             />
           </Form>
-          <br></br>
 
           <p
           className='text'>
@@ -138,11 +136,10 @@ class SignUp extends Component {
           className='text'>
           Stockholmer</p>
 
-          <br></br>
 
           <Container className="signup-text-container">
             <p>
-            By signing up, I allow my posts (photos and captions) to be used for the Being Stockholm map and website. It may be used only be Urban Beings for marketing purposes such as social media, exhibitions and prospective partners. Your personal information will not be displayed publicly or shared with any third parties.
+            By signing up, I allow my posts to be used for the Being Stockholm map and website. It may be used by UrbanBeings for marketing purposes. Your personal information will not be displayed publicly or shared with any third parties.
             </p>
           </Container>
 

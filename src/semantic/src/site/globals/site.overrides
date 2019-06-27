@@ -132,7 +132,7 @@ h2 {
 }
 
 .text {
-  font-size: 15px !important;
+  font-size: 12px !important;
   color: grey !important;
   max-width: 100% !important;
   margin-bottom: 0.5rem !important;
@@ -149,17 +149,24 @@ h2 {
   width: 100% !important;
 }
 
+#signup-form {
+  margin-bottom: 1.5rem !important;
+}
+
 .signup-text-container {
   width: 100% !important;
   font-size: 10px !important;
+  margin-top: 1.5rem !important;
 }
 
 #newbie {
   padding: .5rem 1.2rem .5rem 1.2rem!important;
+  font-size: 12px !important;
 }
 
 #settled {
   padding: .5rem 1.2rem .5rem 1.2rem!important;
+  font-size: 12px !important;
 }
 
 .views-image {
