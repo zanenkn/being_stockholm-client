@@ -38,22 +38,13 @@ describe('Admin can review an entry and', () => {
 
   it('get Accept popup message if she accepts the entry', () => {
 
-    let links = [
-      '#footer-menu-icon', '#admin-link'
+    let IDs = [
+      '#footer-menu-icon', '#admin-link', '#2', '#accept-button'
     ]
 
-    let links_next = [
-      '#2', '#accept-button'
-    ]
-
-    links.forEach(link => {
+    IDs.forEach(id => {
       cy.get(id).click()
-    })
-
-    cy.wait(3000)
-
-    links_next.forEach(link => {
-      cy.get(id).click()
+      cy.wait(1000)
     })
 
     cy.contains('You have accepted this post!')
@@ -67,6 +58,7 @@ describe('Admin can review an entry and', () => {
 
     IDs.forEach(id => {
       cy.get(id).click()
+      cy.wait(1000)
     })
 
     cy.contains('You have declined this post!')
