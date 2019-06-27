@@ -59,37 +59,36 @@ class Map extends Component {
   }
 
   setDatapointColor = (post) => {
-    let userSignedIn = this.props.currentUser.isSignedIn
-    let userSession = this.props.currentUser.attributes.uid
-
-    if (userSignedIn === true) {
-      if (post.user.uid === userSession) {
-        if (post.category === 'work') {
+    let userSignedIn = this.props.currentUser.isSignedIn;
+    let userSession = this.props.currentUser.attributes.uid;
+    let category = post.category;
+    let userLevel = post.user.level;
+ 
+    if (userSignedIn === true && post.user.uid === userSession ) {
+      switch(category) {
+        case 'work':
           return 'datapoint-my-work'
-        } else if (post.category === 'play') {
+        case 'play':
           return 'datapoint-my-play'
-        }
       }
-      else {
-        if (post.category === 'work' && post.user.level === 'settled') {
-          return 'datapoint-work-settled'
-        } else if (post.category === 'work' && post.user.level === 'newbie') {
-          return 'datapoint-work-newbie'
-        } else if (post.category === 'play' && post.user.level === 'settled') {
-          return 'datapoint-play-settled'
-        } else if (post.category === 'play' && post.user.level === 'newbie') {
-          return 'datapoint-play-newbie'
-        }
-      }
-    } else if (userSignedIn === false) {
-      if (post.category === 'work' && post.user.level === 'settled') {
-        return 'datapoint-work-settled'
-      } else if (post.category === 'work' && post.user.level === 'newbie') {
-        return 'datapoint-work-newbie'
-      } else if (post.category === 'play' && post.user.level === 'settled') {
-        return 'datapoint-play-settled'
-      } else if (post.category === 'play' && post.user.level === 'newbie') {
-        return 'datapoint-play-newbie'
+    } else {
+      switch(category) {
+        case 'work':
+          switch(userLevel) {
+            case 'newbie':
+              return 'datapoint-work-newbie'
+            case 'settled':
+                return 'datapoint-work-settled'
+          }
+        break;
+        case 'play':
+          switch(userLevel) {
+            case 'newbie':
+                return 'datapoint-play-newbie'
+            case 'settled':
+                return 'datapoint-play-settled'
+          }
+        break;
       }
     }
   }
