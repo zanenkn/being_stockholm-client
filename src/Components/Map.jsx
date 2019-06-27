@@ -43,7 +43,7 @@ class Map extends Component {
     let response = await axios.get('/api/v1/posts')
     this.setState({ posts: response.data })
     let published = []
-    this.state.posts.map(post => {
+    this.state.posts.forEach(post => {
       if (post.status === 'published') {
         published.push(post)
       }

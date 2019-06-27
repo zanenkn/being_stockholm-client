@@ -35,7 +35,7 @@ class MyProfile extends Component {
     let pendingEntries = []
     let declinedEntries = []
 
-    this.state.entries.map(entry => {
+    this.state.entries.forEach(entry => {
       if (entry.status === 'published') {
         return publishedEntries.push(entry)
       } else if (entry.status === 'pending') {

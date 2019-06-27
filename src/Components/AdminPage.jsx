@@ -41,7 +41,7 @@ class AdminPage extends Component {
     let response = await axios.get('/api/v1/posts')
     this.setState({ posts: response.data })
     let unpublished = []
-    this.state.posts.map(post => {
+    this.state.posts.forEach(post => {
       if (post.status === 'pending') {
         unpublished.push(post)
       }
