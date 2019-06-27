@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class Footer extends Component {
-
   render() {
 
     let userSignedIn = this.props.currentUser.isSignedIn
@@ -76,7 +75,9 @@ class Footer extends Component {
               color='orange'
               id='footer-logo'
               as={Link}
-              to='/'>
+              to='/'
+              onClick={() => this.props.dispatch({ type: 'CLOSE_IMAGE_POST' })}
+            >
               Being Stockholm
             </Header>
 

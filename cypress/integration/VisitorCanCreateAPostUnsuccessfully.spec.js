@@ -46,7 +46,7 @@ describe('Visitor can', () => {
   it('not create post if image is not uploaded and/or caption is over 140 characters long', () => {
     
     let text = [
-      'Your post could not be created since', 
+      'Ooops!', 
       'Caption is too long (maximum is 140 characters)',
       'You need to upload an image',
     ]

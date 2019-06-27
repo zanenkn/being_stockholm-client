@@ -44,6 +44,7 @@ describe('Admin can review an entry and', () => {
 
     IDs.forEach(id => {
       cy.get(id).click()
+      cy.wait(1000)
     })
 
     cy.contains('You have accepted this post!')
@@ -57,6 +58,7 @@ describe('Admin can review an entry and', () => {
 
     IDs.forEach(id => {
       cy.get(id).click()
+      cy.wait(1000)
     })
 
     cy.contains('You have declined this post!')
