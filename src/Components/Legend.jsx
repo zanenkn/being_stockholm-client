@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Segment, Sidebar, Grid, Menu, Sticky } from 'semantic-ui-react'
-import { withRouter } from 'react-router-dom'
+import { Segment, Sidebar, Grid, Menu, Sticky, Icon } from 'semantic-ui-react'
 
 class Legend extends Component {
 
 
   render() {
     return (
-
       <>
         <Sidebar
         className='legend-content'
@@ -20,8 +18,9 @@ class Legend extends Component {
         onClick={() => this.props.dispatch({ type: 'CHANGE_LEGEND_VISIBILITY' })}
         >
           <Grid>
-            <Grid.Column>
-              <p>Carla</p>
+            <Grid.Column textAlign='center' className="legend-padding" > 
+            <Icon name='window minimize outline' color='grey' className="legend-icon" size='large' />
+              <p>Hej Carla!</p>
             </Grid.Column>
           </Grid>
         </Sidebar>
