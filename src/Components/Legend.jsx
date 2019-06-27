@@ -34,23 +34,38 @@ class Legend extends Component {
             </Grid.Column>
           </Grid>
 
-          <Grid
-          className='legend-grid'
-          >
-          <Grid.Column width={6}>
-              <Header as='h4'>
-                Me at
+          <Grid className='legend-grid'>
+          <Grid.Column width={4}>
+              <Header className='level-text-legend' as='h4'>
+                Me
               </Header>
 
-              <Header as='h4'>
-                Newbie at
+              <Header className='level-text-legend' as='h4'>
+                Newbie
               </Header>
 
-              <Header as='h4'>
-                Settled at
+              <Header className='level-text-legend' as='h4'>
+                Settled
               </Header>
 
             </Grid.Column>
+
+
+            <Grid.Column width={2}>
+              <Header as='h4'>
+                at
+              </Header>
+
+              <Header as='h4'>
+                at
+              </Header>
+
+              <Header as='h4'>
+                at
+              </Header>
+
+            </Grid.Column>
+
             <Grid.Column width={5}>
             <Header as='h4'>
                 <Icon
@@ -64,7 +79,7 @@ class Legend extends Component {
 
               <Header as='h4'>
                 <Icon
-                  id='circle-settled-work'
+                  id='circle-newbie-work'
                   name='circle'
                   size='small'
                   >
@@ -74,7 +89,7 @@ class Legend extends Component {
 
               <Header as='h4'>
                 <Icon
-                  id='circle-newbie-work'
+                  id='circle-settled-work'
                   name='circle'
                   size='small'
                   >
@@ -95,7 +110,7 @@ class Legend extends Component {
 
               <Header as='h4'>
                 <Icon
-                  id='circle-settled-play'
+                  id='circle-newbie-play'
                   name='circle'
                   size='small'
                   >
@@ -105,7 +120,7 @@ class Legend extends Component {
 
               <Header as='h4'>
                 <Icon
-                  id='circle-newbie-play'
+                  id='circle-settled-play'
                   name='circle'
                   size='small'
                   >

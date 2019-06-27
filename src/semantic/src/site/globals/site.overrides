@@ -512,26 +512,6 @@ h2 {
          Legend
 *******************************/
 
- /* 
-    
-  My WORK - #312783 
-
-  WORK Settled - #951b81
-
-  WORK Newbie - #e6007e
-
-
-
-  -----------------------------
-
-  My PLAY - #00a19a
-
-  PLAY Settled - #006633
-
-  PLAY Newbie - #95c11f
-    
-  */
-
   #circle-my-work {
     color: #312783;
     font-size: 1em !important
@@ -564,7 +544,11 @@ h2 {
 
   .ui.grid.legend-grid h4{
     margin: 0px 10px 10px 10px !important;
-    color: grey !important;
+    color: grey;
+  }
+
+  .level-text-legend {
+    color: #f2711c !important;
   }
 
 

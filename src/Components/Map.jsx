@@ -106,6 +106,8 @@ class Map extends Component {
     } else if (this.props.legendVisible) {
       this.props.dispatch({ type: 'CHANGE_LEGEND_VISIBILITY' })
       this.axiosGetPublishedPosts()
+    } else {
+      this.axiosGetPublishedPosts()
     }
   }
 
