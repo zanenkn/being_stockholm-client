@@ -43,6 +43,7 @@ class SignUp extends Component {
           message: false
         })
       })
+    
   }
 
   render() {
@@ -55,7 +56,7 @@ class SignUp extends Component {
       message = (
         <>
           <br />
-          <Message color="green">
+          <Message positive>
             <p>You have succesfully created an account!</p>
           </Message>
         </>
@@ -64,9 +65,9 @@ class SignUp extends Component {
       message = (
         <>
           <br />
-          <Message color="red">
-            <p>Your account could not be created because of following error(s):</p>
-            <ul>
+          <Message negative>
+            <Message.Header textAlign='center'>Ooops!</Message.Header>
+            <ul id="message-error-list">
               {this.state.errors_signup.map(error => (
                 <li key={error}>{error}</li>
               ))}
@@ -80,12 +81,10 @@ class SignUp extends Component {
         <Container className="views-main-container"textAlign='center'>
 
           <Header className="views-main-header" as='h1'>
-            Sign Up
+            Sign up
           </Header>
-          <br></br>
-          <br></br>
-
           {message}
+          <br></br>
 
           <Form id="signup-form">
             <Form.Input
@@ -106,14 +105,13 @@ class SignUp extends Component {
               type="password"
               value={this.state.password_confirmation}
               onChange={this.onChangeHandler}
-              placeholder="Password Confirmation"
+              placeholder="Repeat password"
             />
           </Form>
-          <br></br>
 
           <p
           className='text'>
-          What kind of stockholmer do you consider yourself to be?</p>
+          I am a</p>
 
           <Button.Group
             className='button-group'
@@ -124,20 +122,28 @@ class SignUp extends Component {
               active={activeItem === 'newbie'}
               value={'newbie'}
               onClick={this.handleChangeLevel}>
-              NEWBIE
+              Newbie
             </Button>
             <Button
               id='settled'
               active={activeItem === 'settled'}
               value={'settled'}
               onClick={this.handleChangeLevel}>
-              SETTLED
+              Settled
               </Button>
           </Button.Group>
-          <br></br>
-          <br></br>
+          <p
+          className='text'>
+          Stockholmer</p>
 
-          <Button className='submit-button' id="sign_up_button" onClick={this.createUser}>Sign Up</Button>
+
+          <Container className="signup-text-container">
+            <p>
+            By signing up, I allow my posts to be used for the Being Stockholm map and website. It may be used by UrbanBeings for marketing purposes. Your personal information will not be displayed publicly or shared with any third parties.
+            </p>
+          </Container>
+
+          <Button className='submit-button' id="sign_up_button" onClick={this.createUser}>Sign up</Button>
 
         </Container>
       </Sidebar.Pushable>  

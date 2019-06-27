@@ -65,6 +65,7 @@ h2 {
   width: 100%;
 }
 
+
 .datapoint-my-work {
   color: #312783 !important;
 }
@@ -114,9 +115,17 @@ h2 {
   margin-top: 1rem !important;
 }
 
+.profile-email-header {
+  color: grey !important;
+  margin-top: 1rem !important;
+  text-align: center !important;
+  font-size: 20px !important;
+  margin-bottom: 0.2rem !important;
+}
+
 .submit-button {
   border-radius: 30px !important;
-  margin: 1rem auto 0 auto !important;
+  margin: 1.5rem auto 0 auto !important;
   padding: 1rem 3rem 1rem 3rem !important;
   font-size: 1.2rem !important;
   background-color: #f2711c !important;
@@ -124,21 +133,41 @@ h2 {
 }
 
 .text {
-  font-size: 15px !important;
+  font-size: 12px !important;
   color: grey !important;
   max-width: 100% !important;
+  margin-bottom: 0.5rem !important;
+  margin-top: 0.5rem !important;
 }
 
 .views-ingress-container {
   font-size: 15px !important;
   font-weight: bold !important;
   width: 100% !important;
-  text-align: justify !important;
 }
 
 .views-text-container {
   width: 100% !important;
-  text-align: justify !important;
+}
+
+#signup-form {
+  margin-bottom: 1.5rem !important;
+}
+
+.signup-text-container {
+  width: 100% !important;
+  font-size: 10px !important;
+  margin-top: 1.5rem !important;
+}
+
+#newbie {
+  padding: .5rem 1.2rem .5rem 1.2rem!important;
+  font-size: 12px !important;
+}
+
+#settled {
+  padding: .5rem 1.2rem .5rem 1.2rem!important;
+  font-size: 12px !important;
 }
 
 .views-image {
@@ -170,14 +199,27 @@ h2 {
   padding: 0 1.3rem 1rem 0 !important;
 }
 
+.image-segment-urbanbeings {
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 0 0 -1rem !important;
+  padding: 0 1.3rem 1rem 0 !important;
+}
+
 .screenshot-label {
   font-size: 12px !important;
   padding: 1rem 0 0 1rem !important;
   font-style: italic !important;
 }
 
-.image-segment-label {
-  font-style: italic !important;
+.image-segment-label-1 {
+  font-size: 12px !important;
+  margin: 0 !important;
+  color: #F2711c !important;
+}
+
+.image-segment-label-2 {
   font-size: 12px !important;
   margin: 0 !important;
   color: grey !important;
@@ -236,6 +278,7 @@ h2 {
 
 #message-error-list {
   text-align: left;
+  padding-left: 1rem;
 }
 
 #close-topsidebar-error {
@@ -243,6 +286,15 @@ h2 {
   color: #FFFFFF !important;
   padding: 0rem;
 }
+
+#add-photo-headline {
+  font-size: 14px !important;
+}
+
+#add-photo-label {
+  font-size: 10px !important;
+}
+
 
 .image-upload-error-hidden {
   height: 0;
@@ -291,6 +343,7 @@ h2 {
   padding-right: 0.2rem !important;
   border-radius: 0px !important;
   margin: 0rem 0.5rem 1rem 0.5rem;
+  font-size: 12px !important;
 }
 
 .change-address-link {
@@ -328,6 +381,12 @@ h2 {
 #location {
   font-size: 12px;
   margin-botton: 0.5rem !important;
+}
+
+#image-upload-button-headline {
+  font-size: 12px;
+  color: grey !important;
+  margin-bottom: 0.2rem;;
 }
 
 .popup-content {
@@ -526,12 +585,12 @@ h2 {
   color: #616161;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 700px) {
   #footer-logo {
     font-size: 30px;
   }
   .footer-icon {
-    height: 2vw;
+    height: 2.5vw;
   }
   .sidebar-menu-link {
     color: white!important;
@@ -540,7 +599,7 @@ h2 {
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 700px) {
   .footer-icon {
     height: 6vw;
   }

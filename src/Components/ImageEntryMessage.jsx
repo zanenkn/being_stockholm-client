@@ -13,7 +13,7 @@ class ImageEntryMessage extends Component {
           id='close-topsidebar-error'
           onClick={this.props.handleMessageVisibility('overlay')}
         >
-          Close
+          Try again
         </Button>
       )
     } else if (this.props.adminMessage === true) {
@@ -33,8 +33,8 @@ class ImageEntryMessage extends Component {
     } else {
       message = (
         <>
-          <h5>Thank you for sharing your picture!</h5>
-          <p>Your post is sent for review and will soon be uploaded! Click on the map in the background to continue.</p>
+          <h5>Thank you!</h5>
+          <p>Once we have reviewed your photo, it will be live on the map to inspire other Stockholmers to try out!</p>
         </>
       )
     }
@@ -42,7 +42,7 @@ class ImageEntryMessage extends Component {
     if (this.props.errorMessage === true && this.props.image.length === 0) {
       message = (
         <>
-          <h5>Your post could not be created since:</h5>
+          <h5>Ooops!</h5>
           <ul id="message-error-list">
             {this.props.errors.map(error => (
               <li key={error}>{error}</li>
