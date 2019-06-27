@@ -48,10 +48,10 @@ class SignUp extends Component {
   render() {
     const { activeItem } = this.state
 
-    let user = this.props.currentUser.isSignedIn
+    let userSignedIn = this.props.currentUser.isSignedIn
     let message
 
-    if (user === true && this.state.message === true) {
+    if (userSignedIn === true && this.state.message === true) {
       message = (
         <>
           <br />

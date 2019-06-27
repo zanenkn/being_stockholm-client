@@ -69,10 +69,10 @@ class AdminPage extends Component {
   }
 
   render() {
-    let user = this.props.currentUser.isSignedIn
+    let userSignedIn = this.props.currentUser.isSignedIn
     let adminView
 
-    if (user === true && this.props.admin === true) {
+    if (userSignedIn === true && this.props.admin === true) {
       adminView = (
         <>
           <div id='map'

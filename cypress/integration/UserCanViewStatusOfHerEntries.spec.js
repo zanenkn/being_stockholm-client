@@ -36,17 +36,17 @@ describe('User can view', () => {
 
   it('status of her entries', () => {
     cy.get('#published-entries').within(() => {
-      cy.contains('You have (2) Published Entries')
+      cy.contains('You have (2) published entries')
       cy.contains('Midsummer joy')
       cy.contains('Hard day at')
     })
     cy.get('#pending-entries').within(() => {
-      cy.contains('You have (2) Pending Entries')
+      cy.contains('You have (2) pending entries')
       cy.contains('Work hard,')
       cy.contains('A crazy night')
     })
     cy.get('#declined-entries').within(() => {
-      cy.contains('You have (1) Declined Entries')
+      cy.contains('You have (1) declined entries')
       cy.contains('I like to swear')
     })
   })

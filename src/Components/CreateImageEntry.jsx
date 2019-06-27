@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Icon, Header, Segment, Container, Sidebar } from 'semantic-ui-react'
+import { Form, Button, Icon, Segment, Container, Sidebar, Grid } from 'semantic-ui-react'
 import axios from 'axios'
 import ImageUploader from 'react-images-upload'
 import ImageEntryMessage from './ImageEntryMessage'
@@ -21,7 +21,9 @@ class CreateImageEntry extends Component {
     activeItem: 'play',
     button: 'show-button',
     messageVisible: false,
-    address: ''
+    address: '',
+    userInputAddress: '',
+    addressSearch: false
   }
 
   onChangeHandler = (e) => {
@@ -30,41 +32,74 @@ class CreateImageEntry extends Component {
     })
   }
 
+  geolocationDataAddress = () => {
+    Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
+    Geocode.fromAddress(this.state.userInputAddress).then(
+      response => {
+        const { lat, lng } = response.results[0].geometry.location;
+        this.setState({
+          latitude: lat,
+          longitude: lng
+
+        })
+        this.geolocationDataCoords()
+      },
+      error => {
+        console.error(error);
+      }
+    )
+  }
+
+  geolocationDataCoords = () => {
+    Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
+    Geocode.fromLatLng(this.state.latitude, this.state.longitude).then(
+      response => {
+        const addressGeocode = response.results[0].formatted_address
+        this.setState({
+          address: addressGeocode,
+          addressSearch: false
+        })
+      },
+      error => {
+        console.error(error);
+      }
+    )
+  }
+
   onImageDropHandler = (pictureFiles, pictureDataURLs) => {
-    if (pictureFiles.length > 0) {
-      let image = pictureFiles[0]
-      fileToArrayBuffer(image).then((data) => {
-        try {
-          var tags = ExifReader.load(data)
-        }
-        catch (error) {
-          this.setState({ messageVisible: true, errorMessage: true, errors: ['This is an invalid JPG/JPEG image format'] })
-        }
-        if (tags === undefined || tags.GPSLatitude === undefined) {
-          this.setState({
-            image: pictureDataURLs,
-            button: 'hide-button',
-            address: 'Your image does not contain any location information'
-          })
-        } else {
-          this.setState({
-            image: pictureDataURLs,
-            button: 'hide-button',
-            longitude: tags.GPSLongitude.description,
-            latitude: tags.GPSLatitude.description
-          })
-          Geocode.setApiKey(process.env.REACT_APP_API_KEY_GOOGLE_MAPS)
-          Geocode.fromLatLng(this.state.latitude, this.state.longitude).then(
-            response => {
-              const addressGeocode = response.results[0].formatted_address
-              this.setState({ address: addressGeocode })
-            },
-            error => {
-              console.error(error);
-            }
-          )
-        }
+    if (pictureFiles.length > 0){
+      this.setState({
+        button: 'hide-button'
       })
+      if (pictureFiles[0].type === 'image/jpeg') {
+        let image = pictureFiles[0]
+        fileToArrayBuffer(image).then((data) => {
+          try {
+            var tags = ExifReader.load(data)
+          }
+          catch (error) {
+            this.setState({ messageVisible: true, errorMessage: true, errors: ['This is an invalid image format'] })
+          }
+          if (tags === undefined || tags.GPSLatitude === undefined) {
+            this.setState({
+              image: pictureDataURLs,
+              address: 'No location data detected'
+            })
+          } else {
+            this.setState({
+              image: pictureDataURLs,
+              longitude: tags.GPSLongitude.description,
+              latitude: tags.GPSLatitude.description
+            })
+            this.geolocationDataCoords()
+          }
+        })
+      } else if (pictureFiles[0].type === 'image/gif' || pictureFiles[0].type === 'image/png') {
+        this.setState({
+          image: pictureDataURLs,
+          address: 'No location data detected'
+        })
+      }
     } else {
       this.setState({
         button: 'show-button',
@@ -114,11 +149,59 @@ class CreateImageEntry extends Component {
     )
 
   render() {
-
-    if (this.state.image.length === 0) {
-      this.state.button = 'show-button'
-    }
     const { activeItem } = this.state
+
+    let addressSearch
+    if (this.state.image.length > 0) {
+      if (this.state.addressSearch === true) {
+        addressSearch = (
+          <>
+            <Grid id='user-input-address-grid'>
+              <Grid.Row id='user-input-address-row' columns={2}>
+                <Grid.Column id='user-input-address-column' width={13}>
+                  <Form size="mini" type='medium'>
+                    <Form.Input
+                      required
+                      id="userInputAddress"
+                      value={this.state.userInputAddress}
+                      onChange={this.onChangeHandler}
+                      placeholder="Write your address"
+                    />
+                  </Form>
+
+                </Grid.Column>
+
+                <Grid.Column id='adress-icon-column' width={3}>
+                  <Icon
+                    circular
+                    name='search'
+                    onClick={this.geolocationDataAddress.bind(this)}
+                  />
+                </Grid.Column>
+              </Grid.Row>
+
+            </Grid>
+          </>
+        )
+      } else if (this.state.address === "No location data detected") {
+        addressSearch = (
+          <div className="change-address-link">
+            <a onClick={() => { this.setState({ addressSearch: true }) }}>
+              Enter address manually
+            </a>
+          </div>
+        )
+      }
+      else {
+        addressSearch = (
+          <div className="change-address-link">
+            <a onClick={() => { this.setState({ addressSearch: true }) }}>
+              Change location
+            </a>
+          </div>
+        )
+      }
+    }
 
     return (
       <>
@@ -136,7 +219,6 @@ class CreateImageEntry extends Component {
 
           <Sidebar.Pusher dimmed={this.state.messageVisible}>
             <Container id="upload-post-wrapper">
-              <Header id="upload-post-header" as='h3'>Add a photo</Header>
               <ImageUploader
                 buttonText={
                   <div>
@@ -151,7 +233,7 @@ class CreateImageEntry extends Component {
                 withPreview={true}
                 singleImage={true}
                 onChange={this.onImageDropHandler}
-                imgExtension={['.jpg']}
+                imgExtension={['.jpg', '.png', '.gif', '.jpeg']}
                 maxFileSize={5242880}
                 errorClass={(this.state.image.length > 0) ? 'image-upload-error-hidden' : 'image-upload-error-visible'}
               />
@@ -159,6 +241,7 @@ class CreateImageEntry extends Component {
                 <Form.Input
                   required
                   id="caption"
+                  className="image-upload-caption"
                   value={this.state.caption}
                   onChange={this.onChangeHandler}
                   placeholder="2. Add a caption in any language!"
@@ -171,6 +254,10 @@ class CreateImageEntry extends Component {
                 {this.state.address}</p>
               
               <p id="image-upload-button-headline">3. I am at:</p>
+
+              <Container>
+                {addressSearch}
+                </Container>
 
               <Button.Group
                 basic

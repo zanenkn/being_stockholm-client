@@ -6,10 +6,10 @@ import { connect } from 'react-redux'
 class Footer extends Component {
   render() {
 
-    let user = this.props.currentUser.isSignedIn
+    let userSignedIn = this.props.currentUser.isSignedIn
     let userIcon
 
-    if (user === true && this.props.admin === true) {
+    if (userSignedIn === true && this.props.admin === true) {
       userIcon = (
         <>
           <Grid.Column
@@ -26,7 +26,7 @@ class Footer extends Component {
           </Grid.Column>
         </>
       )
-    } else if (user === true && this.props.admin === false) {
+    } else if (userSignedIn === true && this.props.admin === false) {
       userIcon = (
         <>
           <Grid.Column

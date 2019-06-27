@@ -27,13 +27,13 @@ class MyProfile extends Component {
 
   render() {
     
-    let user = this.props.currentUser.isSignedIn
+    let userSignedIn = this.props.currentUser.isSignedIn
     let userLevel = this.props.currentUser.attributes.level
     let userEmail = this.props.currentUser.attributes.uid
     let emailLabel
     let levelLabel
 
-    if (user === true) {
+    if (userSignedIn === true) {
         emailLabel = (
           <Header className="profile-email-header" as='h3'>
             {userEmail}
@@ -69,7 +69,7 @@ class MyProfile extends Component {
       pendingEntries.map(entry => {
 
         let trimmedEntryCaption = entry.caption.substr(0, 40);
-        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ...'
+        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(""))) + ' ...'
   
         let entryDate = this.date(entry.created_at)
 
@@ -112,7 +112,7 @@ class MyProfile extends Component {
       declinedEntries.map(entry => {
 
         let trimmedEntryCaption = entry.caption.substr(0, 40);
-        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ...'
+        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(""))) + ' ...'
   
         let entryDate = this.date(entry.created_at)
         return (
@@ -154,7 +154,7 @@ class MyProfile extends Component {
       publishedEntries.map(entry => {
 
         let trimmedEntryCaption = entry.caption.substr(0, 40);
-        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(" "))) + ' ...'
+        let trimmedCaption = trimmedEntryCaption.substr(0, Math.min(trimmedEntryCaption.length, trimmedEntryCaption.lastIndexOf(""))) + ' ...'
   
         let entryDate = this.date(entry.created_at)
         return (
@@ -228,17 +228,17 @@ class MyProfile extends Component {
 
             <Grid >
               <Grid.Column id='pending-entries' mobile={16} tablet={16} computer={16} largeScreen={5} widescreen={5}>
-              <Header as='h2' textAlign='center'>You have ({pendingEntries.length}) Pending Entries </Header>
+              <Header as='h2' textAlign='center'>You have ({pendingEntries.length}) pending entries </Header>
                 {pendingEntriesToDisplay}
               </Grid.Column>
 
               <Grid.Column id='declined-entries' mobile={16} tablet={16} computer={16} largeScreen={5} widescreen={5}>
-              <Header as='h2' textAlign='center'>You have ({declinedEntries.length}) Declined Entries</Header>
+              <Header as='h2' textAlign='center'>You have ({declinedEntries.length}) declined entries</Header>
               {declinedEntriesToDisplay}
               </Grid.Column>
 
               <Grid.Column id='published-entries' mobile={16} tablet={16} computer={16} largeScreen={6} widescreen={6}>
-              <Header as='h2' textAlign='center'>You have ({publishedEntries.length}) Published Entries</Header>
+              <Header as='h2' textAlign='center'>You have ({publishedEntries.length}) published entries</Header>
               {publishedEntriesToDisplay}
               </Grid.Column>
             </Grid>

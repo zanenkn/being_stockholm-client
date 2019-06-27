@@ -59,10 +59,10 @@ class Map extends Component {
   }
 
   setDatapointColor = (post) => {
-    let user = this.props.currentUser.isSignedIn
+    let userSignedIn = this.props.currentUser.isSignedIn
     let userSession = this.props.currentUser.attributes.uid
 
-    if (user === true) {
+    if (userSignedIn === true) {
       if (post.user.uid === userSession) {
         if (post.category === 'work') {
           return 'datapoint-my-work'
@@ -81,7 +81,7 @@ class Map extends Component {
           return 'datapoint-play-newbie'
         }
       }
-    } else if (user === false) {
+    } else if (userSignedIn === false) {
       if (post.category === 'work' && post.user.level === 'settled') {
         return 'datapoint-work-settled'
       } else if (post.category === 'work' && post.user.level === 'newbie') {
@@ -94,13 +94,12 @@ class Map extends Component {
     }
   }
 
-
   render() {
 
     let createEntry
-    let user = this.props.currentUser.isSignedIn
+    let userSignedIn = this.props.currentUser.isSignedIn
 
-    if (user === true) {
+    if (userSignedIn === true) {
       createEntry = (
         <CreateImageEntry />
       )
@@ -167,7 +166,7 @@ class Map extends Component {
 
         </GoogleMapReact>
       </div>
-    );
+    )
   }
 }
 

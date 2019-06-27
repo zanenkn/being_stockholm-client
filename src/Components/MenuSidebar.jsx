@@ -35,10 +35,10 @@ class MenuSidebar extends Component {
 
     const { signOut } = this
 
-    let user = this.props.currentUser.isSignedIn
+    let userSignedIn = this.props.currentUser.isSignedIn
     let loginLabels
 
-    if (user === true && this.props.admin === true) {
+    if (userSignedIn === true && this.props.admin === true) {
       loginLabels = (
         <>
           <Header
@@ -62,7 +62,7 @@ class MenuSidebar extends Component {
           </Header>
         </>
       )
-    } else if (user === true && this.props.admin === false) {
+    } else if (userSignedIn === true && this.props.admin === false) {
       loginLabels = (
         <>
           <Header
@@ -92,7 +92,7 @@ class MenuSidebar extends Component {
 
     let createEntry
 
-    if (user === true) {
+    if (userSignedIn  === true) {
       createEntry = (
         <Header
           id='add-a-photo'

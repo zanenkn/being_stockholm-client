@@ -1,10 +1,10 @@
 import { generateAuthActions } from 'redux-token-auth'
 
-const loc = 'http://localhost:3002/api/v1/auth'
-const her = 'https://being-stockholm.herokuapp.com/api/v1/auth'
+const development = 'http://localhost:3002/api/v1/auth'
+const production = 'https://being-stockholm.herokuapp.com/api/v1/auth'
 
 const config = {
-  authUrl: loc,
+  authUrl: development,
   userAttributes: {
     uid: 'uid',
     id: 'id',

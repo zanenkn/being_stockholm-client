@@ -41,7 +41,6 @@ describe('Visitor can', () => {
     cy.contains('You have succesfully logged in')
     cy.wait(3000)
     cy.get('#map-icon-plus').click()
-    cy.contains('Add a photo')
     cy.get('#caption').type('Swedenborgsgatan great summer street!')
     cy.get('#play').should('have.class', 'active')
     cy.get('#work').click()
