@@ -118,6 +118,8 @@ h2 {
   color: grey !important;
   margin-top: 1rem !important;
   text-align: center !important;
+  font-size: 20px !important;
+  margin-bottom: 0.2rem !important;
 }
 
 .submit-button {

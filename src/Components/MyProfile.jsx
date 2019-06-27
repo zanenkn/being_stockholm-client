@@ -26,17 +26,25 @@ class MyProfile extends Component {
   }
 
   render() {
-
+    
     let user = this.props.currentUser.isSignedIn
+    let userLevel = this.props.currentUser.attributes.level
     let userEmail = this.props.currentUser.attributes.uid
-    let emailLabels
+    let emailLabel
+    let levelLabel
 
     if (user === true) {
-        emailLabels = (
+        emailLabel = (
           <Header className="profile-email-header" as='h3'>
             {userEmail}
           </Header>
         )
+        levelLabel = (
+          <p>
+            I am a {userLevel} Stockholmer
+          </p>
+        )
+
        }
     
     let publishedEntriesToDisplay
@@ -191,12 +199,14 @@ class MyProfile extends Component {
             <Header className="views-main-header" as='h1'>
               My profile
             </Header>
-            
-            {emailLabels}
             <br></br>
+            
+            {emailLabel}
 
             <Grid className="align-center">
               <Grid.Column>
+              {levelLabel}
+              <Divider></Divider>
               <p>
                 Your personal details will not be visible on the post but shown only as posted by a Newbie/Settled
               </p>
@@ -212,6 +222,9 @@ class MyProfile extends Component {
               </Button>
               </Grid.Column>
             </Grid>
+            <br></br>
+            <Divider></Divider>
+            <br></br>
 
             <Grid >
               <Grid.Column id='pending-entries' mobile={16} tablet={16} computer={16} largeScreen={5} widescreen={5}>
