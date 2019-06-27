@@ -6,6 +6,9 @@ import { signOutUser } from '../reduxTokenAuthConfig'
 import { withRouter } from 'react-router-dom'
 
 class MenuSidebar extends Component {
+  state = {
+    redirectToCreateImageEntry: false
+  }
 
   signOut = (e) => {
     e.preventDefault()
@@ -19,6 +22,11 @@ class MenuSidebar extends Component {
 
   handleSidebarVisibilty = (e) => {
     this.props.sidebarVisbilityHandler()
+  }
+
+  openPopUp = () => {
+    this.handleSidebarVisibilty()
+    this.props.createImageHandler()
   }
 
   render() {
@@ -80,6 +88,34 @@ class MenuSidebar extends Component {
       )
     }
 
+    let createEntry
+
+    if (userSignedIn  === true) {
+      createEntry = (
+        <Header
+          id='add-a-photo'
+          className="sidebar-menu-link"
+          as={Link}
+          to='/'
+          onClick={this.openPopUp}
+          as={Link}
+        >
+        Add a photo
+      </Header>
+      )
+    } else {
+      createEntry = (
+        <Header
+        id='log-in'
+        className="sidebar-menu-link"
+        as={Link}
+        to='log-in'
+        onClick={this.handleSidebarVisibilty}>
+        Add a photo
+      </Header>
+      )
+    }
+
     return (
       <Sidebar
         id='menu-sidebar'
@@ -94,11 +130,10 @@ class MenuSidebar extends Component {
           id='menu-sidebar-grid'>
 
           <Grid.Column>
-            {loginLabels}
+            {createEntry}
             <br></br>
             <br></br>
 
-            
             <Header
               id='how-this-works'
               className="sidebar-menu-link"
@@ -122,6 +157,28 @@ class MenuSidebar extends Component {
             <br></br>
 
             <Header
+              id='being-stockholm-beta'
+              className="sidebar-menu-link"
+              as={Link}
+              to='being-stockholm-beta'
+              onClick={this.handleSidebarVisibilty}>
+              Being Stockholm <span style={{fontWeight: 100}}>beta</span> 
+             </Header>
+            <br></br>
+            <br></br>
+
+            <Header
+              id='faq'
+              className="sidebar-menu-link"
+              as={Link}
+              to='faq'
+              onClick={this.handleSidebarVisibilty}>
+              FAQs
+            </Header>
+            <br></br>
+            <br></br>
+
+            <Header
               id='contact'
               className="sidebar-menu-link"
               as={Link}
@@ -132,25 +189,7 @@ class MenuSidebar extends Component {
             <br></br>
             <br></br>
 
-            <Header
-              id='being-stockholm-beta'
-              className="sidebar-menu-link"
-              as={Link}
-              to='being-stockholm-beta'
-              onClick={this.handleSidebarVisibilty}>
-              Being Stockholm Beta
-             </Header>
-            <br></br>
-            <br></br>
-
-            <Header
-              id='legal-info'
-              className="sidebar-menu-link"
-              as={Link}
-              to='legal-info'
-              onClick={this.handleSidebarVisibilty}>
-              Legal info
-            </Header>
+            {loginLabels}
           </Grid.Column>
         </Grid>
       </Sidebar>
@@ -169,8 +208,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   sidebarVisbilityHandler: sidebarVisible => ({
-    type: 'CHANGE_VISIBILITY',
+    type: 'CHANGE_SIDEBAR_VISIBILITY',
     sidebarVisbible: sidebarVisible
+  }),
+  createImageHandler: () => ({
+    type: 'CREATE_IMAGE_POST'
   }),
   signOutUser
 }

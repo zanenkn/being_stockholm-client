@@ -23,13 +23,13 @@ describe('User can', () => {
     cy.get('#login_form_button').click()
     cy.wait(3000)
     cy.get('#profile-icon').click()
-    cy.contains('Please help us make Being Stockholm better and answer this 1 minute survey.')
+    cy.contains('We’d love to find out more about you and how to stay in touch')
     cy.get('.submit-button').click()
   })
 
   it('not view profile page if not logged in', () => {
     cy.visit('http://localhost:3000')
     cy.get('#profile-icon').click()
-    cy.contains('Please help us make Being Stockholm better and answer this 1 minute survey.').should('not.exist')
+    cy.contains('We’d love to find out more about you and how to stay in touch').should('not.exist')
   })
 })

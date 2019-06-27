@@ -35,38 +35,28 @@ class Legend extends Component {
           </Grid>
 
           <Grid className='legend-grid'>
-          <Grid.Column width={4}>
+          <Grid.Column 
+          className='legend-grid-column-level'
+          width={6}>
               <Header className='level-text-legend' as='h4'>
-                Me
+                Me at
               </Header>
 
               <Header className='level-text-legend' as='h4'>
-                Newbie
+                Newbie at
               </Header>
 
               <Header className='level-text-legend' as='h4'>
-                Settled
+                Settled at
               </Header>
 
             </Grid.Column>
 
-
-            <Grid.Column width={2}>
-              <Header as='h4'>
-                at
-              </Header>
-
-              <Header as='h4'>
-                at
-              </Header>
-
-              <Header as='h4'>
-                at
-              </Header>
-
-            </Grid.Column>
-
-            <Grid.Column width={5}>
+            <Grid.Column 
+            centered
+            width={5}
+            className='legend-grid-column'
+            >
             <Header as='h4'>
                 <Icon
                   id='circle-my-work'
@@ -98,7 +88,10 @@ class Legend extends Component {
               </Header>
             </Grid.Column>
 
-            <Grid.Column width={5}>
+            <Grid.Column 
+            centered
+            className='legend-grid-column'
+            width={5}>
               <Header as='h4'>
                 <Icon
                   id='circle-my-play'

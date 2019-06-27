@@ -4,11 +4,12 @@ const development = 'http://localhost:3002/api/v1/auth'
 const production = 'https://being-stockholm.herokuapp.com/api/v1/auth'
 
 const config = {
-  authUrl: production,
+  authUrl: development,
   userAttributes: {
     uid: 'uid',
     id: 'id',
-    admin: 'admin'
+    admin: 'admin',
+    level: 'level'
   },
   userRegistrationAttributes: {
     password_confirmation: 'password_confirmation',

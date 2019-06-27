@@ -24,14 +24,15 @@ describe('Visitor can', () => {
       status: 200
     })
     cy.visit('http://localhost:3000')
-    cy.get('#map-icon-plus').click()
   })
 
   it('see login-form when clicking on plus-icon', () => {
+    cy.get('#map-icon-plus').click()
     cy.get('#login-form').should('be.visible')
   })
 
   it('create post successfully after log-in', () => {
+    cy.get('#map-icon-plus').click()
     cy.get('#login-form').within(() => {
       cy.get('#email').type('carla@mail.com')
       cy.get('#password').type('password')
@@ -44,12 +45,36 @@ describe('Visitor can', () => {
     cy.get('#play').should('have.class', 'active')
     cy.get('#work').click()
     cy.get('#upload-button').click()
-    cy.contains('Thank you for sharing your picture!')
+    cy.contains('Thank you')
 
     let text = ['#show-form', '#show-toggle', '#hide-form', '#hide-toggle']
 
     text.forEach(link => {
       cy.get(link).should('not.be.visible')
     })
+  })
+
+  it('see login-form when clicking on Add a photo link in menu sidebar', () => {
+    cy.get('#footer-menu-icon').click()
+    cy.get('#log-in').click()
+    cy.get('#login-form').should('be.visible')
+  })
+
+  it('see CreateImageEntry if logged in when clicking on Add a photo link in menu sidebar', () => {
+    cy.get('#footer-menu-icon').click()
+    cy.get('#log-in').click()
+    cy.get('#login-form').within(() => {
+      cy.get('#email').type('carla@mail.com')
+      cy.get('#password').type('password')
+    })
+    cy.get('#login_form_button').click()
+    cy.contains('You have succesfully logged in')
+    cy.wait(3000)
+
+    cy.get('#footer-menu-icon').click()
+    cy.get('#menu-sidebar').should('be.visible')
+    cy.contains('Log out')
+    cy.get('#add-a-photo').click()
+    cy.contains('Add a photo')
   })
 })

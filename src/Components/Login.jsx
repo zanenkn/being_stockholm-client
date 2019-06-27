@@ -46,7 +46,7 @@ class Login extends Component {
       message = (
         <>
           <br />
-          <Message color="green">
+          <Message success>
             <p>You have succesfully logged in!</p>
           </Message>
         </>
@@ -55,7 +55,8 @@ class Login extends Component {
       message = (
         <>
           <br />
-          <Message color="red">
+          <Message negative>
+            <Message.Header>Ooops!</Message.Header>
             <p>{this.state.errorsLogin}</p>
           </Message>
         </>
@@ -66,12 +67,12 @@ class Login extends Component {
         <Container className="views-main-container"textAlign='center'>
 
           <Header className="views-main-header" as='h1'>
-            Log In
+            Log in
           </Header>
           <br></br>
+          {message}
           <br></br>
 
-          <p>{message}</p>
           <Form 
           id="login-form" 
           onSubmit={this.onSubmit}
@@ -94,7 +95,7 @@ class Login extends Component {
             />
               <br></br>
 
-            <Button className="submit-button" id="login_form_button">Login</Button>
+            <Button className="submit-button" id="login_form_button">Log in</Button>
           </Form>
 
           <br></br>
@@ -106,7 +107,7 @@ class Login extends Component {
           as={Link}
           to='sign-up'
           >
-            Not registered? Create an account!
+            Not registered? Create an account now!
           </Header>
 
         </Container>

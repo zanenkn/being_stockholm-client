@@ -7,16 +7,16 @@ class BeingStockholmBeta extends Component {
     return (
       <>
         <Sidebar.Pushable as={Container} id="views-main-container-sidebar">
-          <div onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_VISIBILITY' }) } : () => { }}>
+          <div onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_SIDEBAR_VISIBILITY' }) } : () => { }}>
             <Container className="views-main-container">
               <Header className="views-main-header" as='h1'>
-                Being Stockholm Beta
+                Being Stockholm <span style={{fontWeight: 100}}>beta</span>
               </Header>
               <br></br>
 
               <Container className="views-ingress-container">
                 <p>
-                This is our first web app to test the project idea over Summer 2019.
+                This is our first web app to test the project idea in 2019.
                 </p>
               </Container>
               <br></br>
@@ -30,17 +30,17 @@ class BeingStockholmBeta extends Component {
                   <b>Big thank you</b> for all your hard work, love and nerdery:
                 </p>
                 <p>
-                  <i>In Stockholm:</i><a href='https://github.com/leiter007'>&nbsp;Felix Bonnier,</a><a href='https://github.com/Carrosen'>&nbsp;Carla Rosén,</a><a href='https://gtomaras-portfolio.netlify.com/'>&nbsp;George Tomaras</a>
+                  <i>In Stockholm:</i><a href='https://github.com/leiter007' target='_blank'>&nbsp;Felix Bonnier,</a><a href='https://github.com/Carrosen' target='_blank'>&nbsp;Carla Rosén,</a><a href='https://gtomaras-portfolio.netlify.com/' target='_blank'>&nbsp;George Tomaras</a>
                 </p>
                 <p>
-                  <i>In Gothenburg:</i><a href='https://www.linkedin.com/in/stefankarlberg'>&nbsp;Stefan Karlberg,&nbsp;</a><a href='https://www.linkedin.com/in/zane-neikena'>Zane Neikena</a>
+                  <i>In Gothenburg:</i><a href='https://www.linkedin.com/in/stefankarlberg' target='_blank'>&nbsp;Stefan Karlberg,&nbsp;</a><a href='https://www.linkedin.com/in/zane-neikena' target='_blank'>Zane Neikena</a>
                 </p>
                 <br></br>
                 <p>
                   <b>Special thanks:</b>
                 </p>
                 <p>
-                  <a href='https://github.com/tochman'>Thomas Ochman,</a><a href='https://github.com/faraznaeem'>&nbsp;Faraz Naaem,</a><a href='https://github.com/oliverochman'>&nbsp;Oliver Ochman,</a><a href='https://github.com/GergKllai1'>&nbsp;Gregory Kallai</a>&nbsp;and<a href='https://github.com/kianaditya'>&nbsp;Aditya Naik</a> for guiding and coaching the students and Urban Beings on this journey!
+                  <a href='https://github.com/tochman' target='_blank'>Thomas Ochman,</a><a href='https://github.com/faraznaeem' target='_blank'>&nbsp;Faraz Naaem,</a><a href='https://github.com/oliverochman' target='_blank'>&nbsp;Oliver Ochman,</a><a href='https://github.com/GergKllai1' target='_blank'>&nbsp;Gregory Kallai</a>&nbsp;and<a href='https://github.com/kianaditya'target='_blank'>&nbsp;Aditya Naik</a> for guiding and coaching the students and Urban Beings on this journey!
                 </p>
               </Container>
               <br></br>
@@ -61,7 +61,10 @@ class BeingStockholmBeta extends Component {
 
               <Container className="views-text-container">
                 <p>
-                  After this beta testing over the summer holidays, we will curate an exhibition of how Stockholmers use the city region for work and play and release an update to the map. Sign up to our mailing list to stay updated on our next steps!
+                  After this beta testing, we will curate an exhibition of how Stockholmers work and play and release an update to the app.
+                </p>
+                <p>
+                  <a href='https://urbanbeings.us18.list-manage.com/subscribe?u=511ba4646c76ccebddfc09524&id=4b6589bfcd' target="_blank">Subscribe </a>to our mailing list to stay updated on our next steps!
                 </p>
               </Container>
 
