@@ -228,17 +228,17 @@ class MyProfile extends Component {
 
             <Grid >
               <Grid.Column id='pending-entries' mobile={16} tablet={16} computer={16} largeScreen={5} widescreen={5}>
-              <Header as='h2' textAlign='center'>You have ({pendingEntries.length}) pending entries </Header>
+              <Header as='h2' textAlign='center'>You have ({pendingEntries.length}) pending posts </Header>
                 {pendingEntriesToDisplay}
               </Grid.Column>
 
               <Grid.Column id='declined-entries' mobile={16} tablet={16} computer={16} largeScreen={5} widescreen={5}>
-              <Header as='h2' textAlign='center'>You have ({declinedEntries.length}) declined entries</Header>
+              <Header as='h2' textAlign='center'>You have ({declinedEntries.length}) declined posts</Header>
               {declinedEntriesToDisplay}
               </Grid.Column>
 
               <Grid.Column id='published-entries' mobile={16} tablet={16} computer={16} largeScreen={6} widescreen={6}>
-              <Header as='h2' textAlign='center'>You have ({publishedEntries.length}) published entries</Header>
+              <Header as='h2' textAlign='center'>You have ({publishedEntries.length}) published posts</Header>
               {publishedEntriesToDisplay}
               </Grid.Column>
             </Grid>
