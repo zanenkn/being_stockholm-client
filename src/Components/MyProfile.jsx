@@ -26,7 +26,27 @@ class MyProfile extends Component {
   }
 
   render() {
+    
+    let userSignedIn = this.props.currentUser.isSignedIn
+    let userLevel = this.props.currentUser.attributes.level
+    let userEmail = this.props.currentUser.attributes.uid
+    let emailLabel
+    let levelLabel
 
+    if (userSignedIn === true) {
+        emailLabel = (
+          <Header className="profile-email-header" as='h3'>
+            {userEmail}
+          </Header>
+        )
+        levelLabel = (
+          <p>
+            I am a {userLevel} Stockholmer
+          </p>
+        )
+
+       }
+    
     let publishedEntriesToDisplay
     let pendingEntriesToDisplay
     let declinedEntriesToDisplay
@@ -180,34 +200,45 @@ class MyProfile extends Component {
               My profile
             </Header>
             <br></br>
+            
+            {emailLabel}
+
             <Grid className="align-center">
               <Grid.Column>
+              {levelLabel}
+              <Divider></Divider>
               <p>
-                Please help us make Being Stockholm better and answer this 1 minute survey.
+                Your personal details will not be visible on the post but shown only as posted by a Newbie/Settled
+              </p>
+              <p>
+              We’d love to find out more about you and how to stay in touch
               </p>
               <Button
                 className='submit-button'
                 href='https://urbanbeings.us18.list-manage.com/subscribe?u=511ba4646c76ccebddfc09524&id=4b6589bfcd'
                 target='_blank'
               >
-                Take me to the survey
+                1 min survey
               </Button>
               </Grid.Column>
             </Grid>
+            <br></br>
+            <Divider></Divider>
+            <br></br>
 
             <Grid >
               <Grid.Column id='pending-entries' mobile={16} tablet={16} computer={16} largeScreen={5} widescreen={5}>
-              <Header as='h2' textAlign='center'>You have ({pendingEntries.length}) pending entries </Header>
+              <Header as='h2' textAlign='center'>You have ({pendingEntries.length}) pending posts </Header>
                 {pendingEntriesToDisplay}
               </Grid.Column>
 
               <Grid.Column id='declined-entries' mobile={16} tablet={16} computer={16} largeScreen={5} widescreen={5}>
-              <Header as='h2' textAlign='center'>You have ({declinedEntries.length}) declined entries</Header>
+              <Header as='h2' textAlign='center'>You have ({declinedEntries.length}) declined posts</Header>
               {declinedEntriesToDisplay}
               </Grid.Column>
 
               <Grid.Column id='published-entries' mobile={16} tablet={16} computer={16} largeScreen={6} widescreen={6}>
-              <Header as='h2' textAlign='center'>You have ({publishedEntries.length}) published entries</Header>
+              <Header as='h2' textAlign='center'>You have ({publishedEntries.length}) published posts</Header>
               {publishedEntriesToDisplay}
               </Grid.Column>
             </Grid>

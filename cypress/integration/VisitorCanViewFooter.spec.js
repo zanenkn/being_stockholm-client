@@ -21,7 +21,7 @@ describe('Visitor can view Footer', () => {
     cy.get('#footer-menu-icon').click()
     cy.get('#menu-sidebar').should('be.visible')
 
-    let text = ['About', 'Log in / Sign up', 'Contact', 'Being Stockholm Beta', 'Legal info']
+    let text = ['About', 'Log in / Sign up', 'Contact', 'Being Stockholm beta', 'FAQs']
 
     text.forEach(link => {
       cy.get('#menu-sidebar').contains(link)

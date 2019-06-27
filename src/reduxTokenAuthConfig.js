@@ -8,7 +8,8 @@ const config = {
   userAttributes: {
     uid: 'uid',
     id: 'id',
-    admin: 'admin'
+    admin: 'admin',
+    level: 'level'
   },
   userRegistrationAttributes: {
     password_confirmation: 'password_confirmation',
