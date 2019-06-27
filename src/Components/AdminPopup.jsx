@@ -22,7 +22,7 @@ class AdminPopup extends Component {
   }
 
   async componentDidMount() {
-    await axios.get('/api/v1/posts/' + `${this.props.id}`).then(response => {
+    await axios.get(`/api/v1/posts/${this.props.id}`).then(response => {
       this.setState({
         caption: response.data.caption,
         category: response.data.category,
@@ -36,7 +36,7 @@ class AdminPopup extends Component {
   }
 
   acceptButton = () => {
-    const path = '/api/v1/posts/' + `${this.props.id}`
+    const path = `/api/v1/posts/${this.props.id}`
     const payload = {
       status: 'published'
     }
@@ -59,7 +59,7 @@ class AdminPopup extends Component {
   }
 
   declineButton = () => {
-    const path = '/api/v1/posts/' + `${this.props.id}`
+    const path = `/api/v1/posts/${this.props.id}`
     const payload = {
       status: 'declined'
     }

@@ -186,18 +186,18 @@ class CreateImageEntry extends Component {
       } else if (this.state.address === "No location data detected") {
         addressSearch = (
           <div className="change-address-link">
-            <a onClick={() => { this.setState({ addressSearch: true }) }}>
+            <p className='address-change' onClick={() => { this.setState({ addressSearch: true }) }}>
               Enter address manually
-            </a>
+            </p>
           </div>
         )
       }
       else {
         addressSearch = (
           <div className="change-address-link">
-            <a onClick={() => { this.setState({ addressSearch: true }) }}>
+            <p className='address-change' onClick={() => { this.setState({ addressSearch: true }) }}>
               Change location
-            </a>
+            </p>
           </div>
         )
       }

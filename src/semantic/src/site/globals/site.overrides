@@ -92,6 +92,7 @@ h2 {
 /*******************************
   Views - directed from menu
 *******************************/
+
 #views-main-container-sidebar {
   width: 100% !important;
 }
@@ -370,6 +371,13 @@ h2 {
   font-size: 15px;
 }
 
+.address-change {
+  font-size: 12px !important;
+  color: #808080 !important;
+  max-width: 100% !important;
+  cursor: pointer;
+}
+
 /*******************************
   Popup - Single Image Entry
 *******************************/
@@ -470,7 +478,7 @@ h2 {
   .my-profile-entry-data {
   margin: 5px 0px 0px 0px !important;
   padding: 0px 10px 10px 10px !important
-}
+  }
 
   h3.my-profile-caption {
   margin: 0px !important;

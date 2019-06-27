@@ -16,7 +16,7 @@ class EntryPopup extends Component {
   }
 
   async componentDidMount() {
-    await axios.get('/api/v1/posts/' + `${this.props.id}`).then(response => {
+    await axios.get(`/api/v1/posts/${this.props.id}`).then(response => {
       this.setState({
         caption: response.data.caption,
         category: response.data.category,
