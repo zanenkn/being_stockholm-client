@@ -8,6 +8,7 @@ import CreateImageEntry from './CreateImageEntry'
 import EntryPopup from './EntryPopup'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import Legend from './Legend'
 
 class Map extends Component {
   static defaultProps = {
@@ -161,6 +162,7 @@ class Map extends Component {
           ))}
 
         </GoogleMapReact>
+        <Legend />
       </div>
     )
   }

@@ -1,3 +1,20 @@
 /*******************************
          Site Overrides
 *******************************/
+
+.ui.bottom.sidebar {
+  height: 300px !important;
+  margin-bottom: 20px !important;
+ }
+
+.ui.overlay.bottom.visible.sidebar.legend-content {
+ margin-bottom: 0px !important;
+}
+
+
+.ui.segment.ui.overlay.bottom.sidebar.legend-content{
+ display:block !important;
+ background: “red” !important;
+ visibility: visible !important;
+ z-index: 450 !important;
+}
