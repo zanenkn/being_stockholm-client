@@ -161,7 +161,7 @@ class CreateImageEntry extends Component {
                   id="caption"
                   value={this.state.caption}
                   onChange={this.onChangeHandler}
-                  placeholder="2. Add a caption!"
+                  placeholder="2. Add a caption in any language!"
                 />
 
               </Form>
