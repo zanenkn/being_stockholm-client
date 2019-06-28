@@ -36,9 +36,9 @@ class HowThisWorks extends Component {
             <Divider></Divider>
 
             <Header className="views-second-header" as='h3'>
-              See where and how Stockholmers work and play
+              Where do Stockholmers work and play?
               </Header>
-            <br></br>
+  
 
             <Grid columns={2}>
               <Grid.Column>
@@ -75,7 +75,7 @@ class HowThisWorks extends Component {
 
             <Container>
               <p className="screenshot-label">
-                We’d like to see if new and settled Stockholmers go to the same places and use them in different ways± - so let us know whether you feel you’re a Newbie or a Settled local!
+                We’d like to see if new and settled Stockholmers go to the same places and use them in different ways - so let us know whether you feel you’re a Newbie or a Settled Stockholmer!
                 </p>
             </Container>
             <br></br>
@@ -83,10 +83,9 @@ class HowThisWorks extends Component {
             <Header className="views-third-header" as='h4'>
               2. Add a photo
               </Header>
-            <br></br>
             <Container className="views-text-container">
               <p>
-                On your computer, tablet but best on your phone
+                Best on your phone’s browser, but also works on your tablet or computer.
                 </p>
             </Container>
             <br></br>
@@ -118,17 +117,20 @@ class HowThisWorks extends Component {
 
             <Container>
               <p className="screenshot-label">
-                Please make sure the GPS / location services is switched on for your camera so that we can map the photo in its correct location.
-                </p>
-              <p className="screenshot-label">
-                Help with manually adding coordinates to your photos can be found <a href='https://tool.geoimgr.com/' target='_blank' rel='noopener noreferrer'>here</a>.
-                </p>
+                We recommend that the GPS and location services is switched on when you take the photo.
+              </p>
             </Container>
             <br></br>
 
             <Header className="views-third-header" as='h4'>
               3. Map it!
               </Header>
+
+            <Container className="views-text-container">
+              <p>
+                Once we have reviewed your photo, your photo will be live on the map to inspire other Stockholmers to try out!
+              </p>
+            </Container>
             <br></br>
 
             <Grid columns={2}>
@@ -143,7 +145,6 @@ class HowThisWorks extends Component {
                 </div>
               </Grid.Column>
             </Grid>
-            <br></br>
 
             <Header className="views-second-header" as='h3'>
               How we use your information
@@ -157,11 +158,11 @@ class HowThisWorks extends Component {
             <br></br>
             <Container className="views-text-container">
               <p>
-                <b>Your personal information will not be displayed publicly or shared with any third parties.</b> It will be used for Urban Beings' data analysis purposes only so that we can have a better understanding of how new and settled Stockholmers use the city. This includes your profile photo, name and email address and further information on your profile, such as which municipality you live in, where you lived previously, how long you have lived in Stockholm, your gender and age group.
-                </p>
+                <b>Your personal information will not be displayed publicly or shared with any third parties.</b> It will be used for Urban Beings' research and development purposes so that we can understand how new and settled Stockholmers use the city. This includes your email address and further information such as which municipality you live in, where you lived previously, how long you have lived in Stockholm, your gender and age group.
+              </p>
               <p>
-                By taking part in the project, you allow us to use your photos and captions to be displayed on the Being Stockholm map, website and other marketing purposes such as (but not limited to) social media, exhibitions and pitches to prospective partners.
-                </p>
+                By taking part in the project, you allow us to use your posts to be displayed on the Being Stockholm map, website and other marketing purposes.
+              </p>
             </Container>
 
             <Header className="views-second-header" as='h3'>

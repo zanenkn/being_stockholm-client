@@ -15,14 +15,14 @@ class BeingStockholmBeta extends Component {
 
             <Container className="views-ingress-container">
               <p>
-                This is our first web app to test the project idea in 2019.
+                This is our first web app to test the idea and platform in 2019.
                 </p>
             </Container>
             <br></br>
 
             <Container className="views-text-container">
               <p>
-                We are extremely grateful to the coaches and senior students at the <b><a href='https://craftacademy.se/english/' target='_blank' rel='noopener noreferrer'>Craft Academy</a></b> Coding Bootcamp who helped us to develop our concept into a beautiful working prototype as part of their final design project.
+                We are extremely grateful to the coaches and senior students at the <b><a href='https://craftacademy.se/english/' target='_blank' rel='noopener noreferrer'>Craft Academy</a></b> Coding Bootcamp who helped us to develop our concept into a beautiful working prototype as part of their three week final design project.
                 </p>
               <br></br>
               <p>
