@@ -43,12 +43,12 @@ class HowThisWorks extends Component {
             <Grid columns={2}>
               <Grid.Column>
                 <div>
-                  <Image className="views-image" src='screenshot_mock.png' size='medium'></Image>
+                  <Image className="views-image" src='landing.jpg' size='medium'></Image>
                 </div>
               </Grid.Column>
               <Grid.Column>
                 <div>
-                  <Image className="views-image" src='screenshot_mock.png' size='medium'></Image>
+                  <Image className="views-image" src='view_photo.jpg' size='medium'></Image>
                 </div>
               </Grid.Column>
             </Grid>
@@ -63,12 +63,12 @@ class HowThisWorks extends Component {
             <Grid columns={2}>
               <Grid.Column>
                 <div>
-                  <Image className="views-image" src='screenshot_mock.png' size='medium'></Image>
+                  <Image className="views-image" src='log_in.jpg' size='medium'></Image>
                 </div>
               </Grid.Column>
               <Grid.Column>
                 <div>
-                  <Image className="views-image" src='screenshot_mock.png' size='medium'></Image>
+                  <Image className="views-image" src='sign_up.jpg' size='medium'></Image>
                 </div>
               </Grid.Column>
             </Grid>
@@ -94,12 +94,24 @@ class HowThisWorks extends Component {
             <Grid columns={2}>
               <Grid.Column>
                 <div>
-                  <Image className="views-image" src='screenshot_mock.png' size='medium'></Image>
+                  <Image className="views-image" src='add_photo_1.jpg' size='medium'></Image>
                 </div>
               </Grid.Column>
               <Grid.Column>
                 <div>
-                  <Image className="views-image" src='screenshot_mock.png' size='medium'></Image>
+                  <Image className="views-image" src='add_photo_2.jpg' size='medium'></Image>
+                </div>
+              </Grid.Column>
+            </Grid>
+            <Grid columns={2}>
+              <Grid.Column>
+                <div>
+                  <Image className="views-image" src='add_photo_3.jpg' size='medium'></Image>
+                </div>
+              </Grid.Column>
+              <Grid.Column>
+                <div>
+                  <Image className="views-image" src='add_photo_4.jpg' size='medium'></Image>
                 </div>
               </Grid.Column>
             </Grid>
@@ -122,12 +134,12 @@ class HowThisWorks extends Component {
             <Grid columns={2}>
               <Grid.Column>
                 <div>
-                  <Image className="views-image" src='screenshot_mock.png' size='medium'></Image>
+                  <Image className="views-image" src='mapped.jpg' size='medium'></Image>
                 </div>
               </Grid.Column>
               <Grid.Column>
                 <div>
-                  <Image className="views-image" src='screenshot_mock.png' size='medium'></Image>
+                  <Image className="views-image" src='legend.jpg' size='medium'></Image>
                 </div>
               </Grid.Column>
             </Grid>

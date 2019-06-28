@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Header, Container, Image, Segment, Sidebar, Divider } from 'semantic-ui-react'
+import { Header, Container, Image, Segment, Sidebar, Divider, Grid } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 class BeingStockholmBeta extends Component {
@@ -28,13 +28,32 @@ class BeingStockholmBeta extends Component {
               <p>
                 <b>Big thank you</b> for all your hard work, love and nerdery:
                 </p>
-              <p>
-                <i>In Stockholm:</i><a href='https://github.com/leiter007' target='_blank' rel='noopener noreferrer'>&nbsp;Felix Bonnier,</a><a href='https://github.com/Carrosen' target='_blank' rel='noopener noreferrer'>&nbsp;Carla Rosén,</a><a href='https://gtomaras-portfolio.netlify.com/' target='_blank' rel='noopener noreferrer'>&nbsp;George Tomaras</a>
+              <p className="views-team-location">
+                <i>In Stockholm:</i>
               </p>
               <p>
-                <i>In Gothenburg:</i><a href='https://www.linkedin.com/in/stefankarlberg' target='_blank' rel='noopener noreferrer'>&nbsp;Stefan Karlberg,&nbsp;</a><a href='https://www.linkedin.com/in/zane-neikena' target='_blank' rel='noopener noreferrer'>Zane Neikena</a>
+                <a href='https://github.com/leiter007' target='_blank' rel='noopener noreferrer'>&nbsp;Felix Bonnier,</a><a href='https://github.com/Carrosen' target='_blank' rel='noopener noreferrer'>&nbsp;Carla Rosén,</a><a href='https://gtomaras-portfolio.netlify.com/' target='_blank' rel='noopener noreferrer'>&nbsp;George Tomaras</a>
               </p>
-              <br></br>
+
+              <Segment className="image-segment-left">
+              <div>
+                <Image className="views-image" src='craft_team_photo.jpg' size='small'></Image>
+              </div>
+            </Segment>
+
+              <p className="views-team-location">
+                <i>In Gothenburg:</i>
+              </p>
+              <p>
+                <a href='https://www.linkedin.com/in/stefankarlberg' target='_blank' rel='noopener noreferrer'>&nbsp;Stefan Karlberg,&nbsp;</a><a href='https://www.linkedin.com/in/zane-neikena' target='_blank' rel='noopener noreferrer'>Zane Neikena</a>
+              </p>
+
+              <Segment className="image-segment-left">
+              <div>
+                <Image className="views-image" src='craft_team_photo_gbg.jpg' size='small'></Image>
+              </div>
+            </Segment>
+
               <p>
                 <b>Special thanks:</b>
               </p>
@@ -43,14 +62,6 @@ class BeingStockholmBeta extends Component {
               </p>
             </Container>
             <br></br>
-
-            <Segment className="image-segment-left">
-              <div>
-                <Image className="views-image" src='craft_team_photo.jpg' size='medium'></Image>
-                <br></br>
-                <p className="image-segment-label" >CraftAcademy squad - GOTHENBURG TO BE ADDED!</p>
-              </div>
-            </Segment>
 
             <Divider></Divider>
 
