@@ -33,9 +33,9 @@ class EntryPopup extends Component {
   }
 
   deletePost = () => {
-    axios.delete('/api/v1/posts/' + `${this.props.id}`).then(response => {
-      this.setState({ messageVisible: false })
-    })
+    axios.delete(`/api/v1/posts/${this.props.id}`)
+    this.setState({ messageVisible: false })
+    this.handleMessageVisibility()
   }
 
   handleDeleteMessage = () => {
@@ -113,7 +113,7 @@ class EntryPopup extends Component {
 
 
               <Container>
-              {deleteButton}
+                {deleteButton}
               </Container>
             </Sidebar.Pusher>
           </Container>
