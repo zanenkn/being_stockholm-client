@@ -15,7 +15,7 @@ setupInterceptors()
 const development = 'http://localhost:3002'
 const production = 'https://being-stockholm.herokuapp.com'
 
-axios.defaults.baseURL = development
+axios.defaults.baseURL = production
 
 const store = configureStore();
 verifyCredentials(store)
