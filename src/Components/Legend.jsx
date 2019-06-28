@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Segment, Sidebar, Grid, Menu, Sticky, Icon, Header } from 'semantic-ui-react'
+import { Segment, Sidebar, Grid, Icon, Header } from 'semantic-ui-react'
 
 class Legend extends Component {
 
