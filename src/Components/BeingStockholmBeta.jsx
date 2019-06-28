@@ -37,7 +37,7 @@ class BeingStockholmBeta extends Component {
 
               <Segment className="image-segment-left">
               <div>
-                <Image className="views-image" src='craft_team_photo.jpg' size='small'></Image>
+                <Image className="views-image" src='craft_team_photo.jpg' size='large'></Image>
               </div>
             </Segment>
 
@@ -50,7 +50,7 @@ class BeingStockholmBeta extends Component {
 
               <Segment className="image-segment-left">
               <div>
-                <Image className="views-image" src='craft_team_photo_gbg.jpg' size='small'></Image>
+                <Image className="views-image" src='craft_team_photo_gbg.jpg' size='large'></Image>
               </div>
             </Segment>
 
@@ -67,15 +67,15 @@ class BeingStockholmBeta extends Component {
 
             <Header className="views-second-header" as='h3'>
               Next steps
-              </Header>
+            </Header>
 
             <Container className="views-text-container">
               <p>
                 After this beta testing, we will curate an exhibition of how Stockholmers work and play and release an update to the app.
-                </p>
+              </p>
               <p>
                 <a href='https://urbanbeings.us18.list-manage.com/subscribe?u=511ba4646c76ccebddfc09524&id=4b6589bfcd' target="_blank" rel='noopener noreferrer'>Subscribe </a>to our mailing list to stay updated on our next steps!
-                </p>
+              </p>
             </Container>
 
           </Container>
