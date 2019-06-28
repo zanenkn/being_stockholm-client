@@ -7,7 +7,7 @@ class Contact extends Component {
     return (
       <>
         <Sidebar.Pushable as={Container} id="views-main-container-sidebar">
-          <div onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_VISIBILITY' }) } : () => { }}>
+          <div onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_SIDEBAR_VISIBILITY' }) } : () => { }}>
             <Container className="views-main-container">
               <Header className="views-main-header" as='h1'>
                 Contact

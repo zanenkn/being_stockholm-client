@@ -8,6 +8,7 @@ import CreateImageEntry from './CreateImageEntry'
 import EntryPopup from './EntryPopup'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import Legend from './Legend'
 
 class Map extends Component {
   static defaultProps = {
@@ -34,8 +35,7 @@ class Map extends Component {
     this.axiosGetPublishedPosts()
   }
 
-  combineFunctions = () => {
-    this.props.dispatch({ type: 'CHANGE_VISIBILITY' })
+  hideSidebar = () => {
     this.axiosGetPublishedPosts()
   }
 
@@ -56,6 +56,12 @@ class Map extends Component {
     const datapointClass = e.target.className.substr(18)
     const id = e.target.id
     this.setState({ id: id, datapointClass: datapointClass, openEntryPopup: true })
+    if (this.props.legendVisible) {
+      this.props.dispatch({ type: 'CHANGE_LEGEND_VISIBILITY' })
+    }
+    if (this.props.sidebarVisible) {
+      this.props.dispatch({ type: 'CHANGE_SIDEBAR_VISIBILITY' })
+    }
   }
 
   setDatapointColor = (post) => {
@@ -63,33 +69,43 @@ class Map extends Component {
     let userSession = this.props.currentUser.attributes.uid;
     let category = post.category;
     let userLevel = post.user.level;
- 
-    if (userSignedIn === true && post.user.uid === userSession ) {
-      switch(category) {
+
+    if (userSignedIn === true && post.user.uid === userSession) {
+      switch (category) {
         case 'work':
           return 'datapoint-my-work'
         case 'play':
           return 'datapoint-my-play'
       }
     } else {
-      switch(category) {
+      switch (category) {
         case 'work':
-          switch(userLevel) {
+          switch (userLevel) {
             case 'newbie':
               return 'datapoint-work-newbie'
             case 'settled':
-                return 'datapoint-work-settled'
+              return 'datapoint-work-settled'
           }
-        break;
+          break;
         case 'play':
-          switch(userLevel) {
+          switch (userLevel) {
             case 'newbie':
-                return 'datapoint-play-newbie'
+              return 'datapoint-play-newbie'
             case 'settled':
-                return 'datapoint-play-settled'
+              return 'datapoint-play-settled'
           }
-        break;
+          break;
       }
+    }
+  }
+
+  hideElements = () => {
+    if (this.props.sidebarVisible) {
+      this.props.dispatch({ type: 'CHANGE_SIDEBAR_VISIBILITY' })
+      this.axiosGetPublishedPosts()
+    } else if (this.props.legendVisible) {
+      this.props.dispatch({ type: 'CHANGE_LEGEND_VISIBILITY' })
+      this.axiosGetPublishedPosts()
     }
   }
 
@@ -110,9 +126,7 @@ class Map extends Component {
 
     return (
 
-      <div id='map'
-        onClick={this.props.sidebarVisible ? () => { this.combineFunctions() } : () => { this.axiosGetPublishedPosts() }}
-      >
+      <div id='map'>
 
         <Popup modal trigger={
           <Icon
@@ -132,13 +146,14 @@ class Map extends Component {
         <Popup
           open={this.state.openEntryPopup}
           closeOnDocumentClick={true}
-          onClose={this.closeModal}>
+          onClose={this.closeModal}
+          onClick={this.hideElements}>
 
           <div className="modal">
-            <EntryPopup 
-            id={this.state.id}
-            datapointClass={this.state.datapointClass}
-             />
+            <EntryPopup
+              id={this.state.id}
+              datapointClass={this.state.datapointClass}
+            />
           </div>
         </Popup>
 
@@ -150,7 +165,9 @@ class Map extends Component {
           bootstrapURLKeys={{ key: process.env.REACT_APP_API_KEY_GOOGLE_MAPS }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
-          options={{ styles: MapStyle }}>
+          options={{ styles: MapStyle }}
+          onClick={this.hideElements}
+        >
 
           {this.state.published.map(post => (
             <Icon name='circle'
@@ -164,6 +181,7 @@ class Map extends Component {
           ))}
 
         </GoogleMapReact>
+        <Legend />
       </div>
     )
   }
@@ -173,6 +191,7 @@ const mapStateToProps = state => ({
   state: state,
   currentUser: state.reduxTokenAuth.currentUser,
   sidebarVisible: state.animation.sidebarVisible,
+  legendVisible: state.animation.legendVisible,
   renderCreate: state.animation.renderCreate
 })
 
