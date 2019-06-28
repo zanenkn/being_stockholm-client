@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import moment from 'moment'
-import { Container, Image, Icon, Header } from 'semantic-ui-react'
+import { Container, Image, Icon, Header, Button } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 class EntryPopup extends Component {
 
@@ -29,7 +30,32 @@ class EntryPopup extends Component {
     })
   }
 
+  deletePost = () => {
+    axios.delete('/api/v1/posts/' + `${this.props.id}`).then(response => {
+      console.log(response)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+
   render() {
+
+    let userSignedIn = this.props.currentUser.isSignedIn
+    let deleteButton
+
+    if (userSignedIn === true && this.props.admin === true) {
+      deleteButton = (
+        <>
+        <br></br>
+          <Button
+            onClick={this.deletePost}>
+            Delete
+          </Button>
+        <br></br>
+        </>
+      )
+    }
 
     let dateString = this.state.created_at
     let dateObj = new Date(dateString)
@@ -68,10 +94,18 @@ class EntryPopup extends Component {
             <p><i> {date} | {time} </i></p>
           </Container>
 
+          {deleteButton}
+
         </Container>
       </>
     )
   }
 }
 
-export default EntryPopup
+const mapStateToProps = state => ({
+  state: state,
+  currentUser: state.reduxTokenAuth.currentUser,
+  admin: state.reduxTokenAuth.currentUser.attributes.admin,
+})
+
+export default connect(mapStateToProps)(EntryPopup);
