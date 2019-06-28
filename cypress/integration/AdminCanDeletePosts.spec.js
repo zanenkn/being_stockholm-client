@@ -38,7 +38,7 @@ describe('Admin can delete an entry and', () => {
 
   it('by clicking on the delete button on an Entry', () => {
       cy.get('#3').click()
-      cy.get('#delete-button').click()
+      cy.get('').click()
       // cy.contains('You have successfully deleted your post')
       cy.get('#3').should('not.be.visible')
   })
