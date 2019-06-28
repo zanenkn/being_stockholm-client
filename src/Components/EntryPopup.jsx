@@ -34,8 +34,12 @@ class EntryPopup extends Component {
 
   deletePost = () => {
     axios.delete(`/api/v1/posts/${this.props.id}`)
-    this.setState({ messageVisible: false })
     this.handleMessageVisibility()
+    // this.props.history.push({
+    //   pathname: '/',
+    //   state: { openEntryPopup: false }
+    // })
+    //window.location.reload()
   }
 
   handleDeleteMessage = () => {
