@@ -207,7 +207,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   sidebarVisbilityHandler: sidebarVisible => ({
-    type: 'CHANGE_VISIBILITY',
+    type: 'CHANGE_SIDEBAR_VISIBILITY',
     sidebarVisbible: sidebarVisible
   }),
   createImageHandler: () => ({

@@ -6,7 +6,7 @@ class Contact extends Component {
   render() {
     return (
       <>
-        <Sidebar.Pushable as={Container} id="views-main-container-sidebar" onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_VISIBILITY' }) } : () => { }}>
+        <Sidebar.Pushable as={Container} id="views-main-container-sidebar" onClick={this.props.sidebarVisible ? () => { this.props.dispatch({ type: 'CHANGE_SIDEBAR_VISIBILITY' }) } : () => { }}>
           <Container className="views-main-container">
             <Header className="views-main-header" as='h1'>
               Contact
@@ -41,7 +41,7 @@ class Contact extends Component {
                   <svg className='contact-labels' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill='#F2711C' d="M13.6 13.47A4.99 4.99 0 0 1 5 10a5 5 0 0 1 8-4V5h2v6.5a1.5 1.5 0 0 0 3 0V10a8 8 0 1 0-4.42 7.16l.9 1.79A10 10 0 1 1 20 10h-.18.17v1.5a3.5 3.5 0 0 1-6.4 1.97zM10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /></svg>
                 </Grid.Column>
                 <Grid.Column className="contact-text-columns">
-                  <p>hello@beingstockholm.se</p>
+                  <a href='mailto:hello@beingstockholm.se'>hello@beingstockholm.se</a>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row className="contact-label-rows">
@@ -49,7 +49,7 @@ class Contact extends Component {
                   <svg className='contact-labels' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill='#F2711C' d="M20 18.35V19a1 1 0 0 1-1 1h-2A17 17 0 0 1 0 3V1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4c0 .56-.31 1.31-.7 1.7L3.16 8.84c1.52 3.6 4.4 6.48 8 8l2.12-2.12c.4-.4 1.15-.71 1.7-.71H19a1 1 0 0 1 .99 1v3.35z" /></svg>
                 </Grid.Column>
                 <Grid.Column className="contact-text-columns">
-                  <p>+46 793 47 66 13</p>
+                  <a href='tel:+46793476613'>+46 793 47 66 13</a>
                 </Grid.Column>
               </Grid.Row>
               <br></br>

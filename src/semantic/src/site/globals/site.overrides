@@ -31,6 +31,16 @@ h2 {
   color: #A65F18!important;
 }
 
+.disable-scrollbars::-webkit-scrollbar {
+   width: 0px;
+   background: transparent; /* Chrome/Safari/Webkit */
+}
+
+.disable-scrollbars {
+ scrollbar-width: none; /* Firefox */
+ -ms-overflow-style: none;  /* IE 10+ */
+}
+
 /*******************************
          Datapoints colors
 *******************************/
@@ -575,6 +585,49 @@ h2 {
   }
 
 }
+
+/*******************************
+         Legend
+*******************************/
+
+  #circle-my-work {
+    color: #312783;
+    font-size: 1em !important
+  }
+
+  #circle-settled-work {
+    color: #951b81;
+    font-size: 1em !important
+  }
+
+  #circle-newbie-work {
+    color: #e6007e;
+    font-size: 1em !important
+  }
+
+  #circle-my-play {
+    color: #00a19a;
+    font-size: 1em !important
+  }
+
+  #circle-settled-play {
+    color: #006633;
+    font-size: 1em !important
+  }
+
+  #circle-newbie-play {
+    color: #95c11f;
+    font-size: 1em !important
+  }
+
+  .ui.grid.legend-grid h4{
+    margin: 0px 10px 10px 10px !important;
+    color: grey;
+  }
+
+  .level-text-legend {
+    color: #f2711c !important;
+  }
 
 
 /*******************************

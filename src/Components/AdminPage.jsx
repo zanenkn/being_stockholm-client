@@ -33,7 +33,7 @@ class AdminPage extends Component {
   }
 
   combineFunctions = () => {
-    this.props.dispatch({ type: 'CHANGE_VISIBILITY' })
+    this.props.dispatch({ type: 'CHANGE_SIDEBAR_VISIBILITY' })
     this.axiosGetUnpublished()
   }
 
