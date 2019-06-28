@@ -1,13 +1,20 @@
 describe('Admin can delete an entry and', () => {
 
   beforeEach(function () {
-    cy.server();
+    cy.server()
     cy.route({
       method: 'GET',
       url: 'http://localhost:3002/api/v1/posts',
       response: 'fixture:list_of_posts.json',
       status: 200
     })
+    cy.route({
+      method: 'GET',
+      url: 'http://localhost:3002/api/v1/posts/3',
+      response: 'fixture:view_single_entry.json',
+      status: 200
+    })
+
     cy.route({
       method: 'POST',
       url: 'http://localhost:3002/api/v1/auth/sign_in',
@@ -38,8 +45,10 @@ describe('Admin can delete an entry and', () => {
 
   it('by clicking on the delete button on an Entry', () => {
       cy.get('#3').click()
-      cy.get('').click()
-      // cy.contains('You have successfully deleted your post')
-      cy.get('#3').should('not.be.visible')
+      cy.contains('Midsommar')
+      cy.get('#delete-button').click()
+      cy.contains('Are you sure?')
+      cy.get('#confirm-delete-button').click()
+      cy.contains('Midsommar').should('not.exist')
   })
 })
