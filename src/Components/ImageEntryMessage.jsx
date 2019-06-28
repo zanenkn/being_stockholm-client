@@ -68,7 +68,7 @@ class ImageEntryMessage extends Component {
     if (this.props.deleteMessage === true) {
       message = (
         <>
-          <h5>Are you sure?:</h5>
+          <h5>Are you sure?</h5>
           <Button 
             id='confirm-delete-button'
             onClick={this.props.deletePost}>
