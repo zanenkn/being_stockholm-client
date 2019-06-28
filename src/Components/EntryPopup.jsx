@@ -13,7 +13,12 @@ class EntryPopup extends Component {
     image: '',
     latitude: '',
     longitude: '',
-    address: ''
+    address: '',
+    successMessage: false,
+    errorMessage: false,
+    messageVisible: false,
+    errors: '',
+    adminMessage: ''
   }
 
   async componentDidMount() {
@@ -47,6 +52,9 @@ class EntryPopup extends Component {
       })
   }
 
+  handleMessageVisibility = animation => () =>
+  this.setState(prevState => ({ animation, messageVisible: !prevState.messageVisible }))
+
   render() {
 
     let userSignedIn = this.props.currentUser.isSignedIn
@@ -56,10 +64,11 @@ class EntryPopup extends Component {
       deleteButton = (
         <>
         <br></br>
-          <Button
+          {/* <Button 
+            id='delete-button'
             onClick={this.deletePost}>
             Delete
-          </Button>
+          </Button> */}
         <br></br>
         </>
       )
@@ -73,7 +82,14 @@ class EntryPopup extends Component {
 
     return (
       <>
+       <Sidebar.Pushable as={Segment} textAlign='center' id='pushable-segment'>
         <Container className={`entry-wrapper-${this.props.datapointClass}`} id='entry-wrapper'>
+        
+          <ImageEntryMessage
+                visible={this.state.messageVisible}
+                adminMessage={this.state.adminMessage}
+                deleteMessage={this.state.deleteMessage}
+              />
 
           <Container id='entry-image-wrapper'>
             <Image
@@ -105,6 +121,7 @@ class EntryPopup extends Component {
           {deleteButton}
 
         </Container>
+        </Sidebar.Pushable>
       </>
     )
   }
@@ -113,6 +130,7 @@ class EntryPopup extends Component {
 const mapStateToProps = state => ({
   state: state,
   currentUser: state.reduxTokenAuth.currentUser,
+  admin: state.reduxTokenAuth.currentUser.attributes.admin,
 })
 
 export default connect(mapStateToProps)(EntryPopup);
