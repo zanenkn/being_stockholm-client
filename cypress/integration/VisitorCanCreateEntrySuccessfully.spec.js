@@ -31,7 +31,7 @@ describe('Visitor can', () => {
     cy.get('#login-form').should('be.visible')
   })
 
-  it('create post successfully after log-in', () => {
+  it('create entry successfully after log-in', () => {
     cy.get('#map-icon-plus').click()
     cy.get('#login-form').within(() => {
       cy.get('#email').type('carla@mail.com')

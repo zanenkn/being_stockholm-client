@@ -43,7 +43,7 @@ describe('Visitor can', () => {
     cy.get('#upload-button').click()
   })
 
-  it('not create post if image is not uploaded and/or caption is over 140 characters long', () => {
+  it('not create an entry if image is not uploaded and/or caption is over 140 characters long', () => {
     
     let text = [
       'Ooops!', 
@@ -56,12 +56,12 @@ describe('Visitor can', () => {
     })
   })
 
-  it('not continue creating post without closing error message', () => {
+  it('not continue creating entry without closing error message', () => {
     cy.get('#caption').should('not.be.visible')
     cy.get('#upload-button').should('not.be.visible')
   })
 
-  it('close error message and continue to create a post', () => {
+  it('close error message and continue to create an entry', () => {
     cy.get('#close-topsidebar-error').click()
     cy.get('#caption').type('This works fine!')
   })

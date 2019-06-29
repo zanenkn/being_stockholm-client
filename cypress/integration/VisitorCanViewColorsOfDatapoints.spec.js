@@ -13,12 +13,12 @@ describe('Visitor can view on the map', () => {
 
   it('datapoints of posts only if they are published', () => {
 
-    let postsPublished = [
+    let entriesPublished = [
       "#6", "#7", "#8", "#9", "#10", "#11"
     ]
 
-    postsPublished.forEach(post => {
-      cy.get(post).should('be.visible')
+    entriesPublished.forEach(entry => {
+      cy.get(entry).should('be.visible')
     })
   })
 

@@ -47,7 +47,7 @@ describe('Admin can review an entry and', () => {
       cy.wait(1000)
     })
 
-    cy.contains('You have accepted this post!')
+    cy.contains('You have accepted this entry!')
   })
 
   it('get Decline popup message if she does not accept the entry', () => {
@@ -61,6 +61,6 @@ describe('Admin can review an entry and', () => {
       cy.wait(1000)
     })
 
-    cy.contains('You have declined this post!')
+    cy.contains('You have declined this entry!')
   })
 })

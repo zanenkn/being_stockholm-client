@@ -19,14 +19,14 @@ class ImageEntryMessage extends Component {
     } else if (this.props.adminMessage === true) {
       message = (
         <>
-          <h5>You have accepted this post!</h5>
+          <h5>You have accepted this entry!</h5>
           <p>Click on map to continue</p>
         </>
       )
     } else if (this.props.adminMessage === false) {
       message = (
         <>
-          <h5>You have declined this post!</h5>
+          <h5>You have declined this entry!</h5>
           <p>Click on map to continue</p>
         </>
       )

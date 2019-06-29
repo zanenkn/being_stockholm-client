@@ -11,22 +11,22 @@ describe('Visitor can view on the map', () => {
     cy.visit('http://localhost:3000')
   })
 
-  it('datapoints of posts only if they are published', () => {
+  it('datapoints of entries only if they are published', () => {
 
-    let postsPublished = [
+    let entriesPublished = [
       "#1", "#3"
     ]
 
-    postsPublished.forEach(post => {
-      cy.get(post).should('be.visible')
+    entriesPublished.forEach(entry => {
+      cy.get(entry).should('be.visible')
     })
 
-    let postsNotPublished = [
+    let entriesNotPublished = [
       "#2", "#4", "#5"
     ]
 
-    postsNotPublished.forEach(post => {
-      cy.get(post).should('not.be.visible')
+    entriesNotPublished.forEach(entry => {
+      cy.get(entry).should('not.be.visible')
     })
   })
 })

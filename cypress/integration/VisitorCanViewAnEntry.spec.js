@@ -22,8 +22,8 @@ describe('Visitor can view', () => {
 
     let text = ['Midsommar', 'Ballonggatan 23, 169 71 Solna, Sweden', '20-06-2019 | 19:28']
 
-    text.forEach(post => {
-      cy.contains(post)
+    text.forEach(entry => {
+      cy.contains(entry)
     })
 
     cy.get('#image_3').should('have.attr', 'src')

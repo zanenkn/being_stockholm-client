@@ -32,7 +32,7 @@ describe('Admin can', () => {
     cy.get('#admin-link').should('be.visible')
   })
 
-  it('be redirected to Admin page and see unpublished posts on the map', () => {
+  it('be redirected to Admin page and see unpublished entries on the map', () => {
     cy.get('#footer-menu-icon').click()
     cy.get('#admin-link').click()
 
@@ -44,12 +44,12 @@ describe('Admin can', () => {
       '#1', '#3'
     ]
 
-    pending.forEach(post => {
-      cy.get(post).should('be.visible')
+    pending.forEach(entry => {
+      cy.get(entry).should('be.visible')
     })
 
-    published.forEach(post => {
-      cy.get(post).should('not.be.visible')
+    published.forEach(entry => {
+      cy.get(entry).should('not.be.visible')
     })
   })
 })
