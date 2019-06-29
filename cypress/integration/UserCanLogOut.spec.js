@@ -4,7 +4,7 @@ describe('User can log out', () => {
     cy.route({
       method: 'GET',
       url: 'http://localhost:3002/api/v1/posts',
-      response: 'fixture:list_of_posts.json',
+      response: 'fixture:list_of_entries.json',
     })
     cy.route({
       method: 'POST',
