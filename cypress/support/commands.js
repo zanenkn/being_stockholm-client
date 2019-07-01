@@ -23,3 +23,22 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', (fixture = {}, email, password, status) => {
+  cy.route({
+    method: 'POST',
+    url: 'http://localhost:3002/api/v1/auth/sign_in',
+    status: status,
+    response: fixture,
+    headers: {
+      "uid": email,
+    }
+  })
+  cy.visit('http://localhost:3000')
+  cy.get('#profile-icon').click()
+  cy.get('#login-form').within(() => {
+    cy.get('#email').type(email)
+    cy.get('#password').type(password)
+  })
+  cy.get('#login_form_button').click()
+})

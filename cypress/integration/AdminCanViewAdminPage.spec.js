@@ -8,22 +8,8 @@ describe('Admin can', () => {
       response: 'fixture:list_of_entries.json',
       status: 200
     })
-    cy.route({
-      method: 'POST',
-      url: 'http://localhost:3002/api/v1/auth/sign_in',
-      status: 200,
-      response: 'fixture:successful_login_admin.json',
-      headers: {
-        "uid": "yatwan@mail.com"
-      }
-    })
-    cy.visit('http://localhost:3000')
-    cy.get('#profile-icon').click()
-    cy.get('#login-form').within(() => {
-      cy.get('#email').type('yatwan@mail.com')
-      cy.get('#password').type('password')
-    })
-    cy.get('#login_form_button').click()
+    
+    cy.login('fixture:successful_login_admin.json', 'yatwan@mail.com', 'password', 200)
     cy.wait(3000)
   })
 

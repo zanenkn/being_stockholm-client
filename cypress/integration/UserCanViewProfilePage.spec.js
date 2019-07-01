@@ -5,22 +5,7 @@ describe('User can', () => {
   })
 
   it('view user page', () => {
-    cy.route({
-      method: 'POST',
-      url: 'http://localhost:3002/api/v1/auth/sign_in',
-      status: 200,
-      response: 'fixture:successful_login_user.json',
-      headers: {
-        "uid": "carla@mail.com"
-      }
-    })
-    cy.visit('http://localhost:3000')
-    cy.get('#profile-icon').click()
-    cy.get('#login-form').within(() => {
-      cy.get('#email').type('carla@mail.com')
-      cy.get('#password').type('password')
-    })
-    cy.get('#login_form_button').click()
+    cy.login('fixture:successful_login_user.json', 'carla@mail.com', 'password', 200)
     cy.wait(3000)
     cy.get('#profile-icon').click()
     cy.contains('We’d love to find out more about you and how to stay in touch')
